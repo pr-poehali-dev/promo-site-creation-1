@@ -132,6 +132,23 @@ export default function Home() {
             8 (917) 986-51-98
           </span>
         </a>
+
+        <div className="pointer-events-auto flex gap-4 mt-6">
+          <button
+            onClick={() => navigate("/contacts")}
+            className="font-cormorant text-lg italic px-8 py-3 rounded-full border transition-colors duration-200"
+            style={{ borderColor: "rgba(255,255,255,0.3)", color: "rgba(255,255,255,0.75)", background: "transparent" }}
+          >
+            Контакты
+          </button>
+          <button
+            onClick={() => navigate("/services")}
+            className="font-cormorant text-lg italic px-8 py-3 rounded-full border transition-colors duration-200"
+            style={{ borderColor: "rgba(255,255,255,0.3)", color: "rgba(255,255,255,0.75)", background: "transparent" }}
+          >
+            Мои услуги
+          </button>
+        </div>
       </div>
 
       <style>{`
