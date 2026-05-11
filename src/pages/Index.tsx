@@ -165,17 +165,7 @@ export default function Index() {
               </p>
               <p>Живые выступления, студийные записи, арт-инсталляции — форма меняется, суть остаётся.</p>
             </div>
-            <div className="mt-10 flex items-center gap-8">
-              {[["12", "ТРЕКОВ"], ["07", "ПОКАЗОВ"], ["3", "ГОДА"]].map(([num, label], i) => (
-                <div key={i} className="flex items-center gap-8">
-                  {i > 0 && <div className="w-px h-12 bg-border" />}
-                  <div className="text-center">
-                    <p className="font-cormorant text-4xl font-light text-foreground">{num}</p>
-                    <p className="font-mono text-xs text-muted-foreground tracking-widest mt-1">{label}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+
           </div>
 
           <div className="section-hidden order-1 md:order-2 relative">
