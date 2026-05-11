@@ -110,9 +110,15 @@ export default function Index() {
           />
         </div>
 
-        <div className="relative z-10 flex items-center justify-center w-full">
+        <div className="relative z-10 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-14 w-full px-4">
+          <img
+            src="https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/63c4e5d3-4af9-490c-b1ac-1c02dfefb1f2.jpg"
+            alt=""
+            className="w-36 h-36 md:w-52 md:h-52 rounded-full object-cover shadow-2xl"
+            style={{ boxShadow: "0 0 30px rgba(255,26,26,0.4), 0 0 80px rgba(255,26,26,0.15)" }}
+          />
           <h2
-            className="animate-fade-up animate-glow-pulse font-cormorant text-6xl md:text-8xl font-semibold italic text-center tracking-wide transition-all duration-700"
+            className="font-cormorant text-6xl md:text-8xl font-semibold italic text-center tracking-wide"
             style={{
               color: "#ff1a1a",
               textShadow: "0 0 20px rgba(255,26,26,0.9), 0 0 60px rgba(255,26,26,0.5), 0 0 100px rgba(255,26,26,0.3)",
