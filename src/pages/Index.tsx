@@ -67,13 +67,6 @@ export default function Index() {
         style={{ background: "linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%)" }}
       >
         <div className="hidden md:flex items-center gap-10">
-          {[["hero", "Главная"], ["gallery", "Фотогалерея"], ["about", "О проекте"], ["contact", "Контакты"]].map(
-            ([id, label]) => (
-              <button key={id} onClick={() => scrollTo(id)} className="nav-link">
-                {label}
-              </button>
-            )
-          )}
         </div>
 
         <button className="md:hidden text-foreground" onClick={() => setMenuOpen(!menuOpen)}>
@@ -83,17 +76,6 @@ export default function Index() {
 
       {menuOpen && (
         <div className="fixed inset-0 z-40 bg-background flex flex-col items-center justify-center gap-10">
-          {[["hero", "Главная"], ["gallery", "Фотогалерея"], ["about", "О проекте"], ["contact", "Контакты"]].map(
-            ([id, label]) => (
-              <button
-                key={id}
-                onClick={() => scrollTo(id)}
-                className="font-cormorant text-4xl italic text-foreground hover:text-accent transition-colors"
-              >
-                {label}
-              </button>
-            )
-          )}
         </div>
       )}
 
