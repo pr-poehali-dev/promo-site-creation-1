@@ -69,7 +69,7 @@
   background: hsl(var(--accent));
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 9000;
   transform: translate(-50%, -50%);
   will-change: left, top;
   transition:
@@ -85,7 +85,7 @@
   border: 1px solid hsla(var(--accent), 0.4);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9998;
+  z-index: 8999;
   transform: translate(-50%, -50%);
   will-change: left, top;
   transition:

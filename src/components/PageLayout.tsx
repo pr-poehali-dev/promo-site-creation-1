@@ -85,7 +85,7 @@ export default function PageLayout({ children, noBackground }: PageLayoutProps) 
           {menuOpen && (
             <div
               className="fixed top-16 right-8 md:right-16 flex flex-col min-w-[180px] border border-border/40 overflow-hidden"
-              style={{ background: "rgba(10,10,10,0.97)", zIndex: 9990 }}
+              style={{ background: "rgba(10,10,10,0.97)", zIndex: 99999 }}
             >
               {NAV_ITEMS.map(({ label, path }) => (
                 <button
