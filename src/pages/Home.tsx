@@ -133,7 +133,7 @@ export default function Home() {
           </span>
         </a>
 
-        <div className="pointer-events-auto flex gap-10 mt-6">
+        <div className="pointer-events-auto flex gap-20 mt-6">
           <button
             onClick={() => navigate("/contacts")}
             className="font-cormorant text-lg italic px-8 py-3 rounded-full border transition-colors duration-200"
