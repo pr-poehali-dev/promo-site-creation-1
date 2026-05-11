@@ -129,7 +129,7 @@ export default function Home() {
             className="font-cormorant text-2xl italic tracking-wider"
             style={{ color: "#fff", textShadow: "0 0 12px rgba(255,26,26,0.7)" }}
           >
-            8 917 986
+            8 (917) 986-51-98
           </span>
         </a>
       </div>
