@@ -53,11 +53,6 @@ export default function Index() {
     return () => obs.disconnect();
   }, []);
 
-  const scrollTo = (id: string) => {
-    setMenuOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <div className="grain min-h-screen bg-background text-foreground">
       <div ref={cursorRef} className="cursor hidden md:block" />
@@ -97,29 +92,20 @@ export default function Index() {
           {menuOpen && (
             <div className="absolute top-full right-0 mt-3 flex flex-col min-w-[180px] border border-border/40 overflow-hidden"
               style={{ background: "rgba(10,10,10,0.97)" }}>
-              <button
-                onClick={() => { setMenuOpen(false); navigate("/"); }}
-                className="font-cormorant text-xl italic text-left px-6 py-3 text-foreground/80 hover:text-accent hover:bg-white/5 transition-colors duration-200 border-b border-border/20"
-              >
-                Главная
-              </button>
-              <button
-                onClick={() => { setMenuOpen(false); navigate("/about"); }}
-                className="font-cormorant text-xl italic text-left px-6 py-3 text-foreground/80 hover:text-accent hover:bg-white/5 transition-colors duration-200 border-b border-border/20"
-              >
-                Обо мне
-              </button>
-              {[["gallery", "Фотогалерея"], ["contact", "Контакты"]].map(
-                ([id, label]) => (
-                  <button
-                    key={id}
-                    onClick={() => scrollTo(id)}
-                    className="font-cormorant text-xl italic text-left px-6 py-3 text-foreground/80 hover:text-accent hover:bg-white/5 transition-colors duration-200 border-b border-border/20 last:border-0"
-                  >
-                    {label}
-                  </button>
-                )
-              )}
+              {[
+                { label: "Главная", action: () => navigate("/") },
+                { label: "Обо мне", action: () => navigate("/about") },
+                { label: "Фотогалерея", action: () => navigate("/gallery") },
+                { label: "Контакты", action: () => navigate("/contacts") },
+              ].map(({ label, action }) => (
+                <button
+                  key={label}
+                  onClick={() => { setMenuOpen(false); action(); }}
+                  className="font-cormorant text-xl italic text-left px-6 py-3 text-foreground/80 hover:text-accent hover:bg-white/5 transition-colors duration-200 border-b border-border/20 last:border-0"
+                >
+                  {label}
+                </button>
+              ))}
             </div>
           )}
         </div>
