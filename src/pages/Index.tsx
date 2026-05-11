@@ -72,12 +72,35 @@ export default function Index() {
         >
           Сладкие Грёзы
         </span>
-      </nav>
 
-      {menuOpen && (
-        <div className="fixed inset-0 z-40 bg-background flex flex-col items-center justify-center gap-10">
+        <div className="relative">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="flex flex-col gap-1.5 p-2 group"
+          >
+            <span className={`block w-6 h-px bg-foreground transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block w-6 h-px bg-foreground transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+            <span className={`block w-6 h-px bg-foreground transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          </button>
+
+          {menuOpen && (
+            <div className="absolute top-full right-0 mt-3 flex flex-col min-w-[180px] border border-border/40 overflow-hidden"
+              style={{ background: "rgba(10,10,10,0.97)" }}>
+              {[["hero", "Главная"], ["about", "Обо мне"], ["gallery", "Фотогалерея"], ["contact", "Контакты"]].map(
+                ([id, label]) => (
+                  <button
+                    key={id}
+                    onClick={() => scrollTo(id)}
+                    className="font-cormorant text-xl italic text-left px-6 py-3 text-foreground/80 hover:text-accent hover:bg-white/5 transition-colors duration-200 border-b border-border/20 last:border-0"
+                  >
+                    {label}
+                  </button>
+                )
+              )}
+            </div>
+          )}
         </div>
-      )}
+      </nav>
 
       {/* HERO */}
       <section id="hero" className="relative h-screen flex flex-col justify-center px-8 md:px-16 overflow-hidden">
