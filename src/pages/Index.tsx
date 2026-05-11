@@ -260,9 +260,7 @@ export default function Index() {
             </div>
           </form>
 
-          <div className="section-hidden mt-20 pt-10 border-t border-border flex items-center justify-center">
-            <p className="font-mono text-xs text-muted-foreground/40 tracking-wider">© 2024 Звук &amp; Образ</p>
-          </div>
+
         </div>
       </section>
     </div>
