@@ -64,7 +64,7 @@ export default function Index() {
         style={{ background: "linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%)" }}
       >
         <div className="hidden md:flex items-center gap-10">
-          {[["hero", "Главная"], ["gallery", "Галерея"], ["about", "О проекте"], ["contact", "Контакты"]].map(
+          {[["hero", "Главная"], ["gallery", "Фотогалерея"], ["about", "О проекте"], ["contact", "Контакты"]].map(
             ([id, label]) => (
               <button key={id} onClick={() => scrollTo(id)} className="nav-link">
                 {label}
@@ -80,7 +80,7 @@ export default function Index() {
 
       {menuOpen && (
         <div className="fixed inset-0 z-40 bg-background flex flex-col items-center justify-center gap-10">
-          {[["hero", "Главная"], ["gallery", "Галерея"], ["about", "О проекте"], ["contact", "Контакты"]].map(
+          {[["hero", "Главная"], ["gallery", "Фотогалерея"], ["about", "О проекте"], ["contact", "Контакты"]].map(
             ([id, label]) => (
               <button
                 key={id}
@@ -119,7 +119,7 @@ export default function Index() {
       <section id="gallery" className="py-24 px-8 md:px-16">
         <div className="section-hidden mb-16 flex items-end justify-between">
           <div>
-            <h2 className="font-cormorant text-5xl md:text-6xl font-light text-foreground">Визуал</h2>
+            <h2 className="font-cormorant text-5xl md:text-6xl font-light text-foreground">Фотогалерея</h2>
           </div>
           <span className="accent-line mb-3" />
         </div>
