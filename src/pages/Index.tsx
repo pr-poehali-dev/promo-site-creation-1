@@ -204,7 +204,7 @@ export default function Index() {
         />
         <div className="absolute inset-0 flex items-center justify-center px-8">
           <p className="font-cormorant text-2xl md:text-4xl italic text-foreground/70 text-center max-w-2xl leading-relaxed">
-            «Музыка начинается там, где слова заканчиваются»
+            «Грёзы начинаются там, куда уносит нас шёпот вечернего прибоя»
           </p>
         </div>
       </section>
