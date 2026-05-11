@@ -94,6 +94,22 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Центральный текст */}
+      <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-8 pointer-events-none">
+        <h1
+          className="font-cormorant text-6xl md:text-8xl font-semibold italic mb-6"
+          style={{ color: "#fff", textShadow: "0 2px 30px rgba(0,0,0,0.8)" }}
+        >
+          Привет, я Эльвира
+        </h1>
+        <p
+          className="font-cormorant text-2xl md:text-3xl italic"
+          style={{ color: "rgba(255,255,255,0.75)", textShadow: "0 2px 20px rgba(0,0,0,0.7)" }}
+        >
+          Хочешь со мной встретиться?
+        </p>
+      </div>
+
       {/* Точки-индикаторы */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
         {SLIDES.map((_, i) => (
