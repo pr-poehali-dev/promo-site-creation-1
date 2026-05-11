@@ -133,22 +133,13 @@ export default function Home() {
           </span>
         </a>
 
-        <div className="pointer-events-auto flex gap-20 mt-6">
-          <button
-            onClick={() => navigate("/contacts")}
-            className="font-cormorant text-lg italic px-8 py-3 rounded-full border transition-colors duration-200"
-            style={{ borderColor: "rgba(255,255,255,0.3)", color: "rgba(255,255,255,0.75)", background: "transparent", cursor: "none" }}
-          >
-            Контакты
-          </button>
-          <button
-            onClick={() => navigate("/services")}
-            className="font-cormorant text-lg italic px-8 py-3 rounded-full border transition-colors duration-200"
-            style={{ borderColor: "rgba(255,255,255,0.3)", color: "rgba(255,255,255,0.75)", background: "transparent", cursor: "none" }}
-          >
-            Мои услуги
-          </button>
-        </div>
+        <button
+          onClick={() => navigate("/services")}
+          className="pointer-events-auto font-cormorant text-lg italic px-8 py-3 rounded-full border transition-colors duration-200 mt-6"
+          style={{ borderColor: "rgba(255,255,255,0.3)", color: "rgba(255,255,255,0.75)", background: "transparent", cursor: "none" }}
+        >
+          Мои услуги
+        </button>
       </div>
 
       {/* Точки-индикаторы */}
