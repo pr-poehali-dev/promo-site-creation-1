@@ -213,7 +213,7 @@ export default function Index() {
           <div className="section-hidden text-center mb-16">
             <h2 className="font-cormorant text-5xl md:text-6xl font-light text-foreground mb-6">Напишите нам</h2>
             <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed">
-              Для коллабораций, бронирования выступлений или просто разговора о музыке.
+              Для встречи и исполнения твоих потаённых желаний.
             </p>
           </div>
 
