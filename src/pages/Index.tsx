@@ -111,8 +111,8 @@ export default function Index() {
         </div>
 
         <div className="relative z-10 flex items-center justify-center w-full">
-          <h2 className="animate-fade-up delay-200 font-cormorant text-5xl md:text-7xl font-light italic text-center"
-            style={{ color: "#c0392b", textShadow: "0 0 40px rgba(192,57,43,0.5)" }}>
+          <h2 className="animate-fade-up delay-200 font-cormorant text-6xl md:text-8xl font-semibold italic text-center tracking-wide"
+            style={{ color: "#ff1a1a", textShadow: "0 0 20px rgba(255,26,26,0.9), 0 0 60px rgba(255,26,26,0.5), 0 0 100px rgba(255,26,26,0.3)" }}>
             Сладкие Грёзы
           </h2>
         </div>
