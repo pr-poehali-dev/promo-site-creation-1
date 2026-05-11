@@ -260,17 +260,7 @@ export default function Index() {
             </div>
           </form>
 
-          <div className="section-hidden mt-20 pt-10 border-t border-border flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="flex gap-8">
-              {["Instagram", "Telegram", "VK"].map((s) => (
-                <button
-                  key={s}
-                  className="font-mono text-xs tracking-widest text-muted-foreground hover:text-foreground transition-colors uppercase"
-                >
-                  {s}
-                </button>
-              ))}
-            </div>
+          <div className="section-hidden mt-20 pt-10 border-t border-border flex items-center justify-center">
             <p className="font-mono text-xs text-muted-foreground/40 tracking-wider">© 2024 Звук &amp; Образ</p>
           </div>
         </div>
