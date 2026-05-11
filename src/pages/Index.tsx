@@ -110,11 +110,15 @@ export default function Index() {
           />
         </div>
 
-        <div className="relative z-10 flex items-center justify-center w-full">
-          <h2 className="animate-fade-up delay-200 font-cormorant text-5xl md:text-7xl font-light italic text-center"
-            style={{ color: "#c0392b", textShadow: "0 0 40px rgba(192,57,43,0.5)" }}>
-            Сладкие Грёзы
-          </h2>
+        <div className="relative z-10 flex flex-col items-center justify-center w-full gap-4">
+          <div className="animate-fade-up flex items-center gap-4 md:gap-6">
+            <span className="text-4xl md:text-6xl select-none" style={{ filter: "drop-shadow(0 0 12px rgba(192,57,43,0.6))" }}>🍓</span>
+            <h2 className="font-cormorant text-5xl md:text-7xl font-light italic text-center"
+              style={{ color: "#c0392b", textShadow: "0 0 40px rgba(192,57,43,0.5)" }}>
+              Сладкие Грёзы
+            </h2>
+            <span className="text-4xl md:text-6xl select-none" style={{ filter: "drop-shadow(0 0 12px rgba(192,57,43,0.6))" }}>🍓</span>
+          </div>
         </div>
       </section>
 
