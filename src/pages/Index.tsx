@@ -118,6 +118,10 @@ export default function Index() {
           <p className="animate-fade-up delay-100 font-mono text-xs tracking-[0.3em] text-accent mb-6 uppercase">
             Музыкальный проект
           </p>
+          <h2 className="animate-fade-up delay-100 font-cormorant text-3xl md:text-4xl font-light italic mb-4"
+            style={{ color: "#c0392b", textShadow: "0 0 30px rgba(192,57,43,0.4)" }}>
+            Твои Сладкие Грезы
+          </h2>
           <h1 className="animate-fade-up delay-200 font-cormorant text-6xl md:text-8xl font-light leading-[0.9] tracking-tight text-foreground mb-8">
             Звук
             <br />
