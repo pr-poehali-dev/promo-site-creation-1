@@ -103,7 +103,13 @@ export default function Index() {
               >
                 Главная
               </button>
-              {[["about", "Обо мне"], ["gallery", "Фотогалерея"], ["contact", "Контакты"]].map(
+              <button
+                onClick={() => { setMenuOpen(false); navigate("/about"); }}
+                className="font-cormorant text-xl italic text-left px-6 py-3 text-foreground/80 hover:text-accent hover:bg-white/5 transition-colors duration-200 border-b border-border/20"
+              >
+                Обо мне
+              </button>
+              {[["gallery", "Фотогалерея"], ["contact", "Контакты"]].map(
                 ([id, label]) => (
                   <button
                     key={id}
