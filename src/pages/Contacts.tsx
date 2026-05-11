@@ -5,7 +5,7 @@ export default function Contacts() {
     <PageLayout noBackground>
       <div className="px-8 md:px-16 py-16">
         <div className="flex flex-col items-center gap-8">
-          <a href="tel:+79179865198" className="flex items-center gap-4 group">
+          <a href="tel:+79179865198" onClick={e => e.stopPropagation()} className="flex items-center gap-4 group">
             <span className="text-2xl">📞</span>
             <span
               className="font-cormorant text-3xl md:text-4xl italic tracking-wide group-hover:text-accent transition-colors duration-300"

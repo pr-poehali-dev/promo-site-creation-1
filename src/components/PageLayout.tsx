@@ -13,9 +13,10 @@ const NAV_ITEMS = [
 interface PageLayoutProps {
   children?: React.ReactNode;
   noBackground?: boolean;
+  backgroundSlot?: React.ReactNode;
 }
 
-export default function PageLayout({ children, noBackground }: PageLayoutProps) {
+export default function PageLayout({ children, noBackground, backgroundSlot }: PageLayoutProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -46,12 +47,14 @@ export default function PageLayout({ children, noBackground }: PageLayoutProps) 
       <div ref={cursorRef} className="cursor hidden md:block" />
       <div ref={ringRef} className="cursor-ring hidden md:block" />
 
-      {!noBackground && (
-        <div className="absolute inset-0 overflow-hidden">
-          <img src={HERO_IMG} alt="" className="w-full h-full object-cover opacity-50" />
-          <div className="absolute inset-0" style={{ background: "hsl(204,60%,10%)" }} />
-        </div>
-      )}
+      <div className="absolute inset-0 overflow-hidden">
+        {backgroundSlot ? backgroundSlot : !noBackground && (
+          <>
+            <img src={HERO_IMG} alt="" className="w-full h-full object-cover opacity-50" />
+            <div className="absolute inset-0" style={{ background: "hsl(204,60%,10%)" }} />
+          </>
+        )}
+      </div>
 
       <div className="relative z-10 px-8 md:px-16 py-4 flex items-center justify-between">
         <span
