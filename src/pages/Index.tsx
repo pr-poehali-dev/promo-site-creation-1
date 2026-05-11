@@ -236,7 +236,30 @@ export default function Index() {
       </section>
 
       {/* CONTACT */}
-      <section id="contact" className="py-24 px-8 md:px-16">
+      <section id="contact" className="py-16 px-8 md:px-16 flex justify-center">
+        <a
+          href="tel:+79179865198"
+          className="relative inline-flex items-center gap-4 px-12 py-6 overflow-hidden group"
+          style={{ border: "1px solid rgba(255,26,26,0.5)" }}
+        >
+          <span
+            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            style={{ background: "radial-gradient(ellipse at center, rgba(255,26,26,0.25) 0%, transparent 70%)" }}
+          />
+          <span
+            className="absolute inset-0 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+            style={{ background: "rgba(255,26,26,0.15)" }}
+          />
+          <span className="relative z-10 font-cormorant text-3xl md:text-4xl italic text-white/90 group-hover:text-white transition-colors duration-300"
+            style={{ animation: "glow-pulse 2.5s ease-in-out infinite", textShadow: "0 0 20px rgba(255,26,26,0.5)" }}>
+            8 (917) 986-51-98
+          </span>
+          <span className="relative z-10 flex gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping" />
+            <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping" style={{ animationDelay: "0.3s" }} />
+            <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping" style={{ animationDelay: "0.6s" }} />
+          </span>
+        </a>
       </section>
     </div>
   );
