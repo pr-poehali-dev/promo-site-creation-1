@@ -114,42 +114,11 @@ export default function Index() {
           />
         </div>
 
-        <div className="relative z-10 max-w-3xl">
-          <p className="animate-fade-up delay-100 font-mono text-xs tracking-[0.3em] text-accent mb-6 uppercase">
-            Музыкальный проект
-          </p>
-          <h2 className="animate-fade-up delay-100 font-cormorant text-3xl md:text-4xl font-light italic mb-4"
-            style={{ color: "#c0392b", textShadow: "0 0 30px rgba(192,57,43,0.4)" }}>
+        <div className="relative z-10 flex items-center justify-center w-full">
+          <h2 className="animate-fade-up delay-200 font-cormorant text-5xl md:text-7xl font-light italic text-center"
+            style={{ color: "#c0392b", textShadow: "0 0 40px rgba(192,57,43,0.5)" }}>
             Твои Сладкие Грезы
           </h2>
-          <h1 className="animate-fade-up delay-200 font-cormorant text-6xl md:text-8xl font-light leading-[0.9] tracking-tight text-foreground mb-8">
-            Звук
-            <br />
-            <em className="not-italic text-foreground/50">&amp;</em>
-            <br />
-            Образ
-          </h1>
-          <p className="animate-fade-up delay-400 font-sans text-sm font-light text-muted-foreground max-w-sm leading-relaxed mb-10">
-            Там, где музыка перестаёт быть просто звуком и становится пространством.
-          </p>
-          <div className="animate-fade-up delay-600 flex items-center gap-6">
-            <button
-              onClick={() => scrollTo("gallery")}
-              className="font-mono text-xs tracking-widest uppercase border border-border px-8 py-3 text-foreground hover:border-accent hover:text-accent transition-all duration-300"
-            >
-              Смотреть
-            </button>
-            <button
-              onClick={() => scrollTo("contact")}
-              className="font-mono text-xs tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Связаться →
-            </button>
-          </div>
-        </div>
-
-        <div className="animate-fade-in delay-800 absolute bottom-8 right-8 md:right-16 flex flex-col items-center gap-2 text-muted-foreground">
-          <Icon name="ArrowDown" size={14} className="animate-bounce" />
         </div>
       </section>
 
