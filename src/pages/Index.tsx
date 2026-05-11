@@ -6,12 +6,6 @@ const ABOUT_IMG = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4
 const WAVE_IMG = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/files/7992655e-f917-401f-ae11-9f6f84044208.jpg";
 
 const GALLERY = [
-  { img: HERO_IMG, title: "Сцена" },
-  { img: WAVE_IMG, title: "Волна" },
-  { img: ABOUT_IMG, title: "Образ" },
-  { img: HERO_IMG, title: "Свет" },
-  { img: WAVE_IMG, title: "Частота" },
-  { img: ABOUT_IMG, title: "Тишина" },
   { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/bda19b9a-9369-47b6-ba30-b69a935602e5.jpg", title: "Студия" },
   { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/de67aff0-5994-4139-92fa-81cba6775a5e.jpg", title: "Момент" },
   { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/5b0e74aa-45b8-43e3-bd92-6545210e34fb.jpg", title: "Ночь" },
