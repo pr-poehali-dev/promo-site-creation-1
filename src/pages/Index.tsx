@@ -116,7 +116,18 @@ export default function Index() {
               animation: "fade-up 1s ease-out forwards, glow-pulse 2.5s ease-in-out 1s infinite",
             }}
           >
-            Сладкие Грёзы
+            <span className="relative inline-block">
+              Сладкие Грёз
+              <span className="relative inline-block">
+                ы
+                <span
+                  className="absolute left-1/2 -translate-x-1/2 text-2xl md:text-4xl select-none"
+                  style={{ top: "-1.2em", filter: "drop-shadow(0 0 8px rgba(255,26,26,0.7))" }}
+                >
+                  🍓
+                </span>
+              </span>
+            </span>
           </h2>
         </div>
       </section>
