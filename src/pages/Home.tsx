@@ -14,7 +14,6 @@ const NAV_ITEMS = [
   { label: "Главная", path: "/" },
   { label: "Обо мне", path: "/about" },
   { label: "Фотогалерея", path: "/gallery" },
-  { label: "Контакты", path: "/contacts" },
 ];
 
 export default function Home() {
