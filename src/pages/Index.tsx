@@ -228,19 +228,7 @@ export default function Index() {
         </p>
       </div>
 
-      {/* QUOTE BANNER */}
-      <section className="section-hidden relative h-64 md:h-72 overflow-hidden">
-        <img src={WAVE_IMG} alt="" className="w-full h-full object-cover opacity-30" />
-        <div
-          className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, hsl(204,60%,10%), transparent 30%, transparent 70%, hsl(204,60%,10%))" }}
-        />
-        <div className="absolute inset-0 flex items-center justify-center px-8">
-          <p className="font-cormorant text-2xl md:text-4xl italic text-foreground/70 text-center max-w-2xl leading-relaxed">
-            «Грёзы начинаются там, куда уносит нас шёпот вечернего прибоя»
-          </p>
-        </div>
-      </section>
+
 
       {/* CONTACT */}
       <section id="contact" className="py-16 px-8 md:px-16 flex justify-center">
