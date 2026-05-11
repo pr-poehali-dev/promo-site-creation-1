@@ -238,8 +238,7 @@ export default function Index() {
       {/* CONTACT */}
       <section id="contact" className="py-24 px-8 md:px-16">
         <div className="max-w-2xl mx-auto">
-          <div className="section-hidden text-center mb-16">
-            <h2 className="font-cormorant text-5xl md:text-6xl font-light text-foreground mb-6">Напишите нам</h2>
+          <div className="section-hidden text-center">
             <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed">
               Для встречи и исполнения твоих потаённых желаний.
             </p>
@@ -254,51 +253,6 @@ export default function Index() {
               </a>
             </div>
           </div>
-
-          <form className="section-hidden space-y-8" onSubmit={(e) => e.preventDefault()}>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <label className="font-mono text-xs tracking-widest text-muted-foreground uppercase block mb-3">
-                  Имя
-                </label>
-                <input
-                  type="text"
-                  placeholder="Ваше имя"
-                  className="w-full bg-transparent border-b border-border pb-3 text-foreground font-sans text-sm font-light placeholder:text-muted-foreground/30 focus:outline-none focus:border-accent transition-colors"
-                />
-              </div>
-              <div>
-                <label className="font-mono text-xs tracking-widest text-muted-foreground uppercase block mb-3">
-                  Почта
-                </label>
-                <input
-                  type="email"
-                  placeholder="email@example.com"
-                  className="w-full bg-transparent border-b border-border pb-3 text-foreground font-sans text-sm font-light placeholder:text-muted-foreground/30 focus:outline-none focus:border-accent transition-colors"
-                />
-              </div>
-            </div>
-            <div>
-              <label className="font-mono text-xs tracking-widest text-muted-foreground uppercase block mb-3">
-                Сообщение
-              </label>
-              <textarea
-                rows={4}
-                placeholder="Расскажите о вашем запросе..."
-                className="w-full bg-transparent border-b border-border pb-3 text-foreground font-sans text-sm font-light placeholder:text-muted-foreground/30 focus:outline-none focus:border-accent transition-colors resize-none"
-              />
-            </div>
-            <div className="flex justify-end pt-2">
-              <button
-                type="submit"
-                className="font-mono text-xs tracking-widest uppercase border border-border px-10 py-4 text-foreground hover:border-accent hover:text-accent transition-all duration-300"
-              >
-                Отправить
-              </button>
-            </div>
-          </form>
-
-
         </div>
       </section>
     </div>
