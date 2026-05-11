@@ -67,7 +67,7 @@ export default function Index() {
         style={{ background: "linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%)" }}
       >
         <span
-          className="font-cormorant text-xl italic"
+          className="font-cormorant text-4xl italic"
           style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)" }}
         >
           Сладкие Грёзы
