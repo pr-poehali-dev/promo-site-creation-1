@@ -102,7 +102,7 @@ export default function Index() {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(to top, #0a0a0a 25%, rgba(10,10,10,0.3) 70%, #0a0a0a 100%)",
+                "linear-gradient(to top, hsl(204,60%,10%) 25%, rgba(10,28,46,0.3) 70%, hsl(204,60%,10%) 100%)",
             }}
           />
         </div>
@@ -192,7 +192,7 @@ export default function Index() {
             />
             <div
               className="absolute bottom-0 left-0 right-0 h-1/3 z-20"
-              style={{ background: "linear-gradient(to top, #0a0a0a, transparent)" }}
+              style={{ background: "linear-gradient(to top, hsl(204,60%,10%), transparent)" }}
             />
           </div>
         </div>
@@ -203,7 +203,7 @@ export default function Index() {
         <img src={WAVE_IMG} alt="" className="w-full h-full object-cover opacity-30" />
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(to bottom, #0a0a0a, transparent 30%, transparent 70%, #0a0a0a)" }}
+          style={{ background: "linear-gradient(to bottom, hsl(204,60%,10%), transparent 30%, transparent 70%, hsl(204,60%,10%))" }}
         />
         <div className="absolute inset-0 flex items-center justify-center px-8">
           <p className="font-cormorant text-2xl md:text-4xl italic text-foreground/70 text-center max-w-2xl leading-relaxed">
