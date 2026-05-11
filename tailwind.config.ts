@@ -7,7 +7,7 @@ export default {
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
-			"./1778484149310646497.html"
+		"./1778484149310646497.html"
 	],
 	prefix: "",
 	theme: {
@@ -71,25 +71,36 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
+				},
+				'glow-pulse': {
+					'0%, 100%': {
+						textShadow: '0 0 20px rgba(255,26,26,0.9), 0 0 60px rgba(255,26,26,0.5), 0 0 100px rgba(255,26,26,0.3)',
 					},
-					to: {
-						height: '0'
+					'50%': {
+						textShadow: '0 0 40px rgba(255,26,26,1), 0 0 100px rgba(255,26,26,0.8), 0 0 160px rgba(255,26,26,0.6)',
 					}
+				},
+				'fade-up': {
+					from: { opacity: '0', transform: 'translateY(30px)' },
+					to: { opacity: '1', transform: 'translateY(0)' }
+				},
+				'shimmer': {
+					'0%': { backgroundPosition: '-200% center' },
+					'100%': { backgroundPosition: '200% center' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'glow-pulse': 'glow-pulse 2.5s ease-in-out infinite',
+				'fade-up': 'fade-up 1s ease-out forwards',
+				'shimmer': 'shimmer 4s linear infinite',
 			},
 			fontFamily: {
 				'cormorant': ['Cormorant', 'serif'],
