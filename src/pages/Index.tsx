@@ -213,7 +213,6 @@ export default function Index() {
       <section id="contact" className="py-24 px-8 md:px-16">
         <div className="max-w-2xl mx-auto">
           <div className="section-hidden text-center mb-16">
-            <p className="font-mono text-xs tracking-[0.3em] text-accent uppercase mb-3">04 — Контакты</p>
             <h2 className="font-cormorant text-5xl md:text-6xl font-light text-foreground mb-6">Напишите нам</h2>
             <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed">
               Для коллабораций, бронирования выступлений или просто разговора о музыке.
