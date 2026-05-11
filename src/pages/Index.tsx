@@ -20,6 +20,7 @@ export default function Index() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [lightbox, setLightbox] = useState<{ img: string; title: string } | null>(null);
 
   useEffect(() => {
     const move = (e: MouseEvent) => {
@@ -130,8 +131,9 @@ export default function Index() {
           {GALLERY.map((item, i) => (
             <div
               key={i}
-              className={`gallery-item section-hidden ${i === 0 ? "md:col-span-2 md:row-span-2" : ""}`}
+              className={`gallery-item section-hidden cursor-pointer ${i === 0 ? "md:col-span-2 md:row-span-2" : ""}`}
               style={{ transitionDelay: `${i * 0.08}s` }}
+              onClick={() => setLightbox(item)}
             >
               <img
                 src={item.img}
@@ -146,6 +148,30 @@ export default function Index() {
           ))}
         </div>
       </section>
+
+      {/* LIGHTBOX */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[999] flex items-center justify-center bg-black/90 backdrop-blur-sm"
+          onClick={() => setLightbox(null)}
+        >
+          <button
+            className="absolute top-5 right-6 text-white/70 hover:text-white font-mono text-2xl transition-colors"
+            onClick={() => setLightbox(null)}
+          >
+            ✕
+          </button>
+          <img
+            src={lightbox.img}
+            alt={lightbox.title}
+            className="max-h-[90vh] max-w-[90vw] object-contain shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <p className="absolute bottom-6 left-1/2 -translate-x-1/2 font-cormorant text-white/60 text-lg tracking-widest">
+            {lightbox.title}
+          </p>
+        </div>
+      )}
 
       {/* ABOUT */}
       <section id="about" className="py-24 px-8 md:px-16">
