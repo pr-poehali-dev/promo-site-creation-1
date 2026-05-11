@@ -6,12 +6,12 @@ const ABOUT_IMG = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4
 const WAVE_IMG = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/files/7992655e-f917-401f-ae11-9f6f84044208.jpg";
 
 const GALLERY = [
-  { img: HERO_IMG, title: "Сцена", sub: "2024" },
-  { img: WAVE_IMG, title: "Волна", sub: "Звук" },
-  { img: ABOUT_IMG, title: "Образ", sub: "Портрет" },
-  { img: HERO_IMG, title: "Свет", sub: "Концерт" },
-  { img: WAVE_IMG, title: "Частота", sub: "Студия" },
-  { img: ABOUT_IMG, title: "Тишина", sub: "Момент" },
+  { img: HERO_IMG, title: "Сцена" },
+  { img: WAVE_IMG, title: "Волна" },
+  { img: ABOUT_IMG, title: "Образ" },
+  { img: HERO_IMG, title: "Свет" },
+  { img: WAVE_IMG, title: "Частота" },
+  { img: ABOUT_IMG, title: "Тишина" },
 ];
 
 export default function Index() {
@@ -139,7 +139,6 @@ export default function Index() {
               <div className="overlay" />
               <div className="absolute bottom-0 left-0 p-4 z-10">
                 <p className="font-cormorant text-lg text-white opacity-0 group-hover:opacity-100 transition-opacity">{item.title}</p>
-                <p className="font-mono text-xs text-white/60">{item.sub}</p>
               </div>
             </div>
           ))}
