@@ -221,6 +221,13 @@ export default function Index() {
         </div>
       </section>
 
+      {/* CONTACT CALL */}
+      <div className="text-center py-10 px-8">
+        <p className="font-cormorant text-2xl md:text-3xl italic text-foreground/80">
+          Звони, чтобы договориться о встрече, я жду!
+        </p>
+      </div>
+
       {/* QUOTE BANNER */}
       <section className="section-hidden relative h-64 md:h-72 overflow-hidden">
         <img src={WAVE_IMG} alt="" className="w-full h-full object-cover opacity-30" />
