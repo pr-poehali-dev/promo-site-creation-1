@@ -58,7 +58,12 @@
     @apply bg-background text-foreground;
     font-family: "Montserrat", sans-serif;
     font-weight: 300;
-    cursor: none;
+  }
+
+  @media (pointer: fine) {
+    * {
+      cursor: none !important;
+    }
   }
 }
 
@@ -72,8 +77,8 @@
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
+  will-change: left, top;
   transition:
-    transform 0.1s ease,
     width 0.3s ease,
     height 0.3s ease,
     opacity 0.3s ease;
@@ -88,8 +93,8 @@
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
+  will-change: left, top;
   transition:
-    transform 0.15s ease,
     width 0.3s ease,
     height 0.3s ease;
 }
