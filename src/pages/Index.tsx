@@ -103,10 +103,7 @@ export default function Index() {
           <img src={HERO_IMG} alt="" className="w-full h-full object-cover opacity-50" />
           <div
             className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(to top, hsl(204,60%,10%) 25%, rgba(10,28,46,0.3) 70%, hsl(204,60%,10%) 100%), linear-gradient(to bottom, hsl(204,60%,10%) 0%, transparent 20%)",
-            }}
+            style={{ background: "hsl(204,60%,10%)" }}
           />
         </div>
 
