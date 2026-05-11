@@ -1,35 +1,7 @@
-import { useNavigate } from "react-router-dom";
-
-const HERO_IMG = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/files/c906dad4-5275-4aa1-a0e9-8b39ba15ca55.jpg";
+import PageLayout from "@/components/PageLayout";
 
 export default function About() {
-  const navigate = useNavigate();
-
   return (
-    <div className="grain min-h-screen bg-background text-foreground relative overflow-hidden">
-      <div className="absolute inset-0">
-        <img src={HERO_IMG} alt="" className="w-full h-full object-cover opacity-50" />
-        <div className="absolute inset-0" style={{ background: "hsl(204,60%,10%)" }} />
-      </div>
-
-      <div className="relative z-10 px-8 md:px-16 py-4 flex items-center justify-between">
-        <span
-          className="font-cormorant text-4xl italic cursor-pointer"
-          style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)" }}
-          onClick={() => navigate("/")}
-        >
-          Сладкие Грёз
-          <span className="relative inline-block">
-            ы
-            <span
-              className="absolute left-1/2 -translate-x-1/2 text-lg select-none"
-              style={{ top: "-0.6em", filter: "drop-shadow(0 0 8px rgba(255,26,26,0.7))" }}
-            >
-              🍓
-            </span>
-          </span>
-        </span>
-      </div>
-    </div>
+    <PageLayout />
   );
 }
