@@ -98,7 +98,7 @@ export default function Index() {
       )}
 
       {/* HERO */}
-      <section id="hero" className="relative h-screen flex flex-col justify-end pb-20 px-8 md:px-16 overflow-hidden">
+      <section id="hero" className="relative h-screen flex flex-col justify-center px-8 md:px-16 overflow-hidden">
         <div className="absolute inset-0">
           <img src={HERO_IMG} alt="" className="w-full h-full object-cover opacity-50" />
           <div
