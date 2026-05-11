@@ -4,7 +4,7 @@ const PHOTO = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148e
 
 export default function Contacts() {
   return (
-    <PageLayout>
+    <PageLayout noBackground>
       {/* Шапка с фото на всю ширину */}
       <div className="relative overflow-hidden h-64 md:h-80 mb-12">
         <img src={PHOTO} alt="Контакты" className="w-full h-full object-cover object-top opacity-40" />

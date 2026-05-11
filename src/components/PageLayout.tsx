@@ -12,9 +12,10 @@ const NAV_ITEMS = [
 
 interface PageLayoutProps {
   children?: React.ReactNode;
+  noBackground?: boolean;
 }
 
-export default function PageLayout({ children }: PageLayoutProps) {
+export default function PageLayout({ children, noBackground }: PageLayoutProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -25,10 +26,12 @@ export default function PageLayout({ children }: PageLayoutProps) {
 
   return (
     <div className="grain min-h-screen bg-background text-foreground relative overflow-hidden">
-      <div className="absolute inset-0">
-        <img src={HERO_IMG} alt="" className="w-full h-full object-cover opacity-50" />
-        <div className="absolute inset-0" style={{ background: "hsl(204,60%,10%)" }} />
-      </div>
+      {!noBackground && (
+        <div className="absolute inset-0">
+          <img src={HERO_IMG} alt="" className="w-full h-full object-cover opacity-50" />
+          <div className="absolute inset-0" style={{ background: "hsl(204,60%,10%)" }} />
+        </div>
+      )}
 
       <div className="relative z-10 px-8 md:px-16 py-4 flex items-center justify-between">
         <span
