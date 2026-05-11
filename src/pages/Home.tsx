@@ -1,6 +1,17 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 const HERO_IMG = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/files/c906dad4-5275-4aa1-a0e9-8b39ba15ca55.jpg";
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const go = (path: string) => {
+    setMenuOpen(false);
+    navigate(path);
+  };
+
   return (
     <div className="grain min-h-screen bg-background text-foreground relative overflow-hidden">
       <div className="absolute inset-0">
@@ -8,7 +19,7 @@ export default function Home() {
         <div className="absolute inset-0" style={{ background: "hsl(204,60%,10%)" }} />
       </div>
 
-      <div className="relative z-10 px-8 md:px-16 py-4">
+      <div className="relative z-10 px-8 md:px-16 py-4 flex items-center justify-between">
         <span
           className="font-cormorant text-4xl italic"
           style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)" }}
@@ -24,6 +35,39 @@ export default function Home() {
             </span>
           </span>
         </span>
+
+        <div className="relative">
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="flex flex-col gap-1.5 p-2"
+          >
+            <span className={`block w-6 h-px bg-foreground transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block w-6 h-px bg-foreground transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+            <span className={`block w-6 h-px bg-foreground transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          </button>
+
+          {menuOpen && (
+            <div
+              className="absolute top-full right-0 mt-3 flex flex-col min-w-[180px] border border-border/40 overflow-hidden"
+              style={{ background: "rgba(10,10,10,0.97)" }}
+            >
+              {[
+                { label: "Главная", path: "/" },
+                { label: "Обо мне", path: "/about" },
+                { label: "Фотогалерея", path: "/main#gallery" },
+                { label: "Контакты", path: "/main#contact" },
+              ].map(({ label, path }) => (
+                <button
+                  key={label}
+                  onClick={() => go(path)}
+                  className="font-cormorant text-xl italic text-left px-6 py-3 text-foreground/80 hover:text-accent hover:bg-white/5 transition-colors duration-200 border-b border-border/20 last:border-0"
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
