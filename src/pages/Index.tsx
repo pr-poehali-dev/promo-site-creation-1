@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/files/c906dad4-5275-4aa1-a0e9-8b39ba15ca55.jpg";
@@ -17,6 +18,7 @@ const GALLERY = [
 ];
 
 export default function Index() {
+  const navigate = useNavigate();
   const cursorRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -86,7 +88,13 @@ export default function Index() {
           {menuOpen && (
             <div className="absolute top-full right-0 mt-3 flex flex-col min-w-[180px] border border-border/40 overflow-hidden"
               style={{ background: "rgba(10,10,10,0.97)" }}>
-              {[["hero", "Главная"], ["about", "Обо мне"], ["gallery", "Фотогалерея"], ["contact", "Контакты"]].map(
+              <button
+                onClick={() => { setMenuOpen(false); navigate("/home"); }}
+                className="font-cormorant text-xl italic text-left px-6 py-3 text-foreground/80 hover:text-accent hover:bg-white/5 transition-colors duration-200 border-b border-border/20"
+              >
+                Главная
+              </button>
+              {[["about", "Обо мне"], ["gallery", "Фотогалерея"], ["contact", "Контакты"]].map(
                 ([id, label]) => (
                   <button
                     key={id}
