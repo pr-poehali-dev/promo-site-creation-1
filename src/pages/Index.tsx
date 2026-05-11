@@ -89,7 +89,7 @@ export default function Index() {
             <div className="absolute top-full right-0 mt-3 flex flex-col min-w-[180px] border border-border/40 overflow-hidden"
               style={{ background: "rgba(10,10,10,0.97)" }}>
               <button
-                onClick={() => { setMenuOpen(false); navigate("/home"); }}
+                onClick={() => { setMenuOpen(false); navigate("/"); }}
                 className="font-cormorant text-xl italic text-left px-6 py-3 text-foreground/80 hover:text-accent hover:bg-white/5 transition-colors duration-200 border-b border-border/20"
               >
                 Главная
