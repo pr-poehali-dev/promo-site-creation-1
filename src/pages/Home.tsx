@@ -103,12 +103,47 @@ export default function Home() {
           Привет, я Эльвира
         </h1>
         <p
-          className="font-cormorant text-2xl md:text-3xl italic"
+          className="font-cormorant text-2xl md:text-3xl italic mb-10"
           style={{ color: "rgba(255,255,255,0.75)", textShadow: "0 2px 20px rgba(0,0,0,0.7)" }}
         >
           Хочешь со мной встретиться?
         </p>
+        <a
+          href="tel:+79179865198"
+          className="pointer-events-auto flex items-center gap-3 px-8 py-4 rounded-full border-2 transition-all duration-300 group"
+          style={{
+            borderColor: "#ff1a1a",
+            background: "rgba(255,26,26,0.08)",
+            boxShadow: "0 0 20px rgba(255,26,26,0.3)",
+          }}
+          onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 0 40px rgba(255,26,26,0.6)")}
+          onMouseLeave={e => (e.currentTarget.style.boxShadow = "0 0 20px rgba(255,26,26,0.3)")}
+        >
+          <span
+            className="text-xl"
+            style={{ animation: "ring 1.8s ease-in-out infinite", display: "inline-block", transformOrigin: "top center" }}
+          >
+            📞
+          </span>
+          <span
+            className="font-cormorant text-2xl italic tracking-wider"
+            style={{ color: "#fff", textShadow: "0 0 12px rgba(255,26,26,0.7)" }}
+          >
+            8 917 986
+          </span>
+        </a>
       </div>
+
+      <style>{`
+        @keyframes ring {
+          0%, 100% { transform: rotate(0deg); }
+          10% { transform: rotate(15deg); }
+          20% { transform: rotate(-12deg); }
+          30% { transform: rotate(10deg); }
+          40% { transform: rotate(-8deg); }
+          50% { transform: rotate(0deg); }
+        }
+      `}</style>
 
       {/* Точки-индикаторы */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
