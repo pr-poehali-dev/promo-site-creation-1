@@ -72,7 +72,16 @@ export default function Index() {
           className="font-cormorant text-4xl italic"
           style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)" }}
         >
-          Сладкие Грёзы
+          Сладкие Грёз
+          <span className="relative inline-block">
+            ы
+            <span
+              className="absolute left-1/2 -translate-x-1/2 text-lg select-none"
+              style={{ top: "-0.6em", filter: "drop-shadow(0 0 8px rgba(255,26,26,0.7))" }}
+            >
+              🍓
+            </span>
+          </span>
         </span>
 
         <div className="relative">

@@ -18,7 +18,7 @@ export default function Home() {
             ы
             <span
               className="absolute left-1/2 -translate-x-1/2 text-lg select-none"
-              style={{ top: "-1.2em", filter: "drop-shadow(0 0 8px rgba(255,26,26,0.7))" }}
+              style={{ top: "-0.6em", filter: "drop-shadow(0 0 8px rgba(255,26,26,0.7))" }}
             >
               🍓
             </span>
