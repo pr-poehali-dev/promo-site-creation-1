@@ -7,6 +7,15 @@ export default function Home() {
         <img src={HERO_IMG} alt="" className="w-full h-full object-cover opacity-50" />
         <div className="absolute inset-0" style={{ background: "hsl(204,60%,10%)" }} />
       </div>
+
+      <div className="relative z-10 px-8 md:px-16 py-4">
+        <span
+          className="font-cormorant text-4xl italic"
+          style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)" }}
+        >
+          Сладкие Грёзы
+        </span>
+      </div>
     </div>
   );
 }
