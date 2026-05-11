@@ -63,13 +63,6 @@ export default function Index() {
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-16 py-6"
         style={{ background: "linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%)" }}
       >
-        <button
-          onClick={() => scrollTo("hero")}
-          className="font-cormorant text-xl tracking-widest text-foreground hover:text-accent transition-colors"
-        >
-          З&nbsp;&amp;&nbsp;О
-        </button>
-
         <div className="hidden md:flex items-center gap-10">
           {[["hero", "Главная"], ["gallery", "Галерея"], ["about", "О проекте"], ["contact", "Контакты"]].map(
             ([id, label]) => (
