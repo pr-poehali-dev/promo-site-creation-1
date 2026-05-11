@@ -119,7 +119,6 @@ export default function Index() {
       <section id="gallery" className="py-24 px-8 md:px-16">
         <div className="section-hidden mb-16 flex items-end justify-between">
           <div>
-            <p className="font-mono text-xs tracking-[0.3em] text-accent uppercase mb-3">02 — Галерея</p>
             <h2 className="font-cormorant text-5xl md:text-6xl font-light text-foreground">Визуал</h2>
           </div>
           <span className="accent-line mb-3" />
