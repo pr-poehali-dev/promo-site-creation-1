@@ -237,23 +237,6 @@ export default function Index() {
 
       {/* CONTACT */}
       <section id="contact" className="py-24 px-8 md:px-16">
-        <div className="max-w-2xl mx-auto">
-          <div className="section-hidden text-center">
-            <p className="font-sans text-sm text-muted-foreground font-light leading-relaxed">
-              Для встречи и исполнения твоих потаённых желаний.
-            </p>
-            <div className="mt-8">
-              <a
-                href="tel:+79179865198"
-                className="relative inline-flex items-center gap-3 font-mono text-sm tracking-widest uppercase px-10 py-4 text-foreground border border-accent/50 transition-all duration-300 group overflow-hidden hover:text-background"
-              >
-                <span className="absolute inset-0 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-                <span className="relative z-10">8 (917) 986-51-98</span>
-                <span className="relative z-10 w-2 h-2 rounded-full bg-accent group-hover:bg-background animate-pulse transition-colors duration-300" />
-              </a>
-            </div>
-          </div>
-        </div>
       </section>
     </div>
   );
