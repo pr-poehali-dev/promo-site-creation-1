@@ -151,13 +151,10 @@ export default function Index() {
       <section id="about" className="py-24 px-8 md:px-16">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="section-hidden order-2 md:order-1">
-            <p className="font-mono text-xs tracking-[0.3em] text-accent uppercase mb-3">03 — О проекте</p>
             <h2 className="font-cormorant text-5xl md:text-6xl font-light text-foreground mb-8 leading-tight">
-              Больше,
+              О проекте
               <br />
-              чем
-              <br />
-              <em>музыка</em>
+              <em>Сладкие Грёзы</em>
             </h2>
             <div className="space-y-5 text-muted-foreground font-sans text-sm font-light leading-loose">
               <p>
