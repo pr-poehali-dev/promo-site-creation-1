@@ -110,7 +110,7 @@ export default function Index() {
         <div className="relative z-10 flex items-center justify-center w-full">
           <h2 className="animate-fade-up delay-200 font-cormorant text-5xl md:text-7xl font-light italic text-center"
             style={{ color: "#c0392b", textShadow: "0 0 40px rgba(192,57,43,0.5)" }}>
-            Твои Сладкие Грезы
+            Сладкие Грезы
           </h2>
         </div>
       </section>
