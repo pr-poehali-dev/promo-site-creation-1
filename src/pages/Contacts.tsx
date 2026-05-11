@@ -5,22 +5,21 @@ const PHOTO = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148e
 export default function Contacts() {
   return (
     <PageLayout>
-      <div className="px-8 md:px-16 py-10">
-
-        {/* Шапка с фото */}
-        <div className="relative rounded-2xl overflow-hidden h-64 md:h-80 mb-12 border border-border/30">
-          <img src={PHOTO} alt="Контакты" className="w-full h-full object-cover object-top" />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, rgba(10,10,10,0.2), rgba(10,10,10,0.7))" }} />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <h1
-              className="font-cormorant text-6xl md:text-7xl italic font-semibold"
-              style={{ color: "#fff", textShadow: "0 2px 30px rgba(0,0,0,0.8)" }}
-            >
-              Контакты
-            </h1>
-          </div>
+      {/* Шапка с фото на всю ширину */}
+      <div className="relative overflow-hidden h-64 md:h-80 mb-12">
+        <img src={PHOTO} alt="Контакты" className="w-full h-full object-cover object-top opacity-40" />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(to bottom, transparent, rgba(10,10,10,0.6))" }} />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <h1
+            className="font-cormorant text-6xl md:text-7xl italic font-semibold"
+            style={{ color: "#fff", textShadow: "0 2px 30px rgba(0,0,0,0.8)" }}
+          >
+            Контакты
+          </h1>
         </div>
+      </div>
 
+      <div className="px-8 md:px-16">
         {/* Контактная информация */}
         <div className="flex flex-col items-center gap-8">
           <a
@@ -46,7 +45,6 @@ export default function Contacts() {
             </span>
           </div>
         </div>
-
       </div>
     </PageLayout>
   );
