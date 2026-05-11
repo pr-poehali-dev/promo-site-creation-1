@@ -63,15 +63,15 @@ export default function Index() {
 
       {/* NAV */}
       <nav
-        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-16 py-6"
+        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-16 py-4"
         style={{ background: "linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%)" }}
       >
-        <div className="hidden md:flex items-center gap-10">
-        </div>
-
-        <button className="md:hidden text-foreground" onClick={() => setMenuOpen(!menuOpen)}>
-          <Icon name={menuOpen ? "X" : "Menu"} size={20} />
-        </button>
+        <span
+          className="font-cormorant text-xl italic"
+          style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)" }}
+        >
+          Сладкие Грёзы
+        </span>
       </nav>
 
       {menuOpen && (
@@ -89,29 +89,7 @@ export default function Index() {
           />
         </div>
 
-        <div className="relative z-10 flex items-center justify-center w-full">
-          <h2
-            className="font-cormorant text-6xl md:text-8xl font-semibold italic text-center tracking-wide"
-            style={{
-              color: "#ff1a1a",
-              textShadow: "0 0 20px rgba(255,26,26,0.9), 0 0 60px rgba(255,26,26,0.5), 0 0 100px rgba(255,26,26,0.3)",
-              animation: "fade-up 1s ease-out forwards, glow-pulse 2.5s ease-in-out 1s infinite",
-            }}
-          >
-            <span className="relative inline-block">
-              Сладкие Грёз
-              <span className="relative inline-block">
-                ы
-                <span
-                  className="absolute left-1/2 -translate-x-1/2 text-2xl md:text-4xl select-none"
-                  style={{ top: "-1.2em", filter: "drop-shadow(0 0 8px rgba(255,26,26,0.7))" }}
-                >
-                  🍓
-                </span>
-              </span>
-            </span>
-          </h2>
-        </div>
+
       </section>
 
       {/* GALLERY */}
