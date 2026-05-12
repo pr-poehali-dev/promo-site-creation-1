@@ -76,14 +76,14 @@ export default function Home() {
       {/* Навбар */}
       <div className="relative px-8 md:px-16 py-4 flex items-center justify-between" style={{ zIndex: 30 }}>
         <span
-          className="font-cormorant text-4xl italic"
-          style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)", cursor: "none" }}
+          className="font-cormorant italic"
+          style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)", cursor: "none", fontSize: "clamp(3rem, 6vw, 6rem)", lineHeight: 1 }}
           onClick={() => go("/")}
         >
           Сладкие Грёз
           <span className="relative inline-block">
             ы
-            <span className="absolute left-1/2 -translate-x-1/2 text-lg select-none" style={{ top: "-0.6em", filter: "drop-shadow(0 0 8px rgba(255,26,26,0.7))" }}>
+            <span className="absolute left-1/2 -translate-x-1/2 select-none" style={{ top: "-0.6em", fontSize: "0.45em", filter: "drop-shadow(0 0 8px rgba(255,26,26,0.7))" }}>
               🍓
             </span>
           </span>
