@@ -62,39 +62,24 @@
 }
 
 /* Nav menu item with blue indicator line */
-.nav-menu-item {
+button.nav-menu-item {
   position: relative;
-  background: transparent;
-}
-.nav-menu-item::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: #3d5afe;
-  box-shadow:
-    0 0 10px rgba(61, 90, 254, 0.8),
-    0 0 20px rgba(61, 90, 254, 0.5);
-  opacity: 0;
-  transform: scaleY(0.3);
-  transform-origin: top;
+  background-color: transparent;
+  border-left: 3px solid transparent;
   transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
-  pointer-events: none;
-  z-index: 2;
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
 }
-.nav-menu-item:hover::before,
-.nav-menu-item.is-active::before {
-  opacity: 1;
-  transform: scaleY(1);
-}
-.nav-menu-item:hover,
-.nav-menu-item.is-active {
-  background: rgba(61, 90, 254, 0.08);
+button.nav-menu-item:hover,
+button.nav-menu-item.is-active {
+  border-left-color: #3d5afe;
+  background-color: rgba(61, 90, 254, 0.12);
   color: #ffffff !important;
+  box-shadow:
+    inset 6px 0 18px -6px rgba(61, 90, 254, 0.55),
+    0 0 12px rgba(61, 90, 254, 0.35);
 }
 
 /* Custom cursor */
