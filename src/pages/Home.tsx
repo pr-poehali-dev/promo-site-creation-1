@@ -46,7 +46,7 @@ export default function Home() {
           src={BG_IMAGE}
           alt=""
           className="w-full h-full object-cover opacity-65"
-          style={{ objectPosition: "65% 20%" }}
+          style={{ objectPosition: "65% 35%" }}
         />
       </div>
       <div className="absolute inset-0" style={{ background: "rgba(10,10,10,0.55)", zIndex: 2, animation: "bgFade 1.6s ease-out both" }} />
