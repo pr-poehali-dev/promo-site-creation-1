@@ -144,8 +144,22 @@ export default function Home() {
 
         <button
           onClick={() => navigate("/contacts")}
-          className="pointer-events-auto font-cormorant text-lg italic px-8 py-3 rounded-full border transition-colors duration-200 mt-6"
+          className="pointer-events-auto font-cormorant text-lg italic px-8 py-3 rounded-full border transition-all duration-300 mt-6"
           style={{ borderColor: "rgba(255,255,255,0.3)", color: "rgba(255,255,255,0.75)", background: "transparent", cursor: "none", animation: "fadeUp 1.1s ease-out 1.2s both, pulseContacts 2.4s ease-in-out 2.3s infinite", transformOrigin: "center" }}
+          onMouseEnter={e => {
+            e.currentTarget.style.borderColor = "#ff1a1a";
+            e.currentTarget.style.color = "#fff";
+            e.currentTarget.style.background = "rgba(255,26,26,0.12)";
+            e.currentTarget.style.boxShadow = "0 0 30px rgba(255,26,26,0.55)";
+            e.currentTarget.style.textShadow = "0 0 12px rgba(255,26,26,0.8)";
+          }}
+          onMouseLeave={e => {
+            e.currentTarget.style.borderColor = "rgba(255,255,255,0.3)";
+            e.currentTarget.style.color = "rgba(255,255,255,0.75)";
+            e.currentTarget.style.background = "transparent";
+            e.currentTarget.style.boxShadow = "";
+            e.currentTarget.style.textShadow = "";
+          }}
         >
           Контакты
         </button>
