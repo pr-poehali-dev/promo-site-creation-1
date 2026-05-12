@@ -136,7 +136,7 @@ export default function Home() {
         <button
           onClick={() => navigate("/contacts")}
           className="pointer-events-auto font-cormorant text-lg italic px-8 py-3 rounded-full border transition-colors duration-200 mt-6"
-          style={{ borderColor: "rgba(255,255,255,0.3)", color: "rgba(255,255,255,0.75)", background: "transparent", cursor: "none" }}
+          style={{ borderColor: "rgba(255,255,255,0.3)", color: "rgba(255,255,255,0.75)", background: "transparent", cursor: "none", animation: "pulseContacts 2.4s ease-in-out infinite", transformOrigin: "center" }}
         >
           Контакты
         </button>
@@ -174,6 +174,10 @@ export default function Home() {
         @keyframes pulseBtn {
           0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(255,26,26,0.3); }
           50% { transform: scale(1.04); box-shadow: 0 0 35px rgba(255,26,26,0.55); }
+        }
+        @keyframes pulseContacts {
+          0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(255,255,255,0); border-color: rgba(255,255,255,0.3); }
+          50% { transform: scale(1.04); box-shadow: 0 0 20px rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.55); }
         }
       `}</style>
     </div>
