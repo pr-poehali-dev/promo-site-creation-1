@@ -111,7 +111,7 @@ export default function Index() {
           <img src={HERO_IMG} alt="" className="w-full h-full object-cover opacity-50" />
           <div
             className="absolute inset-0"
-            style={{ background: "hsl(204,60%,10%)" }}
+            style={{ background: "hsl(0,0%,6%)" }}
           />
         </div>
 
