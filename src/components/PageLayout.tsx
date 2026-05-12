@@ -82,16 +82,19 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
               className="fixed top-16 right-8 md:right-16 flex flex-col min-w-[180px] border border-border/40 overflow-hidden"
               style={{ background: "rgba(10,10,10,0.97)", zIndex: 99999, animation: "menuFade 0.35s ease-out both" }}
             >
-              {NAV_ITEMS.map(({ label, path }, idx) => (
-                <button
-                  key={label}
-                  onClick={() => go(path)}
-                  className="font-cormorant text-xl italic text-left px-6 py-3 text-foreground/80 hover:text-accent hover:bg-white/5 transition-colors duration-200 border-b border-border/20 last:border-0"
-                  style={{ cursor: "none", animation: `menuItemFade 0.5s ease-out ${0.12 + idx * 0.08}s both` }}
-                >
-                  {label}
-                </button>
-              ))}
+              {NAV_ITEMS.map(({ label, path }, idx) => {
+                const isActive = typeof window !== "undefined" && window.location.pathname === path;
+                return (
+                  <button
+                    key={label}
+                    onClick={() => go(path)}
+                    className={`nav-menu-item font-cormorant text-xl italic text-left px-6 py-3 transition-colors duration-200 border-b border-border/20 last:border-0 ${isActive ? "is-active text-white" : "text-white/90 hover:text-white"}`}
+                    style={{ cursor: "none", animation: `menuItemFade 0.5s ease-out ${0.12 + idx * 0.08}s both` }}
+                  >
+                    {label}
+                  </button>
+                );
+              })}
             </div>
           )}
         </div>
