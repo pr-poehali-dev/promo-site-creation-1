@@ -123,7 +123,7 @@ export default function Home() {
         <a
           href="tel:+79179865198"
           className="pointer-events-auto flex items-center gap-3 px-8 py-4 rounded-full border-2 transition-all duration-300"
-          style={{ borderColor: "#ff1a1a", background: "rgba(255,26,26,0.08)", boxShadow: "0 0 20px rgba(255,26,26,0.3)" }}
+          style={{ borderColor: "#ff1a1a", background: "rgba(255,26,26,0.08)", boxShadow: "0 0 20px rgba(255,26,26,0.3)", animation: "pulseBtn 2.4s ease-in-out infinite", transformOrigin: "center" }}
           onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 0 40px rgba(255,26,26,0.6)")}
           onMouseLeave={e => (e.currentTarget.style.boxShadow = "0 0 20px rgba(255,26,26,0.3)")}
         >
@@ -170,6 +170,10 @@ export default function Home() {
         @keyframes shimmerPhone {
           0%, 100% { opacity: 0.85; text-shadow: 0 0 12px rgba(255,26,26,0.7); }
           50% { opacity: 1; text-shadow: 0 0 18px rgba(255,255,255,0.6), 0 0 32px rgba(255,26,26,0.85); }
+        }
+        @keyframes pulseBtn {
+          0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(255,26,26,0.3); }
+          50% { transform: scale(1.04); box-shadow: 0 0 35px rgba(255,26,26,0.55); }
         }
       `}</style>
     </div>
