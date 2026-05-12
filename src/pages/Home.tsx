@@ -72,7 +72,6 @@ export default function Home() {
             src={src}
             alt=""
             className="w-full h-full object-cover opacity-50"
-            style={{ animation: i === current ? "kenBurns 12s ease-out forwards" : "none" }}
           />
         </div>
       ))}
@@ -205,10 +204,6 @@ export default function Home() {
         @keyframes fadeUp {
           0% { opacity: 0; transform: translateY(28px); filter: blur(6px); }
           100% { opacity: 1; transform: translateY(0); filter: blur(0); }
-        }
-        @keyframes kenBurns {
-          0% { transform: scale(1.08); filter: brightness(0.7); }
-          100% { transform: scale(1); filter: brightness(1); }
         }
         @keyframes bgFade {
           0% { background: rgba(10,10,10,0.95); }
