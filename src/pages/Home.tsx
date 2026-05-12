@@ -95,17 +95,6 @@ export default function Home() {
         <p className="font-cormorant text-4xl md:text-6xl italic mb-10" style={{ color: "rgba(255,255,255,0.92)", textShadow: "0 2px 20px rgba(0,0,0,0.8), 0 0 14px rgba(0,0,0,0.5)", animation: "fadeUp 1.1s ease-out 0.5s both, shimmer 2.6s ease-in-out 1.6s infinite" }}>
           Встретимся?
         </p>
-        <div
-          aria-disabled
-          className="flex items-center gap-3 px-8 py-4 rounded-full border-2"
-          style={{ borderColor: "#3d5afe", background: "rgba(61,90,254,0.08)", boxShadow: "0 0 20px rgba(61,90,254,0.3)", animation: "fadeUp 1.1s ease-out 0.9s both, pulseBtn 2.4s ease-in-out 2s infinite", transformOrigin: "center", pointerEvents: "none", userSelect: "none" }}
-        >
-          <span className="text-xl" style={{ animation: "ring 1.8s ease-in-out infinite", display: "inline-block", transformOrigin: "top center" }}>📞</span>
-          <span className="font-cormorant text-2xl italic tracking-wider" style={{ color: "#fff", textShadow: "0 0 12px rgba(61,90,254,0.7)", animation: "shimmerPhone 2.6s ease-in-out infinite" }}>
-            8 (917) 986-51-98
-          </span>
-        </div>
-
       </div>
 
       <style>{`
