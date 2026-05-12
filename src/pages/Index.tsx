@@ -83,7 +83,7 @@ export default function Index() {
           </button>
 
           {menuOpen && (
-            <div className="absolute top-full right-0 mt-3 flex flex-col min-w-[180px] border border-border/40 overflow-hidden"
+            <div className="absolute top-full right-0 mt-3 flex flex-col min-w-[180px] border border-border/40"
               style={{ background: "rgba(10,10,10,0.97)", animation: "menuFade 0.35s ease-out both" }}>
               {[
                 { label: "Главная", path: "/", action: () => navigate("/") },
