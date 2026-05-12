@@ -312,26 +312,42 @@
   width: calc((100vw - 1280px) / 2 + 80px);
   z-index: 1;
   pointer-events: none;
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
-  background: linear-gradient(
-    to right,
-    hsla(var(--background), 0.6),
-    hsla(var(--background), 0.25)
-  );
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
 }
 
 .app-frame-side--left {
   left: 0;
+  background:
+    radial-gradient(
+      ellipse at left center,
+      rgba(255, 26, 26, 0.18) 0%,
+      rgba(255, 26, 26, 0.08) 35%,
+      transparent 70%
+    ),
+    linear-gradient(
+      to right,
+      rgba(8, 4, 6, 0.92),
+      rgba(8, 4, 6, 0.7) 60%,
+      rgba(8, 4, 6, 0.55)
+    );
 }
 
 .app-frame-side--right {
   right: 0;
-  background: linear-gradient(
-    to left,
-    hsla(var(--background), 0.6),
-    hsla(var(--background), 0.25)
-  );
+  background:
+    radial-gradient(
+      ellipse at right center,
+      rgba(255, 26, 26, 0.18) 0%,
+      rgba(255, 26, 26, 0.08) 35%,
+      transparent 70%
+    ),
+    linear-gradient(
+      to left,
+      rgba(8, 4, 6, 0.92),
+      rgba(8, 4, 6, 0.7) 60%,
+      rgba(8, 4, 6, 0.55)
+    );
 }
 
 @media (max-width: 1280px) {
