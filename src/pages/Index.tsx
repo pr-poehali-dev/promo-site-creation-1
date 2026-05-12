@@ -68,9 +68,9 @@ export default function Index() {
           style={{ fontSize: "clamp(2rem, 3.6vw, 3.6rem)", lineHeight: 1, fontWeight: 700, paddingTop: "0.35em" }}
         >
           <span style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)" }}>Сладкие </span>
-          <span style={{ color: "#1a8cff", textShadow: "0 0 10px rgba(26,140,255,0.6)" }}>Грёз</span>
+          <span style={{ color: "#3d5afe", textShadow: "0 0 10px rgba(61,90,254,0.75), 0 0 18px rgba(61,90,254,0.45)" }}>Грёз</span>
           <span className="relative inline-block">
-            <span style={{ color: "#1a8cff", textShadow: "0 0 10px rgba(26,140,255,0.6)" }}>ы</span>
+            <span style={{ color: "#3d5afe", textShadow: "0 0 10px rgba(61,90,254,0.75), 0 0 18px rgba(61,90,254,0.45)" }}>ы</span>
             <span
               className="absolute left-1/2 -translate-x-1/2 select-none"
               style={{ top: "-0.55em", fontSize: "0.45em", filter: "drop-shadow(0 0 8px rgba(255,26,26,0.7))" }}
