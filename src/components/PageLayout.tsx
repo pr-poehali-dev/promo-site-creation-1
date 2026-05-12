@@ -1,7 +1,14 @@
 import { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/files/c906dad4-5275-4aa1-a0e9-8b39ba15ca55.jpg";
+
+const NAV_LINKS = [
+  { label: "Главная", path: "/" },
+  { label: "Обо мне", path: "/about" },
+  { label: "Фотогалерея", path: "/gallery" },
+  { label: "Контакты", path: "/contacts" },
+];
 
 interface PageLayoutProps {
   children?: React.ReactNode;
@@ -11,6 +18,7 @@ interface PageLayoutProps {
 
 export default function PageLayout({ children, noBackground, backgroundSlot }: PageLayoutProps) {
   const navigate = useNavigate();
+  const location = useLocation();
   const cursorRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
 
@@ -43,7 +51,7 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
         )}
       </div>
 
-      <div className="relative z-10 px-6 md:px-12 pt-6 pb-3 flex items-center justify-between gap-6">
+      <div className="relative z-10 px-6 md:px-12 pt-6 pb-3 flex items-center justify-between gap-6 flex-wrap">
         <span
           className="font-cormorant italic font-bold inline-block"
           style={{ cursor: "none", fontSize: "clamp(1.75rem, 2.8vw, 2.8rem)", lineHeight: 1, fontWeight: 700, paddingTop: "0.35em", animation: "logoFadeUp 1.1s ease-out 0s both" }}
@@ -53,6 +61,22 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
           <span className="inline-block select-none align-middle" style={{ fontSize: "0.7em", margin: "0 0.15em", animation: "strawberryGlow 2.8s ease-in-out infinite" }}>🍓</span>
           <span style={{ color: "#3d5afe", textShadow: "0 0 10px rgba(61,90,254,0.75), 0 0 18px rgba(61,90,254,0.45)", animation: "neonBlue 2.8s ease-in-out infinite" }}>Грёзы</span>
         </span>
+
+        <nav className="flex items-center gap-2 md:gap-4 flex-wrap">
+          {NAV_LINKS.map(({ label, path }) => {
+            const isActive = location.pathname === path;
+            return (
+              <button
+                key={path}
+                onClick={() => navigate(path)}
+                className={`top-nav-link font-cormorant italic text-base md:text-lg px-3 py-2 ${isActive ? "is-active" : ""}`}
+                style={{ cursor: "none" }}
+              >
+                {label}
+              </button>
+            );
+          })}
+        </nav>
       </div>
 
       <div className="relative z-10">

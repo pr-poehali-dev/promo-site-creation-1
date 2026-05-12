@@ -54,7 +54,7 @@ export default function Home() {
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.6) 100%)", zIndex: 5 }} />
 
       {/* Навбар */}
-      <div className="relative px-6 md:px-12 pt-6 pb-3 flex items-center justify-between gap-6" style={{ zIndex: 30 }}>
+      <div className="relative px-6 md:px-12 pt-6 pb-3 flex items-center justify-between gap-6 flex-wrap" style={{ zIndex: 30 }}>
         <span
           className="font-cormorant italic font-bold inline-block"
           style={{ cursor: "none", fontSize: "clamp(1.75rem, 2.8vw, 2.8rem)", lineHeight: 1, fontWeight: 700, paddingTop: "0.35em", animation: "fadeUp 1.1s ease-out 0s both" }}
@@ -65,6 +65,26 @@ export default function Home() {
           <span style={{ color: "#3d5afe", textShadow: "0 0 10px rgba(61,90,254,0.75), 0 0 18px rgba(61,90,254,0.45)", animation: "neonBlue 2.8s ease-in-out infinite" }}>Грёзы</span>
         </span>
 
+        <nav className="flex items-center gap-2 md:gap-4 flex-wrap">
+          {[
+            { label: "Главная", path: "/" },
+            { label: "Обо мне", path: "/about" },
+            { label: "Фотогалерея", path: "/gallery" },
+            { label: "Контакты", path: "/contacts" },
+          ].map(({ label, path }) => {
+            const isActive = window.location.pathname === path;
+            return (
+              <button
+                key={path}
+                onClick={() => go(path)}
+                className={`top-nav-link font-cormorant italic text-base md:text-lg px-3 py-2 ${isActive ? "is-active" : ""}`}
+                style={{ cursor: "none" }}
+              >
+                {label}
+              </button>
+            );
+          })}
+        </nav>
       </div>
 
       {/* Центральный текст */}

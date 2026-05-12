@@ -61,6 +61,43 @@
   }
 }
 
+/* Top horizontal nav links */
+.top-nav-link {
+  position: relative;
+  color: rgba(255, 255, 255, 0.78);
+  background-color: transparent;
+  border: none;
+  letter-spacing: 0.02em;
+  transition:
+    color 0.25s ease,
+    text-shadow 0.25s ease;
+}
+.top-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 4px;
+  height: 2px;
+  background-color: #3d5afe;
+  box-shadow:
+    0 0 8px rgba(61, 90, 254, 0.8),
+    0 0 18px rgba(61, 90, 254, 0.5);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+.top-nav-link:hover,
+.top-nav-link.is-active {
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(61, 90, 254, 0.6);
+}
+.top-nav-link:hover::after,
+.top-nav-link.is-active::after {
+  transform: scaleX(1);
+}
+
 /* Custom cursor */
 .cursor {
   position: fixed;
