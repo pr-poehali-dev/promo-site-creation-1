@@ -65,7 +65,7 @@ export default function Home() {
           <span style={{ color: "#3d5afe", textShadow: "0 0 10px rgba(61,90,254,0.75), 0 0 18px rgba(61,90,254,0.45)", animation: "neonBlue 2.8s ease-in-out infinite" }}>Грёзы</span>
         </span>
 
-        <nav className="flex items-center gap-2 md:gap-4 flex-wrap">
+        <nav className="flex items-center gap-4 md:gap-8 flex-wrap">
           {[
             { label: "Главная", path: "/" },
             { label: "Обо мне", path: "/about" },
@@ -77,8 +77,8 @@ export default function Home() {
               <button
                 key={path}
                 onClick={() => go(path)}
-                className={`top-nav-link font-cormorant italic text-base md:text-lg px-3 py-2 ${isActive ? "is-active" : ""}`}
-                style={{ cursor: "none" }}
+                className={`top-nav-link font-cormorant italic px-5 py-3 ${isActive ? "is-active" : ""}`}
+                style={{ cursor: "none", fontSize: "clamp(1.25rem, 1.8vw, 1.75rem)" }}
               >
                 {label}
               </button>
