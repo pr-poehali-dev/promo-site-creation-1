@@ -2,7 +2,6 @@ import { useState } from "react";
 import PageLayout from "@/components/PageLayout";
 
 const GALLERY = [
-  { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/bda19b9a-9369-47b6-ba30-b69a935602e5.jpg", title: "Студия" },
   { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/de67aff0-5994-4139-92fa-81cba6775a5e.jpg", title: "Момент" },
   { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/5b0e74aa-45b8-43e3-bd92-6545210e34fb.jpg", title: "Ночь" },
   { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/9c318f77-b373-4bba-a816-af8f3ba9fbad.jpg", title: "Кресло" },
@@ -35,7 +34,7 @@ export default function Gallery() {
             {GALLERY.map((item, i) => (
               <div
                 key={i}
-                className={`gallery-item cursor-pointer ${i === 0 ? "md:col-span-2 md:row-span-2" : ""}`}
+                className="gallery-item cursor-pointer"
                 onClick={() => setLightbox(item)}
                 style={{
                   animation: `galleryFadeUp 1s cubic-bezier(0.22,1,0.36,1) ${0.15 + i * 0.1}s both`,
@@ -44,7 +43,7 @@ export default function Gallery() {
                 <img
                   src={item.img}
                   alt={item.title}
-                  className={`w-full object-cover ${i === 0 ? "h-64 md:h-[480px]" : "h-48 md:h-56"}`}
+                  className="w-full object-cover h-48 md:h-56"
                 />
                 <div className="overlay" />
                 <div className="absolute bottom-0 left-0 p-4 z-10">
