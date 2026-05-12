@@ -132,7 +132,7 @@ export default function Home() {
         }
         @keyframes shimmer {
           0%, 100% { opacity: 0.75; text-shadow: 0 2px 20px rgba(0,0,0,0.7), 0 0 8px rgba(255,255,255,0.2); }
-          50% { opacity: 1; text-shadow: 0 2px 20px rgba(0,0,0,0.7), 0 0 28px rgba(255,255,255,0.7), 0 0 50px rgba(255,26,26,0.35); }
+          50% { opacity: 1; text-shadow: 0 2px 20px rgba(0,0,0,0.7), 0 0 28px rgba(255,255,255,0.7), 0 0 50px rgba(61,90,254,0.45); }
         }
         @keyframes shimmerPhone {
           0%, 100% { opacity: 0.85; text-shadow: 0 0 12px rgba(61,90,254,0.7); }
