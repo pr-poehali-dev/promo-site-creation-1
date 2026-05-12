@@ -47,7 +47,7 @@ export default function Home() {
           alt=""
           className="w-full h-full object-cover opacity-85"
           style={{
-            objectPosition: "50% 28%",
+            objectPosition: "30% 18%",
             filter: "contrast(1.08) saturate(1.12) brightness(0.92)",
             imageRendering: "crisp-edges",
           }}
