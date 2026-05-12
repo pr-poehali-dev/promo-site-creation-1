@@ -56,7 +56,7 @@ export default function Home() {
         />
       </div>
       <div className="absolute inset-0" style={{ background: "rgba(10,10,10,0.45)", zIndex: 2, animation: "bgFade 1.6s ease-out both" }} />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(135deg, rgba(61,90,254,0.22) 0%, transparent 45%, transparent 55%, rgba(255,26,26,0.22) 100%)", mixBlendMode: "overlay", zIndex: 3 }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(135deg, rgba(255,184,77,0.28) 0%, rgba(255,140,40,0.12) 35%, transparent 55%, rgba(180,20,30,0.28) 100%)", mixBlendMode: "overlay", zIndex: 3 }} />
       <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to bottom, rgba(10,10,10,0.35) 0%, transparent 35%, transparent 50%, rgba(10,10,10,0.6) 85%, rgba(10,10,10,0.9) 100%)", zIndex: 4 }} />
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.6) 100%)", zIndex: 5 }} />
 
