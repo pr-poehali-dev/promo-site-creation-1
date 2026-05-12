@@ -45,8 +45,14 @@ export default function Home() {
         <img
           src={BG_IMAGE}
           alt=""
-          className="w-full h-full object-cover opacity-65"
-          style={{ objectPosition: "65% 35%" }}
+          className="w-full h-full object-cover opacity-75"
+          style={{
+            objectPosition: "65% 35%",
+            filter: "contrast(1.12) saturate(1.18) brightness(1.05)",
+            imageRendering: "crisp-edges",
+          }}
+          loading="eager"
+          decoding="sync"
         />
       </div>
       <div className="absolute inset-0" style={{ background: "rgba(10,10,10,0.55)", zIndex: 2, animation: "bgFade 1.6s ease-out both" }} />
