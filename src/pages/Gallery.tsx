@@ -4,6 +4,7 @@ import Icon from "@/components/ui/icon";
 import func2url from "../../backend/func2url.json";
 
 const API_URL = (func2url as Record<string, string>).gallery;
+const LS_KEY = "gallery_admin_pwd";
 
 type Photo = { id: number; url: string; title: string };
 
@@ -19,21 +20,41 @@ export default function Gallery() {
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
   const [adminMode, setAdminMode] = useState(false);
+  const [adminPwd, setAdminPwd] = useState<string>("");
+  const [showLogin, setShowLogin] = useState(false);
+  const [loginInput, setLoginInput] = useState("");
+  const [loginError, setLoginError] = useState("");
+  const [logging, setLogging] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
 
-  // Включение режима администратора по нажатию A на клавиатуре
+  useEffect(() => {
+    const saved = localStorage.getItem(LS_KEY);
+    if (saved) {
+      setAdminPwd(saved);
+      setAdminMode(true);
+    }
+  }, []);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.altKey && (e.key === "a" || e.key === "A" || e.key === "ф" || e.key === "Ф")) {
-        setAdminMode((v) => !v);
+        e.preventDefault();
+        if (adminMode) {
+          setAdminMode(false);
+          setAdminPwd("");
+          localStorage.removeItem(LS_KEY);
+        } else {
+          setShowLogin(true);
+          setLoginError("");
+        }
       }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, []);
+  }, [adminMode]);
 
   const loadPhotos = useCallback(async () => {
     setLoading(true);
@@ -53,6 +74,32 @@ export default function Gallery() {
     loadPhotos();
   }, [loadPhotos]);
 
+  const submitLogin = async () => {
+    if (!loginInput.trim()) return;
+    setLogging(true);
+    setLoginError("");
+    try {
+      const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "login", password: loginInput }),
+      });
+      if (res.ok) {
+        setAdminPwd(loginInput);
+        setAdminMode(true);
+        localStorage.setItem(LS_KEY, loginInput);
+        setShowLogin(false);
+        setLoginInput("");
+      } else {
+        setLoginError("Неверный пароль");
+      }
+    } catch {
+      setLoginError("Ошибка соединения");
+    } finally {
+      setLogging(false);
+    }
+  };
+
   const onUpload = async (files: FileList | null) => {
     if (!files || files.length === 0) return;
     setUploading(true);
@@ -67,15 +114,25 @@ export default function Gallery() {
           reader.onerror = reject;
           reader.readAsDataURL(file);
         });
-        await fetch(API_URL, {
+        const res = await fetch(API_URL, {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "X-Admin-Password": adminPwd,
+          },
           body: JSON.stringify({
             file_base64: base64,
             content_type: file.type || "image/jpeg",
             title: file.name.replace(/\.[^.]+$/, "").slice(0, 60),
           }),
         });
+        if (res.status === 401) {
+          alert("Сессия истекла. Войди заново через Alt + A.");
+          setAdminMode(false);
+          setAdminPwd("");
+          localStorage.removeItem(LS_KEY);
+          return;
+        }
       }
       await loadPhotos();
     } finally {
@@ -87,7 +144,17 @@ export default function Gallery() {
   const onDelete = async (id: number) => {
     if (id < 0) return;
     if (!confirm("Удалить фото?")) return;
-    await fetch(`${API_URL}?id=${id}`, { method: "DELETE" });
+    const res = await fetch(`${API_URL}?id=${id}`, {
+      method: "DELETE",
+      headers: { "X-Admin-Password": adminPwd },
+    });
+    if (res.status === 401) {
+      alert("Сессия истекла. Войди заново через Alt + A.");
+      setAdminMode(false);
+      setAdminPwd("");
+      localStorage.removeItem(LS_KEY);
+      return;
+    }
     await loadPhotos();
   };
 
@@ -150,20 +217,33 @@ export default function Gallery() {
                 onChange={(e) => onUpload(e.target.files)}
                 className="hidden"
               />
-              <button
-                onClick={() => fileInputRef.current?.click()}
-                disabled={uploading}
-                className="flex items-center gap-2 px-6 py-3 font-cormorant italic text-lg text-white border-2 transition-all"
-                style={{
-                  borderColor: "#3d5afe",
-                  background: uploading ? "rgba(61,90,254,0.4)" : "rgba(61,90,254,0.15)",
-                  boxShadow: "0 0 18px rgba(61,90,254,0.45)",
-                  cursor: uploading ? "wait" : "pointer",
-                }}
-              >
-                <Icon name={uploading ? "Loader2" : "Upload"} size={20} className={uploading ? "animate-spin" : ""} />
-                {uploading ? "Загружаю..." : "Выбрать фото"}
-              </button>
+              <div className="flex gap-3 flex-wrap justify-center">
+                <button
+                  onClick={() => fileInputRef.current?.click()}
+                  disabled={uploading}
+                  className="flex items-center gap-2 px-6 py-3 font-cormorant italic text-lg text-white border-2 transition-all"
+                  style={{
+                    borderColor: "#3d5afe",
+                    background: uploading ? "rgba(61,90,254,0.4)" : "rgba(61,90,254,0.15)",
+                    boxShadow: "0 0 18px rgba(61,90,254,0.45)",
+                    cursor: uploading ? "wait" : "pointer",
+                  }}
+                >
+                  <Icon name={uploading ? "Loader2" : "Upload"} size={20} className={uploading ? "animate-spin" : ""} />
+                  {uploading ? "Загружаю..." : "Выбрать фото"}
+                </button>
+                <button
+                  onClick={() => {
+                    setAdminMode(false);
+                    setAdminPwd("");
+                    localStorage.removeItem(LS_KEY);
+                  }}
+                  className="flex items-center gap-2 px-6 py-3 font-cormorant italic text-lg text-white/70 border-2 border-white/20 hover:text-white hover:border-white/40 transition-all"
+                >
+                  <Icon name="LogOut" size={18} />
+                  Выйти
+                </button>
+              </div>
               <p className="text-white/50 text-xs">Можно выбрать несколько файлов сразу</p>
             </div>
           )}
@@ -173,7 +253,7 @@ export default function Gallery() {
               className="text-center text-white/30 text-xs mb-10"
               style={{ animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.15s both" }}
             >
-              Alt + A — режим администратора
+              Alt + A — вход для администратора
             </p>
           )}
 
@@ -224,6 +304,64 @@ export default function Gallery() {
           )}
         </div>
       </section>
+
+      {showLogin && (
+        <div
+          className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/85 backdrop-blur-sm px-4"
+          onClick={() => setShowLogin(false)}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="w-full max-w-sm p-7 border"
+            style={{
+              borderColor: "#3d5afe",
+              background: "rgba(10,10,10,0.95)",
+              boxShadow: "0 0 36px rgba(61,90,254,0.4)",
+              animation: "lightboxFade 0.35s ease both",
+            }}
+          >
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="font-cormorant italic text-2xl text-white">Вход администратора</h3>
+              <button
+                onClick={() => setShowLogin(false)}
+                className="text-white/60 hover:text-white text-xl"
+                aria-label="Закрыть"
+              >
+                ✕
+              </button>
+            </div>
+            <input
+              type="password"
+              autoFocus
+              value={loginInput}
+              onChange={(e) => setLoginInput(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") submitLogin();
+              }}
+              placeholder="Пароль"
+              className="w-full bg-transparent border-b border-white/30 focus:border-[#3d5afe] outline-none py-3 text-white font-cormorant italic text-lg placeholder:text-white/30 transition-colors"
+            />
+            {loginError && (
+              <p className="text-red-400 text-sm mt-2 font-cormorant italic">{loginError}</p>
+            )}
+            <button
+              onClick={submitLogin}
+              disabled={logging || !loginInput.trim()}
+              className="w-full mt-5 py-3 font-cormorant italic text-lg text-white border-2 transition-all flex items-center justify-center gap-2"
+              style={{
+                borderColor: "#3d5afe",
+                background: logging ? "rgba(61,90,254,0.4)" : "rgba(61,90,254,0.15)",
+                boxShadow: "0 0 18px rgba(61,90,254,0.4)",
+                cursor: logging || !loginInput.trim() ? "wait" : "pointer",
+                opacity: !loginInput.trim() ? 0.5 : 1,
+              }}
+            >
+              {logging && <Icon name="Loader2" size={18} className="animate-spin" />}
+              {logging ? "Проверяю..." : "Войти"}
+            </button>
+          </div>
+        </div>
+      )}
 
       {current && (
         <div

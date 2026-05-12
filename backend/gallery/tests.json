@@ -13,10 +13,24 @@
       "expectedStatus": 200
     },
     {
-      "name": "DELETE без id",
+      "name": "DELETE без пароля",
       "method": "DELETE",
       "path": "/",
-      "expectedStatus": 400
+      "expectedStatus": 401
+    },
+    {
+      "name": "POST без пароля",
+      "method": "POST",
+      "path": "/",
+      "body": {"file_base64": "test"},
+      "expectedStatus": 401
+    },
+    {
+      "name": "Login с неверным паролем",
+      "method": "POST",
+      "path": "/",
+      "body": {"action": "login", "password": "wrong_password_123"},
+      "expectedStatus": 401
     }
   ]
 }

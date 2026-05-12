@@ -1,7 +1,7 @@
 """
-Business: API для управления фотогалереей - получение списка, загрузка и удаление фото.
+Business: API для управления фотогалереей - получение списка, загрузка и удаление фото (с проверкой пароля админа).
 Args: event - dict с httpMethod, body, queryStringParameters, headers; context - объект с request_id.
-Returns: HTTP-ответ JSON со списком фото / результатом загрузки / удаления.
+Returns: HTTP-ответ JSON со списком фото / результатом загрузки / удаления / результатом входа.
 """
 import json
 import os
@@ -16,7 +16,7 @@ import psycopg2
 CORS_HEADERS = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, X-Admin-Token',
+    'Access-Control-Allow-Headers': 'Content-Type, X-Admin-Password',
     'Access-Control-Max-Age': '86400',
 }
 
@@ -47,11 +47,38 @@ def _cdn_url(key: str) -> str:
     return f"https://cdn.poehali.dev/projects/{os.environ['AWS_ACCESS_KEY_ID']}/bucket/{key}"
 
 
+def _check_admin(event: Dict[str, Any]) -> bool:
+    expected = os.environ.get('GALLERY_ADMIN_PASSWORD', '')
+    if not expected:
+        return False
+    headers = event.get('headers') or {}
+    provided = (
+        headers.get('X-Admin-Password')
+        or headers.get('x-admin-password')
+        or ''
+    )
+    return provided == expected
+
+
 def handler(event: Dict[str, Any], context) -> Dict[str, Any]:
     method = event.get('httpMethod', 'GET')
+    path = (event.get('path') or '').rstrip('/')
 
     if method == 'OPTIONS':
         return {'statusCode': 200, 'headers': CORS_HEADERS, 'body': ''}
+
+    # Проверка пароля: POST с {action: "login"}
+    if method == 'POST' and path.endswith('/login'):
+        try:
+            payload = json.loads(event.get('body') or '{}')
+        except json.JSONDecodeError:
+            return _resp(400, {'error': 'invalid json'})
+        expected = os.environ.get('GALLERY_ADMIN_PASSWORD', '')
+        if not expected:
+            return _resp(500, {'error': 'admin password not configured'})
+        if payload.get('password') == expected:
+            return _resp(200, {'ok': True})
+        return _resp(401, {'error': 'wrong password'})
 
     if method == 'GET':
         with _conn() as conn:
@@ -64,6 +91,19 @@ def handler(event: Dict[str, Any], context) -> Dict[str, Any]:
         return _resp(200, {'photos': photos})
 
     if method == 'POST':
+        if not _check_admin(event):
+            # Поддержка login через action в body, если path не сработал
+            try:
+                maybe = json.loads(event.get('body') or '{}')
+            except json.JSONDecodeError:
+                maybe = {}
+            if maybe.get('action') == 'login':
+                expected = os.environ.get('GALLERY_ADMIN_PASSWORD', '')
+                if expected and maybe.get('password') == expected:
+                    return _resp(200, {'ok': True})
+                return _resp(401, {'error': 'wrong password'})
+            return _resp(401, {'error': 'unauthorized'})
+
         try:
             payload = json.loads(event.get('body') or '{}')
         except json.JSONDecodeError:
@@ -110,6 +150,8 @@ def handler(event: Dict[str, Any], context) -> Dict[str, Any]:
         return _resp(200, {'id': new_id, 'url': url, 'title': title})
 
     if method == 'DELETE':
+        if not _check_admin(event):
+            return _resp(401, {'error': 'unauthorized'})
         params = event.get('queryStringParameters') or {}
         raw_id = params.get('id')
         if not raw_id or not str(raw_id).isdigit():
