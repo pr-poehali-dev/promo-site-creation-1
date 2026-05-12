@@ -6,7 +6,7 @@ export default function Contacts() {
       <div className="px-8 md:px-16 py-16">
         <div className="flex flex-col items-center gap-8">
           <a
-            href="tel:+79179865198"
+            href="tel:+79869852111"
             onClick={e => e.stopPropagation()}
             className="flex items-center gap-4 group"
             style={{ animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.1s both" }}
@@ -16,7 +16,7 @@ export default function Contacts() {
               className="font-cormorant text-3xl md:text-4xl italic tracking-wide group-hover:text-accent transition-colors duration-300"
               style={{ color: "#fff", textShadow: "0 2px 20px rgba(0,0,0,0.8)" }}
             >
-              8 (917) 986-51-98
+              8 (986) 985-21-11
             </span>
           </a>
 
