@@ -16,6 +16,7 @@ export default function About() {
               fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
               color: "rgba(255,255,255,0.95)",
               textShadow: "0 2px 24px rgba(0,0,0,0.7), 0 0 20px rgba(61,90,254,0.25)",
+              animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.05s both",
             }}
           >
             Обо мне
@@ -23,7 +24,7 @@ export default function About() {
 
           <div className="grid md:grid-cols-[1fr_1.2fr] gap-10 md:gap-16 items-center">
             {/* Левая колонка — фото */}
-            <div className="relative">
+            <div className="relative" style={{ animation: "aboutFadeLeft 1.3s cubic-bezier(0.22,1,0.36,1) 0.2s both" }}>
               <div
                 className="relative overflow-hidden"
                 style={{
@@ -35,7 +36,10 @@ export default function About() {
                   src={PHOTO_PLACEHOLDER_1}
                   alt="Фото"
                   className="w-full h-[420px] md:h-[560px] object-cover"
-                  style={{ filter: "brightness(0.92) contrast(1.05)" }}
+                  style={{
+                    filter: "brightness(0.92) contrast(1.05)",
+                    animation: "aboutImgZoom 1.6s cubic-bezier(0.22,1,0.36,1) 0.3s both",
+                  }}
                 />
                 <div
                   className="absolute inset-0 pointer-events-none"
@@ -51,6 +55,7 @@ export default function About() {
                 style={{
                   borderColor: "#3d5afe",
                   boxShadow: "0 0 24px rgba(61,90,254,0.45)",
+                  animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.7s both",
                 }}
               >
                 <img
@@ -69,6 +74,7 @@ export default function About() {
                   fontSize: "clamp(1.15rem, 1.5vw, 1.4rem)",
                   color: "rgba(255,255,255,0.92)",
                   textShadow: "0 2px 14px rgba(0,0,0,0.6)",
+                  animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.35s both",
                 }}
               >
                 Знаешь, что такое настоящий индивидуальный подход?
@@ -79,6 +85,7 @@ export default function About() {
                 style={{
                   fontSize: "clamp(1.05rem, 1.25vw, 1.2rem)",
                   color: "rgba(255,255,255,0.85)",
+                  animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.5s both",
                 }}
               >
                 Это когда ты приходишь в гости к девушке, которая по-настоящему хорошо выглядит, в прекрасном настроении и свежа, как утренняя роса. Это когда ты общаешься на самые разные темы, как с хорошей знакомой, и отдыхаешь полностью и телом и разумом.
@@ -89,6 +96,7 @@ export default function About() {
                 style={{
                   fontSize: "clamp(1.05rem, 1.25vw, 1.2rem)",
                   color: "rgba(255,255,255,0.85)",
+                  animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.65s both",
                 }}
               >
                 Когда она не провожает тебя ровно через час, а наоборот, заботится о том, чтобы тебе было комфортно. Это когда секс с тобой — это настоящее удовольствие, а не работа, а потому он улётный.
@@ -101,6 +109,7 @@ export default function About() {
                   color: "#fff",
                   textShadow:
                     "0 0 12px rgba(61,90,254,0.6), 0 2px 14px rgba(0,0,0,0.6)",
+                  animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.8s both",
                 }}
               >
                 Хочешь настоящий индивидуальный подход? Звони...{" "}
@@ -112,6 +121,7 @@ export default function About() {
                 style={{
                   borderColor: "#3d5afe",
                   boxShadow: "-2px 0 18px -8px rgba(61,90,254,0.7)",
+                  animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.95s both",
                 }}
               >
                 <p
@@ -142,6 +152,22 @@ export default function About() {
         @keyframes lipsPulse {
           0%, 100% { transform: scale(1) rotate(-6deg); filter: drop-shadow(0 0 6px rgba(255,77,109,0.5)); }
           50% { transform: scale(1.15) rotate(6deg); filter: drop-shadow(0 0 14px rgba(255,77,109,0.85)); }
+        }
+        @keyframes aboutFadeUp {
+          0% { opacity: 0; transform: translateY(36px); filter: blur(8px); }
+          100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        @keyframes aboutFadeLeft {
+          0% { opacity: 0; transform: translateX(-50px); filter: blur(8px); }
+          100% { opacity: 1; transform: translateX(0); filter: blur(0); }
+        }
+        @keyframes aboutFadeRight {
+          0% { opacity: 0; transform: translateX(40px); filter: blur(6px); }
+          100% { opacity: 1; transform: translateX(0); filter: blur(0); }
+        }
+        @keyframes aboutImgZoom {
+          0% { transform: scale(1.12); opacity: 0; }
+          100% { transform: scale(1); opacity: 1; }
         }
       `}</style>
     </PageLayout>
