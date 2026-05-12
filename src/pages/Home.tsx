@@ -114,16 +114,16 @@ export default function Home() {
 
       {/* Центральный текст */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8 pointer-events-none" style={{ zIndex: 20 }}>
-        <h1 className="font-cormorant text-6xl md:text-8xl font-semibold italic mb-6" style={{ color: "#fff", textShadow: "0 2px 30px rgba(0,0,0,0.8)" }}>
+        <h1 className="font-cormorant text-6xl md:text-8xl font-semibold italic mb-6" style={{ color: "#fff", textShadow: "0 2px 30px rgba(0,0,0,0.8)", animation: "fadeUp 1.1s ease-out 0.1s both" }}>
           Привет, я Эльвира
         </h1>
-        <p className="font-cormorant text-4xl md:text-6xl italic mb-10" style={{ color: "rgba(255,255,255,0.85)", textShadow: "0 2px 20px rgba(0,0,0,0.7)", animation: "shimmer 2.6s ease-in-out infinite" }}>
+        <p className="font-cormorant text-4xl md:text-6xl italic mb-10" style={{ color: "rgba(255,255,255,0.85)", textShadow: "0 2px 20px rgba(0,0,0,0.7)", animation: "fadeUp 1.1s ease-out 0.5s both, shimmer 2.6s ease-in-out 1.6s infinite" }}>
           Встретимся?
         </p>
         <a
           href="tel:+79179865198"
           className="pointer-events-auto flex items-center gap-3 px-8 py-4 rounded-full border-2 transition-all duration-300"
-          style={{ borderColor: "#ff1a1a", background: "rgba(255,26,26,0.08)", boxShadow: "0 0 20px rgba(255,26,26,0.3)", animation: "pulseBtn 2.4s ease-in-out infinite", transformOrigin: "center" }}
+          style={{ borderColor: "#ff1a1a", background: "rgba(255,26,26,0.08)", boxShadow: "0 0 20px rgba(255,26,26,0.3)", animation: "fadeUp 1.1s ease-out 0.9s both, pulseBtn 2.4s ease-in-out 2s infinite", transformOrigin: "center" }}
           onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 0 40px rgba(255,26,26,0.6)")}
           onMouseLeave={e => (e.currentTarget.style.boxShadow = "0 0 20px rgba(255,26,26,0.3)")}
         >
@@ -136,7 +136,7 @@ export default function Home() {
         <button
           onClick={() => navigate("/contacts")}
           className="pointer-events-auto font-cormorant text-lg italic px-8 py-3 rounded-full border transition-colors duration-200 mt-6"
-          style={{ borderColor: "rgba(255,255,255,0.3)", color: "rgba(255,255,255,0.75)", background: "transparent", cursor: "none", animation: "pulseContacts 2.4s ease-in-out infinite", transformOrigin: "center" }}
+          style={{ borderColor: "rgba(255,255,255,0.3)", color: "rgba(255,255,255,0.75)", background: "transparent", cursor: "none", animation: "fadeUp 1.1s ease-out 1.2s both, pulseContacts 2.4s ease-in-out 2.3s infinite", transformOrigin: "center" }}
         >
           Контакты
         </button>
@@ -178,6 +178,10 @@ export default function Home() {
         @keyframes pulseContacts {
           0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(255,255,255,0); border-color: rgba(255,255,255,0.3); }
           50% { transform: scale(1.04); box-shadow: 0 0 20px rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.55); }
+        }
+        @keyframes fadeUp {
+          0% { opacity: 0; transform: translateY(28px); filter: blur(6px); }
+          100% { opacity: 1; transform: translateY(0); filter: blur(0); }
         }
       `}</style>
     </div>
