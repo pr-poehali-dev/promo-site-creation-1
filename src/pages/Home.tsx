@@ -28,7 +28,7 @@ export default function Home() {
     const timer = setInterval(() => {
       setPrev(current);
       setCurrent((c) => (c + 1) % SLIDES.length);
-    }, 5000);
+    }, 9000);
     return () => clearInterval(timer);
   }, [current]);
 
@@ -65,8 +65,8 @@ export default function Home() {
       {SLIDES.map((src, i) => (
         <div
           key={src}
-          className="absolute inset-0 transition-opacity duration-1000"
-          style={{ opacity: i === current ? 1 : 0, zIndex: 1 }}
+          className="absolute inset-0"
+          style={{ opacity: i === current ? 1 : 0, zIndex: 1, transition: "opacity 2500ms cubic-bezier(0.45, 0, 0.55, 1)" }}
         >
           <img
             src={src}
