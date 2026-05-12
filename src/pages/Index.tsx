@@ -67,17 +67,9 @@ export default function Index() {
           className="font-cormorant italic font-bold inline-block"
           style={{ fontSize: "clamp(2rem, 3.6vw, 3.6rem)", lineHeight: 1, fontWeight: 700, paddingTop: "0.35em" }}
         >
-          <span style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)" }}>Сладкие </span>
-          <span style={{ color: "#3d5afe", textShadow: "0 0 10px rgba(61,90,254,0.75), 0 0 18px rgba(61,90,254,0.45)", animation: "neonBlue 2.8s ease-in-out infinite" }}>Грёз</span>
-          <span className="relative inline-block">
-            <span style={{ color: "#3d5afe", textShadow: "0 0 10px rgba(61,90,254,0.75), 0 0 18px rgba(61,90,254,0.45)", animation: "neonBlue 2.8s ease-in-out infinite" }}>ы</span>
-            <span
-              className="absolute left-1/2 -translate-x-1/2 select-none"
-              style={{ top: "-0.55em", fontSize: "0.45em", filter: "drop-shadow(0 0 8px rgba(255,26,26,0.7))" }}
-            >
-              🍓
-            </span>
-          </span>
+          <span style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)" }}>Сладкие</span>
+          <span className="inline-block select-none align-middle" style={{ fontSize: "0.7em", margin: "0 0.15em", filter: "drop-shadow(0 0 8px rgba(255,26,26,0.7))" }}>🍓</span>
+          <span style={{ color: "#3d5afe", textShadow: "0 0 10px rgba(61,90,254,0.75), 0 0 18px rgba(61,90,254,0.45)", animation: "neonBlue 2.8s ease-in-out infinite" }}>Грёзы</span>
         </span>
 
         <div className="relative">
@@ -187,7 +179,7 @@ export default function Index() {
             <h2 className="font-cormorant font-light text-foreground mb-8 leading-tight" style={{ fontSize: "clamp(3rem, 6vw, 6rem)" }}>
               О проекте
               <br />
-              <em style={{ fontWeight: 700 }}>Сладкие Грёз<span className="relative inline-block">ы<span className="absolute left-1/2 -translate-x-1/2 select-none" style={{ top: "-0.6em", fontSize: "0.45em" }}>🍓</span></span></em>
+              <em style={{ fontWeight: 700 }}>Сладкие<span className="inline-block select-none align-middle" style={{ fontSize: "0.7em", margin: "0 0.15em" }}>🍓</span>Грёзы</em>
             </h2>
             <div className="space-y-5 text-muted-foreground font-sans text-sm font-light leading-loose">
               <p>
