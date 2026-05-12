@@ -45,11 +45,11 @@ export default function Home() {
         <img
           src={BG_IMAGE}
           alt=""
-          className="w-full h-full object-cover opacity-50"
+          className="w-full h-full object-cover opacity-80"
           style={{ objectPosition: "center 25%" }}
         />
       </div>
-      <div className="absolute inset-0" style={{ background: "rgba(10,10,10,0.55)", zIndex: 2, animation: "bgFade 1.6s ease-out both" }} />
+      <div className="absolute inset-0" style={{ background: "rgba(10,10,10,0.32)", zIndex: 2, animation: "bgFade 1.6s ease-out both" }} />
 
       {/* Навбар */}
       <div className="relative px-6 md:px-12 pt-6 pb-3 flex items-center justify-between gap-6" style={{ zIndex: 30 }}>
@@ -170,8 +170,8 @@ export default function Home() {
           100% { opacity: 1; transform: translateY(0); filter: blur(0); }
         }
         @keyframes bgFade {
-          0% { background: rgba(10,10,10,0.95); }
-          100% { background: rgba(10,10,10,0.55); }
+          0% { background: rgba(10,10,10,0.9); }
+          100% { background: rgba(10,10,10,0.32); }
         }
 
       `}</style>
