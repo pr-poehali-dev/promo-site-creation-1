@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import PageLayout from "@/components/PageLayout";
 
 const GALLERY = [
@@ -13,6 +13,8 @@ const GALLERY = [
 
 export default function Gallery() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
 
   const close = useCallback(() => setLightboxIndex(null), []);
 
@@ -84,6 +86,21 @@ export default function Gallery() {
         <div
           className="fixed inset-0 z-[999] flex items-center justify-center bg-black/90 backdrop-blur-sm"
           onClick={close}
+          onTouchStart={(e) => {
+            touchStartX.current = e.touches[0].clientX;
+            touchStartY.current = e.touches[0].clientY;
+          }}
+          onTouchEnd={(e) => {
+            if (touchStartX.current === null || touchStartY.current === null) return;
+            const dx = e.changedTouches[0].clientX - touchStartX.current;
+            const dy = e.changedTouches[0].clientY - touchStartY.current;
+            touchStartX.current = null;
+            touchStartY.current = null;
+            if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
+              if (dx < 0) next();
+              else prev();
+            }
+          }}
         >
           <button
             className="lightbox-btn absolute top-5 right-6 text-white/80 hover:text-white font-mono text-2xl"
