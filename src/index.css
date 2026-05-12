@@ -271,6 +271,35 @@
 .gallery-item {
   overflow: hidden;
   position: relative;
+  isolation: isolate;
+  transition:
+    box-shadow 0.4s ease,
+    transform 0.4s ease;
+}
+
+.gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  pointer-events: none;
+  z-index: 3;
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.gallery-item:hover {
+  box-shadow:
+    0 0 18px rgba(61, 90, 254, 0.45),
+    0 0 36px rgba(61, 90, 254, 0.25);
+}
+
+.gallery-item:hover::after {
+  border-color: #3d5afe;
+  box-shadow:
+    inset 0 0 14px rgba(61, 90, 254, 0.45),
+    0 0 12px rgba(61, 90, 254, 0.55);
 }
 
 .gallery-item img {
@@ -288,9 +317,15 @@
 .gallery-item .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
+  background: linear-gradient(
+    to top,
+    rgba(10, 14, 40, 0.75) 0%,
+    rgba(61, 90, 254, 0.12) 50%,
+    transparent 100%
+  );
   opacity: 0;
   transition: opacity 0.4s ease;
+  z-index: 2;
 }
 
 .gallery-item:hover .overlay {
