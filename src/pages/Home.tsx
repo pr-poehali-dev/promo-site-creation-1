@@ -118,7 +118,7 @@ export default function Home() {
           Привет, я Эльвира
         </h1>
         <p className="font-cormorant text-2xl md:text-3xl italic mb-10" style={{ color: "rgba(255,255,255,0.75)", textShadow: "0 2px 20px rgba(0,0,0,0.7)" }}>
-          Хочешь со мной встретиться?
+          Встретимся?
         </p>
         <a
           href="tel:+79179865198"
