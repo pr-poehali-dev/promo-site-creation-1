@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-const BG_IMAGE = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/04b348e9-2c1d-44aa-9b17-2497e0668574.jpg";
+const BG_IMAGE = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/f236a882-6f82-45af-84a6-75c898ae12c5.jpg";
 
 const NAV_ITEMS = [
   { label: "Главная", path: "/" },
