@@ -65,7 +65,7 @@ export default function Index() {
       >
         <span
           className="font-cormorant italic"
-          style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)", fontSize: "clamp(4.5rem, 9vw, 9rem)", lineHeight: 1 }}
+          style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)", fontSize: "clamp(3.75rem, 7.5vw, 7.5rem)", lineHeight: 1 }}
         >
           Сладкие Грёз
           <span className="relative inline-block">
@@ -183,7 +183,7 @@ export default function Index() {
       <section id="about" className="py-24 px-8 md:px-16">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div className="section-hidden order-2 md:order-1">
-            <h2 className="font-cormorant font-light text-foreground mb-8 leading-tight" style={{ fontSize: "clamp(5rem, 11vw, 11rem)" }}>
+            <h2 className="font-cormorant font-light text-foreground mb-8 leading-tight" style={{ fontSize: "clamp(4.17rem, 9.17vw, 9.17rem)" }}>
               О проекте
               <br />
               <em>Сладкие Грёз<span className="relative inline-block">ы<span className="absolute left-1/2 -translate-x-1/2 select-none" style={{ top: "-0.6em", fontSize: "0.45em" }}>🍓</span></span></em>
