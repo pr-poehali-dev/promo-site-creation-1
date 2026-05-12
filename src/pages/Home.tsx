@@ -1,10 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRef } from "react";
 
-const SLIDES = [
-  "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/bf5a658d-7a5d-4d46-842d-2a7d228e314f.jpg",
-];
+const BG_IMAGE = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/bf5a658d-7a5d-4d46-842d-2a7d228e314f.jpg";
 
 const NAV_ITEMS = [
   { label: "Главная", path: "/" },
@@ -13,20 +10,10 @@ const NAV_ITEMS = [
 ];
 
 export default function Home() {
-  const [current, setCurrent] = useState(0);
-  const [prev, setPrev] = useState<number | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   const cursorRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setPrev(current);
-      setCurrent((c) => (c + 1) % SLIDES.length);
-    }, 9000);
-    return () => clearInterval(timer);
-  }, [current]);
 
   useEffect(() => {
     const move = (e: MouseEvent) => {
@@ -53,21 +40,15 @@ export default function Home() {
       <div ref={cursorRef} className="cursor hidden md:block" />
       <div ref={ringRef} className="cursor-ring hidden md:block" />
 
-      {/* Слайды фона */}
-      {SLIDES.map((src, i) => (
-        <div
-          key={src}
-          className="absolute inset-0"
-          style={{ opacity: i === current ? 1 : 0, zIndex: 1, transition: "opacity 2500ms cubic-bezier(0.45, 0, 0.55, 1)" }}
-        >
-          <img
-            src={src}
-            alt=""
-            className="w-full h-full object-cover opacity-50"
-            style={{ objectPosition: "center 25%" }}
-          />
-        </div>
-      ))}
+      {/* Фон */}
+      <div className="absolute inset-0" style={{ zIndex: 1 }}>
+        <img
+          src={BG_IMAGE}
+          alt=""
+          className="w-full h-full object-cover opacity-50"
+          style={{ objectPosition: "center 25%" }}
+        />
+      </div>
       <div className="absolute inset-0" style={{ background: "rgba(10,10,10,0.55)", zIndex: 2, animation: "bgFade 1.6s ease-out both" }} />
 
       {/* Навбар */}
@@ -141,18 +122,6 @@ export default function Home() {
         >
           Контакты
         </button>
-      </div>
-
-      {/* Точки-индикаторы */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3" style={{ zIndex: 20 }}>
-        {SLIDES.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => { setPrev(current); setCurrent(i); }}
-            className="w-2 h-2 rounded-full transition-all duration-300"
-            style={{ background: i === current ? "#ff1a1a" : "rgba(255,255,255,0.3)", transform: i === current ? "scale(1.4)" : "scale(1)", cursor: "none" }}
-          />
-        ))}
       </div>
 
       <style>{`
