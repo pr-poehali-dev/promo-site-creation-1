@@ -64,8 +64,8 @@ export default function Index() {
         style={{ background: "linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%)" }}
       >
         <span
-          className="font-cormorant italic"
-          style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)", fontSize: "clamp(2rem, 3.6vw, 3.6rem)", lineHeight: 1 }}
+          className="font-cormorant italic font-bold"
+          style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)", fontSize: "clamp(2rem, 3.6vw, 3.6rem)", lineHeight: 1, fontWeight: 700 }}
         >
           Сладкие Грёз
           <span className="relative inline-block">
@@ -186,7 +186,7 @@ export default function Index() {
             <h2 className="font-cormorant font-light text-foreground mb-8 leading-tight" style={{ fontSize: "clamp(3rem, 6vw, 6rem)" }}>
               О проекте
               <br />
-              <em>Сладкие Грёз<span className="relative inline-block">ы<span className="absolute left-1/2 -translate-x-1/2 select-none" style={{ top: "-0.6em", fontSize: "0.45em" }}>🍓</span></span></em>
+              <em style={{ fontWeight: 700 }}>Сладкие Грёз<span className="relative inline-block">ы<span className="absolute left-1/2 -translate-x-1/2 select-none" style={{ top: "-0.6em", fontSize: "0.45em" }}>🍓</span></span></em>
             </h2>
             <div className="space-y-5 text-muted-foreground font-sans text-sm font-light leading-loose">
               <p>

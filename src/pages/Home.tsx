@@ -76,8 +76,8 @@ export default function Home() {
       {/* Навбар */}
       <div className="relative px-8 md:px-16 py-4 flex items-center justify-between" style={{ zIndex: 30 }}>
         <span
-          className="font-cormorant italic"
-          style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)", cursor: "none", fontSize: "clamp(1.75rem, 2.8vw, 2.8rem)", lineHeight: 1 }}
+          className="font-cormorant italic font-bold"
+          style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)", cursor: "none", fontSize: "clamp(1.75rem, 2.8vw, 2.8rem)", lineHeight: 1, fontWeight: 700 }}
           onClick={() => go("/")}
         >
           Сладкие Грёз
