@@ -101,10 +101,10 @@ export default function Home() {
 
       {/* Центральный текст */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8 pointer-events-none" style={{ zIndex: 20 }}>
-        <h1 className="font-cormorant text-6xl md:text-8xl font-semibold italic mb-6" style={{ color: "#fff", textShadow: "0 2px 30px rgba(0,0,0,0.8)", animation: "fadeUp 1.1s ease-out 0.1s both" }}>
+        <h1 className="font-cormorant text-6xl md:text-8xl font-semibold italic mb-6" style={{ color: "rgba(255,255,255,0.45)", textShadow: "0 2px 30px rgba(0,0,0,0.8)", animation: "fadeUp 1.1s ease-out 0.1s both" }}>
           Привет, я Эльвира
         </h1>
-        <p className="font-cormorant text-4xl md:text-6xl italic mb-10" style={{ color: "rgba(255,255,255,0.85)", textShadow: "0 2px 20px rgba(0,0,0,0.7)", animation: "fadeUp 1.1s ease-out 0.5s both, shimmer 2.6s ease-in-out 1.6s infinite" }}>
+        <p className="font-cormorant text-4xl md:text-6xl italic mb-10" style={{ color: "rgba(255,255,255,0.4)", textShadow: "0 2px 20px rgba(0,0,0,0.7)", animation: "fadeUp 1.1s ease-out 0.5s both, shimmer 2.6s ease-in-out 1.6s infinite" }}>
           Встретимся?
         </p>
         <div
