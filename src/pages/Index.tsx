@@ -84,17 +84,18 @@ export default function Index() {
 
           {menuOpen && (
             <div className="absolute top-full right-0 mt-3 flex flex-col min-w-[180px] border border-border/40 overflow-hidden"
-              style={{ background: "rgba(10,10,10,0.97)" }}>
+              style={{ background: "rgba(10,10,10,0.97)", animation: "menuFade 0.35s ease-out both" }}>
               {[
                 { label: "Главная", action: () => navigate("/") },
                 { label: "Обо мне", action: () => navigate("/about") },
                 { label: "Фотогалерея", action: () => navigate("/gallery") },
                 { label: "Контакты", action: () => navigate("/contacts") },
-              ].map(({ label, action }) => (
+              ].map(({ label, action }, idx) => (
                 <button
                   key={label}
                   onClick={() => { setMenuOpen(false); action(); }}
                   className="font-cormorant text-xl italic text-left px-6 py-3 text-foreground/80 hover:text-accent hover:bg-white/5 transition-colors duration-200 border-b border-border/20 last:border-0"
+                  style={{ animation: `menuItemFade 0.5s ease-out ${0.12 + idx * 0.08}s both` }}
                 >
                   {label}
                 </button>

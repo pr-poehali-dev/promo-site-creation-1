@@ -80,14 +80,14 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
           {menuOpen && (
             <div
               className="fixed top-16 right-8 md:right-16 flex flex-col min-w-[180px] border border-border/40 overflow-hidden"
-              style={{ background: "rgba(10,10,10,0.97)", zIndex: 99999 }}
+              style={{ background: "rgba(10,10,10,0.97)", zIndex: 99999, animation: "menuFade 0.35s ease-out both" }}
             >
-              {NAV_ITEMS.map(({ label, path }) => (
+              {NAV_ITEMS.map(({ label, path }, idx) => (
                 <button
                   key={label}
                   onClick={() => go(path)}
                   className="font-cormorant text-xl italic text-left px-6 py-3 text-foreground/80 hover:text-accent hover:bg-white/5 transition-colors duration-200 border-b border-border/20 last:border-0"
-                  style={{ cursor: "none" }}
+                  style={{ cursor: "none", animation: `menuItemFade 0.5s ease-out ${0.12 + idx * 0.08}s both` }}
                 >
                   {label}
                 </button>
@@ -108,6 +108,14 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
         }
         @keyframes logoFadeUp {
           0% { opacity: 0; transform: translateY(28px); filter: blur(6px); }
+          100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        @keyframes menuFade {
+          0% { opacity: 0; transform: translateY(-8px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes menuItemFade {
+          0% { opacity: 0; transform: translateY(-10px); filter: blur(4px); }
           100% { opacity: 1; transform: translateY(0); filter: blur(0); }
         }
       `}</style>
