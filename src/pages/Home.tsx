@@ -1,10 +1,11 @@
 import { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const BG_IMAGE = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/6630b2d3-52cb-4fb4-bc6d-c7badbb528bf.jpg";
 
 export default function Home() {
   const navigate = useNavigate();
+  const location = useLocation();
   const cursorRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
 
@@ -72,7 +73,7 @@ export default function Home() {
             { label: "Фотогалерея", path: "/gallery" },
             { label: "Контакты", path: "/contacts" },
           ].map(({ label, path }) => {
-            const isActive = window.location.pathname === path;
+            const isActive = location.pathname === path;
             return (
               <button
                 key={path}
@@ -98,14 +99,6 @@ export default function Home() {
       </div>
 
       <style>{`
-        @keyframes ring {
-          0%, 100% { transform: rotate(0deg); }
-          10% { transform: rotate(15deg); }
-          20% { transform: rotate(-12deg); }
-          30% { transform: rotate(10deg); }
-          40% { transform: rotate(-8deg); }
-          50% { transform: rotate(0deg); }
-        }
         @keyframes shimmer {
           0%, 100% { opacity: 0.75; text-shadow: 0 2px 20px rgba(0,0,0,0.7), 0 0 8px rgba(255,255,255,0.2); }
           50% { opacity: 1; text-shadow: 0 2px 20px rgba(0,0,0,0.7), 0 0 28px rgba(255,255,255,0.7), 0 0 50px rgba(61,90,254,0.45); }
@@ -113,18 +106,6 @@ export default function Home() {
         @keyframes shimmerHero {
           0%, 100% { text-shadow: 0 2px 30px rgba(0,0,0,0.85), 0 0 18px rgba(0,0,0,0.6), 0 0 10px rgba(61,90,254,0.25); }
           50% { text-shadow: 0 2px 30px rgba(0,0,0,0.85), 0 0 22px rgba(255,255,255,0.55), 0 0 60px rgba(61,90,254,0.55); }
-        }
-        @keyframes shimmerPhone {
-          0%, 100% { opacity: 0.85; text-shadow: 0 0 12px rgba(61,90,254,0.7); }
-          50% { opacity: 1; text-shadow: 0 0 18px rgba(255,255,255,0.6), 0 0 32px rgba(61,90,254,0.85); }
-        }
-        @keyframes pulseBtn {
-          0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(61,90,254,0.3); }
-          50% { transform: scale(1.04); box-shadow: 0 0 35px rgba(61,90,254,0.65); }
-        }
-        @keyframes neonBlue {
-          0%, 100% { text-shadow: 0 0 10px rgba(61,90,254,0.55), 0 0 18px rgba(61,90,254,0.3); opacity: 0.92; }
-          50% { text-shadow: 0 0 14px rgba(61,90,254,1), 0 0 28px rgba(61,90,254,0.7), 0 0 48px rgba(61,90,254,0.4); opacity: 1; }
         }
         @keyframes fadeUp {
           0% { opacity: 0; transform: translateY(28px); filter: blur(6px); }
