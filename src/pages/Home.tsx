@@ -207,8 +207,8 @@ export default function Home() {
           100% { opacity: 1; transform: translateY(0); filter: blur(0); }
         }
         @keyframes kenBurns {
-          0% { transform: scale(1.08); filter: blur(8px) brightness(0.7); }
-          100% { transform: scale(1); filter: blur(0) brightness(1); }
+          0% { transform: scale(1.08); filter: brightness(0.7); }
+          100% { transform: scale(1); filter: brightness(1); }
         }
         @keyframes bgFade {
           0% { background: rgba(10,10,10,0.95); }
