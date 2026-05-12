@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-const BG_IMAGE = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/f236a882-6f82-45af-84a6-75c898ae12c5.jpg";
+const BG_IMAGE = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/6630b2d3-52cb-4fb4-bc6d-c7badbb528bf.jpg";
 
 const NAV_ITEMS = [
   { label: "Главная", path: "/" },
@@ -47,7 +47,7 @@ export default function Home() {
           alt=""
           className="w-full h-full object-cover opacity-85"
           style={{
-            objectPosition: "30% 18%",
+            objectPosition: "65% 25%",
             filter: "contrast(1.08) saturate(1.12) brightness(0.92)",
             imageRendering: "crisp-edges",
           }}
