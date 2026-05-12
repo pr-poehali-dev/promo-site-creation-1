@@ -134,11 +134,11 @@ export default function Home() {
         </a>
 
         <button
-          onClick={() => navigate("/services")}
+          onClick={() => navigate("/contacts")}
           className="pointer-events-auto font-cormorant text-lg italic px-8 py-3 rounded-full border transition-colors duration-200 mt-6"
           style={{ borderColor: "rgba(255,255,255,0.3)", color: "rgba(255,255,255,0.75)", background: "transparent", cursor: "none" }}
         >
-          Мои услуги
+          Контакты
         </button>
       </div>
 
