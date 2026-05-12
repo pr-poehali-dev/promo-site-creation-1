@@ -45,11 +45,11 @@ export default function Home() {
         <img
           src={BG_IMAGE}
           alt=""
-          className="w-full h-full object-cover opacity-80"
-          style={{ objectPosition: "65% 30%" }}
+          className="w-full h-full object-cover opacity-65"
+          style={{ objectPosition: "65% 10%" }}
         />
       </div>
-      <div className="absolute inset-0" style={{ background: "rgba(10,10,10,0.32)", zIndex: 2, animation: "bgFade 1.6s ease-out both" }} />
+      <div className="absolute inset-0" style={{ background: "rgba(10,10,10,0.55)", zIndex: 2, animation: "bgFade 1.6s ease-out both" }} />
       <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent 45%, rgba(10,10,10,0.55) 80%, rgba(10,10,10,0.85) 100%)", zIndex: 3 }} />
 
       {/* Навбар */}
@@ -171,8 +171,8 @@ export default function Home() {
           100% { opacity: 1; transform: translateY(0); filter: blur(0); }
         }
         @keyframes bgFade {
-          0% { background: rgba(10,10,10,0.9); }
-          100% { background: rgba(10,10,10,0.32); }
+          0% { background: rgba(10,10,10,0.95); }
+          100% { background: rgba(10,10,10,0.55); }
         }
 
       `}</style>
