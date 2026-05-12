@@ -62,9 +62,9 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
           onClick={() => go("/")}
         >
           <span style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)" }}>Сладкие </span>
-          <span style={{ color: "#3d5afe", textShadow: "0 0 10px rgba(61,90,254,0.75), 0 0 18px rgba(61,90,254,0.45)" }}>Грёз</span>
+          <span style={{ color: "#3d5afe", textShadow: "0 0 10px rgba(61,90,254,0.75), 0 0 18px rgba(61,90,254,0.45)", animation: "neonBlue 2.8s ease-in-out infinite" }}>Грёз</span>
           <span className="relative inline-block">
-            <span style={{ color: "#3d5afe", textShadow: "0 0 10px rgba(61,90,254,0.75), 0 0 18px rgba(61,90,254,0.45)" }}>ы</span>
+            <span style={{ color: "#3d5afe", textShadow: "0 0 10px rgba(61,90,254,0.75), 0 0 18px rgba(61,90,254,0.45)", animation: "neonBlue 2.8s ease-in-out infinite" }}>ы</span>
             <span
               className="absolute left-1/2 -translate-x-1/2 select-none"
               style={{ top: "-0.55em", fontSize: "0.45em", filter: "drop-shadow(0 0 8px rgba(255,26,26,0.7))" }}
@@ -108,6 +108,13 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
       <div className="relative z-10">
         {children}
       </div>
+
+      <style>{`
+        @keyframes neonBlue {
+          0%, 100% { text-shadow: 0 0 10px rgba(61,90,254,0.55), 0 0 18px rgba(61,90,254,0.3); opacity: 0.92; }
+          50% { text-shadow: 0 0 14px rgba(61,90,254,1), 0 0 28px rgba(61,90,254,0.7), 0 0 48px rgba(61,90,254,0.4); opacity: 1; }
+        }
+      `}</style>
     </div>
   );
 }
