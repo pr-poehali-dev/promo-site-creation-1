@@ -117,7 +117,7 @@ export default function Home() {
         <h1 className="font-cormorant text-6xl md:text-8xl font-semibold italic mb-6" style={{ color: "#fff", textShadow: "0 2px 30px rgba(0,0,0,0.8)" }}>
           Привет, я Эльвира
         </h1>
-        <p className="font-cormorant text-2xl md:text-3xl italic mb-10" style={{ color: "rgba(255,255,255,0.75)", textShadow: "0 2px 20px rgba(0,0,0,0.7)" }}>
+        <p className="font-cormorant text-4xl md:text-6xl italic mb-10" style={{ color: "rgba(255,255,255,0.85)", textShadow: "0 2px 20px rgba(0,0,0,0.7)" }}>
           Встретимся?
         </p>
         <a
