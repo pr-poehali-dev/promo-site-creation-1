@@ -68,7 +68,7 @@ export default function Index() {
           style={{ fontSize: "clamp(2rem, 3.6vw, 3.6rem)", lineHeight: 1, fontWeight: 700, paddingTop: "0.35em" }}
         >
           <span style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)" }}>Сладкие</span>
-          <span className="inline-block select-none align-middle" style={{ fontSize: "0.7em", margin: "0 0.15em", filter: "drop-shadow(0 0 8px rgba(255,26,26,0.7))" }}>🍓</span>
+          <span className="inline-block select-none align-middle" style={{ fontSize: "0.7em", margin: "0 0.15em", animation: "strawberryGlow 2.8s ease-in-out infinite" }}>🍓</span>
           <span style={{ color: "#3d5afe", textShadow: "0 0 10px rgba(61,90,254,0.75), 0 0 18px rgba(61,90,254,0.45)", animation: "neonBlue 2.8s ease-in-out infinite" }}>Грёзы</span>
         </span>
 
