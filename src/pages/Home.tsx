@@ -117,7 +117,7 @@ export default function Home() {
         <h1 className="font-cormorant text-6xl md:text-8xl font-semibold italic mb-6" style={{ color: "#fff", textShadow: "0 2px 30px rgba(0,0,0,0.8)" }}>
           Привет, я Эльвира
         </h1>
-        <p className="font-cormorant text-4xl md:text-6xl italic mb-10" style={{ color: "rgba(255,255,255,0.85)", textShadow: "0 2px 20px rgba(0,0,0,0.7)" }}>
+        <p className="font-cormorant text-4xl md:text-6xl italic mb-10" style={{ color: "rgba(255,255,255,0.85)", textShadow: "0 2px 20px rgba(0,0,0,0.7)", animation: "shimmer 2.6s ease-in-out infinite" }}>
           Встретимся?
         </p>
         <a
@@ -162,6 +162,10 @@ export default function Home() {
           30% { transform: rotate(10deg); }
           40% { transform: rotate(-8deg); }
           50% { transform: rotate(0deg); }
+        }
+        @keyframes shimmer {
+          0%, 100% { opacity: 0.75; text-shadow: 0 2px 20px rgba(0,0,0,0.7), 0 0 8px rgba(255,255,255,0.2); }
+          50% { opacity: 1; text-shadow: 0 2px 20px rgba(0,0,0,0.7), 0 0 28px rgba(255,255,255,0.7), 0 0 50px rgba(255,26,26,0.35); }
         }
       `}</style>
     </div>
