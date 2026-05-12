@@ -64,20 +64,10 @@ export default function Home() {
           className="absolute inset-0"
           style={{ opacity: i === current ? 1 : 0, zIndex: 1, transition: "opacity 2500ms cubic-bezier(0.45, 0, 0.55, 1)" }}
         >
-          {/* Размытая подложка */}
           <img
             src={src}
             alt=""
-            aria-hidden
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ filter: "blur(40px) brightness(0.55) saturate(1.1)", transform: "scale(1.1)", opacity: 0.85 }}
-          />
-          {/* Основное фото целиком */}
-          <img
-            src={src}
-            alt=""
-            className="relative w-full h-full object-contain opacity-85"
-            style={{ objectPosition: "center" }}
+            className="w-full h-full object-cover opacity-50"
           />
         </div>
       ))}
