@@ -57,7 +57,7 @@ export default function Home() {
       </div>
       <div className="absolute inset-0" style={{ background: "rgba(10,10,10,0.45)", zIndex: 2, animation: "bgFade 1.6s ease-out both" }} />
       <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(135deg, rgba(255,200,90,0.45) 0%, rgba(255,160,50,0.22) 35%, transparent 55%, rgba(180,20,30,0.32) 100%)", mixBlendMode: "overlay", zIndex: 3 }} />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(circle at 18% 22%, rgba(255,210,120,0.35) 0%, transparent 35%)", mixBlendMode: "screen", zIndex: 3 }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(circle at 18% 22%, rgba(255,210,120,0.35) 0%, transparent 35%)", mixBlendMode: "screen", zIndex: 3, animation: "candleFlicker 5.5s ease-in-out infinite" }} />
       <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to bottom, rgba(10,10,10,0.35) 0%, transparent 35%, transparent 50%, rgba(10,10,10,0.6) 85%, rgba(10,10,10,0.9) 100%)", zIndex: 4 }} />
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.6) 100%)", zIndex: 5 }} />
 
@@ -182,6 +182,15 @@ export default function Home() {
         @keyframes bgFade {
           0% { background: rgba(10,10,10,0.95); }
           100% { background: rgba(10,10,10,0.45); }
+        }
+        @keyframes candleFlicker {
+          0%, 100% { opacity: 0.9; transform: scale(1) translate(0, 0); filter: blur(0px); }
+          18% { opacity: 1; transform: scale(1.04) translate(0.4%, -0.5%); }
+          32% { opacity: 0.75; transform: scale(0.98) translate(-0.3%, 0.4%); filter: blur(0.4px); }
+          47% { opacity: 1; transform: scale(1.05) translate(0.5%, 0.2%); }
+          63% { opacity: 0.82; transform: scale(0.99) translate(-0.2%, -0.4%); filter: blur(0.3px); }
+          78% { opacity: 1; transform: scale(1.03) translate(0.3%, 0.3%); }
+          92% { opacity: 0.88; transform: scale(1) translate(0, -0.2%); }
         }
 
       `}</style>
