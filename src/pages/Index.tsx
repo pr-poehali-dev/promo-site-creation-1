@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/files/c906dad4-5275-4aa1-a0e9-8b39ba15ca55.jpg";
@@ -18,10 +17,8 @@ const GALLERY = [
 ];
 
 export default function Index() {
-  const navigate = useNavigate();
   const cursorRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
-  const [menuOpen, setMenuOpen] = useState(false);
   const [lightbox, setLightbox] = useState<{ img: string; title: string } | null>(null);
 
   useEffect(() => {
@@ -72,40 +69,6 @@ export default function Index() {
           <span style={{ color: "#3d5afe", textShadow: "0 0 10px rgba(61,90,254,0.75), 0 0 18px rgba(61,90,254,0.45)", animation: "neonBlue 2.8s ease-in-out infinite" }}>Грёзы</span>
         </span>
 
-        <div className="relative">
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="flex flex-col gap-1.5 p-2 group"
-          >
-            <span className={`block w-6 h-px bg-foreground transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-            <span className={`block w-6 h-px bg-foreground transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-            <span className={`block w-6 h-px bg-foreground transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-          </button>
-
-          {menuOpen && (
-            <div className="absolute top-full right-0 mt-3 flex flex-col min-w-[180px] border border-border/40"
-              style={{ background: "rgba(10,10,10,0.97)", animation: "menuFade 0.35s ease-out both" }}>
-              {[
-                { label: "Главная", path: "/", action: () => navigate("/") },
-                { label: "Обо мне", path: "/about", action: () => navigate("/about") },
-                { label: "Фотогалерея", path: "/gallery", action: () => navigate("/gallery") },
-                { label: "Контакты", path: "/contacts", action: () => navigate("/contacts") },
-              ].map(({ label, path, action }, idx) => {
-                const isActive = typeof window !== "undefined" && window.location.pathname === path;
-                return (
-                  <button
-                    key={label}
-                    onClick={() => { setMenuOpen(false); action(); }}
-                    className={`nav-menu-item font-cormorant text-xl italic text-left px-6 py-3 transition-colors duration-200 border-b border-border/20 last:border-0 ${isActive ? "is-active text-white" : "text-white/90 hover:text-white"}`}
-                    style={{ animation: `menuItemFade 0.5s ease-out ${0.12 + idx * 0.08}s both` }}
-                  >
-                    {label}
-                  </button>
-                );
-              })}
-            </div>
-          )}
-        </div>
       </nav>
 
       {/* HERO */}
