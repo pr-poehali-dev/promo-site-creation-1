@@ -67,7 +67,8 @@ export default function Home() {
           <img
             src={src}
             alt=""
-            className="w-full h-full object-cover opacity-50"
+            className="w-full h-full object-contain opacity-60"
+            style={{ objectPosition: "center" }}
           />
         </div>
       ))}
