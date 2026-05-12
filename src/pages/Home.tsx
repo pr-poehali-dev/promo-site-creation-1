@@ -101,7 +101,7 @@ export default function Home() {
       </div>
 
       {/* Центральный текст */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8 pointer-events-none" style={{ zIndex: 20 }}>
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8 pointer-events-none" style={{ zIndex: 20, paddingTop: "28vh" }}>
         <h1 className="font-cormorant text-6xl md:text-8xl font-semibold italic mb-6" style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 2px 30px rgba(0,0,0,0.85), 0 0 18px rgba(0,0,0,0.6)", animation: "fadeUp 1.1s ease-out 0.1s both" }}>
           Привет, я Эльвира
         </h1>
