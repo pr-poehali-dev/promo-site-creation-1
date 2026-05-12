@@ -68,6 +68,7 @@ export default function Home() {
             src={src}
             alt=""
             className="w-full h-full object-cover opacity-50"
+            style={{ objectPosition: "center 25%" }}
           />
         </div>
       ))}
