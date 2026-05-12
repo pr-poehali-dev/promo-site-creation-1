@@ -45,19 +45,19 @@ export default function Home() {
         <img
           src={BG_IMAGE}
           alt=""
-          className="w-full h-full object-cover opacity-75"
+          className="w-full h-full object-cover opacity-85"
           style={{
-            objectPosition: "65% 35%",
-            filter: "contrast(1.12) saturate(1.18) brightness(1.05)",
+            objectPosition: "50% 28%",
+            filter: "contrast(1.08) saturate(1.12) brightness(0.92)",
             imageRendering: "crisp-edges",
           }}
           loading="eager"
           decoding="sync"
         />
       </div>
-      <div className="absolute inset-0" style={{ background: "rgba(10,10,10,0.55)", zIndex: 2, animation: "bgFade 1.6s ease-out both" }} />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent 45%, rgba(10,10,10,0.55) 80%, rgba(10,10,10,0.85) 100%)", zIndex: 3 }} />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.55) 100%)", zIndex: 4 }} />
+      <div className="absolute inset-0" style={{ background: "rgba(10,10,10,0.45)", zIndex: 2, animation: "bgFade 1.6s ease-out both" }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to bottom, rgba(10,10,10,0.35) 0%, transparent 35%, transparent 50%, rgba(10,10,10,0.6) 85%, rgba(10,10,10,0.9) 100%)", zIndex: 3 }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.6) 100%)", zIndex: 4 }} />
 
       {/* Навбар */}
       <div className="relative px-6 md:px-12 pt-6 pb-3 flex items-center justify-between gap-6" style={{ zIndex: 30 }}>
@@ -179,7 +179,7 @@ export default function Home() {
         }
         @keyframes bgFade {
           0% { background: rgba(10,10,10,0.95); }
-          100% { background: rgba(10,10,10,0.55); }
+          100% { background: rgba(10,10,10,0.45); }
         }
 
       `}</style>
