@@ -46,7 +46,7 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
       <div ref={cursorRef} className="cursor hidden md:block" />
       <div ref={ringRef} className="cursor-ring hidden md:block" />
 
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {backgroundSlot ? backgroundSlot : !noBackground && (
           <>
             <img src={HERO_IMG} alt="" className="w-full h-full object-cover opacity-50" />
