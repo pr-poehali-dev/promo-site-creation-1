@@ -128,7 +128,7 @@ export default function Home() {
           onMouseLeave={e => (e.currentTarget.style.boxShadow = "0 0 20px rgba(255,26,26,0.3)")}
         >
           <span className="text-xl" style={{ animation: "ring 1.8s ease-in-out infinite", display: "inline-block", transformOrigin: "top center" }}>📞</span>
-          <span className="font-cormorant text-2xl italic tracking-wider" style={{ color: "#fff", textShadow: "0 0 12px rgba(255,26,26,0.7)" }}>
+          <span className="font-cormorant text-2xl italic tracking-wider" style={{ color: "#fff", textShadow: "0 0 12px rgba(255,26,26,0.7)", animation: "shimmerPhone 2.6s ease-in-out infinite" }}>
             8 (917) 986-51-98
           </span>
         </a>
@@ -166,6 +166,10 @@ export default function Home() {
         @keyframes shimmer {
           0%, 100% { opacity: 0.75; text-shadow: 0 2px 20px rgba(0,0,0,0.7), 0 0 8px rgba(255,255,255,0.2); }
           50% { opacity: 1; text-shadow: 0 2px 20px rgba(0,0,0,0.7), 0 0 28px rgba(255,255,255,0.7), 0 0 50px rgba(255,26,26,0.35); }
+        }
+        @keyframes shimmerPhone {
+          0%, 100% { opacity: 0.85; text-shadow: 0 0 12px rgba(255,26,26,0.7); }
+          50% { opacity: 1; text-shadow: 0 0 18px rgba(255,255,255,0.6), 0 0 32px rgba(255,26,26,0.85); }
         }
       `}</style>
     </div>
