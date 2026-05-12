@@ -284,6 +284,25 @@
   transform: translateY(0);
 }
 
+/* App frame — лёгкое сужение контента */
+.app-frame {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+}
+
+.app-frame-inner {
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: hsl(var(--background));
+  box-shadow:
+    0 0 40px rgba(0, 0, 0, 0.5),
+    0 0 100px rgba(0, 0, 0, 0.35);
+}
+
 /* Menu fade animations */
 @keyframes menuFade {
   0% {
