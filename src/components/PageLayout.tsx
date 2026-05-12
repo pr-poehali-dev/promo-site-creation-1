@@ -58,12 +58,13 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
       <div className="relative z-10 px-6 md:px-12 pt-6 pb-3 flex items-center justify-between gap-6">
         <span
           className="font-cormorant italic font-bold inline-block"
-          style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)", cursor: "none", fontSize: "clamp(1.75rem, 2.8vw, 2.8rem)", lineHeight: 1, fontWeight: 700, paddingTop: "0.35em" }}
+          style={{ cursor: "none", fontSize: "clamp(1.75rem, 2.8vw, 2.8rem)", lineHeight: 1, fontWeight: 700, paddingTop: "0.35em" }}
           onClick={() => go("/")}
         >
-          Сладкие Грёз
+          <span style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)" }}>Сладкие </span>
+          <span style={{ color: "#1a8cff", textShadow: "0 0 10px rgba(26,140,255,0.6)" }}>Грёз</span>
           <span className="relative inline-block">
-            ы
+            <span style={{ color: "#1a8cff", textShadow: "0 0 10px rgba(26,140,255,0.6)" }}>ы</span>
             <span
               className="absolute left-1/2 -translate-x-1/2 select-none"
               style={{ top: "-0.55em", fontSize: "0.45em", filter: "drop-shadow(0 0 8px rgba(255,26,26,0.7))" }}
