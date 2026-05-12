@@ -60,19 +60,19 @@ export default function Index() {
 
       {/* NAV */}
       <nav
-        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 md:px-16 py-4"
+        className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 pt-6 pb-3 gap-6"
         style={{ background: "linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%)" }}
       >
         <span
-          className="font-cormorant italic font-bold"
-          style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)", fontSize: "clamp(2rem, 3.6vw, 3.6rem)", lineHeight: 1, fontWeight: 700 }}
+          className="font-cormorant italic font-bold inline-block"
+          style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)", fontSize: "clamp(2rem, 3.6vw, 3.6rem)", lineHeight: 1, fontWeight: 700, paddingTop: "0.35em" }}
         >
           Сладкие Грёз
           <span className="relative inline-block">
             ы
             <span
               className="absolute left-1/2 -translate-x-1/2 select-none"
-              style={{ top: "-0.6em", fontSize: "0.45em", filter: "drop-shadow(0 0 8px rgba(255,26,26,0.7))" }}
+              style={{ top: "-0.55em", fontSize: "0.45em", filter: "drop-shadow(0 0 8px rgba(255,26,26,0.7))" }}
             >
               🍓
             </span>
