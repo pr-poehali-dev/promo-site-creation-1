@@ -57,10 +57,6 @@ export default function Home() {
       <div ref={cursorRef} className="cursor hidden md:block" />
       <div ref={ringRef} className="cursor-ring hidden md:block" />
 
-      {/* Кинематографические полосы */}
-      <div className="pointer-events-none fixed top-0 left-0 right-0" style={{ background: "#000", zIndex: 100, animation: "cineBarTop 1.4s cubic-bezier(0.77,0,0.18,1) both" }} />
-      <div className="pointer-events-none fixed bottom-0 left-0 right-0" style={{ background: "#000", zIndex: 100, animation: "cineBarBottom 1.4s cubic-bezier(0.77,0,0.18,1) both" }} />
-
       {/* Слайды фона */}
       {SLIDES.map((src, i) => (
         <div
@@ -209,14 +205,7 @@ export default function Home() {
           0% { background: rgba(10,10,10,0.95); }
           100% { background: rgba(10,10,10,0.55); }
         }
-        @keyframes cineBarTop {
-          0% { height: 50vh; }
-          100% { height: 60px; }
-        }
-        @keyframes cineBarBottom {
-          0% { height: 50vh; }
-          100% { height: 60px; }
-        }
+
       `}</style>
     </div>
   );
