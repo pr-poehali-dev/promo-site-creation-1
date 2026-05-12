@@ -119,19 +119,6 @@ export default function Home() {
           </span>
         </div>
 
-        <button
-          onClick={() => navigate("/contacts")}
-          className="pointer-events-auto font-cormorant text-lg italic px-8 py-3 rounded-full border-2 transition-all duration-300 mt-6"
-          style={{ borderColor: "#3d5afe", color: "#fff", textShadow: "0 0 12px rgba(61,90,254,0.8)", background: "rgba(61,90,254,0.08)", cursor: "none", animation: "fadeUp 1.1s ease-out 1.2s both, pulseContactsBlue 2.4s ease-in-out 2.3s infinite", transformOrigin: "center", boxShadow: "0 0 20px rgba(61,90,254,0.3)" }}
-          onMouseEnter={e => {
-            e.currentTarget.style.boxShadow = "0 0 40px rgba(61,90,254,0.6)";
-          }}
-          onMouseLeave={e => {
-            e.currentTarget.style.boxShadow = "0 0 20px rgba(61,90,254,0.3)";
-          }}
-        >
-          Контакты
-        </button>
       </div>
 
       <style>{`
@@ -167,14 +154,7 @@ export default function Home() {
           0% { opacity: 0; transform: translateY(-10px); filter: blur(4px); }
           100% { opacity: 1; transform: translateY(0); filter: blur(0); }
         }
-        @keyframes pulseContactsBlue {
-          0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(61,90,254,0.3); }
-          50% { transform: scale(1.04); box-shadow: 0 0 35px rgba(61,90,254,0.65); }
-        }
-        @keyframes pulseContacts {
-          0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(255,255,255,0); border-color: rgba(255,255,255,0.3); }
-          50% { transform: scale(1.04); box-shadow: 0 0 20px rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.55); }
-        }
+
         @keyframes fadeUp {
           0% { opacity: 0; transform: translateY(28px); filter: blur(6px); }
           100% { opacity: 1; transform: translateY(0); filter: blur(0); }
