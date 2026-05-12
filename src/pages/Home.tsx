@@ -64,10 +64,15 @@ export default function Home() {
           className="absolute inset-0 transition-opacity duration-1000"
           style={{ opacity: i === current ? 1 : 0, zIndex: 1 }}
         >
-          <img src={src} alt="" className="w-full h-full object-cover opacity-50" />
+          <img
+            src={src}
+            alt=""
+            className="w-full h-full object-cover opacity-50"
+            style={{ animation: i === current ? "kenBurns 12s ease-out forwards" : "none" }}
+          />
         </div>
       ))}
-      <div className="absolute inset-0" style={{ background: "rgba(10,10,10,0.55)", zIndex: 2 }} />
+      <div className="absolute inset-0" style={{ background: "rgba(10,10,10,0.55)", zIndex: 2, animation: "bgFade 1.6s ease-out both" }} />
 
       {/* Навбар */}
       <div className="relative px-8 md:px-16 py-4 flex items-center justify-between" style={{ zIndex: 30 }}>
@@ -182,6 +187,14 @@ export default function Home() {
         @keyframes fadeUp {
           0% { opacity: 0; transform: translateY(28px); filter: blur(6px); }
           100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        @keyframes kenBurns {
+          0% { transform: scale(1.08); filter: blur(8px) brightness(0.7); }
+          100% { transform: scale(1); filter: blur(0) brightness(1); }
+        }
+        @keyframes bgFade {
+          0% { background: rgba(10,10,10,0.95); }
+          100% { background: rgba(10,10,10,0.55); }
         }
       `}</style>
     </div>
