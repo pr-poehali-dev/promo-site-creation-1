@@ -111,7 +111,7 @@ export default function Home() {
         <div
           aria-disabled
           className="flex items-center gap-3 px-8 py-4 rounded-full border-2"
-          style={{ borderColor: "#ff1a1a", background: "rgba(255,26,26,0.08)", boxShadow: "0 0 20px rgba(255,26,26,0.3)", animation: "fadeUp 1.1s ease-out 0.9s both, pulseBtn 2.4s ease-in-out 2s infinite", transformOrigin: "center", pointerEvents: "none", userSelect: "none" }}
+          style={{ borderColor: "#3d5afe", background: "rgba(61,90,254,0.08)", boxShadow: "0 0 20px rgba(61,90,254,0.3)", animation: "fadeUp 1.1s ease-out 0.9s both, pulseBtn 2.4s ease-in-out 2s infinite", transformOrigin: "center", pointerEvents: "none", userSelect: "none" }}
         >
           <span className="text-xl" style={{ animation: "ring 1.8s ease-in-out infinite", display: "inline-block", transformOrigin: "top center" }}>📞</span>
           <span className="font-cormorant text-2xl italic tracking-wider" style={{ color: "#fff", textShadow: "0 0 12px rgba(255,26,26,0.7)", animation: "shimmerPhone 2.6s ease-in-out infinite" }}>
@@ -139,8 +139,8 @@ export default function Home() {
           50% { opacity: 1; text-shadow: 0 0 18px rgba(255,255,255,0.6), 0 0 32px rgba(255,26,26,0.85); }
         }
         @keyframes pulseBtn {
-          0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(255,26,26,0.3); }
-          50% { transform: scale(1.04); box-shadow: 0 0 35px rgba(255,26,26,0.55); }
+          0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(61,90,254,0.3); }
+          50% { transform: scale(1.04); box-shadow: 0 0 35px rgba(61,90,254,0.65); }
         }
         @keyframes neonBlue {
           0%, 100% { text-shadow: 0 0 10px rgba(61,90,254,0.55), 0 0 18px rgba(61,90,254,0.3); opacity: 0.92; }
