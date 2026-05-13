@@ -103,10 +103,12 @@ export default function Home() {
           }}
           role="button"
           aria-label="Позвонить по номеру 8 986 985 21 11"
-          className="pointer-events-auto cursor-pointer inline-flex items-center gap-3 font-cormorant italic px-7 py-3 rounded-full border border-white/40 backdrop-blur-sm hover:border-white hover:scale-105 transition-all duration-300 select-none"
+          className="pointer-events-auto cursor-pointer inline-flex items-center gap-3 font-cormorant italic px-7 py-3 rounded-full border border-white/50 backdrop-blur-sm hover:border-white hover:scale-105 transition-all duration-300 select-none"
           style={{
             color: "#fff",
-            background: "rgba(61,90,254,0.18)",
+            background: "rgba(61,90,254,0.22)",
+            boxShadow:
+              "0 0 18px rgba(61,90,254,0.35), 0 0 40px rgba(61,90,254,0.18), inset 0 0 10px rgba(255,255,255,0.08)",
             textShadow: "0 2px 12px rgba(0,0,0,0.7)",
             fontSize: "clamp(1.4rem, 2.2vw, 2rem)",
             position: "relative",
