@@ -90,15 +90,15 @@ export default function Home() {
 
       {/* Центральный текст */}
       <div className="absolute inset-0 flex flex-col items-center text-center px-8 pointer-events-none" style={{ zIndex: 20, paddingTop: "58vh" }}>
-        <h1 className="font-cormorant text-6xl md:text-8xl font-semibold italic mb-6" style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 2px 30px rgba(0,0,0,0.85), 0 0 18px rgba(0,0,0,0.6)", animation: "fadeUp 1.1s ease-out 0.1s both, shimmerHero 2.6s ease-in-out 1.4s infinite" }}>
+        <h1 className="font-cormorant text-6xl md:text-8xl font-semibold italic mb-1 leading-none" style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 2px 30px rgba(0,0,0,0.85), 0 0 18px rgba(0,0,0,0.6)", animation: "fadeUp 1.1s ease-out 0.1s both, shimmerHero 2.6s ease-in-out 1.4s infinite" }}>
           Твой роскошный отдых
         </h1>
-        <p className="font-cormorant text-4xl md:text-6xl italic mb-10" style={{ color: "rgba(255,255,255,0.92)", textShadow: "0 2px 20px rgba(0,0,0,0.8), 0 0 14px rgba(0,0,0,0.5)", animation: "fadeUp 1.1s ease-out 0.5s both, shimmer 2.6s ease-in-out 1.6s infinite" }}>
+        <p className="font-cormorant text-4xl md:text-6xl italic mb-4 leading-none" style={{ color: "rgba(255,255,255,0.92)", textShadow: "0 2px 20px rgba(0,0,0,0.8), 0 0 14px rgba(0,0,0,0.5)", animation: "fadeUp 1.1s ease-out 0.5s both, shimmer 2.6s ease-in-out 1.6s infinite" }}>
           Встретимся?
         </p>
         <a
           href="tel:+79869852111"
-          className="pointer-events-auto inline-flex items-center gap-3 font-cormorant italic px-8 py-4 rounded-full border border-white/40 backdrop-blur-sm hover:border-white hover:scale-105 transition-all duration-300"
+          className="pointer-events-auto inline-flex items-center gap-3 font-cormorant italic px-7 py-3 rounded-full border border-white/40 backdrop-blur-sm hover:border-white hover:scale-105 transition-all duration-300"
           style={{
             color: "#fff",
             background: "rgba(61,90,254,0.18)",
