@@ -60,7 +60,7 @@ export default function Index() {
       >
         <span
           className="font-cormorant italic font-bold inline-block"
-          style={{ fontSize: "clamp(2rem, 3.6vw, 3.6rem)", lineHeight: 1, fontWeight: 700, paddingTop: "0.35em" }}
+          style={{ fontSize: "clamp(2rem, 3.6vw, 3.6rem)", lineHeight: 1, fontWeight: 700, paddingTop: "0.35em", marginLeft: "clamp(1rem, 4vw, 4rem)" }}
         >
           <span style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)" }}>Сладкие</span>
           <span className="inline-block select-none align-middle" style={{ fontSize: "0.7em", margin: "0 0.15em", animation: "strawberryGlow 2.8s ease-in-out infinite" }}>🍓</span>
