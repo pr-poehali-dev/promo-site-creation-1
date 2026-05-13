@@ -59,7 +59,7 @@ export default function Home() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "rgba(0,0,0,0.45)",
+          background: "rgba(0,0,0,0.18)",
           zIndex: 2,
         }}
       />
@@ -67,7 +67,7 @@ export default function Home() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(10,10,10,0.75) 0%, rgba(10,10,10,0.5) 15%, rgba(10,10,10,0.25) 35%, rgba(10,10,10,0.35) 55%, rgba(10,10,10,0.7) 75%, rgba(0,0,0,0.95) 100%)",
+            "linear-gradient(to bottom, rgba(10,10,10,0.5) 0%, rgba(10,10,10,0.25) 15%, transparent 35%, transparent 55%, rgba(10,10,10,0.5) 78%, rgba(0,0,0,0.85) 100%)",
           zIndex: 3,
         }}
       />
