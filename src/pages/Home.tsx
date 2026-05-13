@@ -39,7 +39,13 @@ export default function Home() {
         style={{ zIndex: 0, background: "#000" }}
       />
       {/* Фон — основное фото */}
-      <div className="absolute inset-0" style={{ zIndex: 1 }}>
+      <div
+        className="absolute inset-0"
+        style={{
+          zIndex: 1,
+          animation: "aboutFadeUp 1.3s cubic-bezier(0.22,1,0.36,1) 0s both",
+        }}
+      >
         <img
           src={BG_IMAGE}
           alt=""
@@ -148,6 +154,10 @@ export default function Home() {
         @keyframes bgFade {
           0% { background: rgba(10,10,10,0.95); }
           100% { background: rgba(10,10,10,0.45); }
+        }
+        @keyframes aboutFadeUp {
+          0% { opacity: 0; transform: translateY(36px); filter: blur(8px); }
+          100% { opacity: 1; transform: translateY(0); filter: blur(0); }
         }
         @keyframes candleFlicker {
           0%, 100% { opacity: 0.9; transform: scale(1) translate(0, 0); filter: blur(0px); }
