@@ -29,7 +29,7 @@ export default function Home() {
   };
 
   return (
-    <div className="grain min-h-screen bg-background text-foreground relative overflow-hidden" style={{ cursor: "none" }}>
+    <div className="min-h-screen bg-background text-foreground relative overflow-hidden" style={{ cursor: "none" }}>
       <div ref={cursorRef} className="cursor hidden md:block" />
       <div ref={ringRef} className="cursor-ring hidden md:block" />
 
@@ -38,21 +38,12 @@ export default function Home() {
         <img
           src={BG_IMAGE}
           alt=""
-          className="w-full h-full object-cover opacity-85"
-          style={{
-            objectPosition: "65% 25%",
-            filter: "contrast(1.08) saturate(1.12) brightness(0.92)",
-            imageRendering: "crisp-edges",
-          }}
+          className="w-full h-full object-cover"
+          style={{ objectPosition: "65% 25%" }}
           loading="eager"
           decoding="sync"
         />
       </div>
-      <div className="absolute inset-0" style={{ background: "rgba(10,10,10,0.45)", zIndex: 2, animation: "bgFade 1.6s ease-out both" }} />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(135deg, rgba(255,200,90,0.45) 0%, rgba(255,160,50,0.22) 35%, transparent 55%, rgba(180,20,30,0.32) 100%)", mixBlendMode: "overlay", zIndex: 3 }} />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(circle at 18% 22%, rgba(255,210,120,0.35) 0%, transparent 35%)", mixBlendMode: "screen", zIndex: 3, animation: "candleFlicker 5.5s ease-in-out infinite" }} />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to bottom, rgba(10,10,10,0.35) 0%, transparent 35%, transparent 50%, rgba(10,10,10,0.6) 85%, rgba(10,10,10,0.9) 100%)", zIndex: 4 }} />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.6) 100%)", zIndex: 5 }} />
 
       {/* Навбар */}
       <div className="relative px-6 md:px-12 pt-6 pb-3 flex items-center justify-between gap-6 flex-wrap" style={{ zIndex: 30 }}>
