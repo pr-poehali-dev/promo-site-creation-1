@@ -79,7 +79,7 @@ export default function Home() {
           <span style={{ color: "#2541ff", textShadow: "0 0 12px rgba(37,65,255,0.9), 0 0 22px rgba(37,65,255,0.5)" }}>Грёзы</span>
         </span>
 
-        <NavMenu />
+        <NavMenu marginRight="clamp(4rem, 10vw, 12rem)" />
       </div>
 
       {/* Центральный текст */}
