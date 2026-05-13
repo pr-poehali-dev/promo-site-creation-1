@@ -92,7 +92,7 @@ export default function Home() {
         <h1 className="text-6xl md:text-8xl font-semibold italic mb-1 leading-none" style={{ fontFamily: '"Playfair Display", serif', color: "rgba(255,255,255,0.95)", textShadow: "0 2px 30px rgba(0,0,0,0.85), 0 0 18px rgba(0,0,0,0.6)", letterSpacing: "0.01em", animation: "fadeUp 1.1s ease-out 0.1s both, shimmerHero 2.6s ease-in-out 1.4s infinite" }}>
           Твой роскошный отдых
         </h1>
-        <p className="font-cormorant text-4xl md:text-6xl italic mb-4 leading-none" style={{ color: "rgba(255,255,255,0.92)", textShadow: "0 2px 20px rgba(0,0,0,0.8), 0 0 14px rgba(0,0,0,0.5)", animation: "fadeUp 1.1s ease-out 0.5s both, shimmer 2.6s ease-in-out 1.6s infinite" }}>
+        <p className="font-cormorant text-4xl md:text-6xl italic mb-4 leading-none" style={{ color: "rgba(255,255,255,0.92)", textShadow: "0 2px 20px rgba(0,0,0,0.8)", animation: "fadeUp 1.1s ease-out 0.5s both" }}>
           Встретимся?
         </p>
         <a
