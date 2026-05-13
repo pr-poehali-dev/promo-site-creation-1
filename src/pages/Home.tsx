@@ -96,6 +96,21 @@ export default function Home() {
         <p className="font-cormorant text-4xl md:text-6xl italic mb-10" style={{ color: "rgba(255,255,255,0.92)", textShadow: "0 2px 20px rgba(0,0,0,0.8), 0 0 14px rgba(0,0,0,0.5)", animation: "fadeUp 1.1s ease-out 0.5s both, shimmer 2.6s ease-in-out 1.6s infinite" }}>
           Встретимся?
         </p>
+        <a
+          href="tel:+79869852111"
+          className="pointer-events-auto inline-flex items-center gap-3 font-cormorant italic px-8 py-4 rounded-full border border-white/40 backdrop-blur-sm hover:border-white hover:scale-105 transition-all duration-300"
+          style={{
+            color: "#fff",
+            background: "rgba(61,90,254,0.18)",
+            boxShadow: "0 0 24px rgba(61,90,254,0.45), inset 0 0 12px rgba(255,255,255,0.08)",
+            textShadow: "0 2px 12px rgba(0,0,0,0.7)",
+            fontSize: "clamp(1.4rem, 2.2vw, 2rem)",
+            animation: "fadeUp 1.1s ease-out 0.9s both",
+          }}
+        >
+          <span style={{ fontSize: "1.1em" }}>📞</span>
+          <span>8 (986) 985-21-11</span>
+        </a>
       </div>
 
       <style>{`
