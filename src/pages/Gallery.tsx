@@ -2,7 +2,6 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import PageLayout from "@/components/PageLayout";
 
 const GALLERY = [
-  { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/f9af5abd-a048-4055-a0c0-dda8f38adf42.jpg", title: "За роялем" },
   { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/9fc2dbd6-6a08-418e-9843-54336b1f1d73.jpg", title: "Грация" },
   { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/9d4d6ef4-49ab-4863-9793-9b1f6aefcf72.jpg", title: "Шампанское" },
   { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/613e002a-001c-4a4e-912f-90b75833213c.jpg", title: "Портрет" },
