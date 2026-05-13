@@ -47,9 +47,16 @@ export default function Home() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background:
-            "linear-gradient(to bottom, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.35) 15%, transparent 30%, transparent 45%, rgba(10,10,10,0.55) 65%, rgba(10,10,10,0.85) 82%, rgba(0,0,0,0.95) 100%)",
+          background: "rgba(0,0,0,0.45)",
           zIndex: 2,
+        }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(10,10,10,0.75) 0%, rgba(10,10,10,0.5) 15%, rgba(10,10,10,0.25) 35%, rgba(10,10,10,0.35) 55%, rgba(10,10,10,0.7) 75%, rgba(0,0,0,0.95) 100%)",
+          zIndex: 3,
         }}
       />
 
