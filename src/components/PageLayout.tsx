@@ -44,7 +44,7 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
         )}
       </div>
 
-      <div className="relative z-10 px-6 md:px-12 pt-6 pb-3 flex items-center justify-between gap-6 flex-wrap">
+      <div className="relative z-50 px-6 md:px-12 pt-6 pb-3 flex items-center justify-between gap-6 flex-wrap">
         <span
           className="font-cormorant italic font-bold inline-block"
           style={{ cursor: "none", fontSize: "clamp(1.75rem, 2.8vw, 2.8rem)", lineHeight: 1, fontWeight: 700, paddingTop: "0.35em", marginLeft: "clamp(1rem, 4vw, 4rem)", animation: "logoFadeUp 1.1s ease-out 0s both" }}
