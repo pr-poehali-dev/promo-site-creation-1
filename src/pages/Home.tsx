@@ -72,11 +72,7 @@ export default function Home() {
         }}
       />
 
-      {/* Чёрные рамки по краям */}
-      <div className="absolute top-0 left-0 right-0 pointer-events-none" style={{ height: "clamp(20px, 3vh, 48px)", background: "#000", zIndex: 40 }} />
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{ height: "clamp(20px, 3vh, 48px)", background: "#000", zIndex: 40 }} />
-      <div className="absolute top-0 bottom-0 left-0 pointer-events-none" style={{ width: "clamp(16px, 2vw, 40px)", background: "#000", zIndex: 40 }} />
-      <div className="absolute top-0 bottom-0 right-0 pointer-events-none" style={{ width: "clamp(16px, 2vw, 40px)", background: "#000", zIndex: 40 }} />
+
 
       {/* Навбар */}
       <div className="relative px-6 md:px-12 pt-6 pb-3 flex items-center justify-between gap-6 flex-wrap" style={{ zIndex: 30 }}>
