@@ -53,6 +53,7 @@ export default function Gallery() {
 
           <div
             className="slideshow"
+            style={{ animation: "aboutFadeLeft 1.3s cubic-bezier(0.22,1,0.36,1) 0.2s both" }}
             onTouchStart={(e) => {
               touchStartX.current = e.touches[0].clientX;
               touchStartY.current = e.touches[0].clientY;
@@ -95,14 +96,20 @@ export default function Gallery() {
             </button>
           </div>
 
-          <p className="slide-caption font-cormorant">
+          <p
+            className="slide-caption font-cormorant"
+            style={{ animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.45s both" }}
+          >
             {current.title}
             <span className="slide-counter">
               {index + 1} / {GALLERY.length}
             </span>
           </p>
 
-          <div className="thumbs">
+          <div
+            className="thumbs"
+            style={{ animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.6s both" }}
+          >
             {GALLERY.map((item, i) => (
               <button
                 key={item.img}
@@ -121,6 +128,14 @@ export default function Gallery() {
         @keyframes aboutFadeUp {
           0% { opacity: 0; transform: translateY(36px); filter: blur(8px); }
           100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        @keyframes aboutFadeLeft {
+          0% { opacity: 0; transform: translateX(-50px); filter: blur(8px); }
+          100% { opacity: 1; transform: translateX(0); filter: blur(0); }
+        }
+        @keyframes aboutFadeRight {
+          0% { opacity: 0; transform: translateX(40px); filter: blur(6px); }
+          100% { opacity: 1; transform: translateX(0); filter: blur(0); }
         }
         @keyframes slideFade {
           0% { opacity: 0; transform: scale(0.98); filter: blur(6px); }
