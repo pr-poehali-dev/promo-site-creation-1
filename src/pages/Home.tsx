@@ -34,12 +34,12 @@ export default function Home() {
       <div ref={ringRef} className="cursor-ring hidden md:block" />
 
       {/* Фон */}
-      <div className="absolute inset-0" style={{ zIndex: 1 }}>
+      <div className="absolute inset-0" style={{ zIndex: 1, background: "#050505" }}>
         <img
           src={BG_IMAGE}
           alt=""
-          className="w-full h-full object-cover"
-          style={{ objectPosition: "50% 20%" }}
+          className="w-full h-full"
+          style={{ objectFit: "contain", objectPosition: "center top" }}
           loading="eager"
           decoding="sync"
         />
