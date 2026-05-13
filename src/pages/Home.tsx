@@ -90,7 +90,7 @@ export default function Home() {
 
       {/* Центральный текст */}
       <div className="absolute inset-0 flex flex-col items-center text-center px-8 pointer-events-none" style={{ zIndex: 20, paddingTop: "66vh" }}>
-        <h1 className="text-6xl md:text-8xl font-semibold italic mb-1 leading-none" style={{ fontFamily: '"Playfair Display", serif', color: "rgba(255,255,255,0.95)", textShadow: "0 2px 30px rgba(0,0,0,0.85), 0 0 18px rgba(0,0,0,0.6)", letterSpacing: "0.01em", animation: "fadeUp 1.1s ease-out 0.1s both, shimmerHero 2.6s ease-in-out 1.4s infinite" }}>
+        <h1 className="text-6xl md:text-8xl font-semibold italic mb-8 md:mb-10 leading-none" style={{ fontFamily: '"Playfair Display", serif', color: "rgba(255,255,255,0.95)", textShadow: "0 2px 30px rgba(0,0,0,0.85), 0 0 18px rgba(0,0,0,0.6)", letterSpacing: "0.01em", animation: "fadeUp 1.1s ease-out 0.1s both, shimmerHero 2.6s ease-in-out 1.4s infinite" }}>
           Твой роскошный отдых
         </h1>
         <a
