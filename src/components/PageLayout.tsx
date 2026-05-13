@@ -57,7 +57,7 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
           style={{ cursor: "none", fontSize: "clamp(1.75rem, 2.8vw, 2.8rem)", lineHeight: 1, fontWeight: 700, paddingTop: "0.35em", marginLeft: "clamp(1rem, 4vw, 4rem)", animation: "logoFadeUp 1.1s ease-out 0s both" }}
           onClick={() => navigate("/")}
         >
-          <span style={{ color: "#ff1a1a", textShadow: "0 0 10px rgba(255,26,26,0.6)" }}>Сладкие</span>
+          <span style={{ color: "#e30613", textShadow: "0 0 12px rgba(227,6,19,0.85), 0 0 22px rgba(227,6,19,0.45)" }}>Сладкие</span>
           <span className="inline-block select-none align-middle" style={{ fontSize: "0.7em", margin: "0 0.15em" }}>🍓</span>
           <span style={{ color: "#3d5afe", textShadow: "0 0 10px rgba(61,90,254,0.75), 0 0 18px rgba(61,90,254,0.45)" }}>Грёзы</span>
         </span>
