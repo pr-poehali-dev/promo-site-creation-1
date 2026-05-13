@@ -132,14 +132,21 @@ export default function About() {
                   }}
                 >
                   Выезд от 2 часов и большая просьба!!! Звонить хотя бы за час до встречи.{" "}
-                  <span style={{ color: "#ff4d6d", textShadow: "0 0 12px rgba(255,77,109,0.6)" }}>
-                    Пока
-                  </span>{" "}
-                  <span
-                    className="inline-block align-middle"
-                    style={{ fontSize: "1.1em", animation: "lipsPulse 2.4s ease-in-out infinite" }}
-                  >
-                    💋
+                  <span style={{ whiteSpace: "nowrap", display: "inline-flex", alignItems: "center", gap: "0.35em", verticalAlign: "baseline" }}>
+                    <span style={{ color: "#ff4d6d", textShadow: "0 0 12px rgba(255,77,109,0.6)" }}>
+                      Пока
+                    </span>
+                    <span
+                      style={{
+                        fontSize: "1.1em",
+                        display: "inline-block",
+                        lineHeight: 1,
+                        transformOrigin: "center",
+                        animation: "lipsPulse 2.4s ease-in-out infinite",
+                      }}
+                    >
+                      💋
+                    </span>
                   </span>
                 </p>
               </div>
