@@ -39,7 +39,7 @@ export default function Home() {
           src={BG_IMAGE}
           alt=""
           className="w-full h-full object-cover"
-          style={{ objectPosition: "65% 25%" }}
+          style={{ objectPosition: "50% 20%" }}
           loading="eager"
           decoding="sync"
         />
