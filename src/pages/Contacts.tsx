@@ -7,17 +7,38 @@ export default function Contacts() {
         <div className="flex flex-col items-center gap-8">
           <a
             href="tel:+79869852111"
-            onClick={e => e.stopPropagation()}
-            className="flex items-center gap-4 group"
+            className="flex items-center gap-5 group"
             style={{ animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.1s both" }}
           >
-            <span className="text-2xl">📞</span>
+            <span style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>📞</span>
             <span
-              className="font-cormorant text-3xl md:text-4xl italic tracking-wide group-hover:text-accent transition-colors duration-300"
-              style={{ color: "#fff", textShadow: "0 2px 20px rgba(0,0,0,0.8)" }}
+              className="font-cormorant italic tracking-wide group-hover:text-accent transition-colors duration-300"
+              style={{
+                color: "#fff",
+                textShadow: "0 2px 24px rgba(0,0,0,0.85), 0 0 18px rgba(61,90,254,0.35)",
+                fontSize: "clamp(2.75rem, 6vw, 5rem)",
+                fontWeight: 600,
+                lineHeight: 1,
+              }}
             >
               8 (986) 985-21-11
             </span>
+          </a>
+
+          <a
+            href="tel:+79869852111"
+            className="inline-flex items-center gap-3 font-cormorant italic px-10 py-4 rounded-full border border-white/50 backdrop-blur-sm hover:border-white hover:scale-105 transition-all duration-300"
+            style={{
+              color: "#fff",
+              background: "rgba(61,90,254,0.22)",
+              boxShadow: "0 0 28px rgba(61,90,254,0.55), inset 0 0 14px rgba(255,255,255,0.1)",
+              textShadow: "0 2px 12px rgba(0,0,0,0.7)",
+              fontSize: "clamp(1.4rem, 2.2vw, 2rem)",
+              animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.22s both",
+            }}
+          >
+            <span style={{ fontSize: "1.15em" }}>☎️</span>
+            <span>Позвонить</span>
           </a>
 
           <div
