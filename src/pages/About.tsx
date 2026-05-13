@@ -59,7 +59,7 @@ export default function About() {
               <p
                 className="font-cormorant italic leading-relaxed"
                 style={{
-                  fontSize: "clamp(1.15rem, 1.5vw, 1.4rem)",
+                  fontSize: "clamp(1.5rem, 2vw, 1.9rem)",
                   color: "rgba(255,255,255,0.92)",
                   textShadow: "0 2px 14px rgba(0,0,0,0.6)",
                   animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.35s both",
@@ -71,7 +71,7 @@ export default function About() {
               <p
                 className="font-cormorant leading-relaxed"
                 style={{
-                  fontSize: "clamp(1.05rem, 1.25vw, 1.2rem)",
+                  fontSize: "clamp(1.35rem, 1.7vw, 1.65rem)",
                   color: "rgba(255,255,255,0.85)",
                   animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.5s both",
                 }}
@@ -82,7 +82,7 @@ export default function About() {
               <p
                 className="font-cormorant leading-relaxed"
                 style={{
-                  fontSize: "clamp(1.05rem, 1.25vw, 1.2rem)",
+                  fontSize: "clamp(1.35rem, 1.7vw, 1.65rem)",
                   color: "rgba(255,255,255,0.85)",
                   animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.65s both",
                 }}
@@ -93,7 +93,7 @@ export default function About() {
               <p
                 className="font-cormorant italic"
                 style={{
-                  fontSize: "clamp(1.25rem, 1.7vw, 1.5rem)",
+                  fontSize: "clamp(1.6rem, 2.2vw, 2rem)",
                   color: "#fff",
                   textShadow:
                     "0 0 12px rgba(61,90,254,0.6), 0 2px 14px rgba(0,0,0,0.6)",
@@ -115,7 +115,7 @@ export default function About() {
                 <p
                   className="font-cormorant italic leading-relaxed"
                   style={{
-                    fontSize: "clamp(1.05rem, 1.3vw, 1.25rem)",
+                    fontSize: "clamp(1.35rem, 1.75vw, 1.7rem)",
                     color: "rgba(255,255,255,0.9)",
                   }}
                 >
