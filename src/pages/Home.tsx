@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const BG_IMAGE = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/8e6982bc-52ae-4eb8-a0f2-0ae568aca7e7.jpg";
+const BG_IMAGE = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/2935b944-aac2-4b40-bdd3-0ee94a0d4b4d.jpg";
 
 export default function Home() {
   const navigate = useNavigate();
