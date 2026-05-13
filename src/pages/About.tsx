@@ -10,18 +10,6 @@ export default function About() {
     <PageLayout>
       <section className="relative px-6 md:px-16 pt-4 md:pt-6 pb-12 md:pb-16">
         <div className="max-w-6xl mx-auto">
-          <h1
-            className="font-cormorant italic font-semibold text-center mb-6 md:mb-8"
-            style={{
-              fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
-              color: "rgba(255,255,255,0.95)",
-              textShadow: "0 2px 24px rgba(0,0,0,0.7), 0 0 20px rgba(61,90,254,0.25)",
-              animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.05s both",
-            }}
-          >
-            Обо мне
-          </h1>
-
           <div className="grid md:grid-cols-[1fr_1.2fr] gap-10 md:gap-16 items-center">
             {/* Левая колонка — фото */}
             <div className="relative" style={{ animation: "aboutFadeLeft 1.3s cubic-bezier(0.22,1,0.36,1) 0.2s both" }}>
