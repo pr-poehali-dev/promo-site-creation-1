@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import NavMenu from "@/components/NavMenu";
 
 const BG_IMAGE = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/2935b944-aac2-4b40-bdd3-0ee94a0d4b4d.jpg";
 
 export default function Home() {
   const navigate = useNavigate();
-  const location = useLocation();
   const cursorRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
 
@@ -84,26 +84,7 @@ export default function Home() {
           <span style={{ color: "#2541ff", textShadow: "0 0 12px rgba(37,65,255,0.9), 0 0 22px rgba(37,65,255,0.5)" }}>Грёзы</span>
         </span>
 
-        <nav className="flex items-center gap-4 md:gap-8 flex-wrap">
-          {[
-            { label: "Главная", path: "/" },
-            { label: "Обо мне", path: "/about" },
-            { label: "Фотогалерея", path: "/gallery" },
-            { label: "Контакты", path: "/contacts" },
-          ].map(({ label, path }) => {
-            const isActive = location.pathname === path;
-            return (
-              <button
-                key={path}
-                onClick={() => go(path)}
-                className={`top-nav-link font-cormorant italic px-5 py-3 ${isActive ? "is-active" : ""}`}
-                style={{ cursor: "none", fontSize: "clamp(1.25rem, 1.8vw, 1.75rem)" }}
-              >
-                {label}
-              </button>
-            );
-          })}
-        </nav>
+        <NavMenu />
       </div>
 
       {/* Центральный текст */}

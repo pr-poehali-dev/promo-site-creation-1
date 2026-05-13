@@ -1,14 +1,8 @@
 import { useEffect, useRef } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import NavMenu from "@/components/NavMenu";
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/files/c906dad4-5275-4aa1-a0e9-8b39ba15ca55.jpg";
-
-const NAV_LINKS = [
-  { label: "Главная", path: "/" },
-  { label: "Обо мне", path: "/about" },
-  { label: "Фотогалерея", path: "/gallery" },
-  { label: "Контакты", path: "/contacts" },
-];
 
 interface PageLayoutProps {
   children?: React.ReactNode;
@@ -18,7 +12,6 @@ interface PageLayoutProps {
 
 export default function PageLayout({ children, noBackground, backgroundSlot }: PageLayoutProps) {
   const navigate = useNavigate();
-  const location = useLocation();
   const cursorRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
 
@@ -62,21 +55,7 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
           <span style={{ color: "#2541ff", textShadow: "0 0 12px rgba(37,65,255,0.9), 0 0 22px rgba(37,65,255,0.5)" }}>Грёзы</span>
         </span>
 
-        <nav className="flex items-center gap-4 md:gap-8 flex-wrap">
-          {NAV_LINKS.map(({ label, path }) => {
-            const isActive = location.pathname === path;
-            return (
-              <button
-                key={path}
-                onClick={() => navigate(path)}
-                className={`top-nav-link font-cormorant italic px-5 py-3 ${isActive ? "is-active" : ""}`}
-                style={{ cursor: "none", fontSize: "clamp(1.25rem, 1.8vw, 1.75rem)" }}
-              >
-                {label}
-              </button>
-            );
-          })}
-        </nav>
+        <NavMenu />
       </div>
 
       <div className="relative z-10">
