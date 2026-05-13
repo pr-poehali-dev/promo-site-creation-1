@@ -91,7 +91,7 @@ export default function Home() {
       {/* Центральный текст */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8 pointer-events-none" style={{ zIndex: 20, paddingTop: "28vh" }}>
         <h1 className="font-cormorant text-6xl md:text-8xl font-semibold italic mb-6" style={{ color: "rgba(255,255,255,0.95)", textShadow: "0 2px 30px rgba(0,0,0,0.85), 0 0 18px rgba(0,0,0,0.6)", animation: "fadeUp 1.1s ease-out 0.1s both, shimmerHero 2.6s ease-in-out 1.4s infinite" }}>
-          Привет, я Эльвира
+          Твой роскошный отдых
         </h1>
         <p className="font-cormorant text-4xl md:text-6xl italic mb-10" style={{ color: "rgba(255,255,255,0.92)", textShadow: "0 2px 20px rgba(0,0,0,0.8), 0 0 14px rgba(0,0,0,0.5)", animation: "fadeUp 1.1s ease-out 0.5s both, shimmer 2.6s ease-in-out 1.6s infinite" }}>
           Встретимся?
