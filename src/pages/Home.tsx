@@ -48,7 +48,7 @@ export default function Home() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.35) 15%, transparent 30%, transparent 55%, rgba(10,10,10,0.55) 85%, rgba(10,10,10,0.85) 100%)",
+            "linear-gradient(to bottom, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.35) 15%, transparent 30%, transparent 45%, rgba(10,10,10,0.55) 65%, rgba(10,10,10,0.85) 82%, rgba(0,0,0,0.95) 100%)",
           zIndex: 2,
         }}
       />
