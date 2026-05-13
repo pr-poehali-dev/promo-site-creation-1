@@ -103,17 +103,15 @@ export default function Home() {
           }}
           role="button"
           aria-label="Позвонить по номеру 8 986 985 21 11"
-          className="pointer-events-auto cursor-pointer inline-flex items-center gap-3 font-cormorant italic px-8 py-4 rounded-full border-2 border-white/70 backdrop-blur-sm hover:border-white hover:scale-110 transition-all duration-300 select-none"
+          className="pointer-events-auto cursor-pointer inline-flex items-center gap-3 font-cormorant italic px-7 py-3 rounded-full border border-white/40 backdrop-blur-sm hover:border-white hover:scale-105 transition-all duration-300 select-none"
           style={{
             color: "#fff",
-            background: "rgba(61,90,254,0.32)",
-            boxShadow:
-              "0 0 28px rgba(61,90,254,0.85), 0 0 60px rgba(61,90,254,0.6), 0 0 100px rgba(61,90,254,0.35), inset 0 0 18px rgba(255,255,255,0.18)",
-            textShadow: "0 0 12px rgba(255,255,255,0.6), 0 2px 14px rgba(0,0,0,0.85)",
+            background: "rgba(61,90,254,0.18)",
+            textShadow: "0 2px 12px rgba(0,0,0,0.7)",
             fontSize: "clamp(1.4rem, 2.2vw, 2rem)",
             position: "relative",
             zIndex: 50,
-            animation: "fadeUp 1.1s ease-out 0.9s both, phoneGlow 2.4s ease-in-out infinite",
+            animation: "fadeUp 1.1s ease-out 0.9s both",
           }}
         >
           <span style={{ fontSize: "1.1em" }}>📞</span>
