@@ -37,10 +37,10 @@ export default function Gallery() {
 
   return (
     <PageLayout>
-      <section className="relative px-4 md:px-12 py-10 md:py-14">
+      <section className="relative px-4 md:px-12 pt-4 md:pt-6 pb-10">
         <div className="max-w-6xl mx-auto">
           <h1
-            className="font-cormorant italic font-semibold text-center mb-8"
+            className="font-cormorant italic font-semibold text-center mb-4 md:mb-6"
             style={{
               fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
               color: "rgba(255,255,255,0.95)",

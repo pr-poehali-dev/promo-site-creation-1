@@ -8,10 +8,10 @@ const PHOTO_PLACEHOLDER_2 =
 export default function About() {
   return (
     <PageLayout>
-      <section className="relative px-6 md:px-16 py-16 md:py-24">
+      <section className="relative px-6 md:px-16 pt-4 md:pt-6 pb-12 md:pb-16">
         <div className="max-w-6xl mx-auto">
           <h1
-            className="font-cormorant italic font-semibold text-center mb-12"
+            className="font-cormorant italic font-semibold text-center mb-6 md:mb-8"
             style={{
               fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
               color: "rgba(255,255,255,0.95)",
