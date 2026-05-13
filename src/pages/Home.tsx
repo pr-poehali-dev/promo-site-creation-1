@@ -33,8 +33,20 @@ export default function Home() {
       <div ref={cursorRef} className="cursor hidden md:block" />
       <div ref={ringRef} className="cursor-ring hidden md:block" />
 
-      {/* Фон */}
-      <div className="absolute inset-0" style={{ zIndex: 1, background: "#050505" }}>
+      {/* Фон — размытая подложка */}
+      <div
+        className="absolute inset-0"
+        style={{
+          zIndex: 0,
+          backgroundImage: `url(${BG_IMAGE})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          filter: "blur(40px) brightness(0.55) saturate(1.1)",
+          transform: "scale(1.15)",
+        }}
+      />
+      {/* Фон — основное фото */}
+      <div className="absolute inset-0" style={{ zIndex: 1 }}>
         <img
           src={BG_IMAGE}
           alt=""
