@@ -44,6 +44,14 @@ export default function Home() {
           decoding="sync"
         />
       </div>
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to bottom, transparent 0%, transparent 55%, rgba(10,10,10,0.55) 85%, rgba(10,10,10,0.85) 100%)",
+          zIndex: 2,
+        }}
+      />
 
       {/* Навбар */}
       <div className="relative px-6 md:px-12 pt-6 pb-3 flex items-center justify-between gap-6 flex-wrap" style={{ zIndex: 30 }}>
