@@ -59,6 +59,18 @@ export default function About() {
               <p
                 className="font-cormorant italic leading-relaxed"
                 style={{
+                  fontSize: "clamp(1.7rem, 2.3vw, 2.1rem)",
+                  color: "#fff",
+                  textShadow: "0 2px 14px rgba(0,0,0,0.6), 0 0 12px rgba(61,90,254,0.4)",
+                  animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.2s both",
+                }}
+              >
+                Привет 👋, Познакомимся? Меня зовут Эльвира 💖
+              </p>
+
+              <p
+                className="font-cormorant italic leading-relaxed"
+                style={{
                   fontSize: "clamp(1.5rem, 2vw, 1.9rem)",
                   color: "rgba(255,255,255,0.92)",
                   textShadow: "0 2px 14px rgba(0,0,0,0.6)",
