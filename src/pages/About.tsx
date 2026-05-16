@@ -65,7 +65,51 @@ export default function About() {
                   animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.2s both",
                 }}
               >
-                Привет 👋, Познакомимся? Меня зовут Эльвира 💖
+                Привет 👋, Познакомимся? Меня зовут Эльвира{" "}
+                <span
+                  style={{
+                    display: "inline-block",
+                    verticalAlign: "middle",
+                    marginLeft: "0.3em",
+                    animation: "heartBeat 1.6s ease-in-out infinite",
+                    filter: "drop-shadow(0 0 8px rgba(255,77,109,0.7)) drop-shadow(0 0 16px rgba(255,77,109,0.4))",
+                  }}
+                >
+                  <svg
+                    width="1.1em"
+                    height="1.1em"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <defs>
+                      <radialGradient id="heartGradient" cx="35%" cy="30%" r="75%">
+                        <stop offset="0%" stopColor="#ffd1dc" />
+                        <stop offset="35%" stopColor="#ff6b8a" />
+                        <stop offset="75%" stopColor="#e63465" />
+                        <stop offset="100%" stopColor="#a01840" />
+                      </radialGradient>
+                      <linearGradient id="heartShine" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="rgba(255,255,255,0.85)" />
+                        <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      d="M16 28.5 C 16 28.5 3 19.8 3 11.4 C 3 6.8 6.6 3.5 10.6 3.5 C 13.2 3.5 14.9 4.8 16 6.6 C 17.1 4.8 18.8 3.5 21.4 3.5 C 25.4 3.5 29 6.8 29 11.4 C 29 19.8 16 28.5 16 28.5 Z"
+                      fill="url(#heartGradient)"
+                      stroke="#7a0d2e"
+                      strokeWidth="0.6"
+                    />
+                    <path
+                      d="M9 8.5 C 10.5 6.5 13 6 14.5 7.5"
+                      stroke="url(#heartShine)"
+                      strokeWidth="1.6"
+                      strokeLinecap="round"
+                      fill="none"
+                    />
+                    <ellipse cx="11.5" cy="11" rx="1.6" ry="2.4" fill="rgba(255,255,255,0.45)" transform="rotate(-25 11.5 11)" />
+                  </svg>
+                </span>
               </p>
 
               <p
@@ -156,6 +200,12 @@ export default function About() {
       </section>
 
       <style>{`
+        @keyframes heartBeat {
+          0%, 100% { transform: scale(1) rotate(-3deg); }
+          25% { transform: scale(1.18) rotate(2deg); }
+          50% { transform: scale(1.05) rotate(-2deg); }
+          75% { transform: scale(1.22) rotate(3deg); }
+        }
         @keyframes lipsPulse {
           0%, 100% { transform: scale(1) rotate(-6deg); filter: drop-shadow(0 0 6px rgba(255,77,109,0.5)); }
           50% { transform: scale(1.15) rotate(6deg); filter: drop-shadow(0 0 14px rgba(255,77,109,0.85)); }
