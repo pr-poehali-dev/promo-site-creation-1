@@ -102,7 +102,6 @@ export default function Gallery() {
             className="slide-caption font-cormorant"
             style={{ animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.45s both" }}
           >
-            {current.title}
             <span className="slide-counter">
               {index + 1} / {items.length}
             </span>
