@@ -7,16 +7,16 @@ export default function Contacts() {
         <div className="flex flex-col items-center gap-8">
           <a
             href="tel:+79869852111"
-            className="flex items-center gap-5 group"
+            className="flex items-center gap-3 sm:gap-5 group flex-nowrap whitespace-nowrap"
             style={{ animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.1s both" }}
           >
-            <span style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}>📞</span>
+            <span style={{ fontSize: "clamp(1.5rem, 4vw, 3rem)" }}>📞</span>
             <span
-              className="font-cormorant italic tracking-wide group-hover:text-accent transition-colors duration-300"
+              className="font-cormorant italic tracking-wide group-hover:text-accent transition-colors duration-300 whitespace-nowrap"
               style={{
                 color: "#fff",
                 textShadow: "0 2px 24px rgba(0,0,0,0.85), 0 0 18px rgba(61,90,254,0.35)",
-                fontSize: "clamp(2.75rem, 6vw, 5rem)",
+                fontSize: "clamp(1.5rem, 6vw, 5rem)",
                 fontWeight: 600,
                 lineHeight: 1,
               }}
