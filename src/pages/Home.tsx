@@ -74,10 +74,10 @@ export default function Home() {
 
 
       {/* Навбар */}
-      <div className="relative px-6 md:px-12 pt-6 pb-3 flex items-center justify-between gap-6 flex-wrap" style={{ zIndex: 30 }}>
+      <div className="relative px-6 md:px-12 pt-6 pb-3 flex items-center justify-between gap-3 flex-nowrap" style={{ zIndex: 30 }}>
         <span
-          className="font-cormorant italic font-bold inline-block"
-          style={{ cursor: "none", fontSize: "clamp(1.75rem, 2.8vw, 2.8rem)", lineHeight: 1, fontWeight: 700, paddingTop: "0.35em", marginLeft: "clamp(1rem, 4vw, 4rem)", animation: "fadeUp 1.1s ease-out 0s both" }}
+          className="font-cormorant italic font-bold inline-block min-w-0"
+          style={{ cursor: "none", fontSize: "clamp(1rem, 2.8vw, 2.8rem)", lineHeight: 1, fontWeight: 700, paddingTop: "0.35em", marginLeft: "clamp(0.5rem, 4vw, 4rem)", animation: "fadeUp 1.1s ease-out 0s both", whiteSpace: "nowrap" }}
           onClick={() => go("/")}
         >
           <span style={{ color: "#e30613", textShadow: "0 0 12px rgba(227,6,19,0.85), 0 0 22px rgba(227,6,19,0.45)" }}>Сладкие</span>
@@ -85,7 +85,9 @@ export default function Home() {
           <span style={{ color: "#2541ff", textShadow: "0 0 12px rgba(37,65,255,0.9), 0 0 22px rgba(37,65,255,0.5)" }}>Грёзы</span>
         </span>
 
-        <NavMenu marginRight="clamp(1rem, 4vw, 4rem)" />
+        <div className="shrink-0 ml-auto">
+          <NavMenu marginRight="clamp(0.5rem, 4vw, 4rem)" />
+        </div>
       </div>
 
       {/* Центральный текст */}
