@@ -16,17 +16,27 @@ const GALLERY = [
   { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/9d4d6ef4-49ab-4863-9793-9b1f6aefcf72.jpg", title: "Шампанское" },
 ];
 
+function shuffle<T>(arr: T[]): T[] {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 export default function Gallery() {
+  const [items] = useState(() => shuffle(GALLERY));
   const [index, setIndex] = useState(0);
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
 
   const prev = useCallback(() => {
-    setIndex((i) => (i - 1 + GALLERY.length) % GALLERY.length);
-  }, []);
+    setIndex((i) => (i - 1 + items.length) % items.length);
+  }, [items.length]);
   const next = useCallback(() => {
-    setIndex((i) => (i + 1) % GALLERY.length);
-  }, []);
+    setIndex((i) => (i + 1) % items.length);
+  }, [items.length]);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -37,7 +47,7 @@ export default function Gallery() {
     return () => window.removeEventListener("keydown", onKey);
   }, [prev, next]);
 
-  const current = GALLERY[index];
+  const current = items[index];
 
   return (
     <PageLayout>
@@ -94,7 +104,7 @@ export default function Gallery() {
           >
             {current.title}
             <span className="slide-counter">
-              {index + 1} / {GALLERY.length}
+              {index + 1} / {items.length}
             </span>
           </p>
 
@@ -102,7 +112,7 @@ export default function Gallery() {
             className="thumbs"
             style={{ animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.6s both" }}
           >
-            {GALLERY.map((item, i) => (
+            {items.map((item, i) => (
               <button
                 key={item.img}
                 className={`thumb ${i === index ? "is-active" : ""}`}
