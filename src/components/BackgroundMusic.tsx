@@ -2,31 +2,62 @@ import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/ui/icon";
 
 const MUSIC_SRC = "/music/background.mp3";
+const TARGET_VOLUME = 0.45;
+const FADE_DURATION_MS = 2500;
 
 export default function BackgroundMusic() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const fadeTimerRef = useRef<number | null>(null);
   const [playing, setPlaying] = useState(false);
+
+  const clearFade = () => {
+    if (fadeTimerRef.current !== null) {
+      window.clearInterval(fadeTimerRef.current);
+      fadeTimerRef.current = null;
+    }
+  };
+
+  const fadeTo = (audio: HTMLAudioElement, target: number, onDone?: () => void) => {
+    clearFade();
+    const start = audio.volume;
+    const startTime = performance.now();
+    fadeTimerRef.current = window.setInterval(() => {
+      const t = Math.min(1, (performance.now() - startTime) / FADE_DURATION_MS);
+      audio.volume = Math.max(0, Math.min(1, start + (target - start) * t));
+      if (t >= 1) {
+        clearFade();
+        onDone?.();
+      }
+    }, 40);
+  };
 
   useEffect(() => {
     const audio = new Audio(MUSIC_SRC);
     audio.loop = true;
-    audio.volume = 0.45;
+    audio.volume = 0;
     audioRef.current = audio;
 
-    const tryPlay = () => {
+    const startWithFade = () => {
       audio
         .play()
-        .then(() => setPlaying(true))
+        .then(() => {
+          setPlaying(true);
+          fadeTo(audio, TARGET_VOLUME);
+        })
         .catch(() => setPlaying(false));
     };
 
-    tryPlay();
+    startWithFade();
 
     const onFirstInteract = () => {
       if (audio.paused) {
+        audio.volume = 0;
         audio
           .play()
-          .then(() => setPlaying(true))
+          .then(() => {
+            setPlaying(true);
+            fadeTo(audio, TARGET_VOLUME);
+          })
           .catch(() => {});
       }
       window.removeEventListener("click", onFirstInteract);
@@ -41,6 +72,7 @@ export default function BackgroundMusic() {
       window.removeEventListener("click", onFirstInteract);
       window.removeEventListener("touchstart", onFirstInteract);
       window.removeEventListener("keydown", onFirstInteract);
+      clearFade();
       audio.pause();
       audioRef.current = null;
     };
@@ -50,10 +82,19 @@ export default function BackgroundMusic() {
     const audio = audioRef.current;
     if (!audio) return;
     if (audio.paused) {
-      audio.play().then(() => setPlaying(true)).catch(() => {});
+      audio.volume = 0;
+      audio
+        .play()
+        .then(() => {
+          setPlaying(true);
+          fadeTo(audio, TARGET_VOLUME);
+        })
+        .catch(() => {});
     } else {
-      audio.pause();
-      setPlaying(false);
+      fadeTo(audio, 0, () => {
+        audio.pause();
+        setPlaying(false);
+      });
     }
   };
 
