@@ -107,13 +107,11 @@ export default function Home() {
           style={{
             color: "#fff",
             background: "rgba(37,65,255,0.28)",
-            boxShadow:
-              "0 0 20px rgba(37,65,255,0.55), 0 0 44px rgba(37,65,255,0.28), inset 0 0 12px rgba(255,255,255,0.1)",
             textShadow: "0 2px 12px rgba(0,0,0,0.7)",
             fontSize: "clamp(1.4rem, 2.2vw, 2rem)",
             position: "relative",
             zIndex: 50,
-            animation: "fadeUp 1.1s ease-out 0.9s both",
+            animation: "fadeUp 1.1s ease-out 0.9s both, phoneGlow 2.4s ease-in-out 1.6s infinite",
           }}
         >
           <span style={{ fontSize: "1.1em" }}>📞</span>
