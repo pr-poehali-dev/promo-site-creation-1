@@ -3,12 +3,9 @@ import PageLayout from "@/components/PageLayout";
 
 const GALLERY = [
   { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/613e002a-001c-4a4e-912f-90b75833213c.jpg", title: "Портрет" },
-  { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/files/2c853479-71f3-475d-be44-4d24f3fa7c01.jpg", title: "Закат" },
   { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/9d4d6ef4-49ab-4863-9793-9b1f6aefcf72.jpg", title: "Шампанское" },
-  { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/files/eca0e89d-0a14-4e99-a55a-fb5d7bcc9fa1.jpg", title: "Утро" },
   { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/9fc2dbd6-6a08-418e-9843-54336b1f1d73.jpg", title: "Грация" },
   { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/65750f7a-e45e-4678-b25d-19065f8f9879.jpg", title: "Поездка" },
-  { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/files/f1931a58-869f-4084-bb2f-f829a8da0ed7.jpg", title: "Вечер" },
   { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/d99d0679-23e1-4500-8e59-063e0bc3088d.jpg", title: "Лёгкость" },
   { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/d0e31965-0530-42d8-9995-d734d1d1b20a.jpg", title: "Взгляд" },
   { img: "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/fbc1b343-4159-4b67-85da-5a4f918ea00d.jpg", title: "Энергия" },
