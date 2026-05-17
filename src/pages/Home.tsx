@@ -91,8 +91,8 @@ export default function Home() {
       </div>
 
       {/* Центральный текст */}
-      <div className="absolute inset-0 flex flex-col items-center text-center px-8 pointer-events-none" style={{ zIndex: 20, paddingTop: "66vh" }}>
-        <h1 className="text-6xl md:text-8xl font-semibold italic mb-8 md:mb-10 leading-none" style={{ fontFamily: '"Playfair Display", serif', color: "rgba(255,255,255,0.95)", textShadow: "0 2px 30px rgba(0,0,0,0.85), 0 0 18px rgba(0,0,0,0.6)", letterSpacing: "0.01em", animation: "fadeUp 1.1s ease-out 0.1s both, shimmerHero 2.6s ease-in-out 1.4s infinite" }}>
+      <div className="hero-center absolute inset-0 flex flex-col items-center text-center px-8 pointer-events-none" style={{ zIndex: 20 }}>
+        <h1 className="text-5xl md:text-8xl font-semibold italic mb-6 md:mb-10 leading-none" style={{ fontFamily: '"Playfair Display", serif', color: "rgba(255,255,255,0.95)", textShadow: "0 2px 30px rgba(0,0,0,0.85), 0 0 18px rgba(0,0,0,0.6)", letterSpacing: "0.01em", animation: "fadeUp 1.1s ease-out 0.1s both, shimmerHero 2.6s ease-in-out 1.4s infinite" }}>
           Твой роскошный отдых
         </h1>
         <a
@@ -122,6 +122,13 @@ export default function Home() {
       </div>
 
       <style>{`
+        .hero-center { padding-top: 66vh; }
+        @media (max-width: 768px) {
+          .hero-center { padding-top: 42vh; }
+        }
+        @media (max-width: 480px) {
+          .hero-center { padding-top: 38vh; }
+        }
         @keyframes shimmer {
           0%, 100% { opacity: 0.75; text-shadow: 0 2px 20px rgba(0,0,0,0.7), 0 0 8px rgba(255,255,255,0.2); }
           50% { opacity: 1; text-shadow: 0 2px 20px rgba(0,0,0,0.7), 0 0 28px rgba(255,255,255,0.7), 0 0 50px rgba(61,90,254,0.45); }
