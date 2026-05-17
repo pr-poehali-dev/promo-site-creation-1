@@ -4,6 +4,24 @@ import Icon from "@/components/ui/icon";
 const MUSIC_SRC = "/music/background.mp3";
 const TARGET_VOLUME = 0.45;
 const FADE_DURATION_MS = 2500;
+const STORAGE_KEY = "bg-music-enabled";
+
+const readSavedState = (): boolean => {
+  try {
+    const v = localStorage.getItem(STORAGE_KEY);
+    return v === null ? true : v === "1";
+  } catch {
+    return true;
+  }
+};
+
+const saveState = (enabled: boolean) => {
+  try {
+    localStorage.setItem(STORAGE_KEY, enabled ? "1" : "0");
+  } catch {
+    // ignore
+  }
+};
 
 export default function BackgroundMusic() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -37,6 +55,8 @@ export default function BackgroundMusic() {
     audio.volume = 0;
     audioRef.current = audio;
 
+    const shouldPlay = readSavedState();
+
     const startWithFade = () => {
       audio
         .play()
@@ -47,10 +67,12 @@ export default function BackgroundMusic() {
         .catch(() => setPlaying(false));
     };
 
-    startWithFade();
+    if (shouldPlay) {
+      startWithFade();
+    }
 
     const onFirstInteract = () => {
-      if (audio.paused) {
+      if (readSavedState() && audio.paused) {
         audio.volume = 0;
         audio
           .play()
@@ -87,10 +109,12 @@ export default function BackgroundMusic() {
         .play()
         .then(() => {
           setPlaying(true);
+          saveState(true);
           fadeTo(audio, TARGET_VOLUME);
         })
         .catch(() => {});
     } else {
+      saveState(false);
       fadeTo(audio, 0, () => {
         audio.pause();
         setPlaying(false);
