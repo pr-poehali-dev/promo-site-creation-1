@@ -2,9 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/ui/icon";
 
 const MUSIC_SRC = "/music/background.mp3";
-const TARGET_VOLUME = 0.45;
+const DEFAULT_VOLUME = 0.45;
 const FADE_DURATION_MS = 2500;
 const STORAGE_KEY = "bg-music-enabled";
+const VOLUME_KEY = "bg-music-volume";
 
 const readSavedState = (): boolean => {
   try {
@@ -23,10 +24,33 @@ const saveState = (enabled: boolean) => {
   }
 };
 
+const readSavedVolume = (): number => {
+  try {
+    const v = localStorage.getItem(VOLUME_KEY);
+    if (v === null) return DEFAULT_VOLUME;
+    const n = parseFloat(v);
+    if (Number.isNaN(n)) return DEFAULT_VOLUME;
+    return Math.max(0, Math.min(1, n));
+  } catch {
+    return DEFAULT_VOLUME;
+  }
+};
+
+const saveVolume = (v: number) => {
+  try {
+    localStorage.setItem(VOLUME_KEY, String(v));
+  } catch {
+    // ignore
+  }
+};
+
 export default function BackgroundMusic() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const fadeTimerRef = useRef<number | null>(null);
+  const volumeRef = useRef<number>(readSavedVolume());
   const [playing, setPlaying] = useState(false);
+  const [volume, setVolume] = useState<number>(volumeRef.current);
+  const [expanded, setExpanded] = useState(false);
 
   const clearFade = () => {
     if (fadeTimerRef.current !== null) {
@@ -62,7 +86,7 @@ export default function BackgroundMusic() {
         .play()
         .then(() => {
           setPlaying(true);
-          fadeTo(audio, TARGET_VOLUME);
+          fadeTo(audio, volumeRef.current);
         })
         .catch(() => setPlaying(false));
     };
@@ -78,7 +102,7 @@ export default function BackgroundMusic() {
           .play()
           .then(() => {
             setPlaying(true);
-            fadeTo(audio, TARGET_VOLUME);
+            fadeTo(audio, volumeRef.current);
           })
           .catch(() => {});
       }
@@ -110,7 +134,7 @@ export default function BackgroundMusic() {
         .then(() => {
           setPlaying(true);
           saveState(true);
-          fadeTo(audio, TARGET_VOLUME);
+          fadeTo(audio, volumeRef.current);
         })
         .catch(() => {});
     } else {
@@ -122,39 +146,93 @@ export default function BackgroundMusic() {
     }
   };
 
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const v = parseFloat(e.target.value);
+    volumeRef.current = v;
+    setVolume(v);
+    saveVolume(v);
+    const audio = audioRef.current;
+    if (audio && !audio.paused) {
+      clearFade();
+      audio.volume = v;
+    }
+  };
+
+  const icon = !playing ? "VolumeX" : volume < 0.05 ? "VolumeX" : volume < 0.4 ? "Volume1" : "Volume2";
+
   return (
-    <button
-      onClick={toggle}
-      aria-label={playing ? "Выключить музыку" : "Включить музыку"}
+    <div
+      onMouseEnter={() => setExpanded(true)}
+      onMouseLeave={() => setExpanded(false)}
       style={{
         position: "fixed",
         right: "clamp(0.75rem, 2vw, 1.5rem)",
         bottom: "clamp(0.75rem, 2vw, 1.5rem)",
         zIndex: 100,
-        width: "52px",
-        height: "52px",
-        borderRadius: "999px",
         display: "flex",
         alignItems: "center",
-        justifyContent: "center",
+        gap: "10px",
+        padding: "6px",
+        paddingRight: expanded ? "16px" : "6px",
         background: "rgba(10,10,10,0.55)",
         border: "1px solid rgba(61,90,254,0.6)",
-        color: "#fff",
+        borderRadius: "999px",
         backdropFilter: "blur(8px)",
         boxShadow: "0 0 22px rgba(61,90,254,0.55)",
-        cursor: "pointer",
-        transition: "all 0.25s ease",
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.transform = "scale(1.08)";
-        e.currentTarget.style.borderColor = "#3d5afe";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = "scale(1)";
-        e.currentTarget.style.borderColor = "rgba(61,90,254,0.6)";
+        transition: "padding 0.3s ease, border-color 0.25s ease",
       }}
     >
-      <Icon name={playing ? "Volume2" : "VolumeX"} size={22} />
-    </button>
+      <button
+        onClick={toggle}
+        aria-label={playing ? "Выключить музыку" : "Включить музыку"}
+        style={{
+          width: "44px",
+          height: "44px",
+          borderRadius: "999px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "transparent",
+          border: "none",
+          color: "#fff",
+          cursor: "pointer",
+          transition: "transform 0.25s ease",
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = "scale(1.08)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = "scale(1)";
+        }}
+      >
+        <Icon name={icon} size={22} />
+      </button>
+
+      <div
+        style={{
+          width: expanded ? "110px" : "0px",
+          opacity: expanded ? 1 : 0,
+          overflow: "hidden",
+          transition: "width 0.3s ease, opacity 0.25s ease",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <input
+          type="range"
+          min={0}
+          max={1}
+          step={0.01}
+          value={volume}
+          onChange={handleVolumeChange}
+          aria-label="Громкость музыки"
+          style={{
+            width: "100%",
+            accentColor: "#3d5afe",
+            cursor: "pointer",
+          }}
+        />
+      </div>
+    </div>
   );
 }
