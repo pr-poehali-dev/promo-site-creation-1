@@ -95,13 +95,23 @@ export default function NavMenu({ marginRight = "clamp(1rem, 4vw, 4rem)" }: NavM
           backdrop-filter: blur(8px);
           border-radius: 999px;
           padding: 0.55em 1.25em;
-          font-size: clamp(1.05rem, 1.4vw, 1.4rem);
+          font-size: clamp(0.95rem, 1.4vw, 1.4rem);
           letter-spacing: 0.02em;
           text-shadow: 0 2px 12px rgba(0,0,0,0.7);
           box-shadow:
             0 0 18px rgba(37, 65, 255, 0.35),
             inset 0 0 10px rgba(255,255,255,0.08);
           transition: all 0.25s ease;
+          white-space: nowrap;
+        }
+        .nav-menu-label {
+          max-width: 40vw;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        @media (max-width: 480px) {
+          .nav-menu-btn { padding: 0.45em 0.95em; }
+          .nav-menu-label { max-width: 32vw; }
         }
         .nav-menu-btn:hover,
         .nav-menu-btn.is-open {
