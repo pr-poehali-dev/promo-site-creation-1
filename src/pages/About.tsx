@@ -172,11 +172,14 @@ export default function About() {
               </p>
 
               <div
-                className="mt-8 pl-5 border-l-2"
+                className="mt-8 p-6 md:p-8 rounded-lg relative"
                 style={{
-                  borderColor: "#3d5afe",
-                  boxShadow: "-2px 0 18px -8px rgba(61,90,254,0.7)",
-                  animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.95s both",
+                  border: "2px solid transparent",
+                  background:
+                    "linear-gradient(rgba(10,14,40,0.55), rgba(10,14,40,0.55)) padding-box, linear-gradient(135deg, #3d5afe 0%, #7c4dff 50%, #b16cff 100%) border-box",
+                  boxShadow:
+                    "0 0 24px rgba(61,90,254,0.55), 0 0 48px rgba(124,77,255,0.35), inset 0 0 24px rgba(61,90,254,0.18)",
+                  animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.95s both, framePulse 3.6s ease-in-out infinite",
                 }}
               >
                 <p
@@ -246,6 +249,10 @@ export default function About() {
         @keyframes aboutFadeRight {
           0% { opacity: 0; transform: translateX(40px); filter: blur(6px); }
           100% { opacity: 1; transform: translateX(0); filter: blur(0); }
+        }
+        @keyframes framePulse {
+          0%, 100% { box-shadow: 0 0 24px rgba(61,90,254,0.55), 0 0 48px rgba(124,77,255,0.35), inset 0 0 24px rgba(61,90,254,0.18); }
+          50% { box-shadow: 0 0 32px rgba(61,90,254,0.75), 0 0 64px rgba(124,77,255,0.5), inset 0 0 32px rgba(124,77,255,0.25); }
         }
         @keyframes aboutImgZoom {
           0% { transform: scale(1.12); opacity: 0; }
