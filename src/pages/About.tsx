@@ -122,6 +122,103 @@ export default function About() {
                   Я живу и учусь в городе Саратов
                 </span>
               </p>
+
+              <p
+                className="font-cormorant italic leading-relaxed"
+                style={{
+                  fontSize: "clamp(1.5rem, 2vw, 1.9rem)",
+                  color: "rgba(255,255,255,0.92)",
+                  textShadow: "0 2px 14px rgba(0,0,0,0.6)",
+                  animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.35s both",
+                }}
+              >
+                Знаешь, что такое настоящий индивидуальный подход?
+              </p>
+
+              <p
+                className="font-cormorant leading-relaxed"
+                style={{
+                  fontSize: "clamp(1.35rem, 1.7vw, 1.65rem)",
+                  color: "rgba(255,255,255,0.85)",
+                  animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.5s both",
+                }}
+              >
+                Это когда ты приходишь в гости к девушке, которая по-настоящему хорошо выглядит, в прекрасном настроении и свежа, как утренняя роса. Это когда ты общаешься на самые разные темы, как с хорошей знакомой, и отдыхаешь полностью и телом и разумом.
+              </p>
+
+              <p
+                className="font-cormorant leading-relaxed"
+                style={{
+                  fontSize: "clamp(1.35rem, 1.7vw, 1.65rem)",
+                  color: "rgba(255,255,255,0.85)",
+                  animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.65s both",
+                }}
+              >
+                Когда она не провожает тебя ровно через час, а наоборот, заботится о том, чтобы тебе было комфортно. Это когда секс с тобой — это настоящее удовольствие, а не работа, а потому он улётный.
+              </p>
+
+              <p
+                className="font-cormorant italic"
+                style={{
+                  fontSize: "clamp(1.6rem, 2.2vw, 2rem)",
+                  color: "#fff",
+                  textShadow:
+                    "0 0 12px rgba(61,90,254,0.6), 0 2px 14px rgba(0,0,0,0.6)",
+                  animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.8s both",
+                }}
+              >
+                Хочешь настоящий индивидуальный подход? Звони...{" "}
+                <span style={{ color: "#3d5afe" }}>:)</span>
+              </p>
+
+              <div
+                className="mt-8 pl-5 border-l-2"
+                style={{
+                  borderColor: "#3d5afe",
+                  boxShadow: "-2px 0 18px -8px rgba(61,90,254,0.7)",
+                  animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.95s both",
+                }}
+              >
+                <p
+                  className="font-cormorant italic"
+                  style={{
+                    fontSize: "clamp(1.55rem, 2vw, 1.9rem)",
+                    color: "#fff",
+                    textShadow: "0 0 12px rgba(61,90,254,0.55), 0 2px 14px rgba(0,0,0,0.6)",
+                    marginBottom: "0.6em",
+                  }}
+                >
+                  Форматы встреч:
+                </p>
+                <ul
+                  className="font-cormorant leading-relaxed space-y-2"
+                  style={{
+                    fontSize: "clamp(1.35rem, 1.75vw, 1.7rem)",
+                    color: "rgba(255,255,255,0.92)",
+                    listStyle: "none",
+                    padding: 0,
+                  }}
+                >
+                  <li>
+                    <span style={{ color: "#3d5afe" }}>•</span> Еврочас — 7000 ₽{" "}
+                    <span style={{ color: "rgba(255,255,255,0.7)", fontStyle: "italic" }}>
+                      (только для города Саратов)
+                    </span>
+                  </li>
+                  <li>
+                    <span style={{ color: "#3d5afe" }}>•</span> Час — 10000 ₽
+                  </li>
+                </ul>
+                <p
+                  className="font-cormorant leading-relaxed mt-4"
+                  style={{
+                    fontSize: "clamp(1.3rem, 1.65vw, 1.6rem)",
+                    color: "rgba(255,255,255,0.88)",
+                  }}
+                >
+                  Встречи в Саратове возможны в гостинице либо на выезд к вам. Выезда в другие города от 3 часов с компенсацией проезда в обе стороны. Также возможно пригласить подругу для совместной встречи.
+                </p>
+              </div>
             </div>
           </div>
         </div>
