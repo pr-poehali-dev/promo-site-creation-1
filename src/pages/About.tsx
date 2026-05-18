@@ -160,7 +160,7 @@ export default function About() {
               <p
                 className="font-cormorant italic"
                 style={{
-                  fontSize: "clamp(1.1rem, 1.7vw, 1.6rem)",
+                  fontSize: "clamp(1.5rem, 2.4vw, 2.3rem)",
                   color: "#fff",
                   textShadow:
                     "0 0 12px rgba(61,90,254,0.6), 0 2px 14px rgba(0,0,0,0.6)",
