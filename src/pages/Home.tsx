@@ -137,7 +137,7 @@ export default function Home() {
               textShadow: "0 2px 12px rgba(0,0,0,0.85)",
             }}
           >
-            Города работы
+            Города
           </span>
           <ul
             className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 md:gap-x-5 pointer-events-auto"
