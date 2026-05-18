@@ -10,6 +10,7 @@ import About from "./pages/About";
 import Gallery from "./pages/Gallery";
 import Contacts from "./pages/Contacts";
 import NotFound from "./pages/NotFound";
+import CanonicalUrl from "./components/CanonicalUrl";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <CanonicalUrl />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/main" element={<Index />} />
