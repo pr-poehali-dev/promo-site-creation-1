@@ -132,23 +132,7 @@ export default function Contacts() {
               animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.6s both",
             }}
           >
-            По поводу встречи, звони по телефону указанный выше.{" "}
-            <span style={{ whiteSpace: "nowrap", display: "inline-flex", alignItems: "center", gap: "0.35em", verticalAlign: "baseline" }}>
-              <span style={{ color: "#ff4d6d", textShadow: "0 0 12px rgba(255,77,109,0.6)" }}>
-                Целую
-              </span>
-              <span
-                style={{
-                  fontSize: "1.1em",
-                  display: "inline-block",
-                  lineHeight: 1,
-                  transformOrigin: "center",
-                  animation: "lipsPulse 2.4s ease-in-out infinite",
-                }}
-              >
-                💋
-              </span>
-            </span>
+            По поводу встречи, звони по телефону или напиши мне на почту.
           </p>
 
           <form
