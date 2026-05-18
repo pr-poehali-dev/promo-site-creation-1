@@ -74,6 +74,44 @@ export default function Contacts() {
     <PageLayout noBackground>
       <div className="px-8 md:px-16 py-16">
         <div className="flex flex-col items-center gap-8">
+          <div
+            className="mx-auto flex items-center justify-center gap-4 px-10 py-5 rounded-2xl"
+            style={{
+              border: "2px solid transparent",
+              background:
+                "linear-gradient(rgba(10,14,40,0.55), rgba(10,14,40,0.55)) padding-box, linear-gradient(135deg, #3d5afe 0%, #7c4dff 50%, #b16cff 100%) border-box",
+              boxShadow:
+                "0 0 24px rgba(61,90,254,0.55), 0 0 48px rgba(124,77,255,0.35), inset 0 0 18px rgba(61,90,254,0.18)",
+              animation:
+                "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.05s both, cityFramePulse 3.4s ease-in-out infinite",
+            }}
+          >
+            <span
+              className="text-3xl md:text-4xl"
+              style={{
+                display: "inline-block",
+                animation: "cityPin 2.6s ease-in-out infinite",
+                filter: "drop-shadow(0 0 8px rgba(255,77,109,0.7))",
+              }}
+            >
+              📍
+            </span>
+            <span
+              className="font-cormorant italic"
+              style={{
+                color: "#fff",
+                textShadow:
+                  "0 2px 16px rgba(0,0,0,0.75), 0 0 18px rgba(124,77,255,0.55)",
+                fontSize: "clamp(1.8rem, 3.2vw, 2.8rem)",
+                fontWeight: 600,
+                lineHeight: 1,
+                letterSpacing: "0.02em",
+              }}
+            >
+              г. Саратов
+            </span>
+          </div>
+
           <a
             href="tel:+79869852111"
             className="flex items-center gap-3 sm:gap-5 group flex-nowrap whitespace-nowrap"
@@ -109,19 +147,6 @@ export default function Contacts() {
             <span style={{ fontSize: "1.15em" }}>☎️</span>
             <span>Позвонить</span>
           </a>
-
-          <div
-            className="flex items-center gap-4"
-            style={{ animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.35s both" }}
-          >
-            <span className="text-2xl">📍</span>
-            <span
-              className="font-cormorant text-2xl md:text-3xl italic"
-              style={{ color: "rgba(255,255,255,0.85)", textShadow: "0 2px 16px rgba(0,0,0,0.75)" }}
-            >
-              г. Саратов
-            </span>
-          </div>
 
           <p
             className="font-cormorant italic text-center max-w-2xl mt-6 leading-relaxed"
@@ -376,6 +401,20 @@ export default function Contacts() {
         @keyframes aboutFadeUp {
           0% { opacity: 0; transform: translateY(36px); filter: blur(8px); }
           100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        @keyframes cityFramePulse {
+          0%, 100% {
+            box-shadow: 0 0 24px rgba(61,90,254,0.55), 0 0 48px rgba(124,77,255,0.35), inset 0 0 18px rgba(61,90,254,0.18);
+            transform: scale(1);
+          }
+          50% {
+            box-shadow: 0 0 36px rgba(61,90,254,0.85), 0 0 72px rgba(124,77,255,0.55), inset 0 0 28px rgba(124,77,255,0.28);
+            transform: scale(1.025);
+          }
+        }
+        @keyframes cityPin {
+          0%, 100% { transform: translateY(0) rotate(-4deg); }
+          50% { transform: translateY(-4px) rotate(4deg); }
         }
       `}</style>
     </PageLayout>
