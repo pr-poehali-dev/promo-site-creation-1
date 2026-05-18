@@ -164,14 +164,12 @@ export default function About() {
                   textShadow:
                     "0 0 12px rgba(61,90,254,0.6), 0 2px 14px rgba(0,0,0,0.6)",
                   animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.8s both",
-                  display: "flex",
-                  flexWrap: "wrap",
-                  alignItems: "center",
-                  gap: "0.3em",
                 }}
               >
-                Хочешь настоящий индивидуальный подход? Звони...
-                <span
+                Хочешь настоящий индивидуальный подход?{" "}
+                <span style={{ whiteSpace: "nowrap" }}>
+                  Звони...
+                  <span
                   style={{
                     display: "inline-block",
                     fontSize: "1.1em",
@@ -182,6 +180,7 @@ export default function About() {
                   }}
                 >
                   💋
+                  </span>
                 </span>
               </p>
 
