@@ -305,7 +305,7 @@ export default function Contacts() {
                 textShadow: "0 2px 12px rgba(0,0,0,0.8)",
               }}
             >
-              Города работы
+              Города
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 w-full">
               {CITIES.map(({ name, slug, region }) => (
