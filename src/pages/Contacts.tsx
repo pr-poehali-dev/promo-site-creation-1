@@ -72,7 +72,7 @@ export default function Contacts() {
 
   return (
     <PageLayout noBackground>
-      <div className="px-8 md:px-16 py-16">
+      <div className="px-8 md:px-16 pt-6 md:pt-8 pb-16">
         <div className="flex flex-col items-center gap-8">
           <a
             href="tel:+79869852111"
@@ -124,7 +124,7 @@ export default function Contacts() {
 
           <form
             onSubmit={submit}
-            className="w-full max-w-xl mt-8 flex flex-col gap-4 p-6 md:p-8 rounded-3xl border border-white/25 backdrop-blur-md"
+            className="w-full max-w-xl mt-14 md:mt-20 flex flex-col gap-4 p-6 md:p-8 rounded-3xl border border-white/25 backdrop-blur-md"
             style={{
               background: "rgba(20,16,30,0.55)",
               boxShadow: "0 0 40px rgba(61,90,254,0.35), inset 0 0 18px rgba(255,255,255,0.06)",
