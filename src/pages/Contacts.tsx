@@ -5,6 +5,7 @@ import PageLayout from "@/components/PageLayout";
 const CITIES = [
   { name: "Москва", slug: "moskva", region: "Москва и Московская область" },
   { name: "Санкт-Петербург", slug: "spb", region: "СПб и Ленинградская область" },
+  { name: "Саратов", slug: "saratov", region: "Саратов и область" },
   { name: "Воронеж", slug: "voronezh", region: "Воронеж и область" },
   { name: "Самара", slug: "samara", region: "Самара и область" },
   { name: "Волгоград", slug: "volgograd", region: "Волгоград и область" },
@@ -73,44 +74,6 @@ export default function Contacts() {
     <PageLayout noBackground>
       <div className="px-8 md:px-16 py-16">
         <div className="flex flex-col items-center gap-8">
-          <div
-            className="mx-auto flex items-center justify-center gap-4 px-10 py-5 rounded-2xl"
-            style={{
-              border: "2px solid transparent",
-              background:
-                "linear-gradient(rgba(10,14,40,0.55), rgba(10,14,40,0.55)) padding-box, linear-gradient(135deg, #3d5afe 0%, #7c4dff 50%, #b16cff 100%) border-box",
-              boxShadow:
-                "0 0 24px rgba(61,90,254,0.55), 0 0 48px rgba(124,77,255,0.35), inset 0 0 18px rgba(61,90,254,0.18)",
-              animation:
-                "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.05s both, cityFramePulse 3.4s ease-in-out infinite",
-            }}
-          >
-            <span
-              className="text-3xl md:text-4xl"
-              style={{
-                display: "inline-block",
-                animation: "cityPin 2.6s ease-in-out infinite",
-                filter: "drop-shadow(0 0 8px rgba(255,77,109,0.7))",
-              }}
-            >
-              📍
-            </span>
-            <span
-              className="font-cormorant italic"
-              style={{
-                color: "#fff",
-                textShadow:
-                  "0 2px 16px rgba(0,0,0,0.75), 0 0 18px rgba(124,77,255,0.55)",
-                fontSize: "clamp(1.8rem, 3.2vw, 2.8rem)",
-                fontWeight: 600,
-                lineHeight: 1,
-                letterSpacing: "0.02em",
-              }}
-            >
-              г. Саратов
-            </span>
-          </div>
-
           <a
             href="tel:+79869852111"
             className="flex items-center gap-3 sm:gap-5 group flex-nowrap whitespace-nowrap"
