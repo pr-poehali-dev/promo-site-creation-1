@@ -144,12 +144,12 @@ export default function Home() {
             style={{ listStyle: "none", padding: 0, margin: 0 }}
           >
             {[
-              { name: "Москва", slug: "moskva" },
-              { name: "Санкт-Петербург", slug: "spb" },
               { name: "Саратов", slug: "saratov" },
-              { name: "Воронеж", slug: "voronezh" },
               { name: "Самара", slug: "samara" },
               { name: "Волгоград", slug: "volgograd" },
+              { name: "Воронеж", slug: "voronezh" },
+              { name: "Москва", slug: "moskva" },
+              { name: "Санкт-Петербург", slug: "spb" },
             ].map(({ name, slug }) => (
               <li key={slug} style={{ listStyle: "none" }}>
                 <a
