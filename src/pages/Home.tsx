@@ -119,6 +119,47 @@ export default function Home() {
         </a>
       </div>
 
+      {/* Города работы — SEO + видимый блок */}
+      <div
+        className="absolute left-0 right-0 px-6 md:px-12 pointer-events-none"
+        style={{
+          bottom: "clamp(1rem, 3vh, 2.5rem)",
+          zIndex: 25,
+          animation: "fadeUp 1.1s ease-out 1.4s both",
+        }}
+      >
+        <div className="flex flex-col items-center gap-2 md:gap-3">
+          <span
+            className="font-cormorant italic uppercase tracking-[0.35em]"
+            style={{
+              color: "rgba(255,255,255,0.6)",
+              fontSize: "clamp(0.7rem, 1vw, 0.9rem)",
+              textShadow: "0 2px 12px rgba(0,0,0,0.85)",
+            }}
+          >
+            Города работы
+          </span>
+          <ul
+            className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 md:gap-x-5"
+            style={{ listStyle: "none", padding: 0, margin: 0 }}
+          >
+            {["Москва", "Санкт-Петербург", "Саратов", "Воронеж", "Самара", "Волгоград"].map((city) => (
+              <li
+                key={city}
+                className="font-cormorant italic"
+                style={{
+                  color: "rgba(255,255,255,0.92)",
+                  fontSize: "clamp(1rem, 1.6vw, 1.5rem)",
+                  textShadow: "0 2px 14px rgba(0,0,0,0.85), 0 0 14px rgba(61,90,254,0.3)",
+                }}
+              >
+                {city}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
       <style>{`
         .hero-center { padding-top: 66vh; }
         @media (max-width: 768px) {
