@@ -118,7 +118,19 @@ export default function About() {
                   fontSize: "clamp(1.5rem, 2vw, 1.9rem)",
                   color: "rgba(255,255,255,0.92)",
                   textShadow: "0 2px 14px rgba(0,0,0,0.6)",
-                  animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.35s both",
+                  animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.3s both",
+                }}
+              >
+                Я живу и учусь в городе Саратов.
+              </p>
+
+              <p
+                className="font-cormorant italic leading-relaxed"
+                style={{
+                  fontSize: "clamp(1.5rem, 2vw, 1.9rem)",
+                  color: "rgba(255,255,255,0.92)",
+                  textShadow: "0 2px 14px rgba(0,0,0,0.6)",
+                  animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.45s both",
                 }}
               >
                 Знаешь, что такое настоящий индивидуальный подход?
