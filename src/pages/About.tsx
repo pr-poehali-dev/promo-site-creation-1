@@ -110,18 +110,17 @@ export default function About() {
                     <ellipse cx="11.5" cy="11" rx="1.6" ry="2.4" fill="rgba(255,255,255,0.45)" transform="rotate(-25 11.5 11)" />
                   </svg>
                 </span>
-              </p>
-
-              <p
-                className="font-cormorant italic leading-relaxed"
-                style={{
-                  fontSize: "clamp(1.5rem, 2vw, 1.9rem)",
-                  color: "rgba(255,255,255,0.92)",
-                  textShadow: "0 2px 14px rgba(0,0,0,0.6)",
-                  animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.3s both",
-                }}
-              >
-                Я живу и учусь в городе Саратов.
+                <span
+                  style={{
+                    marginLeft: "0.6em",
+                    fontSize: "0.85em",
+                    color: "rgba(255,255,255,0.92)",
+                    textShadow: "0 2px 14px rgba(0,0,0,0.6)",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  Я живу и учусь в городе Саратов
+                </span>
               </p>
 
               <p
