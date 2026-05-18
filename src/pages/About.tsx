@@ -119,7 +119,7 @@ export default function About() {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  Я живу и учусь в городе Саратов
+                  Я живу и учусь в городе Саратов.
                 </span>
               </p>
 
