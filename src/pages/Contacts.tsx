@@ -26,7 +26,7 @@ export default function Contacts() {
     if (status === "sending") return;
     if (!form.name.trim() || !form.phone.trim()) {
       setStatus("error");
-      setErrorText("Заполни имя и телефон");
+      setErrorText("Заполни имя и телефон.");
       return;
     }
     const elapsed_ms = Date.now() - formMountedAt.current;
