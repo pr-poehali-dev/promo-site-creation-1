@@ -150,27 +150,71 @@ export default function Home() {
               { name: "Воронеж", slug: "voronezh" },
               { name: "Самара", slug: "samara" },
               { name: "Волгоград", slug: "volgograd" },
-            ].map(({ name, slug }) => (
-              <li key={slug} style={{ listStyle: "none" }}>
-                <a
-                  href={`/contacts#city-${slug}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    navigate(`/contacts#city-${slug}`);
-                  }}
-                  className="font-cormorant italic city-link"
-                  style={{
-                    color: "rgba(255,255,255,0.92)",
-                    fontSize: "clamp(1rem, 1.6vw, 1.5rem)",
-                    textShadow: "0 2px 14px rgba(0,0,0,0.85), 0 0 14px rgba(61,90,254,0.3)",
-                    textDecoration: "none",
-                    transition: "color 0.3s, text-shadow 0.3s",
-                  }}
-                >
-                  {name}
-                </a>
-              </li>
-            ))}
+            ].map(({ name, slug }) => {
+              const isSaratov = slug === "saratov";
+              return (
+                <li key={slug} style={{ listStyle: "none" }}>
+                  <a
+                    href={`/contacts#city-${slug}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate(`/contacts#city-${slug}`);
+                    }}
+                    className={`font-cormorant italic city-link ${isSaratov ? "city-saratov" : ""}`}
+                    style={{
+                      color: isSaratov ? "#fff" : "rgba(255,255,255,0.92)",
+                      fontSize: isSaratov
+                        ? "clamp(1.15rem, 1.9vw, 1.75rem)"
+                        : "clamp(1rem, 1.6vw, 1.5rem)",
+                      textShadow: isSaratov
+                        ? "0 2px 14px rgba(0,0,0,0.85)"
+                        : "0 2px 14px rgba(0,0,0,0.85), 0 0 14px rgba(61,90,254,0.3)",
+                      textDecoration: "none",
+                      transition: "color 0.3s, text-shadow 0.3s",
+                      padding: isSaratov ? "0.15em 0.7em" : undefined,
+                      borderRadius: isSaratov ? "999px" : undefined,
+                      position: "relative",
+                      fontWeight: isSaratov ? 700 : undefined,
+                      letterSpacing: isSaratov ? "0.04em" : undefined,
+                    }}
+                  >
+                    {isSaratov && (
+                      <span
+                        aria-hidden="true"
+                        style={{
+                          position: "absolute",
+                          inset: 0,
+                          borderRadius: "999px",
+                          padding: "2px",
+                          background:
+                            "linear-gradient(135deg, #ff4d6d 0%, #b16cff 50%, #3d5afe 100%)",
+                          WebkitMask:
+                            "linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0)",
+                          WebkitMaskComposite: "xor",
+                          maskComposite: "exclude",
+                          animation: "saratovBorder 2.6s ease-in-out infinite",
+                          pointerEvents: "none",
+                        }}
+                      />
+                    )}
+                    {isSaratov && (
+                      <span
+                        aria-hidden="true"
+                        style={{
+                          marginRight: "0.35em",
+                          display: "inline-block",
+                          animation: "saratovPin 2.6s ease-in-out infinite",
+                          filter: "drop-shadow(0 0 6px rgba(255,77,109,0.8))",
+                        }}
+                      >
+                        📍
+                      </span>
+                    )}
+                    {name}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
@@ -218,6 +262,43 @@ export default function Home() {
         .city-link:hover {
           color: #fff !important;
           text-shadow: 0 2px 14px rgba(0,0,0,0.85), 0 0 22px rgba(61,90,254,0.9), 0 0 6px rgba(255,255,255,0.6) !important;
+        }
+        .city-saratov {
+          background: linear-gradient(135deg, rgba(255,77,109,0.18), rgba(124,77,255,0.18), rgba(61,90,254,0.22));
+          animation: saratovGlow 2.6s ease-in-out infinite, saratovFloat 4s ease-in-out infinite;
+        }
+        .city-saratov:hover {
+          transform: scale(1.06);
+        }
+        @keyframes saratovGlow {
+          0%, 100% {
+            box-shadow:
+              0 0 14px rgba(255,77,109,0.55),
+              0 0 28px rgba(124,77,255,0.45),
+              0 0 48px rgba(61,90,254,0.35),
+              inset 0 0 10px rgba(255,255,255,0.1);
+            text-shadow: 0 2px 14px rgba(0,0,0,0.85), 0 0 10px rgba(255,77,109,0.55);
+          }
+          50% {
+            box-shadow:
+              0 0 22px rgba(255,77,109,0.9),
+              0 0 44px rgba(124,77,255,0.75),
+              0 0 80px rgba(61,90,254,0.55),
+              inset 0 0 16px rgba(255,255,255,0.22);
+            text-shadow: 0 2px 14px rgba(0,0,0,0.85), 0 0 18px rgba(255,77,109,0.95), 0 0 30px rgba(124,77,255,0.7);
+          }
+        }
+        @keyframes saratovBorder {
+          0%, 100% { opacity: 0.85; filter: hue-rotate(0deg); }
+          50% { opacity: 1; filter: hue-rotate(35deg); }
+        }
+        @keyframes saratovPin {
+          0%, 100% { transform: translateY(0) rotate(-6deg); }
+          50% { transform: translateY(-3px) rotate(6deg); }
+        }
+        @keyframes saratovFloat {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-3px); }
         }
         @keyframes aboutFadeUp {
           0% { opacity: 0; transform: translateY(36px); filter: blur(8px); }
