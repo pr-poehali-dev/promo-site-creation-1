@@ -110,6 +110,19 @@ export default function Contacts() {
             <span>Позвонить</span>
           </a>
 
+          <div
+            className="flex items-center gap-4"
+            style={{ animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.35s both" }}
+          >
+            <span className="text-2xl">📍</span>
+            <span
+              className="font-cormorant text-2xl md:text-3xl italic"
+              style={{ color: "rgba(255,255,255,0.85)", textShadow: "0 2px 16px rgba(0,0,0,0.75)" }}
+            >
+              г. Саратов
+            </span>
+          </div>
+
           <p
             className="font-cormorant italic text-center max-w-2xl mt-6 leading-relaxed"
             style={{
@@ -119,7 +132,23 @@ export default function Contacts() {
               animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.6s both",
             }}
           >
-            По поводу встречи, звони по телефону или напиши мне.
+            По поводу встречи, звони по телефону указанный выше.{" "}
+            <span style={{ whiteSpace: "nowrap", display: "inline-flex", alignItems: "center", gap: "0.35em", verticalAlign: "baseline" }}>
+              <span style={{ color: "#ff4d6d", textShadow: "0 0 12px rgba(255,77,109,0.6)" }}>
+                Целую
+              </span>
+              <span
+                style={{
+                  fontSize: "1.1em",
+                  display: "inline-block",
+                  lineHeight: 1,
+                  transformOrigin: "center",
+                  animation: "lipsPulse 2.4s ease-in-out infinite",
+                }}
+              >
+                💋
+              </span>
+            </span>
           </p>
 
           <form
