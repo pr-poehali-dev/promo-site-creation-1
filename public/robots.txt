@@ -1,5 +1,15 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+
+User-agent: Yandex
+Allow: /
+Disallow: /api/
+Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term
+
 User-agent: Googlebot
 Allow: /
+Disallow: /api/
 
 User-agent: Bingbot
 Allow: /
@@ -10,5 +20,5 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
-Allow: /
+Host: https://sladkie-grezy.ru
+Sitemap: https://sladkie-grezy.ru/sitemap.xml
