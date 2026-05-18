@@ -160,15 +160,30 @@ export default function About() {
               <p
                 className="font-cormorant italic"
                 style={{
-                  fontSize: "clamp(1.6rem, 2.2vw, 2rem)",
+                  fontSize: "clamp(1.1rem, 1.7vw, 1.6rem)",
                   color: "#fff",
                   textShadow:
                     "0 0 12px rgba(61,90,254,0.6), 0 2px 14px rgba(0,0,0,0.6)",
                   animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.8s both",
+                  whiteSpace: "nowrap",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.3em",
                 }}
               >
-                Хочешь настоящий индивидуальный подход? Звони...{" "}
-                <span style={{ color: "#3d5afe" }}>:)</span>
+                Хочешь настоящий индивидуальный подход? Звони...
+                <span
+                  style={{
+                    display: "inline-block",
+                    fontSize: "1.1em",
+                    lineHeight: 1,
+                    transformOrigin: "center",
+                    animation: "lipsPulse 2.4s ease-in-out infinite",
+                    filter: "drop-shadow(0 0 8px rgba(255,77,109,0.7))",
+                  }}
+                >
+                  💋
+                </span>
               </p>
 
               <div
