@@ -140,20 +140,35 @@ export default function Home() {
             Города работы
           </span>
           <ul
-            className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 md:gap-x-5"
+            className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 md:gap-x-5 pointer-events-auto"
             style={{ listStyle: "none", padding: 0, margin: 0 }}
           >
-            {["Москва", "Санкт-Петербург", "Саратов", "Воронеж", "Самара", "Волгоград"].map((city) => (
-              <li
-                key={city}
-                className="font-cormorant italic"
-                style={{
-                  color: "rgba(255,255,255,0.92)",
-                  fontSize: "clamp(1rem, 1.6vw, 1.5rem)",
-                  textShadow: "0 2px 14px rgba(0,0,0,0.85), 0 0 14px rgba(61,90,254,0.3)",
-                }}
-              >
-                {city}
+            {[
+              { name: "Москва", slug: "moskva" },
+              { name: "Санкт-Петербург", slug: "spb" },
+              { name: "Саратов", slug: "saratov" },
+              { name: "Воронеж", slug: "voronezh" },
+              { name: "Самара", slug: "samara" },
+              { name: "Волгоград", slug: "volgograd" },
+            ].map(({ name, slug }) => (
+              <li key={slug} style={{ listStyle: "none" }}>
+                <a
+                  href={`/contacts#city-${slug}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigate(`/contacts#city-${slug}`);
+                  }}
+                  className="font-cormorant italic city-link"
+                  style={{
+                    color: "rgba(255,255,255,0.92)",
+                    fontSize: "clamp(1rem, 1.6vw, 1.5rem)",
+                    textShadow: "0 2px 14px rgba(0,0,0,0.85), 0 0 14px rgba(61,90,254,0.3)",
+                    textDecoration: "none",
+                    transition: "color 0.3s, text-shadow 0.3s",
+                  }}
+                >
+                  {name}
+                </a>
               </li>
             ))}
           </ul>
@@ -199,6 +214,10 @@ export default function Home() {
         @keyframes bgFade {
           0% { background: rgba(10,10,10,0.95); }
           100% { background: rgba(10,10,10,0.45); }
+        }
+        .city-link:hover {
+          color: #fff !important;
+          text-shadow: 0 2px 14px rgba(0,0,0,0.85), 0 0 22px rgba(61,90,254,0.9), 0 0 6px rgba(255,255,255,0.6) !important;
         }
         @keyframes aboutFadeUp {
           0% { opacity: 0; transform: translateY(36px); filter: blur(8px); }
