@@ -119,10 +119,7 @@ export default function Contacts() {
               animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.6s both",
             }}
           >
-            По поводу встречи, звони по телефону указанный выше.{" "}
-            <span style={{ color: "#ff4d6d", textShadow: "0 0 12px rgba(255,77,109,0.6)" }}>
-              Целую
-            </span>
+            По поводу встречи, звони по телефону или напиши мне.
           </p>
 
           <form
