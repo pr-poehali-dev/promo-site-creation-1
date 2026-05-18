@@ -11,9 +11,41 @@ const CITIES = [
   { name: "Волгоград", slug: "volgograd", region: "Волгоград и область" },
 ];
 
+const SEND_LEAD_URL = "https://functions.poehali.dev/f5ce1336-690a-4620-b301-14c6b668bb09";
+
 export default function Contacts() {
   const location = useLocation();
   const [highlight, setHighlight] = useState<string | null>(null);
+  const [form, setForm] = useState({ name: "", phone: "", city: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorText, setErrorText] = useState("");
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (status === "sending") return;
+    if (!form.name.trim() || !form.phone.trim()) {
+      setStatus("error");
+      setErrorText("Заполни имя и телефон");
+      return;
+    }
+    setStatus("sending");
+    setErrorText("");
+    try {
+      const res = await fetch(SEND_LEAD_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Ошибка отправки");
+      setStatus("success");
+      setForm({ name: "", phone: "", city: "", message: "" });
+      setTimeout(() => setStatus("idle"), 6000);
+    } catch (err) {
+      setStatus("error");
+      setErrorText(err instanceof Error ? err.message : "Ошибка отправки");
+    }
+  };
 
   useEffect(() => {
     if (location.hash.startsWith("#city-")) {
@@ -110,6 +142,126 @@ export default function Contacts() {
             </span>
           </p>
 
+          <form
+            onSubmit={submit}
+            className="w-full max-w-xl mt-8 flex flex-col gap-4 p-6 md:p-8 rounded-3xl border border-white/25 backdrop-blur-md"
+            style={{
+              background: "rgba(20,16,30,0.55)",
+              boxShadow: "0 0 40px rgba(61,90,254,0.35), inset 0 0 18px rgba(255,255,255,0.06)",
+              animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.7s both",
+            }}
+          >
+            <h2
+              className="font-cormorant italic text-center"
+              style={{
+                color: "#fff",
+                fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
+                fontWeight: 600,
+                textShadow: "0 2px 14px rgba(0,0,0,0.85), 0 0 18px rgba(255,77,109,0.4)",
+                lineHeight: 1.1,
+              }}
+            >
+              Оставь заявку — перезвоню сама 💋
+            </h2>
+            <p
+              className="font-cormorant italic text-center"
+              style={{
+                color: "rgba(255,255,255,0.75)",
+                fontSize: "clamp(1rem, 1.4vw, 1.2rem)",
+                textShadow: "0 2px 10px rgba(0,0,0,0.7)",
+                marginTop: "-0.5rem",
+              }}
+            >
+              Конфиденциально. Без спама.
+            </p>
+
+            <input
+              type="text"
+              placeholder="Как тебя зовут"
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              maxLength={100}
+              required
+              className="lead-input"
+            />
+            <input
+              type="tel"
+              placeholder="Телефон для связи"
+              value={form.phone}
+              onChange={(e) => setForm({ ...form, phone: e.target.value })}
+              maxLength={30}
+              required
+              className="lead-input"
+            />
+            <select
+              value={form.city}
+              onChange={(e) => setForm({ ...form, city: e.target.value })}
+              className="lead-input"
+            >
+              <option value="">Выбери город</option>
+              {CITIES.map((c) => (
+                <option key={c.slug} value={c.name} style={{ color: "#222" }}>
+                  {c.name}
+                </option>
+              ))}
+            </select>
+            <textarea
+              placeholder="Комментарий (необязательно)"
+              value={form.message}
+              onChange={(e) => setForm({ ...form, message: e.target.value })}
+              maxLength={1000}
+              rows={3}
+              className="lead-input"
+              style={{ resize: "vertical" }}
+            />
+
+            <button
+              type="submit"
+              disabled={status === "sending"}
+              className="font-cormorant italic px-8 py-4 rounded-full border border-white/60 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed hover:scale-[1.02]"
+              style={{
+                color: "#fff",
+                background: "linear-gradient(135deg, rgba(255,77,109,0.6), rgba(61,90,254,0.6))",
+                boxShadow: "0 0 28px rgba(255,77,109,0.55), inset 0 0 14px rgba(255,255,255,0.15)",
+                textShadow: "0 2px 12px rgba(0,0,0,0.6)",
+                fontSize: "clamp(1.2rem, 2vw, 1.6rem)",
+                fontWeight: 600,
+                cursor: status === "sending" ? "wait" : "pointer",
+              }}
+            >
+              {status === "sending" ? "Отправляю..." : "Отправить заявку 💌"}
+            </button>
+
+            {status === "success" && (
+              <div
+                className="font-cormorant italic text-center px-4 py-3 rounded-2xl"
+                style={{
+                  background: "rgba(76,175,80,0.2)",
+                  border: "1px solid rgba(76,175,80,0.6)",
+                  color: "#a8f0a8",
+                  fontSize: "clamp(1rem, 1.4vw, 1.25rem)",
+                  textShadow: "0 2px 10px rgba(0,0,0,0.6)",
+                }}
+              >
+                Заявка отправлена. Скоро свяжусь с тобой ❤️
+              </div>
+            )}
+            {status === "error" && (
+              <div
+                className="font-cormorant italic text-center px-4 py-3 rounded-2xl"
+                style={{
+                  background: "rgba(255,77,109,0.15)",
+                  border: "1px solid rgba(255,77,109,0.6)",
+                  color: "#ffb3c0",
+                  fontSize: "clamp(1rem, 1.4vw, 1.25rem)",
+                  textShadow: "0 2px 10px rgba(0,0,0,0.6)",
+                }}
+              >
+                {errorText || "Не удалось отправить. Позвони напрямую."}
+              </div>
+            )}
+          </form>
+
           <div
             className="w-full max-w-4xl mt-10 flex flex-col items-center gap-5"
             style={{ animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.8s both" }}
@@ -172,6 +324,33 @@ export default function Contacts() {
       </div>
 
       <style>{`
+        .lead-input {
+          width: 100%;
+          padding: 14px 18px;
+          border-radius: 14px;
+          border: 1px solid rgba(255,255,255,0.3);
+          background: rgba(255,255,255,0.08);
+          color: #fff;
+          font-family: 'Cormorant', serif;
+          font-style: italic;
+          font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+          outline: none;
+          transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+          backdrop-filter: blur(6px);
+        }
+        .lead-input::placeholder {
+          color: rgba(255,255,255,0.55);
+          font-style: italic;
+        }
+        .lead-input:focus {
+          border-color: rgba(255,77,109,0.85);
+          box-shadow: 0 0 22px rgba(255,77,109,0.4), inset 0 0 10px rgba(255,255,255,0.06);
+          background: rgba(255,255,255,0.12);
+        }
+        select.lead-input option {
+          background: #1a1426;
+          color: #fff;
+        }
         .city-card:hover {
           transform: translateY(-3px) scale(1.02);
           border-color: rgba(255,255,255,0.85) !important;
