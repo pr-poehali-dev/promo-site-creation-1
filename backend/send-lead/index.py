@@ -45,6 +45,26 @@ def handler(event: dict, context) -> dict:
     phone = (body.get('phone') or '').strip()[:30]
     city = (body.get('city') or '').strip()[:60]
     message = (body.get('message') or '').strip()[:1000]
+    honeypot = (body.get('website') or '').strip()
+    elapsed_ms = body.get('elapsed_ms', 0)
+
+    if honeypot:
+        return {
+            'statusCode': 200,
+            'headers': {**cors_headers, 'Content-Type': 'application/json'},
+            'body': json.dumps({'success': True, 'message': 'OK'}),
+        }
+
+    try:
+        elapsed_ms_int = int(elapsed_ms)
+    except (TypeError, ValueError):
+        elapsed_ms_int = 0
+    if elapsed_ms_int < 2500:
+        return {
+            'statusCode': 200,
+            'headers': {**cors_headers, 'Content-Type': 'application/json'},
+            'body': json.dumps({'success': True, 'message': 'OK'}),
+        }
 
     if not name or not phone:
         return {
@@ -58,6 +78,23 @@ def handler(event: dict, context) -> dict:
             'statusCode': 400,
             'headers': {**cors_headers, 'Content-Type': 'application/json'},
             'body': json.dumps({'error': 'Некорректный телефон'}),
+        }
+
+    digits_count = sum(1 for c in phone if c.isdigit())
+    if digits_count < 10:
+        return {
+            'statusCode': 400,
+            'headers': {**cors_headers, 'Content-Type': 'application/json'},
+            'body': json.dumps({'error': 'Некорректный телефон'}),
+        }
+
+    suspicious_patterns = ['http://', 'https://', 'www.', '<a ', '[url=', '\\x', 'casino', 'viagra', 'crypto']
+    combined = (name + ' ' + message).lower()
+    if any(p in combined for p in suspicious_patterns):
+        return {
+            'statusCode': 200,
+            'headers': {**cors_headers, 'Content-Type': 'application/json'},
+            'body': json.dumps({'success': True, 'message': 'OK'}),
         }
 
     smtp_user = os.environ.get('SMTP_USER', '')

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import PageLayout from "@/components/PageLayout";
 
@@ -16,9 +16,10 @@ const SEND_LEAD_URL = "https://functions.poehali.dev/f5ce1336-690a-4620-b301-14c
 export default function Contacts() {
   const location = useLocation();
   const [highlight, setHighlight] = useState<string | null>(null);
-  const [form, setForm] = useState({ name: "", phone: "", city: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", city: "", message: "", website: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorText, setErrorText] = useState("");
+  const formMountedAt = useRef<number>(Date.now());
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,18 +29,26 @@ export default function Contacts() {
       setErrorText("Заполни имя и телефон");
       return;
     }
+    const elapsed_ms = Date.now() - formMountedAt.current;
+    if (elapsed_ms < 2500) {
+      setStatus("success");
+      setForm({ name: "", phone: "", city: "", message: "", website: "" });
+      setTimeout(() => setStatus("idle"), 6000);
+      return;
+    }
     setStatus("sending");
     setErrorText("");
     try {
       const res = await fetch(SEND_LEAD_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, elapsed_ms }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Ошибка отправки");
       setStatus("success");
-      setForm({ name: "", phone: "", city: "", message: "" });
+      setForm({ name: "", phone: "", city: "", message: "", website: "" });
+      formMountedAt.current = Date.now();
       setTimeout(() => setStatus("idle"), 6000);
     } catch (err) {
       setStatus("error");
@@ -174,6 +183,19 @@ export default function Contacts() {
             >
               Конфиденциально. Без спама.
             </p>
+
+            <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "-9999px", width: "1px", height: "1px", overflow: "hidden", opacity: 0, pointerEvents: "none" }}>
+              <label>
+                Website (не заполнять)
+                <input
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={form.website}
+                  onChange={(e) => setForm({ ...form, website: e.target.value })}
+                />
+              </label>
+            </div>
 
             <input
               type="text"
