@@ -65,7 +65,7 @@ export default function About() {
                   animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.2s both",
                 }}
               >
-                Привет! 👋 Познакомимся? Меня зовут Эльвира.{" "}
+                Привет, меня зовут Эльвира.{" "}
                 <span
                   style={{
                     display: "inline-block",
