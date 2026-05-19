@@ -94,7 +94,7 @@ export default function Contacts() {
           </a>
 
           <p
-            className="font-cormorant italic text-center max-w-2xl mt-6 leading-relaxed"
+            className="font-cormorant italic text-center max-w-2xl leading-relaxed my-10 md:my-14"
             style={{
               color: "rgba(255,255,255,0.92)",
               fontSize: "clamp(1.25rem, 2vw, 1.75rem)",
@@ -107,7 +107,7 @@ export default function Contacts() {
 
           <form
             onSubmit={submit}
-            className="w-full max-w-xl mt-14 md:mt-20 flex flex-col gap-4 p-6 md:p-8 rounded-3xl border border-white/25 backdrop-blur-md"
+            className="w-full max-w-xl flex flex-col gap-4 p-6 md:p-8 rounded-3xl border border-white/25 backdrop-blur-md"
             style={{
               background: "rgba(20,16,30,0.55)",
               boxShadow: "0 0 40px rgba(61,90,254,0.35), inset 0 0 18px rgba(255,255,255,0.06)",
