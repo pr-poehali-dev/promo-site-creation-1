@@ -117,6 +117,7 @@ export default function About() {
                     textShadow: "0 2px 14px rgba(0,0,0,0.6)",
                   }}
                 >
+                  <br className="block md:hidden" />
                   Я живу и учусь в городе Саратов.
                 </span>
               </p>
