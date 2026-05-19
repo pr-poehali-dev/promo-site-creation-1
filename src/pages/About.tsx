@@ -198,10 +198,12 @@ export default function About() {
                 <p
                   className="font-cormorant italic"
                   style={{
-                    fontSize: "clamp(1.5rem, 2vw, 1.9rem)",
+                    fontSize: "clamp(2rem, 3vw, 2.8rem)",
+                    fontWeight: 600,
                     color: "#fff",
-                    textShadow: "0 0 12px rgba(61,90,254,0.55), 0 2px 14px rgba(0,0,0,0.6)",
+                    textShadow: "0 0 16px rgba(61,90,254,0.7), 0 2px 16px rgba(0,0,0,0.7)",
                     marginBottom: "0.6em",
+                    lineHeight: 1.1,
                   }}
                 >
                   Форматы встреч:
