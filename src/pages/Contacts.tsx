@@ -126,18 +126,6 @@ export default function Contacts() {
             >
               Оставь заявку — перезвоню сама 💋
             </h2>
-            <p
-              className="font-cormorant italic text-center"
-              style={{
-                color: "rgba(255,255,255,0.75)",
-                fontSize: "clamp(1rem, 1.4vw, 1.2rem)",
-                textShadow: "0 2px 10px rgba(0,0,0,0.7)",
-                marginTop: "-0.5rem",
-              }}
-            >
-              Конфиденциально. Без спама.
-            </p>
-
             <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "-9999px", width: "1px", height: "1px", overflow: "hidden", opacity: 0, pointerEvents: "none" }}>
               <label>
                 Website (не заполнять)
