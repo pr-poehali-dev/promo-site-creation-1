@@ -128,7 +128,7 @@ export default function Home() {
           animation: "fadeUp 1.1s ease-out 1.4s both",
         }}
       >
-        <div className="flex flex-col items-center gap-2 md:gap-3">
+        <div className="flex flex-col items-center gap-1 md:gap-1">
           <span
             className="font-cormorant italic uppercase tracking-[0.35em]"
             style={{
