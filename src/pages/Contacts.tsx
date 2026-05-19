@@ -27,12 +27,6 @@ export default function Contacts() {
       return;
     }
     const elapsed_ms = Date.now() - formMountedAt.current;
-    if (elapsed_ms < 2500) {
-      setStatus("success");
-      setForm({ name: "", phone: "", city: "", message: "", website: "" });
-      setTimeout(() => setStatus("idle"), 6000);
-      return;
-    }
     setStatus("sending");
     setErrorText("");
     try {
@@ -107,7 +101,8 @@ export default function Contacts() {
 
           <form
             onSubmit={submit}
-            className="w-full max-w-xl flex flex-col gap-4 p-6 md:p-8 rounded-3xl border border-white/25 backdrop-blur-md"
+            noValidate
+            className="w-full max-w-xl flex flex-col gap-4 p-6 md:p-8 rounded-3xl border border-white/25 backdrop-blur-md relative z-20"
             style={{
               background: "rgba(20,16,30,0.55)",
               boxShadow: "0 0 40px rgba(61,90,254,0.35), inset 0 0 18px rgba(255,255,255,0.06)",
@@ -183,16 +178,17 @@ export default function Contacts() {
 
             <button
               type="submit"
-              disabled={status === "sending"}
-              className="font-cormorant italic px-8 py-4 rounded-full border border-white/60 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed hover:scale-[1.02]"
+              className="font-cormorant italic px-8 py-4 rounded-full border border-white/60 transition-all duration-300 hover:scale-[1.02] relative z-30"
               style={{
                 color: "#fff",
-                background: "linear-gradient(135deg, rgba(255,77,109,0.6), rgba(61,90,254,0.6))",
+                background: "linear-gradient(135deg, rgba(255,77,109,0.85), rgba(61,90,254,0.85))",
                 boxShadow: "0 0 28px rgba(255,77,109,0.55), inset 0 0 14px rgba(255,255,255,0.15)",
                 textShadow: "0 2px 12px rgba(0,0,0,0.6)",
                 fontSize: "clamp(1.2rem, 2vw, 1.6rem)",
                 fontWeight: 600,
-                cursor: status === "sending" ? "wait" : "pointer",
+                cursor: "pointer",
+                opacity: status === "sending" ? 0.7 : 1,
+                pointerEvents: status === "sending" ? "none" : "auto",
               }}
             >
               {status === "sending" ? "Отправляю..." : "Отправить заявку 💌"}
