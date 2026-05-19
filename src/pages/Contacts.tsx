@@ -122,6 +122,8 @@ export default function Contacts() {
                 fontWeight: 600,
                 textShadow: "0 2px 14px rgba(0,0,0,0.85), 0 0 18px rgba(255,77,109,0.4)",
                 lineHeight: 1.1,
+                marginTop: "-0.5rem",
+                marginBottom: "0.25rem",
               }}
             >
               Записаться на встречу
