@@ -59,7 +59,7 @@ export default function About() {
               <p
                 className="font-cormorant italic leading-relaxed"
                 style={{
-                  fontSize: "clamp(1.7rem, 2.3vw, 2.1rem)",
+                  fontSize: "clamp(1.5rem, 2vw, 1.9rem)",
                   color: "#fff",
                   textShadow: "0 2px 14px rgba(0,0,0,0.6), 0 0 12px rgba(61,90,254,0.4)",
                   animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.2s both",
@@ -113,7 +113,6 @@ export default function About() {
                 <span
                   style={{
                     marginLeft: "0.6em",
-                    fontSize: "0.85em",
                     color: "rgba(255,255,255,0.92)",
                     textShadow: "0 2px 14px rgba(0,0,0,0.6)",
                   }}
@@ -137,7 +136,7 @@ export default function About() {
               <p
                 className="font-cormorant leading-relaxed"
                 style={{
-                  fontSize: "clamp(1.35rem, 1.7vw, 1.65rem)",
+                  fontSize: "clamp(1.5rem, 2vw, 1.9rem)",
                   color: "rgba(255,255,255,0.85)",
                   animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.5s both",
                 }}
@@ -148,7 +147,7 @@ export default function About() {
               <p
                 className="font-cormorant leading-relaxed"
                 style={{
-                  fontSize: "clamp(1.35rem, 1.7vw, 1.65rem)",
+                  fontSize: "clamp(1.5rem, 2vw, 1.9rem)",
                   color: "rgba(255,255,255,0.85)",
                   animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.65s both",
                 }}
@@ -159,7 +158,7 @@ export default function About() {
               <p
                 className="font-cormorant italic"
                 style={{
-                  fontSize: "clamp(1.5rem, 2.4vw, 2.3rem)",
+                  fontSize: "clamp(1.5rem, 2vw, 1.9rem)",
                   color: "#fff",
                   textShadow:
                     "0 0 12px rgba(61,90,254,0.6), 0 2px 14px rgba(0,0,0,0.6)",
