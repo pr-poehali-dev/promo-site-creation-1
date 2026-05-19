@@ -197,7 +197,7 @@ export default function About() {
                 <p
                   className="font-cormorant italic"
                   style={{
-                    fontSize: "clamp(1.55rem, 2vw, 1.9rem)",
+                    fontSize: "clamp(1.5rem, 2vw, 1.9rem)",
                     color: "#fff",
                     textShadow: "0 0 12px rgba(61,90,254,0.55), 0 2px 14px rgba(0,0,0,0.6)",
                     marginBottom: "0.6em",
@@ -208,7 +208,7 @@ export default function About() {
                 <ul
                   className="font-cormorant leading-relaxed space-y-2"
                   style={{
-                    fontSize: "clamp(1.35rem, 1.75vw, 1.7rem)",
+                    fontSize: "clamp(1.5rem, 2vw, 1.9rem)",
                     color: "rgba(255,255,255,0.92)",
                     listStyle: "none",
                     padding: 0,
@@ -227,7 +227,7 @@ export default function About() {
                 <p
                   className="font-cormorant leading-relaxed mt-4"
                   style={{
-                    fontSize: "clamp(1.3rem, 1.65vw, 1.6rem)",
+                    fontSize: "clamp(1.5rem, 2vw, 1.9rem)",
                     color: "rgba(255,255,255,0.88)",
                   }}
                 >
