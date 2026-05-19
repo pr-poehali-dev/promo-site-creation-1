@@ -124,7 +124,7 @@ export default function Contacts() {
                 lineHeight: 1.1,
               }}
             >
-              Оставь заявку — перезвоню сама 💋
+              💋
             </h2>
             <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "-9999px", width: "1px", height: "1px", overflow: "hidden", opacity: 0, pointerEvents: "none" }}>
               <label>
