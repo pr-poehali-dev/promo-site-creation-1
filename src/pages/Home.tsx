@@ -135,6 +135,7 @@ export default function Home() {
               color: "rgba(255,255,255,0.6)",
               fontSize: "clamp(0.7rem, 1vw, 0.9rem)",
               textShadow: "0 2px 12px rgba(0,0,0,0.85)",
+              marginTop: "clamp(0.75rem, 2vh, 1.75rem)",
             }}
           >
             Города
