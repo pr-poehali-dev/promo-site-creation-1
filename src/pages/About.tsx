@@ -189,9 +189,9 @@ export default function About() {
                 style={{
                   border: "2px solid transparent",
                   background:
-                    "linear-gradient(transparent, transparent) padding-box, linear-gradient(135deg, #3d5afe 0%, #7c4dff 50%, #b16cff 100%) border-box",
+                    "linear-gradient(rgba(10,14,40,0.55), rgba(10,14,40,0.55)) padding-box, linear-gradient(135deg, #3d5afe 0%, #7c4dff 50%, #b16cff 100%) border-box",
                   boxShadow:
-                    "0 0 24px rgba(61,90,254,0.55), 0 0 48px rgba(124,77,255,0.35)",
+                    "0 0 24px rgba(61,90,254,0.55), 0 0 48px rgba(124,77,255,0.35), inset 0 0 24px rgba(61,90,254,0.18)",
                   animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.95s both, framePulse 3.6s ease-in-out infinite",
                 }}
               >
