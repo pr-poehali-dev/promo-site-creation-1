@@ -1,4 +1,12 @@
+import { useState } from "react";
 import PageLayout from "@/components/PageLayout";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import Icon from "@/components/ui/icon";
 
 const PHOTO_PLACEHOLDER_1 =
   "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/572b2706-dbbc-4d45-930d-b1bcab9ffdb3.jpg";
@@ -6,6 +14,7 @@ const PHOTO_PLACEHOLDER_2 =
   "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/de67aff0-5994-4139-92fa-81cba6775a5e.jpg";
 
 export default function About() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <PageLayout>
       <section className="relative px-6 md:px-16 pt-4 md:pt-6 pb-12 md:pb-16">
@@ -184,63 +193,122 @@ export default function About() {
                 </span>
               </p>
 
-              <div
-                className="mt-8 p-6 md:p-8 rounded-lg relative"
-                style={{
-                  border: "2px solid transparent",
-                  background:
-                    "linear-gradient(rgba(4,6,20,0.82), rgba(4,6,20,0.82)) padding-box, linear-gradient(135deg, #3d5afe 0%, #7c4dff 50%, #b16cff 100%) border-box",
-                  boxShadow:
-                    "0 0 24px rgba(61,90,254,0.55), 0 0 48px rgba(124,77,255,0.35), inset 0 0 24px rgba(61,90,254,0.18)",
-                  animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.95s both, framePulse 3.6s ease-in-out infinite",
-                }}
-              >
-                <p
-                  className="font-cormorant italic"
-                  style={{
-                    fontSize: "clamp(2rem, 3vw, 2.8rem)",
-                    fontWeight: 600,
-                    color: "#fff",
-                    textShadow: "0 0 16px rgba(61,90,254,0.7), 0 2px 16px rgba(0,0,0,0.7)",
-                    marginBottom: "0.6em",
-                    lineHeight: 1.1,
-                  }}
-                >
-                  Форматы встреч:
-                </p>
-                <ul
-                  className="font-cormorant leading-relaxed space-y-2"
-                  style={{
-                    fontSize: "clamp(1.5rem, 2vw, 1.9rem)",
-                    color: "rgba(255,255,255,0.92)",
-                    listStyle: "none",
-                    padding: 0,
-                  }}
-                >
-                  <li>
-                    <span style={{ color: "#3d5afe" }}>•</span> Еврочас — 7000 ₽{" "}
-                    <span style={{ color: "rgba(255,255,255,0.7)", fontStyle: "italic" }}>
-                      (только для города Саратов)
-                    </span>
-                  </li>
-                  <li>
-                    <span style={{ color: "#3d5afe" }}>•</span> Час — 10000 ₽
-                  </li>
-                </ul>
-                <p
-                  className="font-cormorant leading-relaxed mt-4"
-                  style={{
-                    fontSize: "clamp(1.5rem, 2vw, 1.9rem)",
-                    color: "rgba(255,255,255,0.88)",
-                  }}
-                >
-                  Встречи в Саратове возможны в гостинице либо на выезд к вам. Выезда в другие города от 3 часов с компенсацией проезда в обе стороны. Также возможно пригласить подругу для совместной встречи.
-                </p>
-              </div>
             </div>
+          </div>
+
+          <div
+            className="mt-12 flex flex-col items-center justify-center gap-3"
+            style={{
+              animation: "aboutFadeUp 1s cubic-bezier(0.22,1,0.36,1) 1.1s both",
+            }}
+          >
+            <button
+              onClick={() => setIsOpen(true)}
+              className="font-cormorant italic relative group"
+              style={{
+                fontSize: "clamp(1.4rem, 2vw, 1.8rem)",
+                color: "#fff",
+                padding: "0.75em 2.4em",
+                border: "2px solid transparent",
+                borderRadius: "8px",
+                background:
+                  "linear-gradient(rgba(4,6,20,0.85), rgba(4,6,20,0.85)) padding-box, linear-gradient(135deg, #3d5afe 0%, #7c4dff 50%, #b16cff 100%) border-box",
+                boxShadow:
+                  "0 0 20px rgba(61,90,254,0.5), 0 0 40px rgba(124,77,255,0.3)",
+                cursor: "pointer",
+                textShadow: "0 0 10px rgba(61,90,254,0.6)",
+                animation: "framePulse 3.6s ease-in-out infinite",
+                transition: "transform 0.3s ease",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "scale(1.05)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+              }}
+            >
+              Формат встреч
+            </button>
+            <p
+              className="font-cormorant italic flex items-center gap-2"
+              style={{
+                fontSize: "clamp(1rem, 1.3vw, 1.2rem)",
+                color: "rgba(255,255,255,0.7)",
+                textShadow: "0 2px 8px rgba(0,0,0,0.6)",
+              }}
+            >
+              <Icon name="MousePointerClick" size={18} />
+              нажми, чтобы узнать подробнее
+            </p>
           </div>
         </div>
       </section>
+
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <DialogContent
+          className="max-w-2xl border-0 p-0"
+          style={{
+            background:
+              "linear-gradient(rgba(4,6,20,0.96), rgba(4,6,20,0.96)) padding-box, linear-gradient(135deg, #3d5afe 0%, #7c4dff 50%, #b16cff 100%) border-box",
+            border: "2px solid transparent",
+            borderRadius: "12px",
+            boxShadow:
+              "0 0 32px rgba(61,90,254,0.6), 0 0 64px rgba(124,77,255,0.4)",
+          }}
+        >
+          <div className="p-6 md:p-8">
+            <DialogHeader>
+              <DialogTitle
+                className="font-cormorant italic text-left"
+                style={{
+                  fontSize: "clamp(2rem, 3vw, 2.8rem)",
+                  fontWeight: 600,
+                  color: "#fff",
+                  textShadow:
+                    "0 0 16px rgba(61,90,254,0.7), 0 2px 16px rgba(0,0,0,0.7)",
+                  marginBottom: "0.4em",
+                  lineHeight: 1.1,
+                }}
+              >
+                Форматы встреч:
+              </DialogTitle>
+            </DialogHeader>
+            <ul
+              className="font-cormorant leading-relaxed space-y-2 mt-2"
+              style={{
+                fontSize: "clamp(1.3rem, 1.8vw, 1.7rem)",
+                color: "rgba(255,255,255,0.92)",
+                listStyle: "none",
+                padding: 0,
+              }}
+            >
+              <li>
+                <span style={{ color: "#3d5afe" }}>•</span> Еврочас — 7000 ₽{" "}
+                <span
+                  style={{
+                    color: "rgba(255,255,255,0.7)",
+                    fontStyle: "italic",
+                  }}
+                >
+                  (только для города Саратов)
+                </span>
+              </li>
+              <li>
+                <span style={{ color: "#3d5afe" }}>•</span> Час — 10000 ₽
+              </li>
+            </ul>
+            <p
+              className="font-cormorant leading-relaxed mt-4"
+              style={{
+                fontSize: "clamp(1.3rem, 1.8vw, 1.7rem)",
+                color: "rgba(255,255,255,0.88)",
+              }}
+            >
+              Встречи в Саратове возможны в гостинице либо на выезд к вам. Выезда в другие города от 3 часов с компенсацией проезда в обе стороны. Также возможно пригласить подругу для совместной встречи.
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       <style>{`
         @keyframes heartBeat {
