@@ -97,7 +97,7 @@ export default function Contacts() {
             className="font-cormorant italic text-center max-w-2xl leading-relaxed my-10 md:my-14"
             style={{
               color: "rgba(255,255,255,0.92)",
-              fontSize: "clamp(1.25rem, 2vw, 1.75rem)",
+              fontSize: "clamp(1.6rem, 2.8vw, 2.4rem)",
               textShadow: "0 2px 16px rgba(0,0,0,0.7)",
               animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.6s both",
             }}
