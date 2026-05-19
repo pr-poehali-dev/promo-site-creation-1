@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useRef, useState } from "react";
 import PageLayout from "@/components/PageLayout";
 
 const CITIES = [
@@ -14,8 +13,6 @@ const CITIES = [
 const SEND_LEAD_URL = "https://functions.poehali.dev/f5ce1336-690a-4620-b301-14c6b668bb09";
 
 export default function Contacts() {
-  const location = useLocation();
-  const [highlight, setHighlight] = useState<string | null>(null);
   const [form, setForm] = useState({ name: "", phone: "", city: "", message: "", website: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorText, setErrorText] = useState("");
@@ -55,20 +52,6 @@ export default function Contacts() {
       setErrorText(err instanceof Error ? err.message : "Ошибка отправки");
     }
   };
-
-  useEffect(() => {
-    if (location.hash.startsWith("#city-")) {
-      const slug = location.hash.replace("#city-", "");
-      const el = document.getElementById(`city-${slug}`);
-      if (el) {
-        setTimeout(() => {
-          el.scrollIntoView({ behavior: "smooth", block: "center" });
-          setHighlight(slug);
-          setTimeout(() => setHighlight(null), 2400);
-        }, 100);
-      }
-    }
-  }, [location.hash]);
 
   return (
     <PageLayout noBackground>
@@ -254,65 +237,6 @@ export default function Contacts() {
               </div>
             )}
           </form>
-
-          <div
-            className="w-full max-w-4xl mt-10 flex flex-col items-center gap-5"
-            style={{ animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.8s both" }}
-          >
-            <h2
-              className="font-cormorant italic uppercase tracking-[0.35em]"
-              style={{
-                color: "rgba(255,255,255,0.7)",
-                fontSize: "clamp(0.85rem, 1.2vw, 1.1rem)",
-                textShadow: "0 2px 12px rgba(0,0,0,0.8)",
-              }}
-            >
-              Города
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 w-full">
-              {CITIES.map(({ name, slug, region }) => (
-                <a
-                  key={slug}
-                  id={`city-${slug}`}
-                  href="tel:+79869852111"
-                  className={`city-card flex flex-col items-center text-center px-4 py-5 rounded-2xl border backdrop-blur-sm transition-all duration-500 ${highlight === slug ? "city-card-active" : ""}`}
-                  style={{
-                    borderColor: highlight === slug ? "rgba(255,77,109,0.9)" : "rgba(255,255,255,0.25)",
-                    background: highlight === slug ? "rgba(255,77,109,0.18)" : "rgba(61,90,254,0.12)",
-                    boxShadow: highlight === slug
-                      ? "0 0 40px rgba(255,77,109,0.7), inset 0 0 18px rgba(255,255,255,0.15)"
-                      : "0 0 18px rgba(61,90,254,0.25), inset 0 0 10px rgba(255,255,255,0.05)",
-                    textDecoration: "none",
-                    scrollMarginTop: "120px",
-                  }}
-                >
-                  <span style={{ fontSize: "1.6rem", marginBottom: "0.35rem" }}>📍</span>
-                  <span
-                    className="font-cormorant italic"
-                    style={{
-                      color: "#fff",
-                      fontSize: "clamp(1.1rem, 1.8vw, 1.6rem)",
-                      fontWeight: 600,
-                      lineHeight: 1.1,
-                      textShadow: "0 2px 12px rgba(0,0,0,0.85)",
-                    }}
-                  >
-                    {name}
-                  </span>
-                  <span
-                    className="font-cormorant italic mt-1"
-                    style={{
-                      color: "rgba(255,255,255,0.65)",
-                      fontSize: "clamp(0.75rem, 1vw, 0.95rem)",
-                      textShadow: "0 2px 10px rgba(0,0,0,0.75)",
-                    }}
-                  >
-                    {region}
-                  </span>
-                </a>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
 
