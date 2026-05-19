@@ -102,7 +102,7 @@ export default function Contacts() {
               animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.6s both",
             }}
           >
-            По поводу встречи, звони по телефону или напиши мне на почту.
+            По поводу встречи, звони по телефону или напиши мне.
           </p>
 
           <form
