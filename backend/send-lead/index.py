@@ -55,17 +55,6 @@ def handler(event: dict, context) -> dict:
             'body': json.dumps({'success': True, 'message': 'OK'}),
         }
 
-    try:
-        elapsed_ms_int = int(elapsed_ms)
-    except (TypeError, ValueError):
-        elapsed_ms_int = 0
-    if elapsed_ms_int < 2500:
-        return {
-            'statusCode': 200,
-            'headers': {**cors_headers, 'Content-Type': 'application/json'},
-            'body': json.dumps({'success': True, 'message': 'OK'}),
-        }
-
     if not name or not phone:
         return {
             'statusCode': 400,
