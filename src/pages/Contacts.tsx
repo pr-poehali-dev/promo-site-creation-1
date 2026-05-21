@@ -157,11 +157,11 @@ export default function Contacts() {
             <select
               value={form.city}
               onChange={(e) => setForm({ ...form, city: e.target.value })}
-              className="lead-input"
+              className={`lead-input lead-select ${form.city === "" ? "is-placeholder" : ""}`}
             >
-              <option value="">Выбери город</option>
+              <option value="" disabled hidden>Выбери город</option>
               {CITIES.map((c) => (
-                <option key={c.slug} value={c.name} style={{ color: "#222" }}>
+                <option key={c.slug} value={c.name}>
                   {c.name}
                 </option>
               ))}
@@ -253,6 +253,24 @@ export default function Contacts() {
         select.lead-input option {
           background: #1a1426;
           color: #fff;
+        }
+        .lead-select {
+          color: #fff;
+          font-weight: 600;
+          letter-spacing: 0.02em;
+          text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+          appearance: none;
+          -webkit-appearance: none;
+          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+          background-repeat: no-repeat;
+          background-position: right 16px center;
+          background-size: 16px 16px;
+          padding-right: 44px;
+        }
+        .lead-select.is-placeholder {
+          color: #fff;
+          opacity: 1;
+          text-shadow: 0 2px 12px rgba(0,0,0,0.85), 0 0 14px rgba(255,77,109,0.35);
         }
         .city-card:hover {
           transform: translateY(-3px) scale(1.02);
