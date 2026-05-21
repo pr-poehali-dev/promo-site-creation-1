@@ -160,7 +160,11 @@ export default function Gallery() {
             src={current.img}
             alt={current.title}
             className="lightbox-img"
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => {
+              e.stopPropagation();
+              setZoomed(false);
+            }}
+            style={{ cursor: "zoom-out" }}
           />
           <button
             className="lightbox-arrow lightbox-arrow-right"
