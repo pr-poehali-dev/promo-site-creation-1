@@ -1,10 +1,11 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PageLayout from "@/components/PageLayout";
 
 const CITIES = [
   { name: "Москва", slug: "moskva", region: "Москва и Московская область" },
   { name: "Санкт-Петербург", slug: "spb", region: "СПб и Ленинградская область" },
   { name: "Саратов", slug: "saratov", region: "Саратов и область" },
+  { name: "Энгельс", slug: "engels", region: "Энгельс и Саратовская область" },
   { name: "Воронеж", slug: "voronezh", region: "Воронеж и область" },
   { name: "Самара", slug: "samara", region: "Самара и область" },
   { name: "Волгоград", slug: "volgograd", region: "Волгоград и область" },
@@ -16,7 +17,40 @@ export default function Contacts() {
   const [form, setForm] = useState({ name: "", phone: "", city: "", message: "", website: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorText, setErrorText] = useState("");
+  const [autoCityHint, setAutoCityHint] = useState<string>("");
   const formMountedAt = useRef<number>(Date.now());
+  const userTouchedCity = useRef(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch("https://ipapi.co/json/");
+        if (!res.ok) return;
+        const data = await res.json();
+        const cityRaw: string = (data.city || "").trim();
+        const regionRaw: string = (data.region || "").trim();
+        if (!cityRaw && !regionRaw) return;
+        const norm = (s: string) => s.toLowerCase().replace(/ё/g, "е");
+        const target = norm(cityRaw);
+        const targetRegion = norm(regionRaw);
+        const match = CITIES.find((c) => {
+          const n = norm(c.name);
+          return n === target || target.includes(n) || targetRegion.includes(n);
+        });
+        if (cancelled) return;
+        if (match && !userTouchedCity.current) {
+          setForm((f) => (f.city ? f : { ...f, city: match.name }));
+          setAutoCityHint(`Определили твой город: ${match.name}`);
+        }
+      } catch {
+        // молча
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -156,7 +190,11 @@ export default function Contacts() {
             />
             <select
               value={form.city}
-              onChange={(e) => setForm({ ...form, city: e.target.value })}
+              onChange={(e) => {
+                userTouchedCity.current = true;
+                setAutoCityHint("");
+                setForm({ ...form, city: e.target.value });
+              }}
               required
               className={`lead-input lead-select ${form.city === "" ? "is-placeholder" : ""}`}
             >
@@ -167,6 +205,19 @@ export default function Contacts() {
                 </option>
               ))}
             </select>
+            {autoCityHint && (
+              <div
+                className="font-cormorant italic text-center"
+                style={{
+                  color: "rgba(255,255,255,0.85)",
+                  fontSize: "clamp(0.95rem, 1.3vw, 1.1rem)",
+                  textShadow: "0 2px 10px rgba(0,0,0,0.7)",
+                  marginTop: "-6px",
+                }}
+              >
+                {autoCityHint}. Если не он — выбери из списка.
+              </div>
+            )}
             <textarea
               placeholder="Комментарий (необязательно)"
               value={form.message}

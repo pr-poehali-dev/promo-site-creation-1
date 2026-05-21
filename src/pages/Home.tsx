@@ -146,6 +146,7 @@ export default function Home() {
           >
             {[
               { name: "Саратов", slug: "saratov" },
+              { name: "Энгельс", slug: "engels" },
               { name: "Самара", slug: "samara" },
               { name: "Волгоград", slug: "volgograd" },
               { name: "Воронеж", slug: "voronezh" },
