@@ -16,6 +16,17 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
   const ringRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const isFormEl = (el: EventTarget | null) => {
+      if (!(el instanceof HTMLElement)) return false;
+      return !!el.closest("select, input, textarea, option, [data-native-cursor]");
+    };
+
+    const setHidden = (hidden: boolean) => {
+      if (cursorRef.current) cursorRef.current.style.opacity = hidden ? "0" : "1";
+      if (ringRef.current) ringRef.current.style.opacity = hidden ? "0" : "1";
+      document.body.style.cursor = hidden ? "auto" : "";
+    };
+
     const move = (e: MouseEvent) => {
       if (cursorRef.current) {
         cursorRef.current.style.left = e.clientX + "px";
@@ -25,9 +36,26 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
         ringRef.current.style.left = e.clientX + "px";
         ringRef.current.style.top = e.clientY + "px";
       }
+      setHidden(isFormEl(e.target));
     };
+
+    const onBlur = () => setHidden(true);
+    const onFocus = () => setHidden(false);
+    const onVisibility = () => {
+      if (document.hidden) setHidden(true);
+    };
+
     window.addEventListener("mousemove", move);
-    return () => window.removeEventListener("mousemove", move);
+    window.addEventListener("blur", onBlur);
+    window.addEventListener("focus", onFocus);
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => {
+      window.removeEventListener("mousemove", move);
+      window.removeEventListener("blur", onBlur);
+      window.removeEventListener("focus", onFocus);
+      document.removeEventListener("visibilitychange", onVisibility);
+      document.body.style.cursor = "";
+    };
   }, []);
 
   return (

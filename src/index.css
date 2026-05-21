@@ -176,6 +176,33 @@
   cursor: none !important;
 }
 
+/* Для полей формы и выпадающих списков — оставляем системный курсор,
+   чтобы при выборе пункта он не «замирал» */
+select,
+select *,
+input,
+input *,
+textarea,
+textarea *,
+option,
+[data-native-cursor],
+[data-native-cursor] * {
+  cursor: auto !important;
+}
+select,
+select * {
+  cursor: pointer !important;
+}
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="password"],
+textarea {
+  cursor: text !important;
+}
+
 /* На сенсорных устройствах возвращаем стандартный курсор */
 @media (hover: none) and (pointer: coarse) {
   *,
