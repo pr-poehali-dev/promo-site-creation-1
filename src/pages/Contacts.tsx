@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import PageLayout from "@/components/PageLayout";
 
 const CITIES = [
@@ -12,46 +12,12 @@ const CITIES = [
 ];
 
 const SEND_LEAD_URL = "https://functions.poehali.dev/f5ce1336-690a-4620-b301-14c6b668bb09";
-const DETECT_CITY_URL = "https://functions.poehali.dev/1183174d-fadd-4f10-acd6-752688bc3650";
 
 export default function Contacts() {
   const [form, setForm] = useState({ name: "", phone: "", city: "", message: "", website: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorText, setErrorText] = useState("");
-  const [autoCityHint, setAutoCityHint] = useState<string>("");
   const formMountedAt = useRef<number>(Date.now());
-  const userTouchedCity = useRef(false);
-
-  useEffect(() => {
-    let cancelled = false;
-    (async () => {
-      try {
-        const res = await fetch(DETECT_CITY_URL);
-        if (!res.ok) return;
-        const data = await res.json();
-        const cityRaw: string = (data.city || "").trim();
-        const regionRaw: string = (data.region || "").trim();
-        if (!cityRaw && !regionRaw) return;
-        const norm = (s: string) => s.toLowerCase().replace(/ё/g, "е");
-        const target = norm(cityRaw);
-        const targetRegion = norm(regionRaw);
-        const match = CITIES.find((c) => {
-          const n = norm(c.name);
-          return n === target || target.includes(n) || targetRegion.includes(n);
-        });
-        if (cancelled) return;
-        if (match && !userTouchedCity.current) {
-          setForm((f) => (f.city ? f : { ...f, city: match.name }));
-          setAutoCityHint(`Определили твой город: ${match.name}`);
-        }
-      } catch {
-        // молча
-      }
-    })();
-    return () => {
-      cancelled = true;
-    };
-  }, []);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -191,13 +157,9 @@ export default function Contacts() {
             />
             <select
               value={form.city}
-              onChange={(e) => {
-                userTouchedCity.current = true;
-                setAutoCityHint("");
-                setForm({ ...form, city: e.target.value });
-              }}
+              onChange={(e) => setForm({ ...form, city: e.target.value })}
               required
-              className={`lead-input lead-select ${form.city === "" ? "is-placeholder" : ""} ${autoCityHint ? "is-auto" : ""}`}
+              className={`lead-input lead-select ${form.city === "" ? "is-placeholder" : ""}`}
             >
               <option value="" disabled hidden>Выбери город</option>
               {CITIES.map((c) => (
@@ -206,17 +168,6 @@ export default function Contacts() {
                 </option>
               ))}
             </select>
-            {autoCityHint && (
-              <div
-                className="font-cormorant italic text-center auto-city-hint"
-                style={{
-                  fontSize: "clamp(0.95rem, 1.3vw, 1.1rem)",
-                  marginTop: "-6px",
-                }}
-              >
-                ✨ {autoCityHint}. Если не он — выбери из списка.
-              </div>
-            )}
             <textarea
               placeholder="Комментарий (необязательно)"
               value={form.message}
@@ -322,28 +273,6 @@ export default function Contacts() {
           color: #fff;
           opacity: 1;
           text-shadow: 0 2px 12px rgba(0,0,0,0.85), 0 0 14px rgba(255,77,109,0.35);
-        }
-        @keyframes autoCityGlow {
-          0%, 100% {
-            box-shadow: 0 0 18px rgba(76,175,80,0.45), inset 0 0 10px rgba(76,175,80,0.18);
-            border-color: rgba(76,175,80,0.85);
-          }
-          50% {
-            box-shadow: 0 0 32px rgba(76,175,80,0.75), inset 0 0 16px rgba(76,175,80,0.28);
-            border-color: rgba(168,240,168,1);
-          }
-        }
-        .lead-select.is-auto {
-          color: #c9ffd2;
-          font-weight: 700;
-          background: rgba(76,175,80,0.16);
-          border-color: rgba(76,175,80,0.85);
-          text-shadow: 0 2px 12px rgba(0,0,0,0.7), 0 0 16px rgba(76,175,80,0.7);
-          animation: autoCityGlow 2.2s ease-in-out infinite;
-        }
-        .auto-city-hint {
-          color: #c9ffd2 !important;
-          text-shadow: 0 2px 10px rgba(0,0,0,0.7), 0 0 12px rgba(76,175,80,0.55) !important;
         }
         .city-card:hover {
           transform: translateY(-3px) scale(1.02);
