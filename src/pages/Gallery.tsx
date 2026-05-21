@@ -146,16 +146,6 @@ export default function Gallery() {
           aria-label="Просмотр фото"
         >
           <button
-            className="lightbox-close"
-            onClick={(e) => {
-              e.stopPropagation();
-              setZoomed(false);
-            }}
-            aria-label="Закрыть"
-          >
-            ×
-          </button>
-          <button
             className="lightbox-arrow lightbox-arrow-left"
             onClick={(e) => {
               e.stopPropagation();
