@@ -196,7 +196,7 @@ export default function Contacts() {
                 setForm({ ...form, city: e.target.value });
               }}
               required
-              className={`lead-input lead-select ${form.city === "" ? "is-placeholder" : ""}`}
+              className={`lead-input lead-select ${form.city === "" ? "is-placeholder" : ""} ${autoCityHint ? "is-auto" : ""}`}
             >
               <option value="" disabled hidden>Выбери город</option>
               {CITIES.map((c) => (
@@ -207,15 +207,13 @@ export default function Contacts() {
             </select>
             {autoCityHint && (
               <div
-                className="font-cormorant italic text-center"
+                className="font-cormorant italic text-center auto-city-hint"
                 style={{
-                  color: "rgba(255,255,255,0.85)",
                   fontSize: "clamp(0.95rem, 1.3vw, 1.1rem)",
-                  textShadow: "0 2px 10px rgba(0,0,0,0.7)",
                   marginTop: "-6px",
                 }}
               >
-                {autoCityHint}. Если не он — выбери из списка.
+                ✨ {autoCityHint}. Если не он — выбери из списка.
               </div>
             )}
             <textarea
@@ -323,6 +321,28 @@ export default function Contacts() {
           color: #fff;
           opacity: 1;
           text-shadow: 0 2px 12px rgba(0,0,0,0.85), 0 0 14px rgba(255,77,109,0.35);
+        }
+        @keyframes autoCityGlow {
+          0%, 100% {
+            box-shadow: 0 0 18px rgba(76,175,80,0.45), inset 0 0 10px rgba(76,175,80,0.18);
+            border-color: rgba(76,175,80,0.85);
+          }
+          50% {
+            box-shadow: 0 0 32px rgba(76,175,80,0.75), inset 0 0 16px rgba(76,175,80,0.28);
+            border-color: rgba(168,240,168,1);
+          }
+        }
+        .lead-select.is-auto {
+          color: #c9ffd2;
+          font-weight: 700;
+          background: rgba(76,175,80,0.16);
+          border-color: rgba(76,175,80,0.85);
+          text-shadow: 0 2px 12px rgba(0,0,0,0.7), 0 0 16px rgba(76,175,80,0.7);
+          animation: autoCityGlow 2.2s ease-in-out infinite;
+        }
+        .auto-city-hint {
+          color: #c9ffd2 !important;
+          text-shadow: 0 2px 10px rgba(0,0,0,0.7), 0 0 12px rgba(76,175,80,0.55) !important;
         }
         .city-card:hover {
           transform: translateY(-3px) scale(1.02);
