@@ -26,6 +26,7 @@ function shuffle<T>(arr: T[]): T[] {
 export default function Gallery() {
   const [items] = useState(() => shuffle(GALLERY));
   const [index, setIndex] = useState(0);
+  const [zoomed, setZoomed] = useState(false);
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
 
@@ -40,10 +41,21 @@ export default function Gallery() {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowLeft") prev();
       if (e.key === "ArrowRight") next();
+      if (e.key === "Escape") setZoomed(false);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [prev, next]);
+
+  useEffect(() => {
+    if (zoomed) {
+      const prevOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = prevOverflow;
+      };
+    }
+  }, [zoomed]);
 
   const current = items[index];
 
@@ -84,6 +96,8 @@ export default function Gallery() {
                 src={current.img}
                 alt={current.title}
                 className="slide-img"
+                onClick={() => setZoomed(true)}
+                style={{ cursor: "zoom-in" }}
               />
             </div>
 
@@ -123,6 +137,141 @@ export default function Gallery() {
         </div>
       </section>
 
+      {zoomed && (
+        <div
+          className="lightbox"
+          onClick={() => setZoomed(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Просмотр фото"
+        >
+          <button
+            className="lightbox-close"
+            onClick={(e) => {
+              e.stopPropagation();
+              setZoomed(false);
+            }}
+            aria-label="Закрыть"
+          >
+            ×
+          </button>
+          <button
+            className="lightbox-arrow lightbox-arrow-left"
+            onClick={(e) => {
+              e.stopPropagation();
+              prev();
+            }}
+            aria-label="Предыдущее фото"
+          >
+            ‹
+          </button>
+          <img
+            key={current.img}
+            src={current.img}
+            alt={current.title}
+            className="lightbox-img"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <button
+            className="lightbox-arrow lightbox-arrow-right"
+            onClick={(e) => {
+              e.stopPropagation();
+              next();
+            }}
+            aria-label="Следующее фото"
+          >
+            ›
+          </button>
+        </div>
+      )}
+
+      <style>{`
+        @keyframes lightboxFade {
+          0% { opacity: 0; }
+          100% { opacity: 1; }
+        }
+        @keyframes lightboxZoom {
+          0% { opacity: 0; transform: scale(0.92); filter: blur(6px); }
+          100% { opacity: 1; transform: scale(1); filter: blur(0); }
+        }
+        .lightbox {
+          position: fixed;
+          inset: 0;
+          z-index: 9999;
+          background: rgba(0,0,0,0.92);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 24px;
+          animation: lightboxFade 0.25s ease both;
+          cursor: zoom-out;
+        }
+        .lightbox-img {
+          max-width: 95vw;
+          max-height: 92vh;
+          object-fit: contain;
+          border-radius: 6px;
+          box-shadow: 0 30px 90px rgba(0,0,0,0.8);
+          animation: lightboxZoom 0.35s cubic-bezier(0.22,1,0.36,1) both;
+          cursor: default;
+        }
+        .lightbox-close {
+          position: absolute;
+          top: 18px;
+          right: 22px;
+          width: 48px;
+          height: 48px;
+          font-size: 2.2rem;
+          line-height: 1;
+          background: rgba(10,10,10,0.6);
+          border: 1px solid rgba(61,90,254,0.5);
+          color: #fff;
+          border-radius: 999px;
+          cursor: pointer;
+          transition: all 0.25s ease;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-bottom: 4px;
+        }
+        .lightbox-close:hover {
+          background: rgba(61,90,254,0.3);
+          border-color: #3d5afe;
+          box-shadow: 0 0 22px rgba(61,90,254,0.65);
+          transform: scale(1.08);
+        }
+        .lightbox-arrow {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 56px;
+          height: 56px;
+          font-size: 2.4rem;
+          line-height: 1;
+          padding-bottom: 6px;
+          background: rgba(10,10,10,0.55);
+          border: 1px solid rgba(61,90,254,0.5);
+          color: #fff;
+          border-radius: 999px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.25s ease;
+        }
+        .lightbox-arrow:hover {
+          background: rgba(61,90,254,0.28);
+          border-color: #3d5afe;
+          box-shadow: 0 0 22px rgba(61,90,254,0.65);
+          transform: translateY(-50%) scale(1.08);
+        }
+        .lightbox-arrow-left { left: 18px; }
+        .lightbox-arrow-right { right: 18px; }
+        @media (max-width: 640px) {
+          .lightbox-arrow { width: 44px; height: 44px; font-size: 1.8rem; }
+          .lightbox-close { width: 40px; height: 40px; font-size: 1.8rem; top: 12px; right: 12px; }
+        }
+      `}</style>
       <style>{`
         @keyframes aboutFadeUp {
           0% { opacity: 0; transform: translateY(36px); filter: blur(8px); }
