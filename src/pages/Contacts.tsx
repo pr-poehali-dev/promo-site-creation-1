@@ -4,8 +4,7 @@ import PageLayout from "@/components/PageLayout";
 const CITIES = [
   { name: "Москва", slug: "moskva", region: "Москва и Московская область" },
   { name: "Санкт-Петербург", slug: "spb", region: "СПб и Ленинградская область" },
-  { name: "Саратов", slug: "saratov", region: "Саратов и область" },
-  { name: "Энгельс", slug: "engels", region: "Энгельс и Саратовская область" },
+  { name: "Саратовская обл.", slug: "saratovskaya-obl", region: "Саратовская область" },
   { name: "Воронеж", slug: "voronezh", region: "Воронеж и область" },
   { name: "Самара", slug: "samara", region: "Самара и область" },
   { name: "Волгоград", slug: "volgograd", region: "Волгоград и область" },
