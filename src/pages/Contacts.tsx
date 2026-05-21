@@ -2,12 +2,12 @@ import { useRef, useState } from "react";
 import PageLayout from "@/components/PageLayout";
 
 const CITIES = [
-  { name: "Москва", slug: "moskva", region: "Москва и Московская область" },
-  { name: "Санкт-Петербург", slug: "spb", region: "СПб и Ленинградская область" },
   { name: "Саратовская обл.", slug: "saratovskaya-obl", region: "Саратовская область" },
-  { name: "Воронеж", slug: "voronezh", region: "Воронеж и область" },
   { name: "Самара", slug: "samara", region: "Самара и область" },
   { name: "Волгоград", slug: "volgograd", region: "Волгоград и область" },
+  { name: "Воронеж", slug: "voronezh", region: "Воронеж и область" },
+  { name: "Москва", slug: "moskva", region: "Москва и Московская область" },
+  { name: "Санкт-Петербург", slug: "spb", region: "СПб и Ленинградская область" },
 ];
 
 const SEND_LEAD_URL = "https://functions.poehali.dev/f5ce1336-690a-4620-b301-14c6b668bb09";
