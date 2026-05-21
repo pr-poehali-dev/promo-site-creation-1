@@ -12,6 +12,7 @@ const CITIES = [
 ];
 
 const SEND_LEAD_URL = "https://functions.poehali.dev/f5ce1336-690a-4620-b301-14c6b668bb09";
+const DETECT_CITY_URL = "https://functions.poehali.dev/1183174d-fadd-4f10-acd6-752688bc3650";
 
 export default function Contacts() {
   const [form, setForm] = useState({ name: "", phone: "", city: "", message: "", website: "" });
@@ -25,7 +26,7 @@ export default function Contacts() {
     let cancelled = false;
     (async () => {
       try {
-        const res = await fetch("https://ipapi.co/json/");
+        const res = await fetch(DETECT_CITY_URL);
         if (!res.ok) return;
         const data = await res.json();
         const cityRaw: string = (data.city || "").trim();
