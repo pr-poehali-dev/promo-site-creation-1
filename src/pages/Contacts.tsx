@@ -192,7 +192,7 @@ export default function Contacts() {
                 pointerEvents: status === "sending" ? "none" : "auto",
               }}
             >
-              {status === "sending" ? "Отправляю..." : "Отправить заявку 💌"}
+              {status === "sending" ? "Отправляю..." : "Отправить 💌"}
             </button>
 
             {status === "success" && (
