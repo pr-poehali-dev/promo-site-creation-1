@@ -21,9 +21,9 @@ export default function Contacts() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (status === "sending") return;
-    if (!form.name.trim() || !form.phone.trim()) {
+    if (!form.name.trim() || !form.phone.trim() || !form.city.trim()) {
       setStatus("error");
-      setErrorText("Заполни имя и телефон.");
+      setErrorText("Заполни имя, телефон и выбери город.");
       return;
     }
     const elapsed_ms = Date.now() - formMountedAt.current;
@@ -157,6 +157,7 @@ export default function Contacts() {
             <select
               value={form.city}
               onChange={(e) => setForm({ ...form, city: e.target.value })}
+              required
               className={`lead-input lead-select ${form.city === "" ? "is-placeholder" : ""}`}
             >
               <option value="" disabled hidden>Выбери город</option>
