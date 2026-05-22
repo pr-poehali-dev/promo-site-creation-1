@@ -121,7 +121,7 @@ export default function Contacts() {
                 marginBottom: "0.25rem",
               }}
             >
-              Записаться на встречу
+              Напиши мне и получи скидку 5% 💋
             </h2>
             <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "-9999px", width: "1px", height: "1px", overflow: "hidden", opacity: 0, pointerEvents: "none" }}>
               <label>
