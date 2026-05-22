@@ -61,7 +61,7 @@ export default function Gallery() {
 
   return (
     <PageLayout>
-      <section className="relative px-4 md:px-12 pt-4 md:pt-6 pb-10">
+      <section className="relative px-3 sm:px-4 md:px-12 pt-4 md:pt-6 pb-10">
         <div className="max-w-6xl mx-auto">
           <div
             className="slideshow"
@@ -291,6 +291,7 @@ export default function Gallery() {
         }
         .slide-frame {
           flex: 1;
+          min-width: 0;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -300,12 +301,29 @@ export default function Gallery() {
           overflow: hidden;
           box-shadow: 0 18px 60px rgba(0,0,0,0.55);
         }
+        @media (max-width: 640px) {
+          .slideshow { gap: 0; }
+          .slide-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 5;
+          }
+          .slide-arrow-left { left: 6px; }
+          .slide-arrow-right { right: 6px; }
+        }
         .slide-img {
           width: 100%;
-          height: clamp(360px, 70vh, 760px);
+          height: clamp(260px, 68vh, 820px);
           object-fit: contain;
           background: #050505;
           animation: slideFade 0.5s ease both;
+        }
+        @media (min-width: 1920px) {
+          .slide-img { height: clamp(520px, 72vh, 920px); }
+        }
+        @media (max-width: 480px) {
+          .slide-img { height: clamp(240px, 60vh, 480px); }
         }
         .slide-arrow {
           flex-shrink: 0;

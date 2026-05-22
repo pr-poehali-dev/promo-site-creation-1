@@ -49,8 +49,8 @@ export default function Contacts() {
 
   return (
     <PageLayout noBackground>
-      <div className="px-8 md:px-16 pt-6 md:pt-8 pb-16">
-        <div className="flex flex-col items-center gap-8">
+      <div className="px-4 sm:px-6 md:px-16 pt-6 md:pt-8 pb-16 max-w-6xl mx-auto">
+        <div className="flex flex-col items-center gap-6 sm:gap-8">
           <a
             href="tel:+79869852111"
             className="flex items-center gap-3 sm:gap-5 group flex-nowrap whitespace-nowrap"
@@ -62,7 +62,7 @@ export default function Contacts() {
               style={{
                 color: "#fff",
                 textShadow: "0 2px 24px rgba(0,0,0,0.85), 0 0 18px rgba(61,90,254,0.35)",
-                fontSize: "clamp(1.5rem, 6vw, 5rem)",
+                fontSize: "clamp(1.6rem, 5.2vw, 4rem)",
                 fontWeight: 600,
                 lineHeight: 1,
               }}
@@ -88,10 +88,10 @@ export default function Contacts() {
           </a>
 
           <p
-            className="font-cormorant italic text-center max-w-2xl leading-relaxed my-10 md:my-14"
+            className="font-cormorant italic text-center max-w-2xl leading-relaxed my-6 sm:my-10 md:my-14 px-2"
             style={{
               color: "rgba(255,255,255,0.92)",
-              fontSize: "clamp(1.6rem, 2.8vw, 2.4rem)",
+              fontSize: "clamp(1.2rem, 2.6vw, 2.2rem)",
               textShadow: "0 2px 16px rgba(0,0,0,0.7)",
               animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.6s both",
             }}

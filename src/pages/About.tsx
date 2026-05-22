@@ -17,14 +17,15 @@ export default function About() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <PageLayout>
-      <section className="relative px-6 md:px-16 pt-4 md:pt-6 pb-12 md:pb-16">
+      <section className="relative px-4 sm:px-6 md:px-16 pt-4 md:pt-6 pb-12 md:pb-16">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-[1fr_1.2fr] gap-10 md:gap-16 items-center">
+          <div className="grid md:grid-cols-[1fr_1.2fr] gap-8 sm:gap-10 md:gap-16 items-center">
             {/* Левая колонка — фото */}
             <div className="relative" style={{ animation: "aboutFadeLeft 1.3s cubic-bezier(0.22,1,0.36,1) 0.2s both" }}>
               <div
-                className="relative overflow-hidden"
+                className="relative overflow-hidden mx-auto"
                 style={{
+                  maxWidth: "560px",
                   boxShadow:
                     "0 0 30px rgba(61,90,254,0.18), 0 0 60px rgba(0,0,0,0.5)",
                 }}
@@ -32,8 +33,9 @@ export default function About() {
                 <img
                   src={PHOTO_PLACEHOLDER_1}
                   alt="Фото"
-                  className="w-full h-[420px] md:h-[560px] object-cover"
+                  className="w-full object-cover"
                   style={{
+                    height: "clamp(320px, 60vh, 620px)",
                     filter: "brightness(0.92) contrast(1.05)",
                     animation: "aboutImgZoom 1.6s cubic-bezier(0.22,1,0.36,1) 0.3s both",
                   }}
@@ -48,8 +50,12 @@ export default function About() {
               </div>
 
               <div
-                className="hidden md:block absolute -bottom-10 -right-10 w-44 h-56 overflow-hidden border-2"
+                className="hidden lg:block absolute overflow-hidden border-2"
                 style={{
+                  width: "clamp(140px, 12vw, 180px)",
+                  height: "clamp(180px, 16vw, 230px)",
+                  bottom: "-2.5rem",
+                  right: "-2.5rem",
                   borderColor: "#3d5afe",
                   boxShadow: "0 0 24px rgba(61,90,254,0.45)",
                   animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.7s both",
@@ -64,11 +70,11 @@ export default function About() {
             </div>
 
             {/* Правая колонка — текст */}
-            <div className="space-y-6">
+            <div className="space-y-5 sm:space-y-6">
               <p
                 className="font-cormorant italic leading-relaxed"
                 style={{
-                  fontSize: "clamp(1.5rem, 2vw, 1.9rem)",
+                  fontSize: "clamp(1.2rem, 2vw, 1.9rem)",
                   color: "#fff",
                   textShadow: "0 2px 14px rgba(0,0,0,0.6), 0 0 12px rgba(61,90,254,0.4)",
                   animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.2s both",
@@ -134,7 +140,7 @@ export default function About() {
               <p
                 className="font-cormorant italic leading-relaxed"
                 style={{
-                  fontSize: "clamp(1.5rem, 2vw, 1.9rem)",
+                  fontSize: "clamp(1.2rem, 2vw, 1.9rem)",
                   color: "rgba(255,255,255,0.92)",
                   textShadow: "0 2px 14px rgba(0,0,0,0.6)",
                   animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.35s both",
@@ -146,7 +152,7 @@ export default function About() {
               <p
                 className="font-cormorant leading-relaxed"
                 style={{
-                  fontSize: "clamp(1.5rem, 2vw, 1.9rem)",
+                  fontSize: "clamp(1.2rem, 2vw, 1.9rem)",
                   color: "rgba(255,255,255,0.85)",
                   animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.5s both",
                 }}
@@ -157,7 +163,7 @@ export default function About() {
               <p
                 className="font-cormorant leading-relaxed"
                 style={{
-                  fontSize: "clamp(1.5rem, 2vw, 1.9rem)",
+                  fontSize: "clamp(1.2rem, 2vw, 1.9rem)",
                   color: "rgba(255,255,255,0.85)",
                   animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.65s both",
                 }}
@@ -168,7 +174,7 @@ export default function About() {
               <p
                 className="font-cormorant italic"
                 style={{
-                  fontSize: "clamp(1.5rem, 2vw, 1.9rem)",
+                  fontSize: "clamp(1.2rem, 2vw, 1.9rem)",
                   color: "#fff",
                   textShadow:
                     "0 0 12px rgba(61,90,254,0.6), 0 2px 14px rgba(0,0,0,0.6)",

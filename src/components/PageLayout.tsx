@@ -59,7 +59,7 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
   }, []);
 
   return (
-    <div className="grain min-h-screen bg-background text-foreground relative" style={{ cursor: "none" }}>
+    <div className="grain page-layout min-h-screen bg-background text-foreground relative" style={{ cursor: "none" }}>
       <div ref={cursorRef} className="cursor hidden md:block" />
       <div ref={ringRef} className="cursor-ring hidden md:block" />
 
@@ -72,10 +72,10 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
         )}
       </div>
 
-      <div className="relative z-50 px-6 md:px-12 pt-6 pb-3 flex items-center justify-between gap-3 flex-nowrap">
+      <div className="relative z-50 mx-auto w-full page-container px-4 sm:px-6 md:px-12 pt-4 sm:pt-6 pb-3 flex items-center justify-between gap-3 flex-nowrap">
         <span
           className="font-cormorant italic font-bold inline-block min-w-0"
-          style={{ cursor: "none", fontSize: "clamp(1.25rem, 2.8vw, 2.8rem)", lineHeight: 1, fontWeight: 700, paddingTop: "0.35em", marginLeft: "clamp(0.5rem, 4vw, 4rem)", animation: "logoFadeUp 1.1s ease-out 0s both", whiteSpace: "nowrap" }}
+          style={{ cursor: "none", fontSize: "clamp(1.1rem, 2.6vw, 2.6rem)", lineHeight: 1, fontWeight: 700, paddingTop: "0.35em", marginLeft: "clamp(0.25rem, 2vw, 2rem)", animation: "logoFadeUp 1.1s ease-out 0s both", whiteSpace: "nowrap" }}
           onClick={() => navigate("/")}
         >
           <span style={{ color: "#e30613", textShadow: "0 0 12px rgba(227,6,19,0.85), 0 0 22px rgba(227,6,19,0.45)" }}>Сладкие</span>
@@ -84,15 +84,15 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
         </span>
 
         <div className="shrink-0 ml-auto">
-          <NavMenu marginRight="clamp(0.5rem, 4vw, 4rem)" />
+          <NavMenu marginRight="clamp(0.25rem, 2vw, 2rem)" />
         </div>
       </div>
 
-      <div className="relative z-10">
+      <div className="relative z-10 mx-auto w-full page-container">
         {children}
       </div>
 
-      <footer className="relative z-10 mt-16 px-6 md:px-12 py-8 border-t border-white/10 text-white/40 text-[11px] leading-relaxed font-light">
+      <footer className="relative z-10 mt-16 px-4 sm:px-6 md:px-12 py-8 border-t border-white/10 text-white/40 text-[11px] leading-relaxed font-light mx-auto w-full page-container">
         <div className="max-w-5xl mx-auto space-y-2">
           <p>
             Сладкие Грёзы — клуб приватного отдыха и встреч для взрослых 18+. Мы предлагаем услуги сопровождения, организацию приватного досуга и роскошного вечернего времяпрепровождения в комфортной обстановке.
@@ -114,6 +114,17 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
       </footer>
 
       <style>{`
+        /* Ограничиваем ширину контента, чтобы на широких мониторах
+           не было «пустыни» — всё держится по центру */
+        .page-container {
+          max-width: 1600px;
+        }
+        @media (min-width: 1920px) {
+          .page-container { max-width: 1760px; }
+        }
+        @media (min-width: 2400px) {
+          .page-container { max-width: 1920px; }
+        }
         @keyframes neonBlue {
           0%, 100% { text-shadow: 0 0 10px rgba(61,90,254,0.55), 0 0 18px rgba(61,90,254,0.3); opacity: 0.92; }
           50% { text-shadow: 0 0 14px rgba(61,90,254,1), 0 0 28px rgba(61,90,254,0.7), 0 0 48px rgba(61,90,254,0.4); opacity: 1; }

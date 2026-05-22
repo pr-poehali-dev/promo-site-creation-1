@@ -29,7 +29,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground relative overflow-hidden" style={{ cursor: "none" }}>
+    <div className="home-root min-h-screen bg-background text-foreground relative overflow-hidden" style={{ cursor: "none" }}>
       <div ref={cursorRef} className="cursor hidden md:block" />
       <div ref={ringRef} className="cursor-ring hidden md:block" />
 
@@ -40,7 +40,7 @@ export default function Home() {
       />
       {/* Фон — основное фото */}
       <div
-        className="absolute inset-0"
+        className="home-bg absolute inset-0"
         style={{
           zIndex: 1,
           animation: "aboutFadeUp 1.3s cubic-bezier(0.22,1,0.36,1) 0s both",
@@ -49,8 +49,7 @@ export default function Home() {
         <img
           src={BG_IMAGE}
           alt=""
-          className="w-full h-full"
-          style={{ objectFit: "contain", objectPosition: "center top" }}
+          className="home-bg-img w-full h-full"
           loading="eager"
           decoding="sync"
         />
@@ -74,10 +73,10 @@ export default function Home() {
 
 
       {/* Навбар */}
-      <div className="relative px-6 md:px-12 pt-6 pb-3 flex items-center justify-between gap-3 flex-nowrap" style={{ zIndex: 30 }}>
+      <div className="relative mx-auto w-full home-container px-4 sm:px-6 md:px-12 pt-4 sm:pt-6 pb-3 flex items-center justify-between gap-3 flex-nowrap" style={{ zIndex: 30 }}>
         <span
           className="font-cormorant italic font-bold inline-block min-w-0"
-          style={{ cursor: "none", fontSize: "clamp(1rem, 2.8vw, 2.8rem)", lineHeight: 1, fontWeight: 700, paddingTop: "0.35em", marginLeft: "clamp(0.5rem, 4vw, 4rem)", animation: "fadeUp 1.1s ease-out 0s both", whiteSpace: "nowrap" }}
+          style={{ cursor: "none", fontSize: "clamp(1.05rem, 2.6vw, 2.6rem)", lineHeight: 1, fontWeight: 700, paddingTop: "0.35em", marginLeft: "clamp(0.5rem, 4vw, 4rem)", animation: "fadeUp 1.1s ease-out 0s both", whiteSpace: "nowrap" }}
           onClick={() => go("/")}
         >
           <span style={{ color: "#e30613", textShadow: "0 0 12px rgba(227,6,19,0.85), 0 0 22px rgba(227,6,19,0.45)" }}>Сладкие</span>
@@ -92,7 +91,7 @@ export default function Home() {
 
       {/* Центральный текст */}
       <div className="hero-center absolute inset-0 flex flex-col items-center text-center px-8 pointer-events-none" style={{ zIndex: 20 }}>
-        <h1 className="text-5xl md:text-8xl font-semibold italic mb-6 md:mb-10 leading-none" style={{ fontFamily: '"Playfair Display", serif', color: "rgba(255,255,255,0.95)", textShadow: "0 2px 30px rgba(0,0,0,0.85), 0 0 18px rgba(0,0,0,0.6)", letterSpacing: "0.01em", animation: "fadeUp 1.1s ease-out 0.1s both, shimmerHero 2.6s ease-in-out 1.4s infinite" }}>
+        <h1 className="font-semibold italic mb-6 md:mb-10 leading-none" style={{ fontFamily: '"Playfair Display", serif', fontSize: "clamp(2rem, 7vw, 6.5rem)", color: "rgba(255,255,255,0.95)", textShadow: "0 2px 30px rgba(0,0,0,0.85), 0 0 18px rgba(0,0,0,0.6)", letterSpacing: "0.01em", animation: "fadeUp 1.1s ease-out 0.1s both, shimmerHero 2.6s ease-in-out 1.4s infinite" }}>
           Твой роскошный отдых
         </h1>
         <a
@@ -121,9 +120,9 @@ export default function Home() {
 
       {/* Города работы — SEO + видимый блок */}
       <div
-        className="absolute left-0 right-0 px-6 md:px-12 pointer-events-none"
+        className="absolute left-0 right-0 px-4 sm:px-6 md:px-12 pointer-events-none"
         style={{
-          bottom: "clamp(1rem, 3vh, 2.5rem)",
+          bottom: "max(clamp(0.75rem, 3vh, 2.5rem), env(safe-area-inset-bottom))",
           zIndex: 25,
           animation: "fadeUp 1.1s ease-out 1.4s both",
         }}
@@ -141,7 +140,7 @@ export default function Home() {
             Города
           </span>
           <ul
-            className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 md:gap-x-5 pointer-events-auto"
+            className="flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-3 gap-y-1 md:gap-x-5 pointer-events-auto px-2"
             style={{ listStyle: "none", padding: 0, margin: 0 }}
           >
             {[
@@ -177,12 +176,45 @@ export default function Home() {
       </div>
 
       <style>{`
-        .hero-center { padding-top: 66vh; }
+        .home-root { min-height: 100svh; }
+        .home-container { max-width: 1600px; }
+        @media (min-width: 1920px) {
+          .home-container { max-width: 1760px; }
+        }
+        @media (min-width: 2400px) {
+          .home-container { max-width: 1920px; }
+        }
+        .home-bg-img {
+          object-fit: cover;
+          object-position: center top;
+        }
+        /* На очень широких экранах — показываем фото целиком */
+        @media (min-width: 1600px) and (min-aspect-ratio: 16/9) {
+          .home-bg-img { object-fit: contain; object-position: center top; }
+        }
+        /* Портретные экраны (телефоны) — кадрируем по центру */
+        @media (max-aspect-ratio: 3/4) {
+          .home-bg-img { object-position: 50% 20%; }
+        }
+        .hero-center { padding-top: 60vh; padding-top: 60svh; }
+        @media (min-width: 1280px) {
+          .hero-center { padding-top: 62vh; padding-top: 62svh; }
+        }
+        @media (min-width: 1920px) {
+          .hero-center { padding-top: 64vh; padding-top: 64svh; }
+        }
+        @media (max-width: 1024px) {
+          .hero-center { padding-top: 52vh; padding-top: 52svh; }
+        }
         @media (max-width: 768px) {
-          .hero-center { padding-top: 42vh; }
+          .hero-center { padding-top: 44vh; padding-top: 44svh; }
         }
         @media (max-width: 480px) {
-          .hero-center { padding-top: 38vh; }
+          .hero-center { padding-top: 38vh; padding-top: 38svh; }
+        }
+        /* Низкие лендскейп-экраны */
+        @media (max-height: 520px) {
+          .hero-center { padding-top: 30vh; }
         }
         @keyframes shimmer {
           0%, 100% { opacity: 0.75; text-shadow: 0 2px 20px rgba(0,0,0,0.7), 0 0 8px rgba(255,255,255,0.2); }
