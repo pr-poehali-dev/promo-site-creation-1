@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import NavMenu from "@/components/NavMenu";
 
@@ -6,33 +5,13 @@ const BG_IMAGE = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec41
 
 export default function Home() {
   const navigate = useNavigate();
-  const cursorRef = useRef<HTMLDivElement>(null);
-  const ringRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const move = (e: MouseEvent) => {
-      if (cursorRef.current) {
-        cursorRef.current.style.left = e.clientX + "px";
-        cursorRef.current.style.top = e.clientY + "px";
-      }
-      if (ringRef.current) {
-        ringRef.current.style.left = e.clientX + "px";
-        ringRef.current.style.top = e.clientY + "px";
-      }
-    };
-    window.addEventListener("mousemove", move);
-    return () => window.removeEventListener("mousemove", move);
-  }, []);
 
   const go = (path: string) => {
     navigate(path);
   };
 
   return (
-    <div className="home-root min-h-screen bg-background text-foreground relative overflow-hidden" style={{ cursor: "none" }}>
-      <div ref={cursorRef} className="cursor hidden md:block" />
-      <div ref={ringRef} className="cursor-ring hidden md:block" />
-
+    <div className="home-root min-h-screen bg-background text-foreground relative overflow-hidden">
       {/* Фон — чёрная подложка по краям */}
       <div
         className="absolute inset-0"

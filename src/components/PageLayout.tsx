@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import NavMenu from "@/components/NavMenu";
 
@@ -12,57 +11,9 @@ interface PageLayoutProps {
 
 export default function PageLayout({ children, noBackground, backgroundSlot }: PageLayoutProps) {
   const navigate = useNavigate();
-  const cursorRef = useRef<HTMLDivElement>(null);
-  const ringRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const isFormEl = (el: EventTarget | null) => {
-      if (!(el instanceof HTMLElement)) return false;
-      return !!el.closest("select, input, textarea, option, [data-native-cursor]");
-    };
-
-    const setHidden = (hidden: boolean) => {
-      if (cursorRef.current) cursorRef.current.style.opacity = hidden ? "0" : "1";
-      if (ringRef.current) ringRef.current.style.opacity = hidden ? "0" : "1";
-      document.body.style.cursor = hidden ? "auto" : "";
-    };
-
-    const move = (e: MouseEvent) => {
-      if (cursorRef.current) {
-        cursorRef.current.style.left = e.clientX + "px";
-        cursorRef.current.style.top = e.clientY + "px";
-      }
-      if (ringRef.current) {
-        ringRef.current.style.left = e.clientX + "px";
-        ringRef.current.style.top = e.clientY + "px";
-      }
-      setHidden(isFormEl(e.target));
-    };
-
-    const onBlur = () => setHidden(true);
-    const onFocus = () => setHidden(false);
-    const onVisibility = () => {
-      if (document.hidden) setHidden(true);
-    };
-
-    window.addEventListener("mousemove", move);
-    window.addEventListener("blur", onBlur);
-    window.addEventListener("focus", onFocus);
-    document.addEventListener("visibilitychange", onVisibility);
-    return () => {
-      window.removeEventListener("mousemove", move);
-      window.removeEventListener("blur", onBlur);
-      window.removeEventListener("focus", onFocus);
-      document.removeEventListener("visibilitychange", onVisibility);
-      document.body.style.cursor = "";
-    };
-  }, []);
 
   return (
-    <div className="grain page-layout min-h-screen bg-background text-foreground relative" style={{ cursor: "none" }}>
-      <div ref={cursorRef} className="cursor hidden md:block" />
-      <div ref={ringRef} className="cursor-ring hidden md:block" />
-
+    <div className="grain page-layout min-h-screen bg-background text-foreground relative">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {backgroundSlot ? backgroundSlot : !noBackground && (
           <>
@@ -75,7 +26,7 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
       <div className="relative z-50 mx-auto w-full page-container px-4 sm:px-6 md:px-12 pt-4 sm:pt-6 pb-3 flex items-center justify-between gap-3 flex-nowrap">
         <span
           className="font-cormorant italic font-bold inline-block min-w-0"
-          style={{ cursor: "none", fontSize: "clamp(1.1rem, 2.6vw, 2.6rem)", lineHeight: 1, fontWeight: 700, paddingTop: "0.35em", marginLeft: "clamp(0.25rem, 2vw, 2rem)", animation: "logoFadeUp 1.1s ease-out 0s both", whiteSpace: "nowrap" }}
+          style={{ cursor: "pointer", fontSize: "clamp(1.1rem, 2.6vw, 2.6rem)", lineHeight: 1, fontWeight: 700, paddingTop: "0.35em", marginLeft: "clamp(0.25rem, 2vw, 2rem)", animation: "logoFadeUp 1.1s ease-out 0s both", whiteSpace: "nowrap" }}
           onClick={() => navigate("/")}
         >
           <span style={{ color: "#e30613", textShadow: "0 0 12px rgba(227,6,19,0.85), 0 0 22px rgba(227,6,19,0.45)" }}>Сладкие</span>

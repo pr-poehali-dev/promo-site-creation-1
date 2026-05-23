@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/8b210152-8886-40ff-ac3d-9b7369e5e331.jpg";
 const ABOUT_IMG = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/572b2706-dbbc-4d45-930d-b1bcab9ffdb3.jpg";
@@ -15,24 +15,7 @@ const GALLERY = [
 ];
 
 export default function Index() {
-  const cursorRef = useRef<HTMLDivElement>(null);
-  const ringRef = useRef<HTMLDivElement>(null);
   const [lightbox, setLightbox] = useState<{ img: string; title: string } | null>(null);
-
-  useEffect(() => {
-    const move = (e: MouseEvent) => {
-      if (cursorRef.current) {
-        cursorRef.current.style.left = e.clientX + "px";
-        cursorRef.current.style.top = e.clientY + "px";
-      }
-      if (ringRef.current) {
-        ringRef.current.style.left = e.clientX + "px";
-        ringRef.current.style.top = e.clientY + "px";
-      }
-    };
-    window.addEventListener("mousemove", move);
-    return () => window.removeEventListener("mousemove", move);
-  }, []);
 
   useEffect(() => {
     const els = document.querySelectorAll(".section-hidden");
@@ -50,9 +33,6 @@ export default function Index() {
 
   return (
     <div className="grain min-h-screen bg-background text-foreground">
-      <div ref={cursorRef} className="cursor hidden md:block" />
-      <div ref={ringRef} className="cursor-ring hidden md:block" />
-
       {/* NAV */}
       <nav
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 pt-6 pb-3 gap-6"
