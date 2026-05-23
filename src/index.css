@@ -147,74 +147,10 @@
   transform: scaleX(1);
 }
 
-/* Custom cursor */
-.cursor {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  background: #2541ff;
-  box-shadow:
-    0 0 10px rgba(37, 65, 255, 0.9),
-    0 0 22px rgba(37, 65, 255, 0.55);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 999999;
-  transform: translate(-50%, -50%);
-  will-change: left, top;
-  transition:
-    width 0.3s ease,
-    height 0.3s ease;
-}
-
+/* Кастомный курсор отключён — используется системная стрелка */
+.cursor,
 .cursor-ring {
   display: none !important;
-}
-
-/* Скрываем системный курсор везде, чтобы кастомная точка не пропадала */
-*,
-*::before,
-*::after {
-  cursor: none !important;
-}
-
-/* Для полей формы и выпадающих списков — оставляем системный курсор,
-   чтобы при выборе пункта он не «замирал» */
-select,
-select *,
-input,
-input *,
-textarea,
-textarea *,
-option,
-[data-native-cursor],
-[data-native-cursor] * {
-  cursor: auto !important;
-}
-select,
-select * {
-  cursor: pointer !important;
-}
-input[type="text"],
-input[type="tel"],
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="password"],
-textarea {
-  cursor: text !important;
-}
-
-/* На сенсорных устройствах возвращаем стандартный курсор */
-@media (hover: none) and (pointer: coarse) {
-  *,
-  *::before,
-  *::after {
-    cursor: auto !important;
-  }
-  .cursor,
-  .cursor-ring {
-    display: none !important;
-  }
 }
 
 /* Fade-in animations */
