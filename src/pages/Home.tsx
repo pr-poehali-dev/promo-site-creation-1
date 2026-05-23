@@ -123,7 +123,7 @@ export default function Home() {
             style={{ listStyle: "none", padding: 0, margin: 0 }}
           >
             {[
-              { name: "Саратовская обл.", slug: "saratovskaya-obl" },
+              { name: "Саратов", slug: "saratov" },
               { name: "Самара", slug: "samara" },
               { name: "Волгоград", slug: "volgograd" },
               { name: "Воронеж", slug: "voronezh" },
