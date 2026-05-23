@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import PageLayout from "@/components/PageLayout";
 
 const CITIES = [
-  { name: "Саратовская обл.", slug: "saratovskaya-obl", region: "Саратовская область" },
+  { name: "Саратов", slug: "saratov", region: "Саратов" },
   { name: "Самара", slug: "samara", region: "Самара и область" },
   { name: "Волгоград", slug: "volgograd", region: "Волгоград и область" },
   { name: "Воронеж", slug: "voronezh", region: "Воронеж и область" },
