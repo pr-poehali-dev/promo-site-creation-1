@@ -153,36 +153,29 @@
   display: none !important;
 }
 
-/* Синий курсор-стрелка для всего проекта */
+/* Зафиксированный синий курсор-стрелка для всего проекта (не меняется) */
 *,
 *::before,
-*::after {
-  cursor:
-    url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M4 2 L4 22 L10 17 L14 25 L18 23 L14 15 L22 15 Z' fill='%232541ff' stroke='white' stroke-width='1.2' stroke-linejoin='round'/%3E%3C/svg%3E")
-      2 2,
-    auto;
-}
-
+*::after,
 a,
+a *,
 button,
+button *,
 [role="button"],
 .cursor-pointer,
 select,
-select * {
+select *,
+option,
+input,
+input *,
+textarea,
+textarea *,
+label,
+label * {
   cursor:
-    url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M10 2 L10 18 L13 15 L15 22 L18 21 L16 14 L21 14 Z' fill='%232541ff' stroke='white' stroke-width='1.2' stroke-linejoin='round'/%3E%3C/svg%3E")
-      6 2,
-    pointer !important;
-}
-
-input[type="text"],
-input[type="tel"],
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="password"],
-textarea {
-  cursor: text !important;
+    url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Cpath d='M4 2 L4 22 L10 17 L14 25 L18 23 L14 15 L22 15 Z' fill='%232541ff' stroke='white' stroke-width='1.2' stroke-linejoin='round'/%3E%3C/svg%3E")
+      2 2,
+    auto !important;
 }
 
 @media (hover: none) and (pointer: coarse) {
