@@ -170,15 +170,11 @@ label[for] {
   cursor: pointer !important;
 }
 
-input[type="text"],
-input[type="tel"],
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="password"],
-input[type="url"],
-textarea {
-  cursor: text !important;
+input,
+input *,
+textarea,
+textarea * {
+  cursor: default !important;
 }
 
 [disabled],
