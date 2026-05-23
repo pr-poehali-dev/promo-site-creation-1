@@ -110,13 +110,15 @@ export default function Contacts() {
             }}
           >
             <h2
-              className="font-cormorant italic text-center"
+              className="italic text-center"
               style={{
+                fontFamily: '"Playfair Display", serif',
                 color: "#fff",
                 fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
-                fontWeight: 600,
+                fontWeight: 700,
+                letterSpacing: "0.02em",
                 textShadow: "0 2px 14px rgba(0,0,0,0.85), 0 0 18px rgba(255,77,109,0.4)",
-                lineHeight: 1.1,
+                lineHeight: 1.15,
                 marginTop: "-0.5rem",
                 marginBottom: "0.25rem",
               }}
