@@ -171,10 +171,13 @@ label[for] {
 }
 
 input,
-input *,
+input * {
+  cursor: default !important;
+}
+
 textarea,
 textarea * {
-  cursor: default !important;
+  cursor: text !important;
 }
 
 [disabled],
