@@ -324,18 +324,17 @@ export default function Contacts() {
           text-shadow: 0 2px 12px rgba(0,0,0,0.85), 0 0 14px rgba(255,77,109,0.35);
         }
         .lead-select.is-selected {
-          color: #39ff7a;
-          font-weight: 700;
-          border-color: rgba(57,255,122,0.7);
-          background-color: rgba(57,255,122,0.12);
-          text-shadow: 0 0 12px rgba(57,255,122,0.85), 0 0 22px rgba(57,255,122,0.45), 0 2px 10px rgba(0,0,0,0.7);
-          box-shadow: 0 0 22px rgba(57,255,122,0.45), inset 0 0 10px rgba(57,255,122,0.15);
-          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2339ff7a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+          color: #fff;
+          font-weight: 600;
+          border-color: rgba(57,255,122,0.85);
+          background-color: rgba(57,255,122,0.55);
+          text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+          box-shadow: 0 0 26px rgba(57,255,122,0.75), inset 0 0 14px rgba(255,255,255,0.18);
         }
         .lead-select.is-selected:focus {
-          border-color: rgba(57,255,122,0.95);
-          box-shadow: 0 0 28px rgba(57,255,122,0.65), inset 0 0 12px rgba(57,255,122,0.2);
-          background-color: rgba(57,255,122,0.18);
+          border-color: #39ff7a;
+          background-color: rgba(57,255,122,0.7);
+          box-shadow: 0 0 32px rgba(57,255,122,0.9), inset 0 0 16px rgba(255,255,255,0.22);
         }
         .city-card:hover {
           transform: translateY(-3px) scale(1.02);
