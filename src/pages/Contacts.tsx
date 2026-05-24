@@ -90,7 +90,7 @@ export default function Contacts() {
           <form
             onSubmit={submit}
             noValidate
-            className="w-full max-w-xl flex flex-col gap-4 p-6 md:p-8 rounded-3xl border border-white/25 backdrop-blur-md relative z-20"
+            className="w-full max-w-xl flex flex-col gap-4 p-6 md:p-8 rounded-3xl border border-white/25 backdrop-blur-md relative z-20 mt-12 sm:mt-16 md:mt-20"
             style={{
               background: "rgba(20,16,30,0.55)",
               boxShadow: "0 0 40px rgba(61,90,254,0.35), inset 0 0 18px rgba(255,255,255,0.06)",
