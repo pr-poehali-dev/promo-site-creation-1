@@ -145,7 +145,33 @@ export default function Contacts() {
                 marginBottom: "0.25rem",
               }}
             >
-              Напиши и получи скидку 5% 💋
+              Напиши и получи скидку{" "}
+              <span
+                style={{
+                  color: "#ff3e57",
+                  fontWeight: 800,
+                  fontSize: "1.2em",
+                  textShadow:
+                    "0 0 14px rgba(255,62,87,0.95), 0 0 28px rgba(255,62,87,0.65), 0 2px 14px rgba(0,0,0,0.85)",
+                  animation: "discountPulse 1.8s ease-in-out infinite",
+                  display: "inline-block",
+                }}
+              >
+                5%
+              </span>{" "}
+              💋
+              <style>{`
+                @keyframes discountPulse {
+                  0%, 100% {
+                    transform: scale(1);
+                    text-shadow: 0 0 14px rgba(255,62,87,0.95), 0 0 28px rgba(255,62,87,0.55), 0 2px 14px rgba(0,0,0,0.85);
+                  }
+                  50% {
+                    transform: scale(1.12);
+                    text-shadow: 0 0 18px rgba(255,62,87,1), 0 0 40px rgba(255,62,87,0.85), 0 0 60px rgba(255,62,87,0.45), 0 2px 14px rgba(0,0,0,0.85);
+                  }
+                }
+              `}</style>
             </h2>
             <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "-9999px", width: "1px", height: "1px", overflow: "hidden", opacity: 0, pointerEvents: "none" }}>
               <label>
