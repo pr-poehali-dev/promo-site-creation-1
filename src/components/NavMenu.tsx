@@ -88,6 +88,7 @@ export default function NavMenu({ marginRight = "clamp(1rem, 4vw, 4rem)" }: NavM
         .nav-menu-btn {
           display: inline-flex;
           align-items: center;
+          justify-content: center;
           gap: 0.6em;
           color: #fff;
           background: rgba(37, 65, 255, 0.18);
@@ -101,17 +102,26 @@ export default function NavMenu({ marginRight = "clamp(1rem, 4vw, 4rem)" }: NavM
           box-shadow:
             0 0 18px rgba(37, 65, 255, 0.35),
             inset 0 0 10px rgba(255,255,255,0.08);
-          transition: all 0.25s ease;
+          transition: box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
           white-space: nowrap;
+          width: clamp(170px, 14vw, 220px);
+          min-width: clamp(170px, 14vw, 220px);
+          box-sizing: border-box;
         }
         .nav-menu-label {
-          max-width: 40vw;
+          flex: 1;
+          text-align: center;
           overflow: hidden;
           text-overflow: ellipsis;
+          white-space: nowrap;
         }
         @media (max-width: 480px) {
-          .nav-menu-btn { padding: 0.45em 0.95em; }
-          .nav-menu-label { max-width: 32vw; }
+          .nav-menu-btn {
+            padding: 0.45em 0.95em;
+            width: 150px;
+            min-width: 150px;
+            font-size: 0.95rem;
+          }
         }
         .nav-menu-btn:hover,
         .nav-menu-btn.is-open {
@@ -120,7 +130,6 @@ export default function NavMenu({ marginRight = "clamp(1rem, 4vw, 4rem)" }: NavM
           box-shadow:
             0 0 24px rgba(37, 65, 255, 0.65),
             inset 0 0 14px rgba(255,255,255,0.14);
-          transform: scale(1.03);
         }
         .nav-menu-caret {
           display: inline-block;
