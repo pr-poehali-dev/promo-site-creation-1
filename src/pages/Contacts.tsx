@@ -286,14 +286,13 @@ export default function Contacts() {
           padding: 14px 18px;
           border-radius: 14px;
           border: 1px solid rgba(255,255,255,0.3);
-          background: rgba(255,255,255,0.08);
+          background: rgba(35,28,55,1);
           color: #fff;
           font-family: 'Cormorant', serif;
           font-style: italic;
           font-size: clamp(1.05rem, 1.5vw, 1.25rem);
           outline: none;
           transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
-          backdrop-filter: blur(6px);
         }
         .lead-input::placeholder {
           color: rgba(255,255,255,0.55);
@@ -302,7 +301,7 @@ export default function Contacts() {
         .lead-input:focus {
           border-color: rgba(255,77,109,0.85);
           box-shadow: 0 0 22px rgba(255,77,109,0.4), inset 0 0 10px rgba(255,255,255,0.06);
-          background: rgba(255,255,255,0.12);
+          background: rgba(45,36,70,1);
         }
         .lead-input.is-valid {
           color: #fff;
