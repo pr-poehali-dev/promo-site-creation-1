@@ -306,11 +306,28 @@ export default function Contacts() {
           border: 2px solid #39ff7a;
           background: rgba(255,255,255,0.08);
           box-shadow: 0 0 22px rgba(57,255,122,0.6), inset 0 0 12px rgba(57,255,122,0.18);
+          -webkit-text-fill-color: #fff;
         }
         .lead-input.is-valid:focus {
           border-color: #39ff7a;
           background: rgba(255,255,255,0.12);
           box-shadow: 0 0 30px rgba(57,255,122,0.85), inset 0 0 14px rgba(57,255,122,0.25);
+        }
+        /* Сброс автозаполнения браузера (особенно для телефона/email) */
+        .lead-input:-webkit-autofill,
+        .lead-input:-webkit-autofill:hover,
+        .lead-input:-webkit-autofill:focus,
+        .lead-input:-webkit-autofill:active {
+          -webkit-text-fill-color: #fff !important;
+          -webkit-box-shadow: 0 0 0 1000px rgba(255,255,255,0.08) inset !important;
+          caret-color: #fff;
+          transition: background-color 9999s ease-in-out 0s;
+        }
+        .lead-input.is-valid:-webkit-autofill,
+        .lead-input.is-valid:-webkit-autofill:hover,
+        .lead-input.is-valid:-webkit-autofill:focus {
+          -webkit-text-fill-color: #fff !important;
+          -webkit-box-shadow: 0 0 0 1000px rgba(255,255,255,0.08) inset, 0 0 22px rgba(57,255,122,0.6) !important;
         }
         select.lead-input option {
           background: #1a1426;
