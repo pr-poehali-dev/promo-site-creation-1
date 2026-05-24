@@ -87,10 +87,44 @@ export default function Contacts() {
             <span>Позвонить</span>
           </a>
 
+          <div
+            className="flex items-center gap-4 w-full max-w-xl mt-12 sm:mt-16 md:mt-20 mb-6 sm:mb-8"
+            style={{
+              animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.55s both",
+            }}
+          >
+            <span
+              className="flex-1 h-px"
+              style={{
+                background:
+                  "linear-gradient(to right, transparent, rgba(61,90,254,0.55), transparent)",
+              }}
+            />
+            <span
+              className="font-cormorant italic whitespace-nowrap px-2"
+              style={{
+                color: "rgba(255,255,255,0.85)",
+                fontSize: "clamp(1.05rem, 1.8vw, 1.5rem)",
+                textShadow:
+                  "0 2px 12px rgba(0,0,0,0.7), 0 0 14px rgba(61,90,254,0.35)",
+                letterSpacing: "0.04em",
+              }}
+            >
+              или напишите мне
+            </span>
+            <span
+              className="flex-1 h-px"
+              style={{
+                background:
+                  "linear-gradient(to right, transparent, rgba(61,90,254,0.55), transparent)",
+              }}
+            />
+          </div>
+
           <form
             onSubmit={submit}
             noValidate
-            className="w-full max-w-xl flex flex-col gap-4 p-6 md:p-8 rounded-3xl border border-white/25 backdrop-blur-md relative z-20 mt-12 sm:mt-16 md:mt-20"
+            className="w-full max-w-xl flex flex-col gap-4 p-6 md:p-8 rounded-3xl border border-white/25 backdrop-blur-md relative z-20"
             style={{
               background: "rgba(20,16,30,0.55)",
               boxShadow: "0 0 40px rgba(61,90,254,0.35), inset 0 0 18px rgba(255,255,255,0.06)",
