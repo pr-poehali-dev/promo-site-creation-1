@@ -75,8 +75,8 @@ export default function About() {
                 className="font-cormorant italic leading-relaxed"
                 style={{
                   fontSize: "clamp(1.2rem, 2vw, 1.9rem)",
-                  color: "#fff",
-                  textShadow: "0 2px 14px rgba(0,0,0,0.6), 0 0 12px rgba(61,90,254,0.4)",
+                  color: "rgba(255,255,255,0.92)",
+                  textShadow: "0 2px 14px rgba(0,0,0,0.6)",
                   animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.2s both",
                 }}
               >
@@ -125,13 +125,7 @@ export default function About() {
                     <ellipse cx="11.5" cy="11" rx="1.6" ry="2.4" fill="rgba(255,255,255,0.45)" transform="rotate(-25 11.5 11)" />
                   </svg>
                 </span>
-                <span
-                  style={{
-                    marginLeft: "0.6em",
-                    color: "rgba(255,255,255,0.92)",
-                    textShadow: "0 2px 14px rgba(0,0,0,0.6)",
-                  }}
-                >
+                <span style={{ marginLeft: "0.6em" }}>
                   <br className="block md:hidden" />
                   Я живу и учусь в городе Саратов.
                 </span>
@@ -150,10 +144,11 @@ export default function About() {
               </p>
 
               <p
-                className="font-cormorant leading-relaxed"
+                className="font-cormorant italic leading-relaxed"
                 style={{
                   fontSize: "clamp(1.2rem, 2vw, 1.9rem)",
-                  color: "rgba(255,255,255,0.85)",
+                  color: "rgba(255,255,255,0.92)",
+                  textShadow: "0 2px 14px rgba(0,0,0,0.6)",
                   animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.5s both",
                 }}
               >
@@ -161,10 +156,11 @@ export default function About() {
               </p>
 
               <p
-                className="font-cormorant leading-relaxed"
+                className="font-cormorant italic leading-relaxed"
                 style={{
                   fontSize: "clamp(1.2rem, 2vw, 1.9rem)",
-                  color: "rgba(255,255,255,0.85)",
+                  color: "rgba(255,255,255,0.92)",
+                  textShadow: "0 2px 14px rgba(0,0,0,0.6)",
                   animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.65s both",
                 }}
               >
@@ -172,12 +168,11 @@ export default function About() {
               </p>
 
               <p
-                className="font-cormorant italic"
+                className="font-cormorant italic leading-relaxed"
                 style={{
                   fontSize: "clamp(1.2rem, 2vw, 1.9rem)",
-                  color: "#fff",
-                  textShadow:
-                    "0 0 12px rgba(61,90,254,0.6), 0 2px 14px rgba(0,0,0,0.6)",
+                  color: "rgba(255,255,255,0.92)",
+                  textShadow: "0 2px 14px rgba(0,0,0,0.6)",
                   animation: "aboutFadeRight 1s cubic-bezier(0.22,1,0.36,1) 0.8s both",
                 }}
               >
