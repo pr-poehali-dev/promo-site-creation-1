@@ -208,7 +208,7 @@ export default function Contacts() {
               value={form.city}
               onChange={(e) => setForm({ ...form, city: e.target.value })}
               required
-              className={`lead-input lead-select ${form.city === "" ? "is-placeholder" : ""}`}
+              className={`lead-input lead-select ${form.city === "" ? "is-placeholder" : "is-selected"}`}
             >
               <option value="" disabled hidden>Выбери город</option>
               {CITIES.map((c) => (
@@ -322,6 +322,20 @@ export default function Contacts() {
           color: #fff;
           opacity: 1;
           text-shadow: 0 2px 12px rgba(0,0,0,0.85), 0 0 14px rgba(255,77,109,0.35);
+        }
+        .lead-select.is-selected {
+          color: #39ff7a;
+          font-weight: 700;
+          border-color: rgba(57,255,122,0.7);
+          background-color: rgba(57,255,122,0.12);
+          text-shadow: 0 0 12px rgba(57,255,122,0.85), 0 0 22px rgba(57,255,122,0.45), 0 2px 10px rgba(0,0,0,0.7);
+          box-shadow: 0 0 22px rgba(57,255,122,0.45), inset 0 0 10px rgba(57,255,122,0.15);
+          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2339ff7a' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+        }
+        .lead-select.is-selected:focus {
+          border-color: rgba(57,255,122,0.95);
+          box-shadow: 0 0 28px rgba(57,255,122,0.65), inset 0 0 12px rgba(57,255,122,0.2);
+          background-color: rgba(57,255,122,0.18);
         }
         .city-card:hover {
           transform: translateY(-3px) scale(1.02);
