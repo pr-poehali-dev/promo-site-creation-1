@@ -316,31 +316,19 @@ export default function Contacts() {
           background: rgba(255,255,255,0.12);
           box-shadow: 0 0 30px rgba(57,255,122,0.85), inset 0 0 14px rgba(57,255,122,0.25);
         }
-        /* Жёсткое перекрытие webkit-autofill — фон гарантированно как у остальных полей */
-        @keyframes autofillFix {
-          to {
-            color: #fff;
-            background: rgba(255,255,255,0.08);
-          }
-        }
+        /* Убираем белый фон автозаполнения браузера — заливаем тем же оттенком, что и обычное поле */
         .lead-input:-webkit-autofill,
         .lead-input:-webkit-autofill:hover,
         .lead-input:-webkit-autofill:focus,
-        .lead-input:-webkit-autofill:active {
+        .lead-input:-webkit-autofill:active,
+        input[type="tel"]:-webkit-autofill,
+        input[type="text"]:-webkit-autofill {
           -webkit-text-fill-color: #fff !important;
-          -webkit-background-clip: padding-box !important;
-          -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
-          background-color: rgba(255,255,255,0.08) !important;
+          -webkit-box-shadow: 0 0 0 1000px rgba(35,28,55,1) inset !important;
+          box-shadow: 0 0 0 1000px rgba(35,28,55,1) inset !important;
           caret-color: #fff !important;
-          animation: autofillFix 0s forwards;
-          transition: background-color 9999s ease-in-out 0s;
-        }
-        .lead-input.is-valid:-webkit-autofill,
-        .lead-input.is-valid:-webkit-autofill:hover,
-        .lead-input.is-valid:-webkit-autofill:focus {
-          -webkit-text-fill-color: #fff !important;
-          -webkit-box-shadow: 0 0 0 1000px transparent inset, 0 0 22px rgba(57,255,122,0.6), inset 0 0 12px rgba(57,255,122,0.18) !important;
-          background-color: rgba(255,255,255,0.08) !important;
+          border-radius: 14px;
+          transition: background-color 9999s ease-in-out 0s, color 9999s ease-in-out 0s;
         }
         select.lead-input option {
           background: #1a1426;
