@@ -52,7 +52,7 @@ export default function NavMenu({ marginRight = "clamp(1rem, 4vw, 4rem)" }: NavM
         aria-expanded={open}
         aria-label="Открыть меню разделов"
         className={`nav-menu-btn font-cormorant italic ${open ? "is-open" : ""}`}
-        style={{ cursor: "none" }}
+        style={{ cursor: "pointer", animation: "logoFadeUp 1.1s ease-out 0s both" }}
       >
         <span className="nav-menu-label">{activeLabel}</span>
         <span className={`nav-menu-caret ${open ? "is-open" : ""}`} aria-hidden>
