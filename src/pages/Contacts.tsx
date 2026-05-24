@@ -87,18 +87,6 @@ export default function Contacts() {
             <span>Позвонить</span>
           </a>
 
-          <p
-            className="font-cormorant italic text-center max-w-2xl leading-relaxed my-6 sm:my-10 md:my-14 px-2"
-            style={{
-              color: "rgba(255,255,255,0.92)",
-              fontSize: "clamp(1.2rem, 2.6vw, 2.2rem)",
-              textShadow: "0 2px 16px rgba(0,0,0,0.7)",
-              animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.6s both",
-            }}
-          >
-            По поводу встречи, звони по телефону или напиши мне.
-          </p>
-
           <form
             onSubmit={submit}
             noValidate
