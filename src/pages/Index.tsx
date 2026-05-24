@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const HERO_IMG = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/8b210152-8886-40ff-ac3d-9b7369e5e331.jpg";
 const ABOUT_IMG = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/572b2706-dbbc-4d45-930d-b1bcab9ffdb3.jpg";
@@ -15,6 +16,7 @@ const GALLERY = [
 ];
 
 export default function Index() {
+  const navigate = useNavigate();
   const [lightbox, setLightbox] = useState<{ img: string; title: string } | null>(null);
 
   useEffect(() => {
@@ -41,6 +43,7 @@ export default function Index() {
         <span
           className="font-cormorant italic font-bold inline-block"
           style={{ cursor: "pointer", fontSize: "clamp(1.1rem, 2.6vw, 2.6rem)", lineHeight: 1, fontWeight: 700, paddingTop: "0.35em", marginLeft: "clamp(0.25rem, 2vw, 2rem)", animation: "logoFadeUp 1.1s ease-out 0s both", whiteSpace: "nowrap" }}
+          onClick={() => navigate("/")}
         >
           <span style={{ color: "#e30613", textShadow: "0 0 12px rgba(227,6,19,0.85), 0 0 22px rgba(227,6,19,0.45)" }}>Сладкие</span>
           <span className="inline-block select-none align-middle" style={{ fontSize: "0.7em", margin: "0 0.15em" }}>🍓</span>
