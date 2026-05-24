@@ -167,9 +167,9 @@ export default function Home() {
           object-fit: cover;
           object-position: center top;
         }
-        /* На очень широких экранах — показываем фото целиком */
-        @media (min-width: 1600px) and (min-aspect-ratio: 16/9) {
-          .home-bg-img { object-fit: contain; object-position: center top; }
+        /* 16:9 мониторы — фото растянуто на весь экран */
+        @media (min-aspect-ratio: 16/9) {
+          .home-bg-img { object-fit: cover; object-position: center center; }
         }
         /* Портретные экраны (телефоны) — кадрируем по центру */
         @media (max-aspect-ratio: 3/4) {
