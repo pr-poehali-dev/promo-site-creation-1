@@ -155,11 +155,11 @@ export default function Contacts() {
                     "0 0 14px rgba(255,62,87,0.95), 0 0 28px rgba(255,62,87,0.65), 0 2px 14px rgba(0,0,0,0.85)",
                   animation: "discountPulse 1.8s ease-in-out infinite",
                   display: "inline-block",
+                  verticalAlign: "middle",
                 }}
               >
                 5%
-              </span>{" "}
-              💋
+              </span>
               <style>{`
                 @keyframes discountPulse {
                   0%, 100% {
