@@ -197,11 +197,14 @@ export default function Contacts() {
             />
             <input
               type="tel"
+              inputMode="tel"
               placeholder="Телефон для связи"
               value={form.phone}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
               maxLength={30}
               required
+              autoComplete="off"
+              name="phone-no-fill"
               className={`lead-input ${form.phone.replace(/\D/g, "").length >= 10 ? "is-valid" : ""}`}
             />
             <select
@@ -313,32 +316,31 @@ export default function Contacts() {
           background: rgba(255,255,255,0.12);
           box-shadow: 0 0 30px rgba(57,255,122,0.85), inset 0 0 14px rgba(57,255,122,0.25);
         }
-        /* Сброс автозаполнения браузера — фон 100% совпадает с обычными полями */
+        /* Жёсткое перекрытие webkit-autofill — фон гарантированно как у остальных полей */
+        @keyframes autofillFix {
+          to {
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+          }
+        }
         .lead-input:-webkit-autofill,
         .lead-input:-webkit-autofill:hover,
         .lead-input:-webkit-autofill:focus,
-        .lead-input:-webkit-autofill:active,
-        input.lead-input:-webkit-autofill,
-        input[type="tel"]:-webkit-autofill,
-        input[type="text"]:-webkit-autofill,
-        input[type="email"]:-webkit-autofill {
+        .lead-input:-webkit-autofill:active {
           -webkit-text-fill-color: #fff !important;
-          -webkit-background-clip: text !important;
+          -webkit-background-clip: padding-box !important;
+          -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
           background-color: rgba(255,255,255,0.08) !important;
-          background-image: none !important;
-          box-shadow: inset 0 0 0 9999px rgba(20,16,30,0) !important;
-          -webkit-box-shadow: inset 0 0 0 9999px rgba(20,16,30,0) !important;
           caret-color: #fff !important;
-          transition: background-color 9999s ease-in-out 0s, color 9999s ease-in-out 0s;
+          animation: autofillFix 0s forwards;
+          transition: background-color 9999s ease-in-out 0s;
         }
         .lead-input.is-valid:-webkit-autofill,
         .lead-input.is-valid:-webkit-autofill:hover,
-        .lead-input.is-valid:-webkit-autofill:focus,
-        input.lead-input.is-valid:-webkit-autofill {
+        .lead-input.is-valid:-webkit-autofill:focus {
           -webkit-text-fill-color: #fff !important;
+          -webkit-box-shadow: 0 0 0 1000px transparent inset, 0 0 22px rgba(57,255,122,0.6), inset 0 0 12px rgba(57,255,122,0.18) !important;
           background-color: rgba(255,255,255,0.08) !important;
-          box-shadow: inset 0 0 0 9999px rgba(20,16,30,0), 0 0 22px rgba(57,255,122,0.6), inset 0 0 12px rgba(57,255,122,0.18) !important;
-          -webkit-box-shadow: inset 0 0 0 9999px rgba(20,16,30,0), 0 0 22px rgba(57,255,122,0.6), inset 0 0 12px rgba(57,255,122,0.18) !important;
         }
         select.lead-input option {
           background: #1a1426;
