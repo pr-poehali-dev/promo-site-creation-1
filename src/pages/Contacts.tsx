@@ -193,7 +193,7 @@ export default function Contacts() {
               onChange={(e) => setForm({ ...form, name: e.target.value })}
               maxLength={100}
               required
-              className={`lead-input ${form.name.trim().length >= 2 ? "is-valid" : ""}`}
+              className="lead-input"
             />
             <input
               type="tel"
@@ -205,13 +205,13 @@ export default function Contacts() {
               required
               autoComplete="off"
               name="phone-no-fill"
-              className={`lead-input ${form.phone.replace(/\D/g, "").length >= 10 ? "is-valid" : ""}`}
+              className="lead-input"
             />
             <select
               value={form.city}
               onChange={(e) => setForm({ ...form, city: e.target.value })}
               required
-              className={`lead-input lead-select ${form.city === "" ? "is-placeholder" : "is-selected"}`}
+              className={`lead-input lead-select ${form.city === "" ? "is-placeholder" : ""}`}
             >
               <option value="" disabled hidden>Выбери город</option>
               {CITIES.map((c) => (
