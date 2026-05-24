@@ -303,17 +303,14 @@ export default function Contacts() {
         }
         .lead-input.is-valid {
           color: #fff;
-          border-color: rgba(57,255,122,0.85);
-          background: rgba(57,255,122,0.55);
-          box-shadow: 0 0 26px rgba(57,255,122,0.75), inset 0 0 14px rgba(255,255,255,0.18);
+          border: 2px solid #39ff7a;
+          background: rgba(255,255,255,0.08);
+          box-shadow: 0 0 22px rgba(57,255,122,0.6), inset 0 0 12px rgba(57,255,122,0.18);
         }
         .lead-input.is-valid:focus {
           border-color: #39ff7a;
-          background: rgba(57,255,122,0.7);
-          box-shadow: 0 0 32px rgba(57,255,122,0.9), inset 0 0 16px rgba(255,255,255,0.22);
-        }
-        .lead-input.is-valid::placeholder {
-          color: rgba(255,255,255,0.85);
+          background: rgba(255,255,255,0.12);
+          box-shadow: 0 0 30px rgba(57,255,122,0.85), inset 0 0 14px rgba(57,255,122,0.25);
         }
         select.lead-input option {
           background: #1a1426;
@@ -340,15 +337,15 @@ export default function Contacts() {
         .lead-select.is-selected {
           color: #fff;
           font-weight: 600;
-          border-color: rgba(57,255,122,0.85);
-          background-color: rgba(57,255,122,0.55);
+          border: 2px solid #39ff7a;
+          background-color: rgba(255,255,255,0.08);
           text-shadow: 0 2px 10px rgba(0,0,0,0.7);
-          box-shadow: 0 0 26px rgba(57,255,122,0.75), inset 0 0 14px rgba(255,255,255,0.18);
+          box-shadow: 0 0 22px rgba(57,255,122,0.6), inset 0 0 12px rgba(57,255,122,0.18);
         }
         .lead-select.is-selected:focus {
           border-color: #39ff7a;
-          background-color: rgba(57,255,122,0.7);
-          box-shadow: 0 0 32px rgba(57,255,122,0.9), inset 0 0 16px rgba(255,255,255,0.22);
+          background-color: rgba(255,255,255,0.12);
+          box-shadow: 0 0 30px rgba(57,255,122,0.85), inset 0 0 14px rgba(57,255,122,0.25);
         }
         .city-card:hover {
           transform: translateY(-3px) scale(1.02);
