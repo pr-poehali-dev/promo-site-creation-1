@@ -318,7 +318,6 @@ export default function Contacts() {
         /* Убираем белый фон автозаполнения браузера — заливаем тем же оттенком, что и обычное поле */
         .lead-input:-webkit-autofill,
         .lead-input:-webkit-autofill:hover,
-        .lead-input:-webkit-autofill:focus,
         .lead-input:-webkit-autofill:active,
         input[type="tel"]:-webkit-autofill,
         input[type="text"]:-webkit-autofill {
@@ -328,6 +327,11 @@ export default function Contacts() {
           caret-color: #fff !important;
           border-radius: 14px;
           transition: background-color 9999s ease-in-out 0s, color 9999s ease-in-out 0s;
+        }
+        .lead-input:-webkit-autofill:focus {
+          -webkit-text-fill-color: #fff !important;
+          -webkit-box-shadow: 0 0 0 1000px rgba(45,36,70,1) inset, 0 0 22px rgba(255,77,109,0.4) !important;
+          box-shadow: 0 0 0 1000px rgba(45,36,70,1) inset, 0 0 22px rgba(255,77,109,0.4) !important;
         }
         select.lead-input option {
           background: #1a1426;

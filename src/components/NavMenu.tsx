@@ -52,7 +52,7 @@ export default function NavMenu({ marginRight = "clamp(1rem, 4vw, 4rem)" }: NavM
         aria-expanded={open}
         aria-label="Открыть меню разделов"
         className={`nav-menu-btn font-cormorant italic ${open ? "is-open" : ""}`}
-        style={{ cursor: "pointer", animation: "logoFadeUp 1.1s ease-out 0s both" }}
+        style={{ animation: "logoFadeUp 1.1s ease-out 0s both" }}
       >
         <span className="nav-menu-label">{activeLabel}</span>
         <span className={`nav-menu-caret ${open ? "is-open" : ""}`} aria-hidden>
@@ -70,7 +70,6 @@ export default function NavMenu({ marginRight = "clamp(1rem, 4vw, 4rem)" }: NavM
                   role="menuitem"
                   onClick={() => go(path)}
                   className={`nav-menu-item font-cormorant italic ${isActive ? "is-active" : ""}`}
-                  style={{ cursor: "none" }}
                 >
                   {label}
                 </button>
@@ -123,6 +122,14 @@ export default function NavMenu({ marginRight = "clamp(1rem, 4vw, 4rem)" }: NavM
             font-size: 0.95rem;
           }
         }
+        @media (max-width: 360px) {
+          .nav-menu-btn {
+            width: 130px;
+            min-width: 130px;
+            padding: 0.4em 0.8em;
+            font-size: 0.85rem;
+          }
+        }
         .nav-menu-btn:hover,
         .nav-menu-btn.is-open {
           border-color: #fff;
@@ -144,6 +151,9 @@ export default function NavMenu({ marginRight = "clamp(1rem, 4vw, 4rem)" }: NavM
           top: calc(100% + 10px);
           right: 0;
           min-width: 220px;
+          max-width: calc(100vw - 32px);
+          max-height: calc(100vh - 120px);
+          overflow-y: auto;
           margin: 0;
           padding: 8px;
           list-style: none;
@@ -155,6 +165,11 @@ export default function NavMenu({ marginRight = "clamp(1rem, 4vw, 4rem)" }: NavM
             0 18px 50px rgba(0,0,0,0.55),
             0 0 24px rgba(37, 65, 255, 0.4);
           animation: navMenuOpen 0.25s cubic-bezier(0.22,1,0.36,1) both;
+        }
+        @media (max-width: 480px) {
+          .nav-menu-list {
+            min-width: 180px;
+          }
         }
         .nav-menu-item {
           width: 100%;
