@@ -10,8 +10,6 @@ import Icon from "@/components/ui/icon";
 
 const PHOTO_PLACEHOLDER_1 =
   "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/572b2706-dbbc-4d45-930d-b1bcab9ffdb3.jpg";
-const PHOTO_PLACEHOLDER_2 =
-  "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/de67aff0-5994-4139-92fa-81cba6775a5e.jpg";
 
 export default function About() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +17,7 @@ export default function About() {
     <PageLayout>
       <section className="relative px-4 sm:px-6 md:px-16 pt-4 md:pt-6 pb-12 md:pb-16">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-[1fr_1.2fr] gap-8 sm:gap-10 md:gap-16 items-center">
+          <div className="grid md:grid-cols-[0.9fr_1.6fr] gap-8 sm:gap-10 md:gap-14 items-center">
             {/* Левая колонка — фото */}
             <div className="relative" style={{ animation: "aboutFadeLeft 1.3s cubic-bezier(0.22,1,0.36,1) 0.2s both" }}>
               <div
@@ -49,24 +47,6 @@ export default function About() {
                 />
               </div>
 
-              <div
-                className="hidden lg:block absolute overflow-hidden border-2"
-                style={{
-                  width: "clamp(140px, 12vw, 180px)",
-                  height: "clamp(180px, 16vw, 230px)",
-                  bottom: "-2.5rem",
-                  right: "-2.5rem",
-                  borderColor: "#3d5afe",
-                  boxShadow: "0 0 24px rgba(61,90,254,0.45)",
-                  animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.7s both",
-                }}
-              >
-                <img
-                  src={PHOTO_PLACEHOLDER_2}
-                  alt="Фото"
-                  className="w-full h-full object-cover"
-                />
-              </div>
             </div>
 
             {/* Правая колонка — текст */}
