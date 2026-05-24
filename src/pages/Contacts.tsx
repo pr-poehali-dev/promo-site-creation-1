@@ -193,7 +193,7 @@ export default function Contacts() {
               onChange={(e) => setForm({ ...form, name: e.target.value })}
               maxLength={100}
               required
-              className="lead-input"
+              className={`lead-input ${form.name.trim().length >= 2 ? "is-valid" : ""}`}
             />
             <input
               type="tel"
@@ -202,7 +202,7 @@ export default function Contacts() {
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
               maxLength={30}
               required
-              className="lead-input"
+              className={`lead-input ${form.phone.replace(/\D/g, "").length >= 10 ? "is-valid" : ""}`}
             />
             <select
               value={form.city}
@@ -300,6 +300,20 @@ export default function Contacts() {
           border-color: rgba(255,77,109,0.85);
           box-shadow: 0 0 22px rgba(255,77,109,0.4), inset 0 0 10px rgba(255,255,255,0.06);
           background: rgba(255,255,255,0.12);
+        }
+        .lead-input.is-valid {
+          color: #fff;
+          border-color: rgba(57,255,122,0.85);
+          background: rgba(57,255,122,0.55);
+          box-shadow: 0 0 26px rgba(57,255,122,0.75), inset 0 0 14px rgba(255,255,255,0.18);
+        }
+        .lead-input.is-valid:focus {
+          border-color: #39ff7a;
+          background: rgba(57,255,122,0.7);
+          box-shadow: 0 0 32px rgba(57,255,122,0.9), inset 0 0 16px rgba(255,255,255,0.22);
+        }
+        .lead-input.is-valid::placeholder {
+          color: rgba(255,255,255,0.85);
         }
         select.lead-input option {
           background: #1a1426;
