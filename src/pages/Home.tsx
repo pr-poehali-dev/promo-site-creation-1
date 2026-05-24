@@ -33,10 +33,21 @@ export default function Home() {
           decoding="sync"
         />
       </div>
+      {/* Мягкое затемнение по краям — плавный переход к чёрному фону */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "rgba(0,0,0,0.18)",
+          background:
+            "radial-gradient(ellipse 75% 85% at center 45%, transparent 30%, rgba(0,0,0,0.45) 70%, rgba(0,0,0,0.9) 100%)",
+          zIndex: 2,
+        }}
+      />
+      {/* Боковая виньетка по горизонтали */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.35) 12%, transparent 25%, transparent 75%, rgba(0,0,0,0.35) 88%, rgba(0,0,0,0.85) 100%)",
           zIndex: 2,
         }}
       />
