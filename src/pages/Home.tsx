@@ -163,21 +163,19 @@ export default function Home() {
         @media (min-width: 2400px) {
           .home-container { max-width: 1920px; }
         }
+        /* По умолчанию — лицо всегда в кадре, ничего не обрезается сверху */
         .home-bg-img {
-          object-fit: cover;
-          object-position: 50% 18%;
+          object-fit: contain;
+          object-position: center top;
+          background: #000;
         }
-        /* 16:9 мониторы — фото растянуто, лицо по центру */
+        /* Широкие экраны — фото целиком сверху, фон чёрный по бокам */
         @media (min-aspect-ratio: 16/9) {
-          .home-bg-img { object-fit: cover; object-position: 50% 25%; }
+          .home-bg-img { object-fit: contain; object-position: center top; }
         }
-        /* Сверхширокие 21:9 — лицо чуть выше центра */
-        @media (min-aspect-ratio: 21/9) {
-          .home-bg-img { object-fit: cover; object-position: 50% 30%; }
-        }
-        /* Портретные экраны (телефоны) — кадрируем по центру */
+        /* Портретные экраны — тоже целиком, лицо вверху */
         @media (max-aspect-ratio: 3/4) {
-          .home-bg-img { object-position: 50% 20%; }
+          .home-bg-img { object-fit: contain; object-position: center top; }
         }
         .hero-center { padding-top: 60vh; padding-top: 60svh; }
         @media (min-width: 1280px) {
