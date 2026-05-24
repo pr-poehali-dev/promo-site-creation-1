@@ -165,11 +165,15 @@ export default function Home() {
         }
         .home-bg-img {
           object-fit: cover;
-          object-position: center top;
+          object-position: 50% 18%;
         }
-        /* 16:9 мониторы — фото растянуто на весь экран */
+        /* 16:9 мониторы — фото растянуто, лицо по центру */
         @media (min-aspect-ratio: 16/9) {
-          .home-bg-img { object-fit: cover; object-position: center center; }
+          .home-bg-img { object-fit: cover; object-position: 50% 25%; }
+        }
+        /* Сверхширокие 21:9 — лицо чуть выше центра */
+        @media (min-aspect-ratio: 21/9) {
+          .home-bg-img { object-fit: cover; object-position: 50% 30%; }
         }
         /* Портретные экраны (телефоны) — кадрируем по центру */
         @media (max-aspect-ratio: 3/4) {
