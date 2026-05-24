@@ -313,21 +313,32 @@ export default function Contacts() {
           background: rgba(255,255,255,0.12);
           box-shadow: 0 0 30px rgba(57,255,122,0.85), inset 0 0 14px rgba(57,255,122,0.25);
         }
-        /* Сброс автозаполнения браузера (особенно для телефона/email) */
+        /* Сброс автозаполнения браузера — фон 100% совпадает с обычными полями */
         .lead-input:-webkit-autofill,
         .lead-input:-webkit-autofill:hover,
         .lead-input:-webkit-autofill:focus,
-        .lead-input:-webkit-autofill:active {
+        .lead-input:-webkit-autofill:active,
+        input.lead-input:-webkit-autofill,
+        input[type="tel"]:-webkit-autofill,
+        input[type="text"]:-webkit-autofill,
+        input[type="email"]:-webkit-autofill {
           -webkit-text-fill-color: #fff !important;
-          -webkit-box-shadow: 0 0 0 1000px rgba(255,255,255,0.08) inset !important;
-          caret-color: #fff;
-          transition: background-color 9999s ease-in-out 0s;
+          -webkit-background-clip: text !important;
+          background-color: rgba(255,255,255,0.08) !important;
+          background-image: none !important;
+          box-shadow: inset 0 0 0 9999px rgba(20,16,30,0) !important;
+          -webkit-box-shadow: inset 0 0 0 9999px rgba(20,16,30,0) !important;
+          caret-color: #fff !important;
+          transition: background-color 9999s ease-in-out 0s, color 9999s ease-in-out 0s;
         }
         .lead-input.is-valid:-webkit-autofill,
         .lead-input.is-valid:-webkit-autofill:hover,
-        .lead-input.is-valid:-webkit-autofill:focus {
+        .lead-input.is-valid:-webkit-autofill:focus,
+        input.lead-input.is-valid:-webkit-autofill {
           -webkit-text-fill-color: #fff !important;
-          -webkit-box-shadow: 0 0 0 1000px rgba(255,255,255,0.08) inset, 0 0 22px rgba(57,255,122,0.6) !important;
+          background-color: rgba(255,255,255,0.08) !important;
+          box-shadow: inset 0 0 0 9999px rgba(20,16,30,0), 0 0 22px rgba(57,255,122,0.6), inset 0 0 12px rgba(57,255,122,0.18) !important;
+          -webkit-box-shadow: inset 0 0 0 9999px rgba(20,16,30,0), 0 0 22px rgba(57,255,122,0.6), inset 0 0 12px rgba(57,255,122,0.18) !important;
         }
         select.lead-input option {
           background: #1a1426;
