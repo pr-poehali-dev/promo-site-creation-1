@@ -110,7 +110,7 @@ export default function Contacts() {
                 letterSpacing: "0.04em",
               }}
             >
-              или напишите мне
+              или напиши мне
             </span>
             <span
               className="flex-1 h-px"
