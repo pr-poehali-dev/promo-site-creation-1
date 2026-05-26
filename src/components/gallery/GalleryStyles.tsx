@@ -112,7 +112,7 @@ export default function GalleryStyles() {
         padding: 14px 14px 12px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-end;
         background: linear-gradient(to top, rgba(8,8,18,0.85) 0%, rgba(61,90,254,0.08) 60%, transparent 100%);
         opacity: 0;
         transform: translateY(8px);
@@ -123,12 +123,6 @@ export default function GalleryStyles() {
       .tile:hover .tile-overlay {
         opacity: 1;
         transform: translateY(0);
-      }
-      .tile-title {
-        font-family: "Cormorant Garamond", serif;
-        font-style: italic;
-        font-size: 1.05rem;
-        letter-spacing: 0.04em;
       }
       .tile-zoom {
         width: 32px;

@@ -31,7 +31,6 @@ const GalleryTile = forwardRef<HTMLDivElement, Props>(function GalleryTile(
           </div>
         )}
         <div className="tile-overlay">
-          <span className="tile-title">{item.title}</span>
           <span className="tile-zoom">
             <Icon name="ZoomIn" size={18} />
           </span>
