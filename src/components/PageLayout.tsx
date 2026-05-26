@@ -30,13 +30,6 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
           onClick={() => navigate("/")}
         >
           <span className="fire-wrap" style={{ position: "relative", display: "inline-block" }}>
-            <span className="fire-flames" aria-hidden="true">
-              <span className="flame flame-1" />
-              <span className="flame flame-2" />
-              <span className="flame flame-3" />
-              <span className="flame flame-4" />
-              <span className="flame flame-5" />
-            </span>
             <span className="fire-sparks" aria-hidden="true">
               <span className="spark spark-1" />
               <span className="spark spark-2" />
@@ -168,41 +161,6 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
           background-size: 100% 220% !important;
           background-position: 50% 100%;
           animation: fireFlicker 1.6s ease-in-out infinite, fireGradientShift 3.2s ease-in-out infinite;
-        }
-
-        /* Языки пламени над буквами */
-        .fire-flames {
-          position: absolute;
-          left: 0;
-          right: 0;
-          top: -0.55em;
-          height: 0.7em;
-          pointer-events: none;
-          z-index: 1;
-          filter: blur(1.2px);
-          mix-blend-mode: screen;
-        }
-        .flame {
-          position: absolute;
-          bottom: 0;
-          width: 0.32em;
-          height: 0.7em;
-          border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
-          background: radial-gradient(ellipse at 50% 95%, rgba(255,240,140,0.95) 0%, rgba(255,170,40,0.9) 30%, rgba(255,90,20,0.75) 55%, rgba(227,6,19,0.35) 80%, rgba(227,6,19,0) 100%);
-          transform-origin: 50% 100%;
-          opacity: 0.95;
-        }
-        .flame-1 { left: 6%;  animation: flameDance 1.1s ease-in-out infinite; animation-delay: 0s;   }
-        .flame-2 { left: 24%; animation: flameDance 1.3s ease-in-out infinite; animation-delay: -0.2s; height: 0.85em; width: 0.36em; }
-        .flame-3 { left: 44%; animation: flameDance 1.0s ease-in-out infinite; animation-delay: -0.4s; height: 0.95em; width: 0.4em;  }
-        .flame-4 { left: 64%; animation: flameDance 1.25s ease-in-out infinite; animation-delay: -0.6s; height: 0.8em; }
-        .flame-5 { left: 84%; animation: flameDance 1.15s ease-in-out infinite; animation-delay: -0.8s; }
-
-        @keyframes flameDance {
-          0%, 100% { transform: scaleY(1) scaleX(1) skewX(0deg) translateY(0); opacity: 0.85; }
-          25% { transform: scaleY(1.25) scaleX(0.85) skewX(-6deg) translateY(-2px); opacity: 1; }
-          50% { transform: scaleY(0.9) scaleX(1.1) skewX(4deg) translateY(1px); opacity: 0.7; }
-          75% { transform: scaleY(1.18) scaleX(0.9) skewX(-3deg) translateY(-1.5px); opacity: 0.95; }
         }
 
         /* Искры, летящие вверх */
