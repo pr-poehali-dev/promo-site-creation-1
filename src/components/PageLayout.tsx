@@ -29,20 +29,38 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
           style={{ cursor: "pointer", fontSize: "clamp(1.1rem, 2.6vw, 2.6rem)", lineHeight: 1, fontWeight: 700, marginLeft: "clamp(0.25rem, 2vw, 2rem)", animation: "logoFadeUp 1.1s ease-out 0s both", whiteSpace: "nowrap" }}
           onClick={() => navigate("/")}
         >
-          <span
-            className="fire-text"
-            style={{
-              background: "linear-gradient(0deg, #7a0000 0%, #e30613 18%, #ff5e1a 45%, #ffb347 75%, #ffe066 100%)",
-              WebkitBackgroundClip: "text",
-              backgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              color: "transparent",
-              filter: "drop-shadow(0 0 8px rgba(255,94,26,0.85)) drop-shadow(0 0 16px rgba(227,6,19,0.55))",
-              display: "inline-block",
-              position: "relative",
-            }}
-          >
-            Сладкие
+          <span className="fire-wrap" style={{ position: "relative", display: "inline-block" }}>
+            <span className="fire-flames" aria-hidden="true">
+              <span className="flame flame-1" />
+              <span className="flame flame-2" />
+              <span className="flame flame-3" />
+              <span className="flame flame-4" />
+              <span className="flame flame-5" />
+            </span>
+            <span className="fire-sparks" aria-hidden="true">
+              <span className="spark spark-1" />
+              <span className="spark spark-2" />
+              <span className="spark spark-3" />
+              <span className="spark spark-4" />
+              <span className="spark spark-5" />
+              <span className="spark spark-6" />
+            </span>
+            <span
+              className="fire-text"
+              style={{
+                background: "linear-gradient(0deg, #7a0000 0%, #e30613 18%, #ff5e1a 45%, #ffb347 75%, #ffe066 100%)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                color: "transparent",
+                filter: "drop-shadow(0 0 8px rgba(255,94,26,0.85)) drop-shadow(0 0 16px rgba(227,6,19,0.55))",
+                display: "inline-block",
+                position: "relative",
+                zIndex: 2,
+              }}
+            >
+              Сладкие
+            </span>
           </span>
           <span className="inline-block select-none align-middle" style={{ fontSize: "0.7em", margin: "0 0.15em" }}>🍓</span>
           <span style={{ color: "#2541ff", textShadow: "0 0 12px rgba(37,65,255,0.9), 0 0 22px rgba(37,65,255,0.5)" }}>Грёзы</span>
@@ -150,6 +168,75 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
           background-size: 100% 220% !important;
           background-position: 50% 100%;
           animation: fireFlicker 1.6s ease-in-out infinite, fireGradientShift 3.2s ease-in-out infinite;
+        }
+
+        /* Языки пламени над буквами */
+        .fire-flames {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: -0.55em;
+          height: 0.7em;
+          pointer-events: none;
+          z-index: 1;
+          filter: blur(1.2px);
+          mix-blend-mode: screen;
+        }
+        .flame {
+          position: absolute;
+          bottom: 0;
+          width: 0.32em;
+          height: 0.7em;
+          border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+          background: radial-gradient(ellipse at 50% 95%, rgba(255,240,140,0.95) 0%, rgba(255,170,40,0.9) 30%, rgba(255,90,20,0.75) 55%, rgba(227,6,19,0.35) 80%, rgba(227,6,19,0) 100%);
+          transform-origin: 50% 100%;
+          opacity: 0.95;
+        }
+        .flame-1 { left: 6%;  animation: flameDance 1.1s ease-in-out infinite; animation-delay: 0s;   }
+        .flame-2 { left: 24%; animation: flameDance 1.3s ease-in-out infinite; animation-delay: -0.2s; height: 0.85em; width: 0.36em; }
+        .flame-3 { left: 44%; animation: flameDance 1.0s ease-in-out infinite; animation-delay: -0.4s; height: 0.95em; width: 0.4em;  }
+        .flame-4 { left: 64%; animation: flameDance 1.25s ease-in-out infinite; animation-delay: -0.6s; height: 0.8em; }
+        .flame-5 { left: 84%; animation: flameDance 1.15s ease-in-out infinite; animation-delay: -0.8s; }
+
+        @keyframes flameDance {
+          0%, 100% { transform: scaleY(1) scaleX(1) skewX(0deg) translateY(0); opacity: 0.85; }
+          25% { transform: scaleY(1.25) scaleX(0.85) skewX(-6deg) translateY(-2px); opacity: 1; }
+          50% { transform: scaleY(0.9) scaleX(1.1) skewX(4deg) translateY(1px); opacity: 0.7; }
+          75% { transform: scaleY(1.18) scaleX(0.9) skewX(-3deg) translateY(-1.5px); opacity: 0.95; }
+        }
+
+        /* Искры, летящие вверх */
+        .fire-sparks {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: -0.3em;
+          height: 1.6em;
+          pointer-events: none;
+          z-index: 1;
+        }
+        .spark {
+          position: absolute;
+          bottom: 0;
+          width: 3px;
+          height: 3px;
+          border-radius: 50%;
+          background: radial-gradient(circle, #fff5b8 0%, #ffcc55 45%, #ff6a1a 100%);
+          box-shadow: 0 0 6px rgba(255,180,71,0.95), 0 0 12px rgba(255,90,20,0.7);
+          opacity: 0;
+        }
+        .spark-1 { left: 10%; animation: sparkRise 2.2s ease-out infinite; animation-delay: 0s;    }
+        .spark-2 { left: 26%; animation: sparkRise 2.6s ease-out infinite; animation-delay: -0.4s; }
+        .spark-3 { left: 42%; animation: sparkRise 2.0s ease-out infinite; animation-delay: -0.9s; }
+        .spark-4 { left: 58%; animation: sparkRise 2.8s ease-out infinite; animation-delay: -1.3s; }
+        .spark-5 { left: 74%; animation: sparkRise 2.3s ease-out infinite; animation-delay: -1.7s; }
+        .spark-6 { left: 88%; animation: sparkRise 2.5s ease-out infinite; animation-delay: -2.1s; }
+
+        @keyframes sparkRise {
+          0%   { transform: translate(0, 0) scale(1);   opacity: 0;   }
+          15%  { opacity: 1; }
+          60%  { transform: translate(-4px, -1.3em) scale(0.9); opacity: 0.9; }
+          100% { transform: translate(6px, -2.2em) scale(0.2);  opacity: 0;   }
         }
       `}</style>
     </div>
