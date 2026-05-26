@@ -48,7 +48,6 @@ export default function GalleryLightbox({ current, index, total, onClose, onPrev
           </div>
         )}
         <div className="lightbox-caption">
-          <span>{current.title}</span>
           <span className="lightbox-counter">
             {index + 1} / {total}
           </span>

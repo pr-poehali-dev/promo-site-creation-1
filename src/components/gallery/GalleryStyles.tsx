@@ -203,8 +203,8 @@ export default function GalleryStyles() {
         display: block;
       }
       .lightbox-img.is-blurred {
-        filter: blur(22px) brightness(0.6);
-        transform: scale(1.05);
+        filter: blur(48px) brightness(0.45) saturate(0.7);
+        transform: scale(1.08);
       }
       .lightbox-lock {
         position: absolute;
