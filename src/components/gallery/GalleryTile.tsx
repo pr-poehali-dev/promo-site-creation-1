@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import type { GalleryItem } from "./data";
 
@@ -32,9 +33,15 @@ const GalleryTile = forwardRef<HTMLDivElement, Props>(function GalleryTile(
         <img src={item.img} alt={item.title} loading="lazy" />
         {item.locked && (
           <div className="tile-lock">
-            <Icon name="Lock" size={28} />
+            <Icon name="Lock" size={32} />
             <span>Доступно по запросу</span>
-            <span className="tile-lock-hint">Связаться в разделе «Контакты»</span>
+            <Link
+              to="/contacts"
+              className="tile-lock-hint"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Связаться в разделе «Контакты»
+            </Link>
           </div>
         )}
         {!item.locked && (

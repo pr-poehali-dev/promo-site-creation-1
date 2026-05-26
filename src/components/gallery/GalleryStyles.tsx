@@ -89,10 +89,26 @@ export default function GalleryStyles() {
         transform: scale(1.1);
       }
       .tile-lock-hint {
-        font-size: 0.78rem;
-        opacity: 0.85;
-        margin-top: 2px;
-        letter-spacing: 0.05em;
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 16px;
+        font-size: 1.05rem;
+        font-family: "Cormorant Garamond", serif;
+        font-style: italic;
+        letter-spacing: 0.06em;
+        color: #fff;
+        text-decoration: none;
+        background: rgba(61,90,254,0.28);
+        border: 1px solid rgba(255,255,255,0.55);
+        border-radius: 999px;
+        cursor: pointer;
+        pointer-events: auto;
+        transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+      }
+      .tile-lock-hint:hover {
+        background: rgba(255,77,109,0.45);
+        border-color: rgba(255,255,255,0.9);
+        transform: translateY(-1px);
       }
       .tile-lock {
         position: absolute;
@@ -101,15 +117,17 @@ export default function GalleryStyles() {
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 8px;
+        gap: 10px;
         color: #fff;
         background: linear-gradient(180deg, rgba(10,10,10,0.25), rgba(10,10,10,0.55));
         z-index: 2;
         font-family: "Cormorant Garamond", serif;
         font-style: italic;
         letter-spacing: 0.04em;
-        font-size: 0.95rem;
+        font-size: 1.25rem;
         text-shadow: 0 2px 14px rgba(0,0,0,0.85);
+        padding: 16px;
+        text-align: center;
       }
       .tile-lock svg {
         filter: drop-shadow(0 0 12px rgba(255,77,109,0.85));
