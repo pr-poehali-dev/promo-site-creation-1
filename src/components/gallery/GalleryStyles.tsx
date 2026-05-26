@@ -66,7 +66,9 @@ export default function GalleryStyles() {
         display: block;
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
+        object-position: center;
+        background: #0a0a0a;
         filter: grayscale(15%) brightness(0.88);
         transition: transform 0.6s cubic-bezier(0.22,1,0.36,1), filter 0.4s ease;
       }
