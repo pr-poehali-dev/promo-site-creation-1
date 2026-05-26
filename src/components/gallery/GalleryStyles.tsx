@@ -17,28 +17,17 @@ export default function GalleryStyles() {
       .masonry {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-auto-rows: 22vw;
         grid-auto-flow: dense;
         gap: 10px;
       }
       @media (max-width: 1280px) {
-        .masonry { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 26vw; }
+        .masonry { grid-template-columns: repeat(3, 1fr); }
       }
       @media (max-width: 900px) {
-        .masonry { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 40vw; gap: 8px; }
+        .masonry { grid-template-columns: repeat(2, 1fr); gap: 8px; }
       }
       @media (max-width: 520px) {
-        .masonry { grid-template-columns: 1fr; grid-auto-rows: 70vw; }
-      }
-
-      /* Раскладка: некоторым плиткам — увеличенная высота/ширина для красивой мозаики */
-      .tile:nth-child(7n + 1) { grid-row: span 2; }
-      .tile:nth-child(7n + 4) { grid-column: span 2; }
-      .tile:nth-child(7n + 6) { grid-row: span 2; grid-column: span 2; }
-      @media (max-width: 520px) {
-        .tile:nth-child(7n + 1),
-        .tile:nth-child(7n + 4),
-        .tile:nth-child(7n + 6) { grid-row: auto; grid-column: auto; }
+        .masonry { grid-template-columns: 1fr; }
       }
 
       .tile {
@@ -48,6 +37,7 @@ export default function GalleryStyles() {
         transform-style: preserve-3d;
         transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease;
         will-change: transform;
+        aspect-ratio: 3 / 4;
       }
       .tile:hover {
         z-index: 5;
@@ -66,8 +56,8 @@ export default function GalleryStyles() {
         display: block;
         width: 100%;
         height: 100%;
-        object-fit: contain;
-        object-position: center;
+        object-fit: cover;
+        object-position: center top;
         background: #0a0a0a;
         filter: grayscale(15%) brightness(0.88);
         transition: transform 0.6s cubic-bezier(0.22,1,0.36,1), filter 0.4s ease;
