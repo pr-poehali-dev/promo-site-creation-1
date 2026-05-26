@@ -10,13 +10,29 @@ export default function Gallery() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const tileRefs = useRef<Array<HTMLDivElement | null>>([]);
 
+  const publicItems = GALLERY.filter((it) => !it.locked);
+  const publicIndexOf = (globalIdx: number) => {
+    const item = GALLERY[globalIdx];
+    return publicItems.findIndex((p) => p.img === item.img);
+  };
+
   const close = useCallback(() => setOpenIndex(null), []);
   const prev = useCallback(() => {
-    setOpenIndex((i) => (i === null ? null : (i - 1 + GALLERY.length) % GALLERY.length));
-  }, []);
+    setOpenIndex((i) => {
+      if (i === null) return null;
+      const curPub = publicItems.findIndex((p) => p.img === GALLERY[i].img);
+      const nextPub = (curPub - 1 + publicItems.length) % publicItems.length;
+      return GALLERY.findIndex((g) => g.img === publicItems[nextPub].img);
+    });
+  }, [publicItems]);
   const next = useCallback(() => {
-    setOpenIndex((i) => (i === null ? null : (i + 1) % GALLERY.length));
-  }, []);
+    setOpenIndex((i) => {
+      if (i === null) return null;
+      const curPub = publicItems.findIndex((p) => p.img === GALLERY[i].img);
+      const nextPub = (curPub + 1) % publicItems.length;
+      return GALLERY.findIndex((g) => g.img === publicItems[nextPub].img);
+    });
+  }, [publicItems]);
 
   useEffect(() => {
     if (openIndex === null) return;
@@ -50,14 +66,13 @@ export default function Gallery() {
     el.style.transform = "";
   };
 
-  const total = GALLERY.length;
   const current = openIndex !== null ? GALLERY[openIndex] : null;
 
   return (
     <PageLayout>
       <section className="relative px-2 sm:px-3 md:px-4 pt-4 md:pt-8 pb-16">
         <div className="w-full">
-          <GalleryHeader total={total} />
+          <GalleryHeader />
 
           <div className="masonry">
             {GALLERY.map((item, i) => (
@@ -75,11 +90,11 @@ export default function Gallery() {
         </div>
       </section>
 
-      {openIndex !== null && current && (
+      {openIndex !== null && current && !current.locked && (
         <GalleryLightbox
           current={current}
-          index={openIndex}
-          total={GALLERY.length}
+          index={publicIndexOf(openIndex)}
+          total={publicItems.length}
           onClose={close}
           onPrev={prev}
           onNext={next}

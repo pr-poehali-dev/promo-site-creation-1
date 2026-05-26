@@ -1,8 +1,4 @@
-type Props = {
-  total: number;
-};
-
-export default function GalleryHeader({ total }: Props) {
+export default function GalleryHeader() {
   return (
     <div
       className="flex items-end justify-between flex-wrap gap-3 mb-6 md:mb-8"
@@ -15,9 +11,6 @@ export default function GalleryHeader({ total }: Props) {
         >
           Фотогалерея
         </h2>
-        <p className="text-white/55 text-sm md:text-base mt-2 font-light">
-          {total} снимков · наведи на фото для эффекта объёма
-        </p>
       </div>
     </div>
   );

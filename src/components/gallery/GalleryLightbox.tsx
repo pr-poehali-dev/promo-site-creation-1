@@ -1,4 +1,3 @@
-import Icon from "@/components/ui/icon";
 import type { GalleryItem } from "./data";
 
 type Props = {
@@ -14,16 +13,6 @@ export default function GalleryLightbox({ current, index, total, onClose, onPrev
   return (
     <div className="lightbox" onClick={onClose} role="dialog" aria-modal="true">
       <button
-        className="lightbox-close"
-        onClick={(e) => {
-          e.stopPropagation();
-          onClose();
-        }}
-        aria-label="Закрыть"
-      >
-        <Icon name="X" size={22} />
-      </button>
-      <button
         className="lightbox-arrow lightbox-arrow-left"
         onClick={(e) => {
           e.stopPropagation();
@@ -33,20 +22,18 @@ export default function GalleryLightbox({ current, index, total, onClose, onPrev
       >
         ‹
       </button>
-      <div className="lightbox-stage" onClick={(e) => e.stopPropagation()}>
+      <div className="lightbox-stage" onClick={onClose}>
         <img
           key={current.img}
           src={current.img}
           alt={current.title}
-          className={`lightbox-img ${current.locked ? "is-blurred" : ""}`}
+          className="lightbox-img"
+          onClick={(e) => {
+            e.stopPropagation();
+            onClose();
+          }}
+          style={{ cursor: "zoom-out" }}
         />
-        {current.locked && (
-          <div className="lightbox-lock">
-            <Icon name="Lock" size={36} />
-            <p>Это фото 18+ — доступно по запросу</p>
-            <span>Свяжитесь через раздел «Контакты»</span>
-          </div>
-        )}
         <div className="lightbox-caption">
           <span className="lightbox-counter">
             {index + 1} / {total}
