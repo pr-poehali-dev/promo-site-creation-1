@@ -76,13 +76,23 @@ export default function GalleryStyles() {
       }
 
       /* Лок-эффект 18+ */
+      .tile.is-locked .tile-inner {
+        cursor: not-allowed;
+        pointer-events: auto;
+      }
       .tile.is-locked .tile-inner img {
         filter: blur(14px) brightness(0.55) saturate(1.1);
         transform: scale(1.1);
       }
       .tile.is-locked:hover .tile-inner img {
-        filter: blur(10px) brightness(0.7) saturate(1.2);
-        transform: scale(1.12);
+        filter: blur(14px) brightness(0.55) saturate(1.1);
+        transform: scale(1.1);
+      }
+      .tile-lock-hint {
+        font-size: 0.78rem;
+        opacity: 0.85;
+        margin-top: 2px;
+        letter-spacing: 0.05em;
       }
       .tile-lock {
         position: absolute;

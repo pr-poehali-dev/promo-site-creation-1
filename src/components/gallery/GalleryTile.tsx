@@ -22,19 +22,28 @@ const GalleryTile = forwardRef<HTMLDivElement, Props>(function GalleryTile(
       onMouseLeave={onMouseLeave}
       style={{ animation: `tileIn 0.7s cubic-bezier(0.22,1,0.36,1) ${0.05 * index}s both` }}
     >
-      <div className="tile-inner" onClick={() => onOpen(index)}>
+      <div
+        className="tile-inner"
+        onClick={() => {
+          if (item.locked) return;
+          onOpen(index);
+        }}
+      >
         <img src={item.img} alt={item.title} loading="lazy" />
         {item.locked && (
           <div className="tile-lock">
             <Icon name="Lock" size={28} />
             <span>Доступно по запросу</span>
+            <span className="tile-lock-hint">Связаться в разделе «Контакты»</span>
           </div>
         )}
-        <div className="tile-overlay">
-          <span className="tile-zoom">
-            <Icon name="ZoomIn" size={18} />
-          </span>
-        </div>
+        {!item.locked && (
+          <div className="tile-overlay">
+            <span className="tile-zoom">
+              <Icon name="ZoomIn" size={18} />
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );
