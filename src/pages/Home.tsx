@@ -69,7 +69,17 @@ export default function Home() {
           style={{ cursor: "pointer", fontSize: "clamp(1.1rem, 2.6vw, 2.6rem)", lineHeight: 1, fontWeight: 700, marginLeft: "clamp(0.25rem, 2vw, 2rem)", animation: "logoFadeUp 1.1s ease-out 0s both", whiteSpace: "nowrap" }}
           onClick={() => go("/")}
         >
-          <span style={{ color: "#e30613", textShadow: "0 0 12px rgba(227,6,19,0.85), 0 0 22px rgba(227,6,19,0.45)" }}>Сладкие</span>
+          <span className="fire-wrap">
+            <span className="fire-sparks" aria-hidden="true">
+              <span className="spark spark-1" />
+              <span className="spark spark-2" />
+              <span className="spark spark-3" />
+              <span className="spark spark-4" />
+              <span className="spark spark-5" />
+              <span className="spark spark-6" />
+            </span>
+            <span className="fire-text">Сладкие</span>
+          </span>
           <span className="inline-block select-none align-middle" style={{ fontSize: "0.7em", margin: "0 0.15em" }}>🍓</span>
           <span style={{ color: "#2541ff", textShadow: "0 0 12px rgba(37,65,255,0.9), 0 0 22px rgba(37,65,255,0.5)" }}>Грёзы</span>
         </span>

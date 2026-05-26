@@ -124,6 +124,150 @@
   }
 }
 
+/* Огненный эффект на слове «Сладкие» в логотипе */
+@keyframes fireFlicker {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 6px rgba(255, 180, 71, 0.95))
+      drop-shadow(0 0 14px rgba(255, 94, 26, 0.85))
+      drop-shadow(0 0 26px rgba(227, 6, 19, 0.6));
+    transform: translateY(0) skewX(0deg);
+  }
+  15% {
+    filter: drop-shadow(0 -2px 10px rgba(255, 224, 102, 1))
+      drop-shadow(0 0 18px rgba(255, 94, 26, 0.95))
+      drop-shadow(0 0 32px rgba(227, 6, 19, 0.7));
+    transform: translateY(-0.5px) skewX(-1deg);
+  }
+  30% {
+    filter: drop-shadow(0 -1px 8px rgba(255, 180, 71, 0.9))
+      drop-shadow(0 0 12px rgba(255, 94, 26, 0.8))
+      drop-shadow(0 0 22px rgba(227, 6, 19, 0.55));
+    transform: translateY(0.5px) skewX(0.6deg);
+  }
+  50% {
+    filter: drop-shadow(0 -3px 14px rgba(255, 224, 102, 1))
+      drop-shadow(0 0 22px rgba(255, 94, 26, 1))
+      drop-shadow(0 0 38px rgba(227, 6, 19, 0.75));
+    transform: translateY(-0.8px) skewX(-0.8deg);
+  }
+  70% {
+    filter: drop-shadow(0 -1px 9px rgba(255, 180, 71, 0.92))
+      drop-shadow(0 0 16px rgba(255, 94, 26, 0.85))
+      drop-shadow(0 0 28px rgba(227, 6, 19, 0.6));
+    transform: translateY(0.4px) skewX(0.4deg);
+  }
+  85% {
+    filter: drop-shadow(0 -2px 12px rgba(255, 224, 102, 1))
+      drop-shadow(0 0 20px rgba(255, 94, 26, 0.95))
+      drop-shadow(0 0 34px rgba(227, 6, 19, 0.7));
+    transform: translateY(-0.3px) skewX(-0.5deg);
+  }
+}
+@keyframes fireGradientShift {
+  0%,
+  100% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 50% 0%;
+  }
+}
+.fire-text {
+  background: linear-gradient(
+    0deg,
+    #7a0000 0%,
+    #e30613 18%,
+    #ff5e1a 45%,
+    #ffb347 75%,
+    #ffe066 100%
+  );
+  background-size: 100% 220%;
+  background-position: 50% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  animation:
+    fireFlicker 1.6s ease-in-out infinite,
+    fireGradientShift 3.2s ease-in-out infinite;
+}
+.fire-wrap {
+  position: relative;
+  display: inline-block;
+}
+.fire-sparks {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.3em;
+  height: 1.6em;
+  pointer-events: none;
+  z-index: 1;
+}
+.spark {
+  position: absolute;
+  bottom: 0;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff5b8 0%, #ffcc55 45%, #ff6a1a 100%);
+  box-shadow:
+    0 0 6px rgba(255, 180, 71, 0.95),
+    0 0 12px rgba(255, 90, 20, 0.7);
+  opacity: 0;
+}
+.spark-1 {
+  left: 10%;
+  animation: sparkRise 2.2s ease-out infinite;
+  animation-delay: 0s;
+}
+.spark-2 {
+  left: 26%;
+  animation: sparkRise 2.6s ease-out infinite;
+  animation-delay: -0.4s;
+}
+.spark-3 {
+  left: 42%;
+  animation: sparkRise 2s ease-out infinite;
+  animation-delay: -0.9s;
+}
+.spark-4 {
+  left: 58%;
+  animation: sparkRise 2.8s ease-out infinite;
+  animation-delay: -1.3s;
+}
+.spark-5 {
+  left: 74%;
+  animation: sparkRise 2.3s ease-out infinite;
+  animation-delay: -1.7s;
+}
+.spark-6 {
+  left: 88%;
+  animation: sparkRise 2.5s ease-out infinite;
+  animation-delay: -2.1s;
+}
+@keyframes sparkRise {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  60% {
+    transform: translate(-4px, -1.3em) scale(0.9);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translate(6px, -2.2em) scale(0.2);
+    opacity: 0;
+  }
+}
+
 /* Top horizontal nav links */
 .top-nav-link {
   position: relative;
