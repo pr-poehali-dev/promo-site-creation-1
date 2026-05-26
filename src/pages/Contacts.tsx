@@ -145,12 +145,11 @@ export default function Contacts() {
                 marginBottom: "0.25rem",
               }}
             >
-              Напиши и получи скидку{" "}
+              Напиши и получи{" "}
               <span
                 style={{
                   color: "#ff3e57",
                   fontWeight: 800,
-                  fontSize: "1.2em",
                   textShadow:
                     "0 0 14px rgba(255,62,87,0.95), 0 0 28px rgba(255,62,87,0.65), 0 2px 14px rgba(0,0,0,0.85)",
                   animation: "discountPulse 1.8s ease-in-out infinite",
@@ -158,7 +157,7 @@ export default function Contacts() {
                   verticalAlign: "middle",
                 }}
               >
-                5%
+                код от фотогалереи
               </span>
               <style>{`
                 @keyframes discountPulse {
