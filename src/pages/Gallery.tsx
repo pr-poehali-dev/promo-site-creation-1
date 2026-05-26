@@ -80,8 +80,8 @@ export default function Gallery() {
 
   return (
     <PageLayout>
-      <section className="relative px-3 sm:px-4 md:px-12 pt-4 md:pt-8 pb-16">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative px-2 sm:px-3 md:px-4 pt-4 md:pt-8 pb-16">
+        <div className="w-full">
           <GalleryHeader total={total} likedCount={likedCount} />
 
           <div className="masonry">
