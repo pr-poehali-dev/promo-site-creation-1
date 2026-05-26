@@ -26,7 +26,6 @@ const GalleryTile = forwardRef<HTMLDivElement, Props>(function GalleryTile(
     >
       <div className="tile-inner" onClick={() => onOpen(index)}>
         <img src={item.img} alt={item.title} loading="lazy" />
-        <div className="tile-shine" />
         {item.locked && (
           <div className="tile-lock">
             <Icon name="Lock" size={28} />

@@ -65,8 +65,6 @@ export default function Gallery() {
     const rx = (py - 0.5) * -10;
     const ry = (px - 0.5) * 12;
     el.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) scale3d(1.03, 1.03, 1.03)`;
-    el.style.setProperty("--mx", `${px * 100}%`);
-    el.style.setProperty("--my", `${py * 100}%`);
   };
   const resetTilt = (i: number) => () => {
     const el = tileRefs.current[i];

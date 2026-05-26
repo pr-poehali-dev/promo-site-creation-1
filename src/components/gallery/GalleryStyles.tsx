@@ -75,19 +75,6 @@ export default function GalleryStyles() {
         filter: grayscale(0%) brightness(1);
       }
 
-      /* Блик на наведении */
-      .tile-shine {
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.18), transparent 45%);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        mix-blend-mode: screen;
-        z-index: 3;
-      }
-      .tile:hover .tile-shine { opacity: 1; }
-
       /* Лок-эффект 18+ */
       .tile.is-locked .tile-inner img {
         filter: blur(14px) brightness(0.55) saturate(1.1);
