@@ -13,39 +13,39 @@
       "expectedStatus": 405
     },
     {
-      "name": "Silently reject fast submit (bot)",
-      "method": "POST",
-      "path": "/",
-      "body": {"name": "Bot", "phone": "+79991234567", "elapsed_ms": 500},
-      "expectedStatus": 200,
-      "expectedBody": {"success": true},
-      "bodyMatcher": "partial"
-    },
-    {
       "name": "Silently reject honeypot",
       "method": "POST",
       "path": "/",
-      "body": {"name": "Bot", "phone": "+79991234567", "website": "spam.com", "elapsed_ms": 5000},
+      "body": {"name": "Bot", "phone": "+79991234567", "website": "spam.com"},
       "expectedStatus": 200,
       "expectedBody": {"success": true},
       "bodyMatcher": "partial"
     },
     {
-      "name": "Reject empty after delay",
+      "name": "Reject empty body",
       "method": "POST",
       "path": "/",
-      "body": {"elapsed_ms": 5000},
+      "body": {},
       "expectedStatus": 400,
       "expectedBody": {"error": "string"},
       "bodyMatcher": "partial"
     },
     {
-      "name": "Reject short phone after delay",
+      "name": "Reject short phone",
       "method": "POST",
       "path": "/",
-      "body": {"name": "Test", "phone": "123", "elapsed_ms": 5000},
+      "body": {"name": "Test", "phone": "123"},
       "expectedStatus": 400,
       "expectedBody": {"error": "string"},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Reject spam in message",
+      "method": "POST",
+      "path": "/",
+      "body": {"name": "Test", "phone": "+79991234567", "message": "https://casino.com"},
+      "expectedStatus": 200,
+      "expectedBody": {"success": true},
       "bodyMatcher": "partial"
     }
   ]

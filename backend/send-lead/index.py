@@ -8,10 +8,16 @@ from email.mime.multipart import MIMEMultipart
 from email.utils import formataddr
 
 
+SMTP_HOST = 'smtp.yandex.ru'
+SMTP_PORT = 465
+SMTP_USER = 'cool-sweety-014@yandex.ru'
+RECIPIENT = 'cool-sweety-014@yandex.ru'
+
+
 def handler(event: dict, context) -> dict:
     '''
     Принимает заявку с сайта (имя, телефон, город, комментарий)
-    и отправляет её на почту получателя через SMTP Mail.ru.
+    и отправляет её на почту получателя через SMTP Яндекса.
     '''
     method = event.get('httpMethod', 'POST')
 
@@ -46,7 +52,6 @@ def handler(event: dict, context) -> dict:
     city = (body.get('city') or '').strip()[:60]
     message = (body.get('message') or '').strip()[:1000]
     honeypot = (body.get('website') or '').strip()
-    elapsed_ms = body.get('elapsed_ms', 0)
 
     if honeypot:
         return {
@@ -86,15 +91,13 @@ def handler(event: dict, context) -> dict:
             'body': json.dumps({'success': True, 'message': 'OK'}),
         }
 
-    smtp_user = os.environ.get('SMTP_USER', '')
-    smtp_password = os.environ.get('SMTP_PASSWORD', '')
-    recipient = os.environ.get('RECIPIENT_EMAIL', '')
+    smtp_password = os.environ.get('YANDEX_SMTP_PASSWORD', '')
 
-    if not smtp_user or not smtp_password or not recipient:
+    if not smtp_password:
         return {
             'statusCode': 500,
             'headers': {**cors_headers, 'Content-Type': 'application/json'},
-            'body': json.dumps({'error': 'SMTP не настроен'}),
+            'body': json.dumps({'error': 'Почта не настроена. Добавь YANDEX_SMTP_PASSWORD.'}),
         }
 
     ip = event.get('requestContext', {}).get('identity', {}).get('sourceIp', '—')
@@ -125,16 +128,29 @@ def handler(event: dict, context) -> dict:
 
     msg = MIMEMultipart('alternative')
     msg['Subject'] = subject
-    msg['From'] = formataddr(('Сладкие Грёзы — Заявки', smtp_user))
-    msg['To'] = recipient
-    msg['Reply-To'] = smtp_user
+    msg['From'] = formataddr(('Сладкие Грёзы — Заявки', SMTP_USER))
+    msg['To'] = RECIPIENT
+    msg['Reply-To'] = SMTP_USER
     msg.attach(MIMEText(text_body, 'plain', 'utf-8'))
     msg.attach(MIMEText(html_body, 'html', 'utf-8'))
 
-    context_ssl = ssl.create_default_context()
-    with smtplib.SMTP_SSL('smtp.mail.ru', 465, context=context_ssl, timeout=15) as server:
-        server.login(smtp_user, smtp_password)
-        server.sendmail(smtp_user, [recipient], msg.as_string())
+    try:
+        context_ssl = ssl.create_default_context()
+        with smtplib.SMTP_SSL(SMTP_HOST, SMTP_PORT, context=context_ssl, timeout=15) as server:
+            server.login(SMTP_USER, smtp_password)
+            server.sendmail(SMTP_USER, [RECIPIENT], msg.as_string())
+    except smtplib.SMTPAuthenticationError:
+        return {
+            'statusCode': 500,
+            'headers': {**cors_headers, 'Content-Type': 'application/json'},
+            'body': json.dumps({'error': 'Ошибка авторизации SMTP. Проверь пароль приложения.'}),
+        }
+    except Exception as e:
+        return {
+            'statusCode': 500,
+            'headers': {**cors_headers, 'Content-Type': 'application/json'},
+            'body': json.dumps({'error': f'Не удалось отправить письмо: {str(e)[:200]}'}),
+        }
 
     return {
         'statusCode': 200,
