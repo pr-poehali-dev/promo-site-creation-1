@@ -29,7 +29,21 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
           style={{ cursor: "pointer", fontSize: "clamp(1.1rem, 2.6vw, 2.6rem)", lineHeight: 1, fontWeight: 700, marginLeft: "clamp(0.25rem, 2vw, 2rem)", animation: "logoFadeUp 1.1s ease-out 0s both", whiteSpace: "nowrap" }}
           onClick={() => navigate("/")}
         >
-          <span style={{ color: "#e30613", textShadow: "0 0 12px rgba(227,6,19,0.85), 0 0 22px rgba(227,6,19,0.45)" }}>Сладкие</span>
+          <span
+            className="fire-text"
+            style={{
+              background: "linear-gradient(0deg, #7a0000 0%, #e30613 18%, #ff5e1a 45%, #ffb347 75%, #ffe066 100%)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              color: "transparent",
+              filter: "drop-shadow(0 0 8px rgba(255,94,26,0.85)) drop-shadow(0 0 16px rgba(227,6,19,0.55))",
+              display: "inline-block",
+              position: "relative",
+            }}
+          >
+            Сладкие
+          </span>
           <span className="inline-block select-none align-middle" style={{ fontSize: "0.7em", margin: "0 0.15em" }}>🍓</span>
           <span style={{ color: "#2541ff", textShadow: "0 0 12px rgba(37,65,255,0.9), 0 0 22px rgba(37,65,255,0.5)" }}>Грёзы</span>
         </span>
@@ -83,6 +97,59 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
         @keyframes logoFadeUp {
           0% { opacity: 0; transform: translateY(28px); filter: blur(6px); }
           100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+        }
+        @keyframes fireFlicker {
+          0%, 100% {
+            filter:
+              drop-shadow(0 0 6px rgba(255,180,71,0.95))
+              drop-shadow(0 0 14px rgba(255,94,26,0.85))
+              drop-shadow(0 0 26px rgba(227,6,19,0.6));
+            transform: translateY(0) skewX(0deg);
+          }
+          15% {
+            filter:
+              drop-shadow(0 -2px 10px rgba(255,224,102,1))
+              drop-shadow(0 0 18px rgba(255,94,26,0.95))
+              drop-shadow(0 0 32px rgba(227,6,19,0.7));
+            transform: translateY(-0.5px) skewX(-1deg);
+          }
+          30% {
+            filter:
+              drop-shadow(0 -1px 8px rgba(255,180,71,0.9))
+              drop-shadow(0 0 12px rgba(255,94,26,0.8))
+              drop-shadow(0 0 22px rgba(227,6,19,0.55));
+            transform: translateY(0.5px) skewX(0.6deg);
+          }
+          50% {
+            filter:
+              drop-shadow(0 -3px 14px rgba(255,224,102,1))
+              drop-shadow(0 0 22px rgba(255,94,26,1))
+              drop-shadow(0 0 38px rgba(227,6,19,0.75));
+            transform: translateY(-0.8px) skewX(-0.8deg);
+          }
+          70% {
+            filter:
+              drop-shadow(0 -1px 9px rgba(255,180,71,0.92))
+              drop-shadow(0 0 16px rgba(255,94,26,0.85))
+              drop-shadow(0 0 28px rgba(227,6,19,0.6));
+            transform: translateY(0.4px) skewX(0.4deg);
+          }
+          85% {
+            filter:
+              drop-shadow(0 -2px 12px rgba(255,224,102,1))
+              drop-shadow(0 0 20px rgba(255,94,26,0.95))
+              drop-shadow(0 0 34px rgba(227,6,19,0.7));
+            transform: translateY(-0.3px) skewX(-0.5deg);
+          }
+        }
+        @keyframes fireGradientShift {
+          0%, 100% { background-position: 50% 100%; }
+          50% { background-position: 50% 0%; }
+        }
+        .fire-text {
+          background-size: 100% 220% !important;
+          background-position: 50% 100%;
+          animation: fireFlicker 1.6s ease-in-out infinite, fireGradientShift 3.2s ease-in-out infinite;
         }
       `}</style>
     </div>
