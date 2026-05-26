@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import PageLayout from "@/components/PageLayout";
-import { GALLERY, LIKES_KEY } from "@/components/gallery/data";
+import { GALLERY } from "@/components/gallery/data";
 import GalleryHeader from "@/components/gallery/GalleryHeader";
 import GalleryTile from "@/components/gallery/GalleryTile";
 import GalleryLightbox from "@/components/gallery/GalleryLightbox";
@@ -8,29 +8,7 @@ import GalleryStyles from "@/components/gallery/GalleryStyles";
 
 export default function Gallery() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
-  const [likes, setLikes] = useState<Record<string, boolean>>({});
   const tileRefs = useRef<Array<HTMLDivElement | null>>([]);
-
-  useEffect(() => {
-    try {
-      const raw = localStorage.getItem(LIKES_KEY);
-      if (raw) setLikes(JSON.parse(raw));
-    } catch {
-      /* ignore */
-    }
-  }, []);
-
-  const toggleLike = useCallback((img: string) => {
-    setLikes((prev) => {
-      const next = { ...prev, [img]: !prev[img] };
-      try {
-        localStorage.setItem(LIKES_KEY, JSON.stringify(next));
-      } catch {
-        /* ignore */
-      }
-      return next;
-    });
-  }, []);
 
   const close = useCallback(() => setOpenIndex(null), []);
   const prev = useCallback(() => {
@@ -73,14 +51,13 @@ export default function Gallery() {
   };
 
   const total = GALLERY.length;
-  const likedCount = Object.values(likes).filter(Boolean).length;
   const current = openIndex !== null ? GALLERY[openIndex] : null;
 
   return (
     <PageLayout>
       <section className="relative px-2 sm:px-3 md:px-4 pt-4 md:pt-8 pb-16">
         <div className="w-full">
-          <GalleryHeader total={total} likedCount={likedCount} />
+          <GalleryHeader total={total} />
 
           <div className="masonry">
             {GALLERY.map((item, i) => (
@@ -89,9 +66,7 @@ export default function Gallery() {
                 ref={(el) => (tileRefs.current[i] = el)}
                 item={item}
                 index={i}
-                liked={!!likes[item.img]}
                 onOpen={setOpenIndex}
-                onToggleLike={toggleLike}
                 onMouseMove={handleTilt(i)}
                 onMouseLeave={resetTilt(i)}
               />

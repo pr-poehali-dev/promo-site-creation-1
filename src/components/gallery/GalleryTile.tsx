@@ -5,15 +5,13 @@ import type { GalleryItem } from "./data";
 type Props = {
   item: GalleryItem;
   index: number;
-  liked: boolean;
   onOpen: (index: number) => void;
-  onToggleLike: (img: string) => void;
   onMouseMove: (e: React.MouseEvent<HTMLDivElement>) => void;
   onMouseLeave: () => void;
 };
 
 const GalleryTile = forwardRef<HTMLDivElement, Props>(function GalleryTile(
-  { item, index, liked, onOpen, onToggleLike, onMouseMove, onMouseLeave },
+  { item, index, onOpen, onMouseMove, onMouseLeave },
   ref,
 ) {
   return (
@@ -39,16 +37,6 @@ const GalleryTile = forwardRef<HTMLDivElement, Props>(function GalleryTile(
           </span>
         </div>
       </div>
-      <button
-        className={`like-btn ${liked ? "is-liked" : ""}`}
-        onClick={(e) => {
-          e.stopPropagation();
-          onToggleLike(item.img);
-        }}
-        aria-label="В избранное"
-      >
-        <Icon name="Heart" size={18} />
-      </button>
     </div>
   );
 });
