@@ -8,16 +8,16 @@ from email.mime.multipart import MIMEMultipart
 from email.utils import formataddr
 
 
-SMTP_HOST = 'smtp.yandex.ru'
+SMTP_HOST = 'smtp.mail.ru'
 SMTP_PORT = 465
-SMTP_USER = 'cool-sweety-014@yandex.ru'
-RECIPIENT = 'cool-sweety-014@yandex.ru'
+SMTP_USER = 'vodavoz85@mail.ru'
+RECIPIENT = 'vodavoz85@mail.ru'
 
 
 def handler(event: dict, context) -> dict:
     '''
     Принимает заявку с сайта (имя, телефон, город, комментарий)
-    и отправляет её на почту получателя через SMTP Яндекса.
+    и отправляет её на почту получателя через SMTP Mail.ru.
     '''
     method = event.get('httpMethod', 'POST')
 
@@ -91,13 +91,13 @@ def handler(event: dict, context) -> dict:
             'body': json.dumps({'success': True, 'message': 'OK'}),
         }
 
-    smtp_password = os.environ.get('YANDEX_SMTP_PASSWORD', '')
+    smtp_password = os.environ.get('MAILRU_SMTP_PASSWORD', '')
 
     if not smtp_password:
         return {
             'statusCode': 500,
             'headers': {**cors_headers, 'Content-Type': 'application/json'},
-            'body': json.dumps({'error': 'Почта не настроена. Добавь YANDEX_SMTP_PASSWORD.'}),
+            'body': json.dumps({'error': 'Почта не настроена. Добавь MAILRU_SMTP_PASSWORD.'}),
         }
 
     ip = event.get('requestContext', {}).get('identity', {}).get('sourceIp', '—')
