@@ -83,7 +83,6 @@ export default function GallerySlideshow() {
         </button>
 
         <div className={`ss-caption ${fading ? "is-fading" : ""}`}>
-          <span className="ss-title">{current.title}</span>
           <span className="ss-counter">
             {index + 1} / {slides.length}
           </span>
