@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import NavMenu from "@/components/NavMenu";
 
-const BG_IMAGE = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/2935b944-aac2-4b40-bdd3-0ee94a0d4b4d.jpg";
+const BG_IMAGE = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/optimized/2935b944-aac2-4b40-bdd3-0ee94a0d4b4d.jpg";
 
 export default function Home() {
   const navigate = useNavigate();

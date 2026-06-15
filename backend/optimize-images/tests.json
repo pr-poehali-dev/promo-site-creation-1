@@ -1,0 +1,12 @@
+{
+  "tests": [
+    {
+      "name": "Optimize images",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": { "images": "array" },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
