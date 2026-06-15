@@ -17,7 +17,7 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {backgroundSlot ? backgroundSlot : !noBackground && (
           <>
-            <img src={HERO_IMG} alt="" className="w-full h-full object-cover opacity-50" />
+            <img src={HERO_IMG} alt="" decoding="async" className="w-full h-full object-cover opacity-50" />
             <div className="absolute inset-0" style={{ background: "hsl(0,0%,2%)" }} />
           </>
         )}

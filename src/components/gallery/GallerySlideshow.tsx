@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { GALLERY } from "./data";
 
+const slides = GALLERY.filter((it) => !it.locked);
+
 export default function GallerySlideshow() {
-  const slides = GALLERY.filter((it) => !it.locked);
   const [index, setIndex] = useState(0);
   const [fading, setFading] = useState(false);
   const touchStartX = useRef<number | null>(null);
@@ -76,6 +77,8 @@ export default function GallerySlideshow() {
           key={current.img}
           src={current.img}
           alt={current.title}
+          decoding="async"
+          loading="eager"
           className={`ss-img ${fading ? "is-fading" : ""}`}
         />
 

@@ -651,3 +651,50 @@ button[disabled] {
     opacity: 1;
   }
 }
+
+/* ============================================================
+   МОБИЛЬНАЯ ОПТИМИЗАЦИЯ
+   Отключаем самые дорогие постоянные эффекты на телефонах,
+   сохраняя внешний вид. Десктоп не затрагивается.
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Зерно — постоянная перерисовка всего экрана, убираем */
+  .grain::before {
+    animation: none !important;
+  }
+
+  /* Бесконечные искры у логотипа — статичны на мобильном */
+  .spark,
+  .fire-sparks {
+    display: none !important;
+  }
+
+  /* Мерцание огня и неона — оставляем статичное свечение без анимации */
+  .fire-text {
+    animation: none !important;
+  }
+
+  /* Облегчаем размытие фоновой подложки в галерее */
+  .ss-bg {
+    filter: blur(16px) brightness(0.5) saturate(1.1) !important;
+  }
+
+  /* Снижаем стоимость backdrop-filter (дорог на Android) */
+  .nav-menu-btn,
+  .nav-menu-list,
+  .ss-arrow {
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+  }
+}
+
+/* Уважаем системную настройку «уменьшить движение» */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

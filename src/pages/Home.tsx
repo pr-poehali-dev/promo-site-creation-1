@@ -30,7 +30,8 @@ export default function Home() {
           alt=""
           className="home-bg-img w-full h-full"
           loading="eager"
-          decoding="sync"
+          decoding="async"
+          fetchPriority="high"
         />
       </div>
       {/* Мягкое затемнение по краям — плавный переход к чёрному фону */}
