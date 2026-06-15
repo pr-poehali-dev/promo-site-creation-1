@@ -120,7 +120,7 @@ export default function Home() {
 
       {/* Города работы — SEO + видимый блок */}
       <div
-        className="absolute left-0 right-0 px-4 sm:px-6 md:px-12 pointer-events-none"
+        className="cities-block absolute left-0 right-0 px-4 sm:px-6 md:px-12 pointer-events-none"
         style={{
           bottom: "max(clamp(0.75rem, 3vh, 2.5rem), env(safe-area-inset-bottom))",
           zIndex: 25,
@@ -178,6 +178,11 @@ export default function Home() {
       <style>{`
         .home-root { min-height: 100svh; }
         .home-container { max-width: 1600px; }
+        @media (max-width: 640px) {
+          .cities-block {
+            bottom: max(clamp(4rem, 14vh, 9rem), calc(env(safe-area-inset-bottom) + 4rem)) !important;
+          }
+        }
         @media (min-width: 1920px) {
           .home-container { max-width: 1760px; }
         }
