@@ -74,9 +74,30 @@ export default function GalleryStyles() {
       .ss-arrow-left { left: 14px; }
       .ss-arrow-right { right: 14px; }
       @media (max-width: 640px) {
-        .ss-arrow { width: 42px; height: 42px; font-size: 1.7rem; }
-        .ss-arrow-left { left: 8px; }
-        .ss-arrow-right { right: 8px; }
+        .ss-arrow { display: none; }
+      }
+      .ss-swipe-hint { display: none; }
+      @media (max-width: 640px) {
+        .ss-swipe-hint {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          margin-top: 14px;
+          font-family: "Cormorant Garamond", serif;
+          font-style: italic;
+          font-size: 1.05rem;
+          letter-spacing: 0.04em;
+          color: rgba(255,255,255,0.7);
+          text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+          animation: swipeHintFloat 2.2s ease-in-out infinite;
+        }
+        .ss-swipe-hint::before { content: "‹"; font-size: 1.4em; line-height: 1; }
+        .ss-swipe-hint::after { content: "›"; font-size: 1.4em; line-height: 1; }
+      }
+      @keyframes swipeHintFloat {
+        0%, 100% { opacity: 0.55; }
+        50% { opacity: 1; }
       }
       .ss-caption {
         position: absolute;

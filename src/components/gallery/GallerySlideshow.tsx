@@ -93,6 +93,8 @@ export default function GallerySlideshow() {
         </div>
       </div>
 
+      <p className="ss-swipe-hint">Листайте фото пальцем</p>
+
       <div className="ss-dots">
         {slides.map((s, i) => (
           <button
