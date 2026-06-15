@@ -227,7 +227,7 @@ export default function About() {
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent
-          className="max-w-2xl border-0 p-0"
+          className="about-modal max-w-2xl border-0 p-0"
           style={{
             background:
               "linear-gradient(rgba(4,6,20,0.96), rgba(4,6,20,0.96)) padding-box, linear-gradient(135deg, #3d5afe 0%, #7c4dff 50%, #b16cff 100%) border-box",
@@ -292,6 +292,20 @@ export default function About() {
       </Dialog>
 
       <style>{`
+        @keyframes aboutModalIn {
+          0% { opacity: 0; transform: translate(-50%, -46%) scale(0.94); filter: blur(6px); }
+          100% { opacity: 1; transform: translate(-50%, -50%) scale(1); filter: blur(0); }
+        }
+        @keyframes aboutModalOut {
+          0% { opacity: 1; transform: translate(-50%, -50%) scale(1); filter: blur(0); }
+          100% { opacity: 0; transform: translate(-50%, -47%) scale(0.96); filter: blur(4px); }
+        }
+        .about-modal {
+          animation: aboutModalIn 0.55s cubic-bezier(0.22,1,0.36,1) both !important;
+        }
+        .about-modal[data-state="closed"] {
+          animation: aboutModalOut 0.4s cubic-bezier(0.4,0,0.2,1) both !important;
+        }
         @keyframes heartBeat {
           0%, 100% { transform: scale(1) rotate(-3deg); }
           25% { transform: scale(1.18) rotate(2deg); }
