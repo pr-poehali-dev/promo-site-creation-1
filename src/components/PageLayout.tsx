@@ -38,22 +38,7 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
               <span className="spark spark-5" />
               <span className="spark spark-6" />
             </span>
-            <span
-              className="fire-text"
-              style={{
-                background: "linear-gradient(0deg, #7a0000 0%, #e30613 18%, #ff5e1a 45%, #ffb347 75%, #ffe066 100%)",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                color: "transparent",
-                filter: "drop-shadow(0 0 8px rgba(255,94,26,0.85)) drop-shadow(0 0 16px rgba(227,6,19,0.55))",
-                display: "inline-block",
-                position: "relative",
-                zIndex: 2,
-              }}
-            >
-              Сладкие
-            </span>
+            <span className="fire-text">Сладкие</span>
           </span>
           <span className="inline-block select-none align-middle" style={{ fontSize: "0.7em", margin: "0 0.15em" }}>🍓</span>
           <span style={{ color: "#2541ff", textShadow: "0 0 12px rgba(37,65,255,0.9), 0 0 22px rgba(37,65,255,0.5)" }}>Грёзы</span>
