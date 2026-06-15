@@ -116,18 +116,19 @@ export default function NavMenu({ marginRight = "clamp(1rem, 4vw, 4rem)" }: NavM
         }
         @media (max-width: 480px) {
           .nav-menu-btn {
-            padding: 0.45em 0.95em;
-            width: 150px;
-            min-width: 150px;
-            font-size: 0.95rem;
+            padding: 0.38em 0.8em;
+            width: 122px;
+            min-width: 122px;
+            font-size: 0.82rem;
+            gap: 0.4em;
           }
         }
         @media (max-width: 360px) {
           .nav-menu-btn {
-            width: 130px;
-            min-width: 130px;
-            padding: 0.4em 0.8em;
-            font-size: 0.85rem;
+            width: 106px;
+            min-width: 106px;
+            padding: 0.34em 0.65em;
+            font-size: 0.74rem;
           }
         }
         .nav-menu-btn:hover,
