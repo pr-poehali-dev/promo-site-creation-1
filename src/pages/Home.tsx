@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import NavMenu from "@/components/NavMenu";
+import Icon from "@/components/ui/icon";
 
 const BG_IMAGE = "https://cdn.poehali.dev/projects/9cdf5cd0-327a-49a6-b274-7ec4148eeedf/bucket/optimized/2935b944-aac2-4b40-bdd3-0ee94a0d4b4d.jpg";
 
@@ -114,7 +115,12 @@ export default function Home() {
             animation: "fadeUp 1.1s ease-out 0.9s both, phoneGlow 2.4s ease-in-out 1.6s infinite",
           }}
         >
-          <span style={{ fontSize: "1.1em" }}>📞</span>
+          <Icon
+            name="Phone"
+            size={24}
+            className="shrink-0"
+            style={{ color: "#ff2e2e", filter: "drop-shadow(0 0 8px rgba(255,46,46,0.65))" }}
+          />
           <span>8 (986) 985-21-11</span>
         </a>
       </div>
