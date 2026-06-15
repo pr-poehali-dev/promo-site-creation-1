@@ -352,7 +352,13 @@ export default function GalleryStyles() {
         object-fit: cover;
         object-position: center top;
         display: block;
-        animation: lightboxZoom 0.5s cubic-bezier(0.22,1,0.36,1) both;
+        opacity: 1;
+        transform: scale(1);
+        transition: opacity 0.3s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1);
+      }
+      .ss-img.is-fading {
+        opacity: 0;
+        transform: scale(1.04);
       }
       .ss-arrow {
         position: absolute;
@@ -397,7 +403,9 @@ export default function GalleryStyles() {
         background: linear-gradient(to top, rgba(8,8,18,0.85) 0%, transparent 100%);
         color: #fff;
         z-index: 2;
+        transition: opacity 0.3s ease;
       }
+      .ss-caption.is-fading { opacity: 0; }
       .ss-title {
         font-family: "Cormorant Garamond", serif;
         font-style: italic;
