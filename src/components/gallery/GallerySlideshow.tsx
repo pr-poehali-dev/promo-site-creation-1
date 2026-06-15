@@ -68,6 +68,10 @@ export default function GallerySlideshow() {
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
+        <div
+          className={`ss-bg ${fading ? "is-fading" : ""}`}
+          style={{ backgroundImage: `url(${current.img})` }}
+        />
         <img
           key={current.img}
           src={current.img}

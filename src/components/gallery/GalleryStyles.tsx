@@ -346,7 +346,20 @@ export default function GalleryStyles() {
       @media (min-width: 768px) {
         .ss-stage { aspect-ratio: 16 / 10; max-width: 900px; }
       }
+      .ss-bg {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        filter: blur(28px) brightness(0.5) saturate(1.1);
+        transform: scale(1.15);
+        z-index: 0;
+        transition: opacity 0.3s ease;
+      }
+      .ss-bg.is-fading { opacity: 0; }
       .ss-img {
+        position: relative;
+        z-index: 1;
         width: 100%;
         height: 100%;
         object-fit: contain;
