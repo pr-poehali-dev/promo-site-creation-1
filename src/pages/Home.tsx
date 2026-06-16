@@ -65,7 +65,7 @@ export default function Home() {
 
 
       {/* Навбар */}
-      <div className="relative mx-auto w-full home-container px-4 sm:px-6 md:px-12 pt-4 sm:pt-6 pb-3 flex items-center justify-between gap-3 flex-nowrap" style={{ zIndex: 30 }}>
+      <div className="nav-bar relative mx-auto w-full home-container px-4 sm:px-6 md:px-12 pt-4 sm:pt-6 pb-3 flex items-center justify-between gap-3 flex-nowrap" style={{ zIndex: 30 }}>
         <span
           className="font-cormorant italic font-bold inline-flex items-center min-w-0"
           style={{ cursor: "pointer", fontSize: "clamp(1.1rem, 2.6vw, 2.6rem)", lineHeight: 1, fontWeight: 700, marginLeft: "clamp(0.25rem, 2vw, 2rem)", animation: "logoFadeUp 1.1s ease-out 0s both", whiteSpace: "nowrap" }}
@@ -195,6 +195,21 @@ export default function Home() {
         }
         @media (min-width: 2400px) {
           .home-container { max-width: 1920px; }
+        }
+        /* На 2K/4K навбар прижимается к краям асимметрично:
+           логотип ближе к левому краю, меню ближе к правому. */
+        @media (min-width: 1920px) {
+          .nav-bar {
+            max-width: none;
+            padding-left: 2.5vw;
+            padding-right: 4.5vw;
+          }
+        }
+        @media (min-width: 2560px) {
+          .nav-bar {
+            padding-left: 2vw;
+            padding-right: 6vw;
+          }
         }
         /* По умолчанию — лицо всегда в кадре, ничего не обрезается сверху */
         .home-bg-img {

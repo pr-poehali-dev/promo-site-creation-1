@@ -23,7 +23,7 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
         )}
       </div>
 
-      <div className="relative z-50 mx-auto w-full page-container px-4 sm:px-6 md:px-12 pt-4 sm:pt-6 pb-3 flex items-center justify-between gap-3 flex-nowrap">
+      <div className="nav-bar relative z-50 mx-auto w-full page-container px-4 sm:px-6 md:px-12 pt-4 sm:pt-6 pb-3 flex items-center justify-between gap-3 flex-nowrap">
         <span
           className="font-cormorant italic font-bold inline-flex items-center min-w-0"
           style={{ cursor: "pointer", fontSize: "clamp(1.1rem, 2.6vw, 2.6rem)", lineHeight: 1, fontWeight: 700, marginLeft: "clamp(0.25rem, 2vw, 2rem)", animation: "logoFadeUp 1.1s ease-out 0s both", whiteSpace: "nowrap" }}
@@ -85,6 +85,23 @@ export default function PageLayout({ children, noBackground, backgroundSlot }: P
         }
         @media (min-width: 2400px) {
           .page-container { max-width: 1920px; }
+        }
+        /* На 2K/4K навбар выходит за ограничитель ширины и
+           прижимается к краям окна асимметрично:
+           логотип ближе к левому краю, меню ближе к правому,
+           слева отступ заметно меньше, чем справа. */
+        @media (min-width: 1920px) {
+          .nav-bar {
+            max-width: none;
+            padding-left: 2.5vw;
+            padding-right: 4.5vw;
+          }
+        }
+        @media (min-width: 2560px) {
+          .nav-bar {
+            padding-left: 2vw;
+            padding-right: 6vw;
+          }
         }
         @keyframes neonBlue {
           0%, 100% { text-shadow: 0 0 10px rgba(61,90,254,0.55), 0 0 18px rgba(61,90,254,0.3); opacity: 0.92; }
