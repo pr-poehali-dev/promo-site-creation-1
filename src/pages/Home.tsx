@@ -97,13 +97,13 @@ export default function Home() {
           Твой роскошный отдых
         </h1>
         <a
-          href="tel:+79869852111"
+          href="tel:+79033811121"
           onClick={(e) => {
             e.stopPropagation();
-            window.location.href = "tel:+79869852111";
+            window.location.href = "tel:+79033811121";
           }}
           role="button"
-          aria-label="Позвонить по номеру 8 986 985 21 11"
+          aria-label="Позвонить по номеру 8 903 381 11 21"
           className="pointer-events-auto cursor-pointer inline-flex items-center gap-3 font-cormorant italic px-7 py-3 rounded-full border border-white/50 backdrop-blur-sm hover:border-white hover:scale-105 transition-all duration-300 select-none"
           style={{
             color: "#fff",
@@ -121,7 +121,7 @@ export default function Home() {
             className="shrink-0"
             style={{ color: "#ff2e2e", filter: "drop-shadow(0 0 8px rgba(255,46,46,0.65))" }}
           />
-          <span>8 (986) 985-21-11</span>
+          <span>8 (903) 381-11-21</span>
         </a>
       </div>
 

@@ -52,7 +52,7 @@ export default function Contacts() {
       <div className="px-4 sm:px-6 md:px-16 pt-6 md:pt-8 pb-16 max-w-6xl mx-auto">
         <div className="flex flex-col items-center gap-6 sm:gap-8">
           <a
-            href="tel:+79869852111"
+            href="tel:+79033811121"
             className="flex items-center gap-3 sm:gap-5 group flex-nowrap whitespace-nowrap"
             style={{ animation: "aboutFadeUp 1.1s cubic-bezier(0.22,1,0.36,1) 0.1s both" }}
           >
@@ -67,12 +67,12 @@ export default function Contacts() {
                 lineHeight: 1,
               }}
             >
-              8 (986) 985-21-11
+              8 (903) 381-11-21
             </span>
           </a>
 
           <a
-            href="tel:+79869852111"
+            href="tel:+79033811121"
             className="inline-flex items-center gap-3 font-cormorant italic px-10 py-4 rounded-full border border-white/50 backdrop-blur-sm hover:border-white hover:scale-105 transition-all duration-300"
             style={{
               color: "#fff",
